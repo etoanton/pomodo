@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 
 import DaysLeftCount from '../components/DaysLeftCount';
 import TimerWidget from '../components/TimerWidget';
 import Tabs from '../components/Tabs';
 import HistoryRows from '../components/HistoryRows';
+import MinutePicker from '../components/MinutePicker';
+
+const INIT_TIMER_VALUE = 15 * 60;
 
 const HomeScreen = () => {
+  let timer;
+  let initialTinerValue = INIT_TIMER_VALUE;
+
+  const [isPickerVisible, togglePicker] = useState(false);
+  const [timerValue, setTimerValue] = useState(INIT_TIMER_VALUE);
+  const [timerStarted, toggleStartTimer] = useState(false);
+
+  const decInterval = () => {
+    console.log('setInterval', timerValue);
+    setTimerValue(timerValue - 1);
+  };
+
+  useEffect(() => {
+    console.log('useEffect', timerStarted);
+    if (timerStarted) {
+      initialTinerValue = timerValue;
+      timer = setInterval(decInterval, 1000);
+    } else {
+      clearInterval(timer);
+      setTimerValue(initialTinerValue);
+    }
+  }, [timerStarted]);
+
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.statsContainer}>
@@ -21,7 +47,12 @@ const HomeScreen = () => {
         </View>
       </View>
       <View style={styles.timerContainer}>
-        <TimerWidget />
+        <TimerWidget
+          timerStarted={timerStarted}
+          toggleStartTimer={toggleStartTimer}
+          timerValue={timerValue}
+          togglePicker={togglePicker}
+        />
       </View>
       <View style={styles.historyTabContainer}>
         <Tabs tabsConfig={[
@@ -34,6 +65,12 @@ const HomeScreen = () => {
       <View style={styles.historyContainer}>
         <HistoryRows />
       </View>
+
+      <MinutePicker
+        visible={isPickerVisible}
+        value={timerValue}
+        setValue={setTimerValue}
+        togglePicker={togglePicker} />
     </SafeAreaView>
   );
 }
@@ -64,11 +101,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   historyTabContainer: {
-    paddingTop: 24,
+    paddingTop: 20,
+    paddingHorizontal: 10,
   },
   historyContainer: {
-    paddingTop: 20,
-    paddingHorizontal: 20,
+    paddingTop: 10,
+    flex: 1,
   },
 });
 

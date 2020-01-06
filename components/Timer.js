@@ -1,27 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+
+import TicksBackground from './TicksBackground';
 
 const BORDER_WIDTH = 6;
 
-const Timer = ({ radius: outerRadius = 100 }) => {
+const Timer = ({
+  radius: outerRadius = 100,
+  timerValue,
+  togglePicker,
+}) => {
   const innerRadius = outerRadius - BORDER_WIDTH;
   const outerDiameter = outerRadius * 2;
   const innerDiameter = innerRadius * 2;
+
+  const minutesV = Math.trunc(timerValue/60);
+  const tempSecondsV = timerValue % 60;
+  const secondsV = tempSecondsV < 10 ? `${tempSecondsV}0` : tempSecondsV;
+
   return (
     <View style={styles.container}>
       <View style={{ ...styles.timerOuterCircle, width: outerDiameter, height: outerDiameter, borderRadius: outerRadius }} />
       <View style={{ ...styles.timerInnerCircle, width: innerDiameter, height: innerDiameter, borderRadius: innerDiameter }} />
       <View style={styles.timeTextContainer}>
-        <Text style={styles.timeText}>15:00</Text>
+        <TouchableOpacity onPress={() => togglePicker(true)}>
+          <Text style={styles.timeText}>{`${minutesV}:${secondsV}`}</Text>
+        </TouchableOpacity>
       </View>
-      
+      <View style={styles.ticksBackgroundContainer}><TicksBackground /></View>
     </View>
   );
 };
 
 Timer.propTypes = {
   radius: PropTypes.number,
+  timerValue: PropTypes.number.isRequired,
+  togglePicker: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({
@@ -52,6 +67,17 @@ const styles = StyleSheet.create({
     fontSize: 32,
     letterSpacing: 0.8,
     fontWeight: '400',
+  },
+  ticksBackgroundContainer: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: -1,
   },
 });
 
