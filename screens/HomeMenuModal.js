@@ -31,7 +31,7 @@ const HomeMenuModal = ({ navigation }) => (
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: '#27272E',
+    backgroundColor: 'rgba(39, 39, 46, 0.97)',
   },
   screenUnderlay: {
     backgroundColor: 'red'
