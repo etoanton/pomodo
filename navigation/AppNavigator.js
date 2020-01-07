@@ -13,7 +13,7 @@ const HomeScreenStack = createStackNavigator(
   {
     mode: 'modal',
     headerMode: 'none',
-    transparentCard: true
+    // transparentCard: true
   }
 );
 

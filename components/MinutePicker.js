@@ -21,7 +21,7 @@ const MinutePicker = ({ value, setValue, visible, togglePicker }) => (
             {values.map(({ label, value }) => (
               <Picker.Item
                 key={value}
-                style={styles.pickerItem}
+                color="#ffffff"
                 label={label}
                 value={value}
               />
@@ -54,15 +54,11 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#373845',
+    backgroundColor: '#27272E',
     height: 200,
   },
   picker: {
     flex: 1,
-  },
-  pickerItem: {
-    backgroundColor: 'red',
-    color: '#fff',
   },
 });
 
