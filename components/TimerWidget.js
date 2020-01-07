@@ -1,14 +1,24 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, Dimensions } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
+import { withNavigation } from 'react-navigation';
 
 import Timer from './Timer';
+
+const { width: screenWidth } = Dimensions.get('window');
 
 const LEFT_PART = 8;
 const RIGHT_PART = 3;
 
-const TimerWidget = ({ timerStarted, toggleStartTimer, ...props }) => (
+const HORIZONTAL_SCREEN_OFFSET = 12;
+const HORIZONTAL_TIMER_OFFSET = 30;
+const WIDGET_HEIGHT = 255;
+const widgetWidth = screenWidth - HORIZONTAL_SCREEN_OFFSET * 2;
+const timerContainerWidth = widgetWidth * LEFT_PART / (LEFT_PART + RIGHT_PART);
+const timerRadius = (timerContainerWidth - (HORIZONTAL_TIMER_OFFSET * 2)) / 2;
+
+const TimerWidget = ({ timerStarted, startTimer, stopTimer, navigation, ...props }) => (
   <View style={styles.container}>
     <View style={styles.timerContainer}>
       <TouchableOpacity
@@ -18,29 +28,28 @@ const TimerWidget = ({ timerStarted, toggleStartTimer, ...props }) => (
         <MaterialIcons name="fullscreen" size={32} color="#CFCFCF" />
       </TouchableOpacity>
       <Timer
-        radius={105}
+        radius={timerRadius}
+        timerStarted={timerStarted}
         {...props}
       />
     </View>
     <View style={styles.btnsContainer}>
-      {!timerStarted ? (
-        <TouchableOpacity
-          style={{ ...styles.btn, ...styles.btn__top }}
-          onPress={() => toggleStartTimer(true)}
-        >
-          <Ionicons style={styles.btnIcon} name="ios-rocket" size={32} color="#F1F1F1" />
-          <Text style={styles.btnText}>Start Timer</Text>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity
-          style={{ ...styles.btn, ...styles.btn__top }}
-          onPress={() => toggleStartTimer(false)}
-        >
-          <Ionicons style={styles.btnIcon} name="ios-stopwatch" size={32} color="#F1F1F1" />
-          <Text style={styles.btnText}>Stop Timer</Text>
-        </TouchableOpacity>
-      )}
-      <TouchableOpacity style={{ ...styles.btn, ...styles.btn__bottom }}>
+      <TouchableOpacity
+        style={{ ...styles.btn, ...styles.btn__top }}
+        onPress={!timerStarted ? startTimer : stopTimer}
+      >
+        <Ionicons
+          style={styles.btnIcon}
+          name={!timerStarted ? 'ios-rocket' : 'ios-trash'}
+          size={32}
+          color="#F1F1F1"
+        />
+        <Text style={styles.btnText}>{!timerStarted ? 'Start Timer' : 'Discard'}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{ ...styles.btn, ...styles.btn__bottom }}
+        onPress={() => navigation.navigate('HomeMenu')}
+      >
         <Ionicons style={{ ...styles.btnIcon, ...styles.btnIconMenu }} name="ios-more" size={32} color="#F1F1F1" />
         <Text style={styles.btnText}>Menu</Text>
       </TouchableOpacity>
@@ -50,7 +59,8 @@ const TimerWidget = ({ timerStarted, toggleStartTimer, ...props }) => (
 
 TimerWidget.propTypes = {
   timerStarted: PropTypes.bool.isRequired,
-  toggleStartTimer: PropTypes.func.isRequired,
+  startTimer: PropTypes.func.isRequired,
+  stopTimer: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({
@@ -60,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#2F2F38',
     borderRadius: 7,
-    minHeight: 252,
+    minHeight: WIDGET_HEIGHT,
 
     shadowColor: "#000000",
     shadowOffset: {
@@ -72,7 +82,7 @@ const styles = StyleSheet.create({
   },
   fullScreenBtn: {
     position: 'absolute',
-    top: -10,
+    top: -5,
     right: 10,
     zIndex: 10,
   },
@@ -115,4 +125,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TimerWidget;
+export default withNavigation(TimerWidget);

@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 import TicksBackground from './TicksBackground';
 
 const BORDER_WIDTH = 6;
+const TICK_SIZE = 10;
 
 const Timer = ({
   radius: outerRadius = 100,
+  timerStarted,
   timerValue,
   togglePicker,
 }) => {
@@ -19,22 +21,33 @@ const Timer = ({
   const tempSecondsV = timerValue % 60;
   const secondsV = tempSecondsV < 10 ? `${tempSecondsV}0` : tempSecondsV;
 
+  const ticksCircleRadius = outerRadius - BORDER_WIDTH * 2 - TICK_SIZE;
+
   return (
     <View style={styles.container}>
       <View style={{ ...styles.timerOuterCircle, width: outerDiameter, height: outerDiameter, borderRadius: outerRadius }} />
       <View style={{ ...styles.timerInnerCircle, width: innerDiameter, height: innerDiameter, borderRadius: innerDiameter }} />
       <View style={styles.timeTextContainer}>
-        <TouchableOpacity onPress={() => togglePicker(true)}>
+        <TouchableOpacity
+          disabled={timerStarted}
+          onPress={() => togglePicker(true)}
+        >
           <Text style={styles.timeText}>{`${minutesV}:${secondsV}`}</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.ticksBackgroundContainer}><TicksBackground /></View>
+      <View style={styles.ticksBackgroundContainer}>
+        <TicksBackground
+          radius={ticksCircleRadius}
+          tickSize={TICK_SIZE}
+        />
+      </View>
     </View>
   );
 };
 
 Timer.propTypes = {
   radius: PropTypes.number,
+  timerStarted: PropTypes.bool.isRequired,
   timerValue: PropTypes.number.isRequired,
   togglePicker: PropTypes.func.isRequired,
 };

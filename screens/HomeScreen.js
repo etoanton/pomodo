@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { addSeconds, differenceInSeconds } from 'date-fns';
 
 import DaysLeftCount from '../components/DaysLeftCount';
 import TimerWidget from '../components/TimerWidget';
@@ -7,29 +8,35 @@ import Tabs from '../components/Tabs';
 import HistoryRows from '../components/HistoryRows';
 import MinutePicker from '../components/MinutePicker';
 
+import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
+
 const INIT_TIMER_VALUE = 15 * 60;
 
 const HomeScreen = () => {
-  let timer;
-  let initialTinerValue = INIT_TIMER_VALUE;
-
   const [isPickerVisible, togglePicker] = useState(false);
   const [timerValue, setTimerValue] = useState(INIT_TIMER_VALUE);
   const [timerStarted, toggleStartTimer] = useState(false);
+  const [finishTimeStamp, setFinishTimeStamp] = useState(null);
+  const [timerId, setTimerId] = useState();
 
-  const decInterval = () => {
-    console.log('setInterval', timerValue);
-    setTimerValue(timerValue - 1);
+  const startTimer = () => {
+    toggleStartTimer(true);
+    setFinishTimeStamp(addSeconds(new Date(), timerValue))
+  };
+
+  const stopTimer = () => {
+    toggleStartTimer(false);
+    clearInterval(timerId);
+    setTimerValue(INIT_TIMER_VALUE);
   };
 
   useEffect(() => {
-    console.log('useEffect', timerStarted);
     if (timerStarted) {
-      initialTinerValue = timerValue;
-      timer = setInterval(decInterval, 1000);
-    } else {
-      clearInterval(timer);
-      setTimerValue(initialTinerValue);
+      const timerId = setInterval(() => {
+        const nextValue = differenceInSeconds(finishTimeStamp, new Date());
+        setTimerValue(nextValue);
+      }, 100);
+      setTimerId(timerId);
     }
   }, [timerStarted]);
 
@@ -37,19 +44,20 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.statsContainer}>
         <View style={styles.itemContainer}>
-          <DaysLeftCount leftCount={4} label={DaysLeftCount.week} />
+          <DaysLeftCount label={DaysLeftCount.week} />
         </View>
         <View style={styles.itemContainer}>
-          <DaysLeftCount leftCount={22} label={DaysLeftCount.month} />
+          <DaysLeftCount label={DaysLeftCount.month} />
         </View>
         <View style={styles.itemContainer}>
-          <DaysLeftCount leftCount={341} label={DaysLeftCount.year} />
+          <DaysLeftCount label={DaysLeftCount.year} />
         </View>
       </View>
       <View style={styles.timerContainer}>
         <TimerWidget
           timerStarted={timerStarted}
-          toggleStartTimer={toggleStartTimer}
+          startTimer={startTimer}
+          stopTimer={stopTimer}
           timerValue={timerValue}
           togglePicker={togglePicker}
         />
@@ -82,7 +90,7 @@ HomeScreen.navigationOptions = {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: '#373845',
+    backgroundColor: MAIN_BACKGROUND_COLOR,
     alignItems: 'stretch',
     justifyContent: 'flex-start'
   },
@@ -98,11 +106,11 @@ const styles = StyleSheet.create({
   },
   timerContainer: {
     paddingTop: 20,
-    paddingHorizontal: 20,
+    paddingHorizontal: 12,
   },
   historyTabContainer: {
     paddingTop: 20,
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
   },
   historyContainer: {
     paddingTop: 10,

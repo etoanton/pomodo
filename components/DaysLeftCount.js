@@ -2,17 +2,42 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
+import {
+  startOfWeek,
+  addMonths,
+  startOfMonth,
+  addYears,
+  startOfYear,
+  differenceInDays,
+} from 'date-fns';
+
 import ProgressBar from './ProgressBar';
 
-// TODO: use dynamic values for month/year
-const totalMap = {
+const now = new Date();
+
+// TODO: weekStartsOn: 0 or 1 (Sunday or Monday)
+const startOfCurrentWeek = startOfWeek(now, { weekStartsOn: 1 });
+const startOfCurrentMonth = startOfMonth(now);
+const startOfNextMonth = addMonths(startOfCurrentMonth, 1);
+const startOfCurrentYear = startOfYear(now);
+const startOfNextYear = addYears(startOfCurrentYear, 1);
+
+const totalMapCount = {
   week: 7,
-  month: 31,
-  year: 365,
+  month: differenceInDays(startOfNextMonth, startOfCurrentMonth),
+  year: differenceInDays(startOfNextYear, startOfCurrentYear),
 };
 
-const DaysLeftCount = ({ leftCount, label = 'week' }) => {
-  const totalCount = totalMap[label];
+const completedMapCount = {
+  week: differenceInDays(now, startOfCurrentWeek),
+  month: differenceInDays(now, startOfCurrentMonth),
+  year: differenceInDays(now, startOfCurrentYear),
+};
+
+const DaysLeftCount = ({ label }) => {
+  const totalCount = totalMapCount[label];
+  const completedCount = completedMapCount[label];
+  const leftCount = totalCount - completedCount;
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -23,7 +48,7 @@ const DaysLeftCount = ({ leftCount, label = 'week' }) => {
         </View>
       </View>
       <View style={styles.progressContainer}>
-        <ProgressBar completed={(totalCount - leftCount) / totalCount} />
+        <ProgressBar completed={completedCount / totalCount} />
       </View>
     </View>
   );
@@ -34,8 +59,7 @@ DaysLeftCount.month = 'month';
 DaysLeftCount.year = 'year';
 
 DaysLeftCount.propTypes = {
-  count: PropTypes.number,
-  label: PropTypes.oneOf(['week', 'month', 'year']),
+  label: PropTypes.oneOf(['week', 'month', 'year']).isRequired,
 };
 
 const styles = StyleSheet.create({

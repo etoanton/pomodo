@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, FlatList, Text, View, TouchableOpacity, Dimensions } from 'react-native';
+
+import {
+  startOfYear,
+  differenceInDays,
+} from 'date-fns';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -7,6 +12,13 @@ const DOT_SIZE = 24;
 const FRAME_OVERFLOW = 6;
 const SCREEN_HORIZONTAL_PADDING = 24;
 const ROW_ELEMENT_COUNT = 10;
+const TOOLTIP_SIZE = 30;
+
+const now = new Date();
+const startOfCurrentYear = startOfYear(now);
+const currentDayIndex = differenceInDays(now, startOfCurrentYear) + 1;
+const currentRowIndex = Math.trunc(currentDayIndex / ROW_ELEMENT_COUNT);
+const currentDayInRowIndex = (currentDayIndex - currentRowIndex * ROW_ELEMENT_COUNT) - 1;
 
 const contentWidth = screenWidth - SCREEN_HORIZONTAL_PADDING * 2;
 const offsetBetweenDots = (contentWidth - DOT_SIZE * ROW_ELEMENT_COUNT) / (ROW_ELEMENT_COUNT - 1);
@@ -18,19 +30,18 @@ const spaceBetweenFrames = offsetBetweenDots - FRAME_OVERFLOW * 2 + FRAME_OVERFL
 const ROWS_COUNT = 36;
 const DATA = Array(ROWS_COUNT).fill(0).map((_, rowIdx) => {
   const elemCount = rowIdx < (ROWS_COUNT - 1) ? ROW_ELEMENT_COUNT : 4;
-  const row = Array(elemCount).fill(0).map((_, idx) => ({
+  const rowData = Array(elemCount).fill(0).map((_, idx) => ({
     id: idx,
     hasCompletedTasks: Math.random() < 0.5,
     completedCount: Math.trunc(Math.random() * 10),
   }));
-  return ({ id: rowIdx, data: row });
+  return ({ id: rowIdx, data: rowData });
 });
 
-
-const HistoryRow = ({ row, rowIndex }) => {
-  let underLayerMap = [];
-  if (row?.data?.some(({ hasCompletedTasks }) => hasCompletedTasks)) {
-    underLayerMap = row.data.reduce((acc, item, idx) => {
+const calculateFramePositions = data => {
+  let frames = [];
+  if (data?.some(({ hasCompletedTasks }) => hasCompletedTasks)) {
+    frames = data.reduce((acc, item, idx) => {
       if (item.hasCompletedTasks) {
         if (!acc.length || acc[acc.length - 1].to !== (idx - 1)) {
           acc.push({ from: idx, to: idx });
@@ -41,16 +52,27 @@ const HistoryRow = ({ row, rowIndex }) => {
       return acc;
     }, []);
   }
+  return frames;
+}
+
+const HistoryRow = ({ row, rowIndex, isScrolling }) => {
+  const frames = calculateFramePositions(row.data);
+
+  const isCurrentRow = rowIndex === currentRowIndex;
+
   return (
     <View style={styles.rowContainer}>
-      {row.data.map(({ id }) => (
+      {row.data.map(({ id }, idx) => (
         <TouchableOpacity
           key={`${id}_item`}
-          style={styles.item}
-          omPress={() => {}}
+          style={{
+            ...styles.item,
+            backgroundColor: isCurrentRow && idx === currentDayInRowIndex ? '#598F5F' : '#27272E',
+          }}
+          onPress={() => {}}
         />
       ))}
-      { underLayerMap.map(({ from, to }) => {
+      { frames.map(({ from, to }) => {
         const left = startFrom + from * DOT_SIZE + from * offsetBetweenDots;
         const width = (to - from + 1) * singleFrameWidth + (to - from) * spaceBetweenFrames;
         return (
@@ -64,20 +86,27 @@ const HistoryRow = ({ row, rowIndex }) => {
           />
         )
       }) }
-      {/* <View style={styles.rowLabelContainer}>
-        <Text style={styles.rowLabel}>{(rowIndex + 1) * ROW_ELEMENT_COUNT}</Text>
-      </View> */}
+      { isScrolling && <View style={styles.rowLabelContainer}>
+        <Text style={styles.rowLabel}>{rowIndex * ROW_ELEMENT_COUNT + 1}</Text>
+      </View> }
     </View>
   );
 };
 
-const HistoryRows = () => (
-  <FlatList
-    data={DATA}
-    renderItem={({ item, index }) => <HistoryRow row={item} rowIndex={index} />}
-    keyExtractor={row => row.id}
-  />
-);
+const HistoryRows = () => {
+  const [isScrolling, setIsScrolling] = useState(false);
+  return (
+    <FlatList
+      data={DATA}
+      renderItem={({ item, index }) => (
+        <HistoryRow row={item} rowIndex={index} isScrolling={isScrolling} />
+      )}
+      keyExtractor={row => `${row.id}`}
+      onScrollBeginDrag={() => setIsScrolling(true)}
+      onScrollEndDrag={() => setIsScrolling(false)}
+    />
+  );
+}
 
 const styles = StyleSheet.create({
   rowContainer: {
@@ -105,16 +134,17 @@ const styles = StyleSheet.create({
   },
   rowLabelContainer: {
     position: 'absolute',
-    top: 0,
+    top: 2,
     bottom: 0,
-    left: 0,
-    width: 19,
+    left: SCREEN_HORIZONTAL_PADDING,
+    width: DOT_SIZE,
     justifyContent: 'center',
+    opacity: 0.5,
   },
   rowLabel: {
-    color: '#6B6B6B',
-    fontSize: 6,
-    textAlign: 'center'
+    color: '#83838C',
+    fontSize: 8,
+    textAlign: 'center',
   },
 });
 

@@ -21,7 +21,8 @@
     "react-native-screens": "^2.0.0-alpha.22",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^2.0.1"
+    "react-navigation-stack": "^2.0.1",
+    "expo-apple-authentication": "~2.0.0"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.0.0",
