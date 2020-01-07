@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
-const Tab = ({ name, handler, active }) => (
+const Tab = ({ name, onPress, active }) => (
   <TouchableOpacity
     style={{ ...styles.tabContainer, backgroundColor: active ? '#DBDBDB' : undefined }}
-    onPress={handler}
+    onPress={onPress}
   >
     <Text
       style={{ ...styles.tabText, color: active ? '#373845' : '#D1D1D1' }}
@@ -13,20 +13,15 @@ const Tab = ({ name, handler, active }) => (
   </TouchableOpacity>
 );
 
-const Tabs = ({ tabsConfig = [] }) => {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
-
+const Tabs = ({ activeTabId, tabsConfig = [], handlePress }) => {
   return (
     <View style={styles.tabsContainer}>
-      {tabsConfig.map(({ name, handler }, idx) => (
+      {tabsConfig.map(({ id, name }) => (
         <Tab
           key={name}
-          active={idx === activeTabIndex}
+          active={id === activeTabId}
           name={name}
-          handler={() => {
-            handler();
-            setActiveTabIndex(idx);
-          }}
+          onPress={() => handlePress(id)}
         />
       ))}
     </View>

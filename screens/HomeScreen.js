@@ -4,7 +4,6 @@ import { addSeconds, differenceInSeconds } from 'date-fns';
 
 import DaysLeftCount from '../components/DaysLeftCount';
 import TimerWidget from '../components/TimerWidget';
-import Tabs from '../components/Tabs';
 import HistoryRows from '../components/HistoryRows';
 import MinutePicker from '../components/MinutePicker';
 
@@ -62,14 +61,6 @@ const HomeScreen = () => {
           togglePicker={togglePicker}
         />
       </View>
-      <View style={styles.historyTabContainer}>
-        <Tabs tabsConfig={[
-          {name: 'Days', handler: () => {}},
-          {name: 'Weeks', handler: () => {}},
-          {name: 'Monthes', handler: () => {}},
-          {name: 'Years', handler: () => {}},
-        ]} />
-      </View>
       <View style={styles.historyContainer}>
         <HistoryRows />
       </View>
@@ -113,7 +104,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   historyContainer: {
-    paddingTop: 10,
     flex: 1,
   },
 });

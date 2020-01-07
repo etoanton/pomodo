@@ -6,13 +6,15 @@ import {
   differenceInDays,
 } from 'date-fns';
 
+import Tabs from './Tabs';
+import { daysData, weeksData, monthesData } from './mocks';
+
 const { width: screenWidth } = Dimensions.get('window');
 
 const DOT_SIZE = 24;
 const FRAME_OVERFLOW = 6;
 const SCREEN_HORIZONTAL_PADDING = 24;
 const ROW_ELEMENT_COUNT = 10;
-const TOOLTIP_SIZE = 30;
 
 const now = new Date();
 const startOfCurrentYear = startOfYear(now);
@@ -25,18 +27,6 @@ const offsetBetweenDots = (contentWidth - DOT_SIZE * ROW_ELEMENT_COUNT) / (ROW_E
 const startFrom = SCREEN_HORIZONTAL_PADDING - FRAME_OVERFLOW;
 const singleFrameWidth = DOT_SIZE + FRAME_OVERFLOW * 2;
 const spaceBetweenFrames = offsetBetweenDots - FRAME_OVERFLOW * 2 + FRAME_OVERFLOW / (ROW_ELEMENT_COUNT - 1);
-
-// mock data
-const ROWS_COUNT = 36;
-const DATA = Array(ROWS_COUNT).fill(0).map((_, rowIdx) => {
-  const elemCount = rowIdx < (ROWS_COUNT - 1) ? ROW_ELEMENT_COUNT : 4;
-  const rowData = Array(elemCount).fill(0).map((_, idx) => ({
-    id: idx,
-    hasCompletedTasks: Math.random() < 0.5,
-    completedCount: Math.trunc(Math.random() * 10),
-  }));
-  return ({ id: rowIdx, data: rowData });
-});
 
 const calculateFramePositions = data => {
   let frames = [];
@@ -95,20 +85,52 @@ const HistoryRow = ({ row, rowIndex, isScrolling }) => {
 
 const HistoryRows = () => {
   const [isScrolling, setIsScrolling] = useState(false);
+  const [activeTabId, setActiveTabId] = useState('d');
+
+  const data = activeTabId === 'd' ? daysData :
+    activeTabId === 'w' ? weeksData :
+      activeTabId === 'm' ? monthesData : daysData;
+
   return (
-    <FlatList
-      data={DATA}
-      renderItem={({ item, index }) => (
-        <HistoryRow row={item} rowIndex={index} isScrolling={isScrolling} />
-      )}
-      keyExtractor={row => `${row.id}`}
-      onScrollBeginDrag={() => setIsScrolling(true)}
-      onScrollEndDrag={() => setIsScrolling(false)}
-    />
+    <View style={styles.container}>
+      <View style={styles.tabsContainer}>
+        <Tabs
+          activeTabId={activeTabId}
+          handlePress={id => setActiveTabId(id)}
+          tabsConfig={[{ id: 'd', name: 'Days' }, { id: 'w', name: 'Weeks' }, { id: 'm', name: 'Monthes' }, { id: 'y', name: 'Years' }]}
+        />
+      </View>
+      <View style={styles.listContainer}>
+        <FlatList
+          data={data}
+          renderItem={({ item, index }) => (
+            <HistoryRow 
+              row={item}
+              rowIndex={index}
+              isScrolling={isScrolling}
+            />
+          )}
+          keyExtractor={row => `${row.id}`}
+          onScrollBeginDrag={() => setIsScrolling(true)}
+          onScrollEndDrag={() => setIsScrolling(false)}
+        />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  tabsContainer: {
+    paddingTop: 20,
+    paddingHorizontal: 10,
+  },
+  listContainer: {
+    flex: 1,
+    paddingTop: 10,
+  },
   rowContainer: {
     flex: 1,
     flexDirection: 'row',
