@@ -12,11 +12,11 @@ const LEFT_PART = 8;
 const RIGHT_PART = 3;
 
 const HORIZONTAL_SCREEN_OFFSET = 12;
-const HORIZONTAL_TIMER_OFFSET = 30;
+const HORIZONTAL_TIMER_OFFSET = 20;
 const WIDGET_HEIGHT = 255;
 const widgetWidth = screenWidth - HORIZONTAL_SCREEN_OFFSET * 2;
 const timerContainerWidth = widgetWidth * LEFT_PART / (LEFT_PART + RIGHT_PART);
-const timerRadius = (timerContainerWidth - (HORIZONTAL_TIMER_OFFSET * 2)) / 2;
+const timerRadius = Math.min((WIDGET_HEIGHT - 30) / 2, (timerContainerWidth - (HORIZONTAL_TIMER_OFFSET * 2)) / 2);
 
 const TimerWidget = ({ timerStarted, startTimer, stopTimer, navigation, ...props }) => (
   <View style={styles.container}>

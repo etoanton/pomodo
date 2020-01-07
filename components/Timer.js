@@ -17,9 +17,10 @@ const Timer = ({
   const outerDiameter = outerRadius * 2;
   const innerDiameter = innerRadius * 2;
 
-  const minutesV = Math.trunc(timerValue/60);
+  const tempMinutesV = Math.trunc(timerValue/60);
+  const minutesV = tempMinutesV < 10 ? `0${tempMinutesV}` : tempMinutesV;
   const tempSecondsV = timerValue % 60;
-  const secondsV = tempSecondsV < 10 ? `${tempSecondsV}0` : tempSecondsV;
+  const secondsV = tempSecondsV < 10 ? `0${tempSecondsV}` : tempSecondsV;
 
   const ticksCircleRadius = outerRadius - BORDER_WIDTH * 2 - TICK_SIZE;
 

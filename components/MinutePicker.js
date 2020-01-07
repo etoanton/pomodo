@@ -2,11 +2,20 @@ import React from 'react';
 import { StyleSheet, View, Picker, TouchableWithoutFeedback } from 'react-native';
 import PropTypes from 'prop-types';
 
-const values = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
-  .map(v => ({
-    label: `${v}:00`,
-    value: v * 60,
-  }));
+// TODO: remove 0.1 - it's for testing
+const values = [0.05, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
+  .map(v => {
+    const tempMinutesV = Math.trunc(v * 60/60);
+    const minutesV = tempMinutesV < 10 ? `0${tempMinutesV}` : tempMinutesV;
+    const tempSecondsV = v * 60 % 60;
+    const secondsV = tempSecondsV < 10 ? `0${tempSecondsV}` : tempSecondsV;
+
+    return {
+      label: `${minutesV}:${secondsV}`,
+      value: v * 60,
+    };
+  });
+
 
 const MinutePicker = ({ value, setValue, visible, togglePicker }) => (
   visible && (

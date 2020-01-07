@@ -33,8 +33,14 @@ const HomeScreen = () => {
     if (timerStarted) {
       const timerId = setInterval(() => {
         const nextValue = differenceInSeconds(finishTimeStamp, new Date());
-        setTimerValue(nextValue);
-      }, 100);
+        if (nextValue >= 0) {
+          setTimerValue(nextValue);
+        } else {
+          // TODO: PomoDO completed
+          stopTimer();
+        }
+        
+      }, 500);
       setTimerId(timerId);
     }
   }, [timerStarted]);
