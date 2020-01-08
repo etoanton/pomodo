@@ -68,100 +68,100 @@ const SignInScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-        <KeyboardAvoidingView style={styles.contentContainer} behavior="position" enabled>
-          <View style={styles.tabsContainer}>
+      <KeyboardAvoidingView style={styles.contentContainer} behavior="position" enabled>
+        <View style={styles.tabsContainer}>
+          <TouchableOpacity
+            style={{
+              ...styles.tabContainer,
+              borderBottomColor: authType === SIGN_IN ? '#ccc' : '#2F3038',
+            }}
+            onPress={setSignInTab}
+          >
+            <Text style={styles.tabText}>Sign In</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              ...styles.tabContainer,
+              borderBottomColor: authType === SIGN_UP ? '#ccc' : '#2F3038',
+            }}
+            onPress={setSignUpTab}
+          >
+            <Text style={styles.tabText}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
+
+        { authType === SIGN_IN && <View style={styles.formContainer}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              {...commonInputProps}
+              {...emailCommonProps}
+              autoCompleteType="username"
+              style={styles.input}
+              value={email}
+              onChangeText={onChangeEmail}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              {...commonInputProps}
+              {...passwordCommonProps}
+              autoCompleteType="password"
+              style={styles.input}
+              value={passwordSignIn}
+              onChangeText={onChangePasswordSignIn}
+            />
+          </View>
+          <View style={styles.submitButtonContainer}>
             <TouchableOpacity
-              style={{
-                ...styles.tabContainer,
-                borderBottomColor: authType === SIGN_IN ? '#ccc' : '#2F3038',
-              }}
-              onPress={setSignInTab}
+              style={styles.submitButton}
+              onPress={() => {}}
             >
-              <Text style={styles.tabText}>Sign In</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                ...styles.tabContainer,
-                borderBottomColor: authType === SIGN_UP ? '#ccc' : '#2F3038',
-              }}
-              onPress={setSignUpTab}
-            >
-              <Text style={styles.tabText}>Sign Up</Text>
+              <Text style={styles.submitButtonText}>Sign In</Text>
             </TouchableOpacity>
           </View>
+        </View> }
 
-          { authType === SIGN_IN && <View style={styles.formContainer}>
-            <View style={styles.inputContainer}>
-              <TextInput
-                {...commonInputProps}
-                {...emailCommonProps}
-                autoCompleteType="username"
-                style={styles.input}
-                value={email}
-                onChangeText={onChangeEmail}
-              />
-            </View>
-            <View style={styles.inputContainer}>
-              <TextInput
-                {...commonInputProps}
-                {...passwordCommonProps}
-                autoCompleteType="password"
-                style={styles.input}
-                value={passwordSignIn}
-                onChangeText={onChangePasswordSignIn}
-              />
-            </View>
-            <View style={styles.submitButtonContainer}>
-              <TouchableOpacity
-                style={styles.submitButton}
-                onPress={() => {}}
-              >
-                <Text style={styles.submitButtonText}>Sign In</Text>
-              </TouchableOpacity>
-            </View>
-          </View> }
-
-          { authType === SIGN_UP && <View style={styles.formContainer}>
-            <View style={styles.inputContainer}>
-              <TextInput
-                {...commonInputProps}
-                {...emailCommonProps}
-                autoCompleteType="username"
-                style={styles.input}
-                value={email}
-                onChangeText={onChangeEmail}
-              />
-            </View>
-            <View style={styles.inputContainer}>
-              <TextInput
-                {...commonInputProps}
-                {...passwordCommonProps}
-                style={styles.input}
-                value={passwordSignUp}
-                onChangeText={onChangePasswordSignUp}
-              />
-            </View>
-            <View style={styles.inputContainer}>
-              <TextInput
-                {...commonInputProps}
-                {...passwordCommonProps}
-                placeholder="Repeat password"
-                textContentType="newPassword"
-                style={styles.input}
-                value={passwordSignUpRepeat}
-                onChangeText={onChangePasswordSignUpRepeat}
-              />
-            </View>
-            <View style={styles.submitButtonContainer}>
-              <TouchableOpacity
-                style={styles.submitButton}
-                onPress={() => {}}
-              >
-                <Text style={styles.submitButtonText}>Sign Up</Text>
-              </TouchableOpacity>
-            </View>
-          </View> }
-        </KeyboardAvoidingView>
+        { authType === SIGN_UP && <View style={styles.formContainer}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              {...commonInputProps}
+              {...emailCommonProps}
+              autoCompleteType="username"
+              style={styles.input}
+              value={email}
+              onChangeText={onChangeEmail}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              {...commonInputProps}
+              {...passwordCommonProps}
+              style={styles.input}
+              value={passwordSignUp}
+              onChangeText={onChangePasswordSignUp}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              {...commonInputProps}
+              {...passwordCommonProps}
+              placeholder="Repeat password"
+              textContentType="newPassword"
+              style={styles.input}
+              value={passwordSignUpRepeat}
+              onChangeText={onChangePasswordSignUpRepeat}
+            />
+          </View>
+          <View style={styles.submitButtonContainer}>
+            <TouchableOpacity
+              style={styles.submitButton}
+              onPress={() => {}}
+            >
+              <Text style={styles.submitButtonText}>Sign Up</Text>
+            </TouchableOpacity>
+          </View>
+        </View> }
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -175,10 +175,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: MAIN_BACKGROUND_COLOR,
     alignItems: 'stretch',
-    justifyContent: 'flex-end'
+    justifyContent: 'center'
   },
   contentContainer: {
-    paddingBottom: 20,
+    // paddingTop: 200,
   },
   closeBtnContainer: {
     position: 'absolute',
