@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
+  KeyboardAvoidingView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -19,11 +20,12 @@ const commonInputProps = {
   autoCorrect: false,
   keyboardAppearance: 'dark',
   maxLength: 50,
-  placeholderTextColor: '#535353',
+  placeholderTextColor: '#636572',
   spellCheck: false,
 };
 
 const emailCommonProps = {
+  autoFocus: true,
   keyboardType: 'email-address',
   placeholder: 'Email',
   textContentType: 'username',
@@ -54,114 +56,112 @@ const SignInScreen = ({ navigation }) => {
     setAuthType(SIGN_UP);
   };
 
-
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <View style={styles.contentContainer}>
-        <View style={styles.closeBtnContainer}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons
-              style={styles.closeBtnIcon}
-              name="md-close"
-              size={32}
-              color="#F1F1F1"
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.tabsContainer}>
-          <TouchableOpacity
-            style={{
-              ...styles.tabContainer,
-              borderBottomColor: authType === SIGN_IN ? '#ccc' : MAIN_BACKGROUND_COLOR,
-            }}
-            onPress={setSignInTab}
-          >
-            <Text style={styles.tabText}>Sign In</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              ...styles.tabContainer,
-              borderBottomColor: authType === SIGN_UP ? '#ccc' : MAIN_BACKGROUND_COLOR,
-            }}
-            onPress={setSignUpTab}
-          >
-            <Text style={styles.tabText}>Sign Up</Text>
-          </TouchableOpacity>
-        </View>
-
-        { authType === SIGN_IN && <View style={styles.formContainer}>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...emailCommonProps}
-              autoCompleteType="username"
-              style={styles.input}
-              value={email}
-              onChangeText={onChangeEmail}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...passwordCommonProps}
-              autoCompleteType="password"
-              style={styles.input}
-              value={passwordSignIn}
-              onChangeText={onChangePasswordSignIn}
-            />
-          </View>
-          <View style={styles.submitButtonContainer}>
-            <TouchableOpacity
-              style={styles.submitButton}
-              onPress={() => {}}
-            >
-              <Text style={styles.submitButtonText}>Sign In</Text>
-            </TouchableOpacity>
-          </View>
-        </View> }
-
-        { authType === SIGN_UP && <View style={styles.formContainer}>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...emailCommonProps}
-              autoFocus
-              autoCompleteType="username"
-              style={styles.input}
-              value={email}
-              onChangeText={onChangeEmail}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...passwordCommonProps}
-              style={styles.input}
-              value={passwordSignUp}
-              onChangeText={onChangePasswordSignUp}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...passwordCommonProps}
-              placeholder="Repeat password"
-              textContentType="newPassword"
-              style={styles.input}
-              value={passwordSignUpRepeat}
-              onChangeText={onChangePasswordSignUpRepeat}
-            />
-          </View>
-          <View style={styles.submitButtonContainer}>
-            <TouchableOpacity
-              style={styles.submitButton}
-              onPress={() => {}}
-            >
-              <Text style={styles.submitButtonText}>Sign Up</Text>
-            </TouchableOpacity>
-          </View>
-        </View> }
+      <View style={styles.closeBtnContainer}>
+        <TouchableOpacity onPress={() => navigation.popToTop()}>
+          <Ionicons
+            style={styles.closeBtnIcon}
+            name="md-close"
+            size={32}
+            color="#F1F1F1"
+          />
+        </TouchableOpacity>
       </View>
+        <KeyboardAvoidingView style={styles.contentContainer} behavior="position" enabled>
+          <View style={styles.tabsContainer}>
+            <TouchableOpacity
+              style={{
+                ...styles.tabContainer,
+                borderBottomColor: authType === SIGN_IN ? '#ccc' : '#2F3038',
+              }}
+              onPress={setSignInTab}
+            >
+              <Text style={styles.tabText}>Sign In</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                ...styles.tabContainer,
+                borderBottomColor: authType === SIGN_UP ? '#ccc' : '#2F3038',
+              }}
+              onPress={setSignUpTab}
+            >
+              <Text style={styles.tabText}>Sign Up</Text>
+            </TouchableOpacity>
+          </View>
+
+          { authType === SIGN_IN && <View style={styles.formContainer}>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...emailCommonProps}
+                autoCompleteType="username"
+                style={styles.input}
+                value={email}
+                onChangeText={onChangeEmail}
+              />
+            </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...passwordCommonProps}
+                autoCompleteType="password"
+                style={styles.input}
+                value={passwordSignIn}
+                onChangeText={onChangePasswordSignIn}
+              />
+            </View>
+            <View style={styles.submitButtonContainer}>
+              <TouchableOpacity
+                style={styles.submitButton}
+                onPress={() => {}}
+              >
+                <Text style={styles.submitButtonText}>Sign In</Text>
+              </TouchableOpacity>
+            </View>
+          </View> }
+
+          { authType === SIGN_UP && <View style={styles.formContainer}>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...emailCommonProps}
+                autoCompleteType="username"
+                style={styles.input}
+                value={email}
+                onChangeText={onChangeEmail}
+              />
+            </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...passwordCommonProps}
+                style={styles.input}
+                value={passwordSignUp}
+                onChangeText={onChangePasswordSignUp}
+              />
+            </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...passwordCommonProps}
+                placeholder="Repeat password"
+                textContentType="newPassword"
+                style={styles.input}
+                value={passwordSignUpRepeat}
+                onChangeText={onChangePasswordSignUpRepeat}
+              />
+            </View>
+            <View style={styles.submitButtonContainer}>
+              <TouchableOpacity
+                style={styles.submitButton}
+                onPress={() => {}}
+              >
+                <Text style={styles.submitButtonText}>Sign Up</Text>
+              </TouchableOpacity>
+            </View>
+          </View> }
+        </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -175,14 +175,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: MAIN_BACKGROUND_COLOR,
     alignItems: 'stretch',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-end'
   },
   contentContainer: {
-    paddingTop: 160,
+    paddingBottom: 20,
   },
   closeBtnContainer: {
     position: 'absolute',
-    top: 10,
+    top: 50,
     right: 25,
   },
   closeBtnIcon: {
@@ -190,6 +190,7 @@ const styles = StyleSheet.create({
   },
   tabsContainer: {
     flexDirection: 'row',
+    paddingHorizontal: 20,
   },
   tabContainer: {
     flex: 1,
@@ -200,27 +201,27 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: '300',
+    fontSize: 20,
+    fontWeight: '500',
   },
   formContainer: {
-    paddingVertical: 30,
+    paddingVertical: 20,
   },
   inputContainer: {
     paddingVertical: 5,
     paddingHorizontal: 20,
   },
   submitButtonContainer: {
-    marginTop: 20,
+    marginTop: 10,
     paddingHorizontal: 20,
   },
   input: {
     fontWeight: '300',
-    fontSize: 18,
+    fontSize: 16,
     color: '#fff',
-    backgroundColor: BACKGROUND_DARK_COLOR,
+    backgroundColor: '#2F303B',
     paddingVertical: 15,
-    paddingHorizontal: 12,
+    paddingHorizontal: 18,
     borderRadius: 5,
   },
   submitButton: {
@@ -232,8 +233,8 @@ const styles = StyleSheet.create({
   },
   submitButtonText: {
     color: '#fff',
-    fontWeight: '600',
-    fontSize: 18,
+    fontWeight: '400',
+    fontSize: 16,
     textAlign: 'center',
   },
 });  

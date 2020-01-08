@@ -23,7 +23,10 @@ const HomeMenuModal = ({ navigation }) => (
         >
           <Text style={styles.menuText}>Profile</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity
+          style={styles.menuItem}
+          onPress={() => navigation.navigate('SignIn')}
+        >
           <Text style={styles.menuText}>Statistics</Text>
         </TouchableOpacity>
       </View>
@@ -34,7 +37,7 @@ const HomeMenuModal = ({ navigation }) => (
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: '#27272E',
+    backgroundColor: MAIN_BACKGROUND_COLOR,
   },
   screenUnderlay: {
     backgroundColor: 'red'
@@ -44,15 +47,18 @@ const styles = StyleSheet.create({
     paddingVertical: 80,
   },
   menuItem: {
-    backgroundColor: MAIN_BACKGROUND_COLOR,
+    backgroundColor: '#2F2F38',
+    borderLeftColor: '#27272E',
+    borderLeftWidth: 10,
     paddingVertical: 20,
     marginBottom: 10,
   },
   menuText: {
-    fontWeight: '300',
-    fontSize: 24,
+    fontWeight: '400',
+    fontSize: 18,
     color: '#fff',
-    textAlign: 'center',
+    textAlign: 'left',
+    paddingLeft: 20,
   },
 });
 
