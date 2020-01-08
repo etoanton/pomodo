@@ -17,7 +17,10 @@ const HomeMenuModal = ({ navigation }) => (
       onPress={() => navigation.goBack()}
     >
       <View style={styles.menuContainer}>
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity
+          style={styles.menuItem}
+          onPress={() => navigation.navigate('SignIn')}
+        >
           <Text style={styles.menuText}>Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>

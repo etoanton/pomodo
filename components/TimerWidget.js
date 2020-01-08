@@ -96,16 +96,16 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: '#27272E',
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 5,
   },
   btn__top: {
-    flex: 2,
+    flex: 5,
     borderTopRightRadius: 7,
   },
   btn__bottom: {
+    flex: 2,
     borderBottomRightRadius: 7,
     borderTopWidth: 1,
     borderTopColor: '#525252'

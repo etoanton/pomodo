@@ -40,7 +40,7 @@ const HomeScreen = () => {
           stopTimer();
         }
         
-      }, 500);
+      }, 100);
       setTimerId(timerId);
     }
   }, [timerStarted]);
