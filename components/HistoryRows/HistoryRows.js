@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 
 import useDataFetching from '../hocs/withDataFetching';
@@ -6,17 +6,36 @@ import { ENV } from '../../config';
 import Tabs from '../Tabs';
 import HistoryRow from './SingleRow';
 import { daysData, weeksData, monthesData } from './mocks';
+import { mergeLists } from './helpers';
+
+const TABS = {
+  DAY: 'd',
+  WEEK: 'w',
+  MONTH: 'm',
+  YEAR: 'y',
+}
 
 const HistoryRows = () => {
   const [isScrolling, setIsScrolling] = useState(false);
   const [activeTabId, setActiveTabId] = useState('d');
-
-  const data = activeTabId === 'd' ? daysData :
-    activeTabId === 'w' ? weeksData :
-      activeTabId === 'm' ? monthesData : daysData;
+  const [data, setData] = useState([]);
 
   const { loading, results, error } = useDataFetching(`${ENV.apiUrl}/v1/completedTasks`);
-  console.log('loading', loading);
+
+  useEffect(() => {
+    const rawData = activeTabId === 'd' ? daysData :
+      activeTabId === 'w' ? weeksData :
+        activeTabId === 'm' ? monthesData : daysData;
+
+    let mergedData = rawData;
+
+    const { data: dateMap = {} } = results;
+    if (Object.keys(data).length) {
+      mergedData = mergeLists(rawData, dateMap);
+    }
+
+    setData(mergedData);
+  }, [results, activeTabId]);
 
   return (
     <View style={styles.container}>
@@ -24,13 +43,13 @@ const HistoryRows = () => {
         <Tabs
           activeTabId={activeTabId}
           handlePress={id => setActiveTabId(id)}
-          tabsConfig={[{ id: 'd', name: 'Days' }, { id: 'w', name: 'Weeks' }, { id: 'm', name: 'Monthes' }, { id: 'y', name: 'Years' }]}
+          tabsConfig={[{ id: TABS.DAY, name: 'Days' }, { id: 'w', name: 'Weeks' }, { id: 'm', name: 'Monthes' }, { id: 'y', name: 'Years' }]}
         />
       </View>
       <View style={styles.listContainer}>
         <FlatList
           data={data}
-          renderItem={({ item, index }) => (
+          renderItem={({ item = [], index }) => (
             <HistoryRow 
               row={item}
               rowIndex={index}

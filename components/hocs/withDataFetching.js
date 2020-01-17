@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function useDataFetching(dataSource) {
   const [loading, setLoading] = useState(true);
@@ -7,6 +7,7 @@ function useDataFetching(dataSource) {
 
   useEffect(() => {
     async function fetchData() {
+      // await new Promise(res => setTimeout(res, 2000));
       try {
         const data = await fetch(dataSource);
         const json = await data.json();

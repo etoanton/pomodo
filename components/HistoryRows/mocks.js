@@ -1,6 +1,43 @@
+import { startOfYear, addDays, format } from 'date-fns';
+
 const ROW_ELEMENT_COUNT = 10;
 
-const separateToTow = data => {
+const now = new Date();
+const firstDayOfTheYear = startOfYear(now);
+const generateDateBasedOnNumber = num => format(addDays(firstDayOfTheYear, num), 'yyyy-MM-dd');
+
+const DAYS_COUNT = 366;
+const daysList = Array(DAYS_COUNT).fill(0).map((_, rowIdx) => {
+  const keys = [generateDateBasedOnNumber(rowIdx)];
+  return ({
+    id: rowIdx,
+    completedTasks: [],
+    keys,
+  });
+});
+
+const WEEKS_COUNT = 53;
+const weeksList = Array(WEEKS_COUNT).fill(0).map((_, rowIdx) => {
+  const weekDays = Array(7).fill(0);
+  const keys = weekDays.map((_, weekIdx) => generateDateBasedOnNumber(7 * rowIdx + weekIdx));
+  return ({
+    id: rowIdx,
+    completedTasks: [],
+    keys,
+  });
+});
+
+
+const MONTHES_COUNT = 12;
+const monthesList = Array(MONTHES_COUNT).fill(0).map((_, rowIdx) => {
+  return ({
+    id: rowIdx,
+    completedTasks: [],
+    keys: [],
+  });
+});
+
+const separateToRows = data => {
   const separatedData = [];
   for (let idx = 0; idx < data.length; idx = idx + ROW_ELEMENT_COUNT) {
     separatedData.push({ id: idx, data: data.slice(idx, idx + ROW_ELEMENT_COUNT) })
@@ -8,37 +45,8 @@ const separateToTow = data => {
   return separatedData;
 }
 
-const DAYS_COUNT = 365;
-const daysList = Array(DAYS_COUNT).fill(0).map((_, rowIdx) => {
-  const hasCompletedTasks = Math.random() < 0.5;
-  return ({
-    id: rowIdx,
-    hasCompletedTasks,
-    completedCount: hasCompletedTasks ? Math.trunc(Math.random() * 10) : 0,
-  });
-});
-
-const WEEKS_COUNT = 53;
-const weeksList = Array(WEEKS_COUNT).fill(0).map((_, rowIdx) => {
-  const hasCompletedTasks = Math.random() < 0.5;
-  return ({
-    id: rowIdx,
-    hasCompletedTasks,
-    completedCount: hasCompletedTasks ? Math.trunc(Math.random() * 10) * 7 : 0,
-  });
-});
-
-const MONTHES_COUNT = 12;
-const monthesList = Array(MONTHES_COUNT).fill(0).map((_, rowIdx) => {
-  return ({
-    id: rowIdx,
-    hasCompletedTasks: true,
-    completedCount: Math.trunc(Math.random() * 10) * 25,
-  });
-});
-
-const daysData = separateToTow(daysList);
-const weeksData = separateToTow(weeksList);
-const monthesData = separateToTow(monthesList);
+const daysData = separateToRows(daysList);
+const weeksData = separateToRows(weeksList);
+const monthesData = separateToRows(monthesList);
 
 export { daysData, weeksData, monthesData };
