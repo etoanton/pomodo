@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
   SafeAreaView,
   KeyboardAvoidingView,
+  AsyncStorage,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { ENV } from '../config';
 
 import { MAIN_BACKGROUND_COLOR, BACKGROUND_DARK_COLOR } from '../styles/colors';
 
@@ -54,6 +56,35 @@ const SignInScreen = ({ navigation }) => {
   const setSignUpTab = () => {
     onChangePasswordSignIn('');
     setAuthType(SIGN_UP);
+  };
+
+  const signIn = () => {
+    fetch(`${ENV.apiUrl}/v1/users/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password: passwordSignIn }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data.token);
+        AsyncStorage.setItem('@Auth:token', data.token);
+      })
+  };
+
+  const signUp = () => {
+    fetch(`${ENV.apiUrl}/v1/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password: passwordSignUp }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data.token);
+      })
   };
 
   return (
@@ -114,7 +145,7 @@ const SignInScreen = ({ navigation }) => {
           <View style={styles.submitButtonContainer}>
             <TouchableOpacity
               style={styles.submitButton}
-              onPress={() => {}}
+              onPress={signIn}
             >
               <Text style={styles.submitButtonText}>Sign In</Text>
             </TouchableOpacity>
@@ -155,7 +186,7 @@ const SignInScreen = ({ navigation }) => {
           <View style={styles.submitButtonContainer}>
             <TouchableOpacity
               style={styles.submitButton}
-              onPress={() => {}}
+              onPress={signUp}
             >
               <Text style={styles.submitButtonText}>Sign Up</Text>
             </TouchableOpacity>

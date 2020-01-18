@@ -1,3 +1,4 @@
+import { AsyncStorage } from 'react-native';
 import { useState, useEffect } from "react";
 
 function useDataFetching(dataSource) {
@@ -8,9 +9,17 @@ function useDataFetching(dataSource) {
   useEffect(() => {
     async function fetchData() {
       // await new Promise(res => setTimeout(res, 2000));
+      const token = await AsyncStorage.getItem('@Auth:token');
+      console.log('sending request with token', token);
+
       try {
-        const data = await fetch(dataSource);
+        const data = await fetch(dataSource, { 
+          headers: {
+            'x-access-token': token,
+          },
+        });
         const json = await data.json();
+
 
         if (json) {
           setLoading(false);
