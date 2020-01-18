@@ -8,9 +8,7 @@ function useDataFetching(dataSource) {
 
   useEffect(() => {
     async function fetchData() {
-      // await new Promise(res => setTimeout(res, 2000));
       const token = await AsyncStorage.getItem('@Auth:token');
-      console.log('sending request with token', token);
 
       try {
         const data = await fetch(dataSource, { 
@@ -19,12 +17,8 @@ function useDataFetching(dataSource) {
           },
         });
         const json = await data.json();
-
-
-        if (json) {
-          setLoading(false);
-          setResults(json);
-        }
+        setLoading(false);
+        setResults(json);
       } catch (error) {
         setLoading(false);
         setError(error.message);
