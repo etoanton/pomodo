@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { addSeconds, differenceInSeconds } from 'date-fns';
 
+import { Tasks } from '../api';
 import DaysLeftCount from '../components/DaysLeftCount';
 import TimerWidget from '../components/TimerWidget';
 import HistoryRows from '../components/HistoryRows';
 import MinutePicker from '../components/MinutePicker';
-
+import { ENV } from '../config';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
 const INIT_TIMER_VALUE = 15 * 60;
@@ -36,8 +37,8 @@ const HomeScreen = () => {
         if (nextValue >= 0) {
           setTimerValue(nextValue);
         } else {
-          // TODO: PomoDO completed
           stopTimer();
+          Tasks.saveCompletedTasks({ taskNotes: null, tagId: null, timeSpent: timerValue });
         }
         
       }, 100);
