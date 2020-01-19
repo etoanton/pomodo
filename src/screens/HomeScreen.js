@@ -7,7 +7,6 @@ import DaysLeftCount from '../components/DaysLeftCount';
 import TimerWidget from '../components/TimerWidget';
 import HistoryRows from '../components/HistoryRows';
 import MinutePicker from '../components/MinutePicker';
-import { ENV } from '../config';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
 const INIT_TIMER_VALUE = 15 * 60;
@@ -17,32 +16,32 @@ const HomeScreen = () => {
   const [timerValue, setTimerValue] = useState(INIT_TIMER_VALUE);
   const [timerStarted, toggleStartTimer] = useState(false);
   const [finishTimeStamp, setFinishTimeStamp] = useState(null);
-  const [timerId, setTimerId] = useState();
+  // const [timerId, setTimerId] = useState();
 
   const startTimer = () => {
     toggleStartTimer(true);
     setFinishTimeStamp(addSeconds(new Date(), timerValue))
   };
 
-  const stopTimer = () => {
+  const stopTimer = (tId) => {
+    Tasks.saveCompletedTasks({ taskNotes: null, tagId: null, timeSpent: timerValue });
     toggleStartTimer(false);
-    clearInterval(timerId);
+    clearInterval(tId);
     setTimerValue(INIT_TIMER_VALUE);
   };
 
   useEffect(() => {
     if (timerStarted) {
-      const timerId = setInterval(() => {
+      const tId = setInterval(() => {
         const nextValue = differenceInSeconds(finishTimeStamp, new Date());
         if (nextValue >= 0) {
           setTimerValue(nextValue);
         } else {
-          stopTimer();
-          Tasks.saveCompletedTasks({ taskNotes: null, tagId: null, timeSpent: timerValue });
+          stopTimer(tId);
         }
         
       }, 100);
-      setTimerId(timerId);
+      // if (!timerId && tId) setTimerId(tId);
     }
   }, [timerStarted]);
 

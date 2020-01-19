@@ -1,24 +1,16 @@
-import { AsyncStorage } from 'react-native';
 import { useState, useEffect } from "react";
 
-function useDataFetching(dataSource) {
+function useDataFetching(dataFetcher, params = {}) {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
     async function fetchData() {
-      const token = await AsyncStorage.getItem('@Auth:token');
-
       try {
-        const data = await fetch(dataSource, { 
-          headers: {
-            'x-access-token': token,
-          },
-        });
-        const json = await data.json();
+        const { data } = await dataFetcher(params);
         setLoading(false);
-        setResults(json);
+        setResults(data);
       } catch (error) {
         setLoading(false);
         setError(error.message);
@@ -28,7 +20,7 @@ function useDataFetching(dataSource) {
     }
 
     fetchData();
-  }, [dataSource]);
+  }, [dataFetcher, params]);
 
   return {
     error,

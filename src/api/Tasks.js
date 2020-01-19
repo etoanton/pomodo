@@ -1,27 +1,20 @@
-import { AsyncStorage } from 'react-native';
-import { ENV } from '../config';
+import fetchData from './helpers/fetchData';
 
 const Tasks = {
-  async saveCompletedTasks({ taskNotes, tagId, timeSpent }) {
+  async getCompletedTasks() {
     try {
-      const token = await AsyncStorage.getItem('@Auth:token');
-      const response = await fetch(`${ENV.apiUrl}/v1/completedTasks`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-access-token': token,
-        },
-        body: JSON.stringify({
-          taskNotes,
-          tagId,
-          timeSpent,
-        }),
-      });
-      const data = await response.json();
-  
+      const { data } = await fetchData({ url: '/v1/completedTasks' });
       return { data };
     } catch (e) {
-      console.log('Error occured while making request', e);
+      return { error: e };
+    }
+  },
+  async saveCompletedTasks({ taskNotes, tagId, timeSpent }) {
+    try {
+      const body = { taskNotes, tagId, timeSpent }
+      const { data } = await fetchData({ url: '/v1/completedTasks', method: 'POST', body });
+      return { data };
+    } catch (e) {
       return { error: e };
     }
   },

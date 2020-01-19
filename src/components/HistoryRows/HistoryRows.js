@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 
-import useDataFetching from '../hocs/withDataFetching';
-import { ENV } from '../../config';
+import { Tasks, useDataFetching } from '../../api';
 import Tabs from '../Tabs';
 import HistoryRow from './SingleRow';
 import { daysData, weeksData, monthesData } from './mocks';
@@ -20,12 +19,12 @@ const HistoryRows = () => {
   const [activeTabId, setActiveTabId] = useState('d');
   const [data, setData] = useState([]);
 
-  const { loading, results, error } = useDataFetching(`${ENV.apiUrl}/v1/completedTasks`);
+  const { loading, results, error } = useDataFetching(Tasks.getCompletedTasks);
 
   useEffect(() => {
-    const rawData = activeTabId === 'd' ? daysData :
-      activeTabId === 'w' ? weeksData :
-        activeTabId === 'm' ? monthesData : daysData;
+    const rawData = activeTabId === TABS.DAY ? daysData :
+      activeTabId === TABS.WEEK ? weeksData :
+        activeTabId === TABS.MONTH ? monthesData : daysData;
 
     let mergedData = rawData;
 
@@ -43,7 +42,12 @@ const HistoryRows = () => {
         <Tabs
           activeTabId={activeTabId}
           handlePress={id => setActiveTabId(id)}
-          tabsConfig={[{ id: TABS.DAY, name: 'Days' }, { id: 'w', name: 'Weeks' }, { id: 'm', name: 'Monthes' }, { id: 'y', name: 'Years' }]}
+          tabsConfig={[
+            { id: TABS.DAY, name: 'Days' },
+            { id: TABS.WEEK, name: 'Weeks' },
+            { id: TABS.MONTH, name: 'Monthes' },
+            { id: TABS.YEAR, name: 'Years' },
+          ]}
         />
       </View>
       <View style={styles.listContainer}>
