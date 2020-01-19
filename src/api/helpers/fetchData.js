@@ -19,9 +19,7 @@ const fetchData = async ({ url, method = 'GET', headers, body }) => {
     }
 
     const response = await fetch(`${API_URL}${url}`, payload);
-    const data = await response.json();
-
-    return { data };
+    return response.json();
   } catch (e) {
     console.log(`Error occured while making ${url} request`, e);
     throw e;

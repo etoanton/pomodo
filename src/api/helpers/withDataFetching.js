@@ -5,12 +5,11 @@ function useDataFetching(dataFetcher, params) {
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
 
-  console.log('useDataFetching');
-
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await dataFetcher(params);
+        // await new Promise(res => setTimeout(res, 2000));
+        const data = await dataFetcher(params);
         setLoading(false);
         setResults(data);
       } catch (error) {

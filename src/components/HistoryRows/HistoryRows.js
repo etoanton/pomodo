@@ -16,11 +16,12 @@ const TABS = {
 
 const HistoryRows = () => {
   const [isScrolling, setIsScrolling] = useState(false);
-  const [activeTabId, setActiveTabId] = useState('d');
+  const [activeTabId, setActiveTabId] = useState(TABS.DAY);
   const [data, setData] = useState([]);
 
   const { loading, results, error } = useDataFetching(Tasks.getCompletedTasks);
 
+  // Merge data
   useEffect(() => {
     const rawData = activeTabId === TABS.DAY ? daysData :
       activeTabId === TABS.WEEK ? weeksData :

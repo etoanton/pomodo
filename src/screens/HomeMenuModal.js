@@ -13,11 +13,11 @@ import AppStateContext from '../AppStateContext';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
 const HomeMenuModal = ({ navigation }) => {
-  const { user } = useContext(AppStateContext);
+  const { user, loading } = useContext(AppStateContext);
 
   const navigateToProfile = () => {
-    if (user) {
-      navigation.navigate('Home');
+    if (!loading && user && user.id) {
+      navigation.navigate('Profile');
     } else {
       navigation.navigate('SignIn');
     }

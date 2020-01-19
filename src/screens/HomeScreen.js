@@ -26,7 +26,6 @@ const HomeScreen = () => {
   const stopTimer = () => {
     Tasks.saveCompletedTasks({ taskNotes: null, tagId: null, timeSpent: timerValue });
     toggleStartTimer(false);
-    console.log('clearInterval:', timerId);
     clearInterval(timerId);
     setTimerValue(INIT_TIMER_VALUE);
   };

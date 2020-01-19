@@ -68,8 +68,8 @@ const SignInScreen = ({ navigation }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Success:', data.token);
         AsyncStorage.setItem('@Auth:token', data.token);
+        navigation.popToTop();
       })
   };
 
