@@ -3,7 +3,8 @@ import { Text, View, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-na
 import { Ionicons } from '@expo/vector-icons';
 
 import AppStateContext from '../AppStateContext';
-import { MAIN_BACKGROUND_COLOR, BACKGROUND_DARK_COLOR } from '../styles/colors';
+import Button from '../components/Button';
+import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
 const ProfileScreen = ({ navigation }) => {
   const { user = {}, loading, logout } = useContext(AppStateContext);
@@ -24,14 +25,18 @@ const ProfileScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={styles.contentContainer}>
-        <Text style={styles.text}>Email: {user && user.email}</Text>
-
-        <TouchableOpacity
-          style={styles.submitButton}
-          onPress={logout}
-        >
-          <Text style={styles.submitButtonText}>Sign Out</Text>
-        </TouchableOpacity>
+        <View style={styles.settingsList}>
+          <View style={styles.settingsRow}>
+            <View style={styles.settingsTitleContainer}>
+              <Text style={styles.settingsValue}>Email:</Text>
+            </View>
+            <View style={styles.settingsValueContainer}>
+              <Text style={styles.settingsValue}>{user && user.email}</Text>
+            </View>
+          </View>
+        </View>
+        
+        <Button label="Sign Out" onPress={logout} />
       </View>
     </SafeAreaView>
   );    
@@ -48,18 +53,28 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 50,
     right: 25,
+    zIndex: 10,
   },
   contentContainer: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingVertical: 30,
+    paddingVertical: 10,
     paddingHorizontal: 20,
   },
-  text: {
+  settingsList: {
+    paddingTop: 45,
+  },
+  settingsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  settingsTitleContainer: {},
+  settingsValueContainer: {},
+  settingsValue: {
     color: '#fff',
+    fontSize: 16,
   },
   submitButton: {
-    backgroundColor: BACKGROUND_DARK_COLOR,
     paddingVertical: 15,
     paddingHorizontal: 12,
     borderRadius: 5,

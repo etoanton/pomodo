@@ -7,16 +7,19 @@ import DaysLeftCount from '../components/DaysLeftCount';
 import TimerWidget from '../components/TimerWidget';
 import HistoryRows from '../components/HistoryRows';
 import MinutePicker from '../components/MinutePicker';
+import TaskSuccessModal from '../modals/TaskSuccess';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
 const INIT_TIMER_VALUE = 15 * 60;
 
 const HomeScreen = () => {
+  let timerId;
+
   const [isPickerVisible, togglePicker] = useState(false);
   const [timerValue, setTimerValue] = useState(INIT_TIMER_VALUE);
   const [timerStarted, toggleStartTimer] = useState(false);
   const [finishTimeStamp, setFinishTimeStamp] = useState(null);
-  let timerId;
+  const [taskSuccessVisible, setTaskSuccessVisible] = useState(false);
 
   const startTimer = () => {
     toggleStartTimer(true);
@@ -24,6 +27,7 @@ const HomeScreen = () => {
   };
 
   const stopTimer = () => {
+    setTaskSuccessVisible(true);
     Tasks.saveCompletedTasks({ taskNotes: null, tagId: null, timeSpent: timerValue });
     toggleStartTimer(false);
     clearInterval(timerId);
@@ -74,6 +78,11 @@ const HomeScreen = () => {
         value={timerValue}
         setValue={setTimerValue}
         togglePicker={togglePicker} />
+
+      <TaskSuccessModal
+        visible={taskSuccessVisible}
+        toggleVisibility={setTaskSuccessVisible}
+      />  
     </SafeAreaView>
   );
 }

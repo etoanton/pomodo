@@ -37,6 +37,8 @@ const HistoryRows = () => {
     setData(mergedData);
   }, [results]);
 
+  // TODO: https://facebook.github.io/react-native/docs/refreshcontrol
+
   return (
     <View style={styles.container}>
       <View style={styles.tabsContainer}>
