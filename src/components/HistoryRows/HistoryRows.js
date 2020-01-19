@@ -34,7 +34,7 @@ const HistoryRows = () => {
     }
 
     setData(mergedData);
-  }, [results, activeTabId]);
+  }, [results]);
 
   return (
     <View style={styles.container}>

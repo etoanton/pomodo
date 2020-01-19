@@ -2,8 +2,9 @@ import { AsyncStorage } from 'react-native';
 import { ENV } from '../../config';
 
 const TOKEN_KEY = '@Auth:token';
+const API_URL = ENV.apiUrl;
 
-const fetchWrapper = async ({ url, method = 'GET', headers, body }) => {
+const fetchData = async ({ url, method = 'GET', headers, body }) => {
   try {
     const token = await AsyncStorage.getItem(TOKEN_KEY);
 
@@ -17,7 +18,7 @@ const fetchWrapper = async ({ url, method = 'GET', headers, body }) => {
       ...(body ? { body: JSON.stringify(body) } : {})
     }
 
-    const response = await fetch(`${ENV.apiUrl}${url}`, payload);
+    const response = await fetch(`${API_URL}${url}`, payload);
     const data = await response.json();
 
     return { data };
@@ -27,4 +28,4 @@ const fetchWrapper = async ({ url, method = 'GET', headers, body }) => {
   }
 };
 
-export default fetchWrapper;
+export default fetchData;
