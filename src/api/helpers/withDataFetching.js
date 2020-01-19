@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 
-function useDataFetching(dataFetcher, params = {}) {
+function useDataFetching(dataFetcher, params) {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
+
+  console.log('useDataFetching');
 
   useEffect(() => {
     async function fetchData() {
@@ -20,7 +22,7 @@ function useDataFetching(dataFetcher, params = {}) {
     }
 
     fetchData();
-  }, []);
+  }, [params]);
 
   return {
     error,
