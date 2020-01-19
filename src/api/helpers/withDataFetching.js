@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useDataFetching(params = {}) {
+function useDataFetching(dataFetcher, params = {}) {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
@@ -20,7 +20,7 @@ function useDataFetching(params = {}) {
     }
 
     fetchData();
-  }, [params]);
+  }, []);
 
   return {
     error,

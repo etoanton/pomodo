@@ -16,32 +16,31 @@ const HomeScreen = () => {
   const [timerValue, setTimerValue] = useState(INIT_TIMER_VALUE);
   const [timerStarted, toggleStartTimer] = useState(false);
   const [finishTimeStamp, setFinishTimeStamp] = useState(null);
-  // const [timerId, setTimerId] = useState();
+  let timerId;
 
   const startTimer = () => {
     toggleStartTimer(true);
     setFinishTimeStamp(addSeconds(new Date(), timerValue))
   };
 
-  const stopTimer = (tId) => {
+  const stopTimer = () => {
     Tasks.saveCompletedTasks({ taskNotes: null, tagId: null, timeSpent: timerValue });
     toggleStartTimer(false);
-    clearInterval(tId);
+    console.log('clearInterval:', timerId);
+    clearInterval(timerId);
     setTimerValue(INIT_TIMER_VALUE);
   };
 
   useEffect(() => {
     if (timerStarted) {
-      const tId = setInterval(() => {
+      timerId = setInterval(() => {
         const nextValue = differenceInSeconds(finishTimeStamp, new Date());
         if (nextValue >= 0) {
           setTimerValue(nextValue);
         } else {
-          stopTimer(tId);
+          stopTimer();
         }
-        
       }, 100);
-      // if (!timerId && tId) setTimerId(tId);
     }
   }, [timerStarted]);
 
