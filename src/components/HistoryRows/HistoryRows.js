@@ -27,12 +27,8 @@ const HistoryRows = () => {
       activeTabId === TABS.WEEK ? weeksData :
         activeTabId === TABS.MONTH ? monthesData : daysData;
 
-    let mergedData = rawData;
-
     const { data: dateMap = {} } = results;
-    if (Object.keys(data).length) {
-      mergedData = mergeLists(rawData, dateMap);
-    }
+    const mergedData = Object.keys(data).length ? mergeLists(rawData, dateMap) : rawData;
 
     setData(mergedData);
   }, [results]);
