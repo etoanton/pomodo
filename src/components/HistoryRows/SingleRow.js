@@ -18,7 +18,7 @@ const currentDayInRowIndex = (currentDayIndex - currentRowIndex * ROW_ELEMENT_CO
 
 const { offsetBetweenDots, startFrom, singleFrameWidth, spaceBetweenFrames } = calculateFrameSizes();
 
-const HistoryRow = ({ row, rowIndex, isScrolling }) => {
+const SingleRow = ({ row, rowIndex, isScrolling, setSelectedDay }) => {
   const frames = calculateFramePositions(row.data);
   const isCurrentRow = rowIndex === currentRowIndex;
 
@@ -31,7 +31,7 @@ const HistoryRow = ({ row, rowIndex, isScrolling }) => {
             ...styles.item,
             backgroundColor: isCurrentRow && idx === currentDayInRowIndex ? '#598F5F' : '#27272E',
           }}
-          onPress={() => {}}
+          onPress={() => setSelectedDay(id)}
         />
       ))}
       { frames.map(({ from, to }) => {
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    paddingVertical: 6,
+    paddingVertical: 7,
     paddingHorizontal: SCREEN_HORIZONTAL_PADDING,
     marginBottom: 2,
   },
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HistoryRow;
+export default SingleRow;

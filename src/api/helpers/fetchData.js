@@ -4,6 +4,8 @@ import { ENV } from '../../config';
 const TOKEN_KEY = '@Auth:token';
 const API_URL = ENV.apiUrl;
 
+// TODO: Handle 'token expired' case: Reissue new token using refreshToken
+
 const fetchData = async ({ url, method = 'GET', headers, body }) => {
   try {
     const token = await AsyncStorage.getItem(TOKEN_KEY);

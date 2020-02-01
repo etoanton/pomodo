@@ -8,7 +8,6 @@ function useDataFetching(dataFetcher, params) {
   useEffect(() => {
     async function fetchData() {
       try {
-        // await new Promise(res => setTimeout(res, 2000));
         const data = await dataFetcher(params);
         setLoading(false);
         setResults(data);

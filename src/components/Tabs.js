@@ -40,7 +40,7 @@ Tabs.propTypes = {
 const styles = StyleSheet.create({
   tabsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   tabContainer: {
     width: 75,

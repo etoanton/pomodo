@@ -3,7 +3,8 @@ import { StyleSheet, FlatList, View } from 'react-native';
 
 import { Tasks, useDataFetching } from '../../api';
 import Tabs from '../Tabs';
-import HistoryRow from './SingleRow';
+import DayPreview from '../DayPreview';
+import SingleRow from './SingleRow';
 import { daysData, weeksData, monthesData } from './mocks';
 import { mergeLists } from './helpers';
 
@@ -15,20 +16,20 @@ const TABS = {
 }
 
 const HistoryRows = () => {
+  const [selectedDay, setSelectedDay] = useState(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [activeTabId, setActiveTabId] = useState(TABS.DAY);
   const [data, setData] = useState([]);
 
   const { loading, results, error } = useDataFetching(Tasks.getCompletedTasks);
 
-  // Merge data
+  // Merge "empty" days data & user data
   useEffect(() => {
     const rawData = activeTabId === TABS.DAY ? daysData :
       activeTabId === TABS.WEEK ? weeksData :
         activeTabId === TABS.MONTH ? monthesData : daysData;
 
-    const { data: dateMap = {} } = results;
-    const mergedData = Object.keys(data).length ? mergeLists(rawData, dateMap) : rawData;
+    const mergedData = results && results.data ? mergeLists(rawData, results.data) : rawData;
 
     setData(mergedData);
   }, [results]);
@@ -53,16 +54,20 @@ const HistoryRows = () => {
         <FlatList
           data={data}
           renderItem={({ item = [], index }) => (
-            <HistoryRow 
+            <SingleRow 
               row={item}
               rowIndex={index}
               isScrolling={isScrolling}
+              setSelectedDay={setSelectedDay}
             />
           )}
           keyExtractor={row => `${row.id}`}
           onScrollBeginDrag={() => setIsScrolling(true)}
           onScrollEndDrag={() => setIsScrolling(false)}
         />
+      </View>
+      <View style={styles.dayPreviewContainer}>
+        { selectedDay !== null && <DayPreview selectedDay={selectedDay} setSelectedDay={setSelectedDay} /> }
       </View>
     </View>
   );
@@ -79,6 +84,15 @@ const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
     paddingTop: 16,
+  },
+  dayPreviewContainer: {
+    position: 'absolute',
+    bottom: 10,
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+    flex: 1,
+    zIndex: 1,
   },
 });
 
