@@ -1,4 +1,6 @@
 import { Dimensions } from 'react-native';
+import { startOfYear, differenceInDays } from 'date-fns';
+
 import { ROW_ELEMENT_COUNT, DOT_SIZE, SCREEN_HORIZONTAL_PADDING, FRAME_OVERFLOW } from './config';
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -52,3 +54,20 @@ export const calculateFramePositions = data => {
   }
   return frames;
 }
+
+export const separateToRows = data => {
+  const separatedData = [];
+  for (let idx = 0; idx < data.length; idx = idx + ROW_ELEMENT_COUNT) {
+    separatedData.push({ id: idx, data: data.slice(idx, idx + ROW_ELEMENT_COUNT) })
+  }
+  return separatedData;
+}
+
+export const getCurrentDayIndex = () => {
+  const now = new Date();
+  const startOfCurrentYear = startOfYear(now);
+  const currentDayIndex = differenceInDays(now, startOfCurrentYear) + 1;
+  const currentDayRowIndex = Math.trunc(currentDayIndex / ROW_ELEMENT_COUNT);
+
+  return { currentDayIndex, currentDayRowIndex };
+};

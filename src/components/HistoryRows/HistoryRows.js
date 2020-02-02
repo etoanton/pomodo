@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, FlatList, View } from 'react-native';
+import { StyleSheet, FlatList, View, RefreshControl } from 'react-native';
 
 import { Pomodos, useDataFetching } from '../../api';
-import Tabs from '../Tabs';
+import daysList from '../../../helpers/2020-days.json';
 import DayPreview from '../DayPreview';
+import Tabs from '../Tabs';
+
 import SingleRow from './SingleRow';
-import { daysData, weeksData, monthesData } from './mocks';
-import { mergeLists } from './helpers';
+import { mergeLists, separateToRows, getCurrentDayIndex } from './helpers';
 
 const TABS = {
   DAY: 'd',
@@ -15,15 +16,25 @@ const TABS = {
   YEAR: 'y',
 }
 
+const daysData = separateToRows(daysList);
+const weeksData = separateToRows(daysList);
+const monthesData = separateToRows(daysList);
+
 const HistoryRows = () => {
+  let listRef = null;
   const [selectedDay, setSelectedDay] = useState(null);
-  const [isScrolling, setIsScrolling] = useState(false);
   const [activeTabId, setActiveTabId] = useState(TABS.DAY);
   const [data, setData] = useState([]);
 
   const { loading, results, error } = useDataFetching(Pomodos.getPomodos);
 
-  // Merge "empty" days data & user data
+  const onRefresh = () => {};
+  const scrollToday = () => {
+    const { currentDayRowIndex } = getCurrentDayIndex();
+    listRef.scrollToIndex({ index: currentDayRowIndex, animated: true, viewPosition: 0.5 });
+  };
+
+  /* Merge "empty" list of days data & user data */
   useEffect(() => {
     const rawData = activeTabId === TABS.DAY ? daysData :
       activeTabId === TABS.WEEK ? weeksData :
@@ -46,24 +57,22 @@ const HistoryRows = () => {
             { id: TABS.DAY, name: 'Days' },
             { id: TABS.WEEK, name: 'Weeks' },
             { id: TABS.MONTH, name: 'Monthes' },
-            { id: TABS.YEAR, name: 'Years' },
           ]}
+          scrollToday={scrollToday}
         />
       </View>
       <View style={styles.listContainer}>
         <FlatList
+          ref={ref => listRef = ref}
           data={data}
-          renderItem={({ item = [], index }) => (
+          renderItem={({ item = [] }) => (
             <SingleRow 
               row={item}
-              rowIndex={index}
-              isScrolling={isScrolling}
               setSelectedDay={setSelectedDay}
             />
           )}
           keyExtractor={row => `${row.id}`}
-          onScrollBeginDrag={() => setIsScrolling(true)}
-          onScrollEndDrag={() => setIsScrolling(false)}
+          refreshControl={<RefreshControl refreshing={loading} onRefresh={onRefresh} />}
         />
       </View>
       <View style={styles.dayPreviewContainer}>
@@ -78,12 +87,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabsContainer: {
-    paddingTop: 23,
-    paddingHorizontal: 10,
+    paddingTop: 20,
+    paddingBottom: 10,
+    paddingHorizontal: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around'
   },
   listContainer: {
     flex: 1,
-    paddingTop: 16,
   },
   dayPreviewContainer: {
     position: 'absolute',

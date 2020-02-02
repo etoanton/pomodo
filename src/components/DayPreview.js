@@ -9,7 +9,7 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
   const rawSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'yyyy-MM-dd');
   const formattedSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'do MMM');
 
-  const { loading, results, error } = useDataFetching(Pomodos.getPomodo, [rawSelectedDate]);
+  const { loading, results, error } = useDataFetching(Pomodos.getPomodo, rawSelectedDate);
   const completedCount = results && results.data ? results.data.length : 0;
 
   return (

@@ -58,6 +58,7 @@ const SignInScreen = ({ navigation }) => {
     setAuthType(SIGN_UP);
   };
 
+  // TODO: Use axios + interceptors
   const signIn = () => {
     fetch(`${ENV.apiUrl}/v1/users/login`, {
       method: 'POST',
@@ -70,7 +71,7 @@ const SignInScreen = ({ navigation }) => {
       .then((data) => {
         AsyncStorage.setItem('@Auth:token', data.token);
         navigation.popToTop();
-      })
+      });
   };
 
   const signUp = () => {
