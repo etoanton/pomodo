@@ -1,14 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { generateDateBasedOnNumber } from '../dateTooklit';
+import { Pomodos, useDataFetching } from '../api';
+import { getFormattedDateBasedOnDayOfYear } from '../dateTooklit';
 
 const DayPreview = ({ selectedDay, setSelectedDay }) => {
-  const selectedDate = generateDateBasedOnNumber(selectedDay);
+  const rawSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'yyyy-MM-dd');
+  const formattedSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'do MMM');
+
+  const { loading, results, error } = useDataFetching(Pomodos.getPomodo, { rawSelectedDate });
+  const completedCount = results && results.data ? results.data.length : 0;
 
   return (
-    <View style={styles.container}>
+    <View style={styles.contentContainer}>
       <TouchableOpacity style={styles.viewAllContainer}>
         <Ionicons
           style={styles.btnIcon}
@@ -18,14 +23,15 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
         />
       </TouchableOpacity>
       <View style={styles.countContainer}>
-        <Text style={styles.textCount}>12 pomodos</Text>
-        <Text style={styles.textDate}>at {selectedDate}</Text>
+        { loading && <ActivityIndicator size="small" color="#F1F1F1" /> }
+        { !loading && <Text style={styles.textCount}>{completedCount} pomodo(s)</Text> }
+        <Text style={styles.textDate}>at {formattedSelectedDate}</Text>
       </View>
       <TouchableOpacity style={styles.closeContainer} onPress={() => setSelectedDay(null)}>
         <Ionicons
           style={styles.btnIcon}
           name="ios-close"
-          size={27}
+          size={30}
           color="#F1F1F1"
         />
       </TouchableOpacity>
@@ -34,8 +40,8 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 5,
+  contentContainer: {
+    paddingVertical: 3,
     width: 280,
     borderRadius: 20,
     backgroundColor: '#2F2F38',
@@ -51,14 +57,16 @@ const styles = StyleSheet.create({
     shadowRadius: 2.5,
   },
   viewAllContainer: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 18,
+    paddingTop: 2,
   },
   countContainer: {
     flex: 1,
     flexDirection: 'row',
   },
   closeContainer: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 18,
+    paddingTop: 4,
   },
   btnIcon: {},
   textCount: {

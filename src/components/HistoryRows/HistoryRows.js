@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 
-import { Tasks, useDataFetching } from '../../api';
+import { Pomodos, useDataFetching } from '../../api';
 import Tabs from '../Tabs';
 import DayPreview from '../DayPreview';
 import SingleRow from './SingleRow';
@@ -21,7 +21,7 @@ const HistoryRows = () => {
   const [activeTabId, setActiveTabId] = useState(TABS.DAY);
   const [data, setData] = useState([]);
 
-  const { loading, results, error } = useDataFetching(Tasks.getCompletedTasks);
+  const { loading, results, error } = useDataFetching(Pomodos.getPomodos);
 
   // Merge "empty" days data & user data
   useEffect(() => {

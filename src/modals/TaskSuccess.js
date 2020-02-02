@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 import Button from '../components/Button';
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
 const TaskSuccess = ({ visible, toggleVisibility }) => (
   <Modal

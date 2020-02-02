@@ -3,4 +3,5 @@ import { startOfYear, addDays, format } from 'date-fns';
 const now = new Date();
 const firstDayOfTheYear = startOfYear(now);
 
-export const generateDateBasedOnNumber = num => format(num > 0 ? addDays(firstDayOfTheYear, num) : firstDayOfTheYear, 'yyyy-MM-dd');
+export const getDateBasedOnDayOfYear = num => num > 0 ? addDays(firstDayOfTheYear, num) : firstDayOfTheYear;
+export const getFormattedDateBasedOnDayOfYear = (num, dateFormat = 'yyyy-MM-dd') => format(num > 0 ? addDays(firstDayOfTheYear, num) : firstDayOfTheYear, dateFormat);

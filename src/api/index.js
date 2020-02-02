@@ -1,9 +1,9 @@
-import Tasks from './Tasks';
+import Pomodos from './Pomodos';
 import Users from './Users';
 import useDataFetching from './helpers/withDataFetching';
 
 export {
   useDataFetching,
-  Tasks,
+  Pomodos,
   Users,
 };

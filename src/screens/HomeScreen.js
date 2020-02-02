@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { addSeconds, differenceInSeconds } from 'date-fns';
 
-import { Tasks } from '../api';
+import { Pomodos } from '../api';
 import DaysLeftCount from '../components/DaysLeftCount';
 import TimerWidget from '../components/TimerWidget';
 import HistoryRows from '../components/HistoryRows';
@@ -28,7 +28,7 @@ const HomeScreen = () => {
 
   const stopTimer = () => {
     setTaskSuccessVisible(true);
-    Tasks.saveCompletedTasks({ taskNotes: null, tagId: null, timeSpent: timerValue });
+    Pomodos.savePomodo({ taskNotes: null, tagId: null, timeSpent: timerValue });
     toggleStartTimer(false);
     clearInterval(timerId);
     setTimerValue(INIT_TIMER_VALUE);
