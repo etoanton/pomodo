@@ -9,7 +9,7 @@ const TICK_SIZE = 10;
 
 const Timer = ({
   radius: outerRadius = 100,
-  timerStarted,
+  isTimerStarted,
   timerValue,
   togglePicker,
 }) => {
@@ -30,7 +30,7 @@ const Timer = ({
       <View style={{ ...styles.timerInnerCircle, width: innerDiameter, height: innerDiameter, borderRadius: innerDiameter }} />
       <View style={styles.timeTextContainer}>
         <TouchableOpacity
-          disabled={timerStarted}
+          disabled={isTimerStarted}
           onPress={() => togglePicker(true)}
         >
           <Text style={styles.timeText}>{`${minutesV}:${secondsV}`}</Text>
@@ -48,7 +48,7 @@ const Timer = ({
 
 Timer.propTypes = {
   radius: PropTypes.number,
-  timerStarted: PropTypes.bool.isRequired,
+  isTimerStarted: PropTypes.bool.isRequired,
   timerValue: PropTypes.number.isRequired,
   togglePicker: PropTypes.func.isRequired,
 };

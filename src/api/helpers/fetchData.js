@@ -7,7 +7,7 @@ const API_URL = ENV.apiUrl;
 // TODO: Handle 'token expired' case: Reissue new token using refreshToken
 
 const fetchData = async ({ url, method = 'GET', headers, body }) => {
-  console.log('fetchData:', url);
+  console.log('fetchData:', method, url);
   try {
     const token = await AsyncStorage.getItem(TOKEN_KEY);
 

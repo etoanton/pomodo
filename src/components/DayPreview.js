@@ -9,22 +9,23 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
   const rawSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'yyyy-MM-dd');
   const formattedSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'do MMM');
 
-  const { loading, results, error } = useDataFetching(Pomodos.getPomodo, { rawSelectedDate });
+  const { loading, results, error } = useDataFetching(Pomodos.getPomodo, [rawSelectedDate]);
   const completedCount = results && results.data ? results.data.length : 0;
 
   return (
     <View style={styles.contentContainer}>
       <TouchableOpacity style={styles.viewAllContainer}>
-        <Ionicons
+        { loading && <ActivityIndicator size="small" color="#F1F1F1" /> }
+        { !loading && <Ionicons
           style={styles.btnIcon}
           name="ios-menu"
           size={21}
           color="#F1F1F1"
-        />
+          /> }
       </TouchableOpacity>
       <View style={styles.countContainer}>
-        { loading && <ActivityIndicator size="small" color="#F1F1F1" /> }
-        { !loading && <Text style={styles.textCount}>{completedCount} pomodo(s)</Text> }
+        
+        <Text style={styles.textCount}>{completedCount} pomodo(s)</Text>
         <Text style={styles.textDate}>at {formattedSelectedDate}</Text>
       </View>
       <TouchableOpacity style={styles.closeContainer} onPress={() => setSelectedDay(null)}>

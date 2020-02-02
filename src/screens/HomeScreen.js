@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { addSeconds, differenceInSeconds } from 'date-fns';
 
-import { Pomodos } from '../api';
 import DaysLeftCount from '../components/DaysLeftCount';
 import TimerWidget from '../components/TimerWidget';
 import HistoryRows from '../components/HistoryRows';
@@ -13,39 +12,53 @@ import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 const INIT_TIMER_VALUE = 15 * 60;
 
 const HomeScreen = () => {
-  let timerId;
-
   const [isPickerVisible, togglePicker] = useState(false);
+  const [isSuccessModalVisible, setModalVisibility] = useState(false);
+
+  const [isTimerStarted, toggleStartTimer] = useState(false);
   const [timerValue, setTimerValue] = useState(INIT_TIMER_VALUE);
-  const [timerStarted, toggleStartTimer] = useState(false);
   const [finishTimeStamp, setFinishTimeStamp] = useState(null);
-  const [taskSuccessVisible, setTaskSuccessVisible] = useState(false);
+
+  const [completedTimerValue, setCompletedTimerValue] = useState(0);
+  const [timerId, setTimerId] = useState(null);
 
   const startTimer = () => {
     toggleStartTimer(true);
-    setFinishTimeStamp(addSeconds(new Date(), timerValue))
+
+    const nextFinishTimeStamp = addSeconds(new Date(), timerValue);
+    setFinishTimeStamp(nextFinishTimeStamp)
+
+    const timerId = setInterval(() => {
+      const finishTimeStampValue = finishTimeStamp || nextFinishTimeStamp;
+      const nextValue = differenceInSeconds(finishTimeStampValue, new Date());
+      if (nextValue >= 0) {
+        setTimerValue(nextValue);
+      } else {
+        clearInterval(timerId);
+        completePomodo();
+      }
+    }, 100);
+
+    setTimerId(timerId);
   };
 
-  const stopTimer = () => {
-    setTaskSuccessVisible(true);
-    Pomodos.savePomodo({ taskNotes: null, tagId: null, timeSpent: timerValue });
-    toggleStartTimer(false);
-    clearInterval(timerId);
+  const completePomodo = () => {
+    setCompletedTimerValue(timerValue);
+    setModalVisibility(true);
+    cleanUpTimer();
+  };
+
+  const discardPomodo = () => {
+    setCompletedTimerValue(null);
+    cleanUpTimer();
+  };
+
+  const cleanUpTimer = () => {
     setTimerValue(INIT_TIMER_VALUE);
+    setFinishTimeStamp(null);
+    toggleStartTimer(false);
+    setTimerId(null);
   };
-
-  useEffect(() => {
-    if (timerStarted) {
-      timerId = setInterval(() => {
-        const nextValue = differenceInSeconds(finishTimeStamp, new Date());
-        if (nextValue >= 0) {
-          setTimerValue(nextValue);
-        } else {
-          stopTimer();
-        }
-      }, 100);
-    }
-  }, [timerStarted]);
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -62,9 +75,9 @@ const HomeScreen = () => {
       </View>
       <View style={styles.timerContainer}>
         <TimerWidget
-          timerStarted={timerStarted}
+          isTimerStarted={isTimerStarted}
           startTimer={startTimer}
-          stopTimer={stopTimer}
+          stopTimer={discardPomodo}
           timerValue={timerValue}
           togglePicker={togglePicker}
         />
@@ -80,8 +93,9 @@ const HomeScreen = () => {
         togglePicker={togglePicker} />
 
       <TaskSuccessModal
-        visible={taskSuccessVisible}
-        toggleVisibility={setTaskSuccessVisible}
+        visible={isSuccessModalVisible}
+        toggleVisibility={setModalVisibility}
+        timeSpent={completedTimerValue}
       />  
     </SafeAreaView>
   );

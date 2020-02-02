@@ -18,7 +18,7 @@ const widgetWidth = screenWidth - HORIZONTAL_SCREEN_OFFSET * 2;
 const timerContainerWidth = widgetWidth * LEFT_PART / (LEFT_PART + RIGHT_PART);
 const timerRadius = Math.min((WIDGET_HEIGHT - 30) / 2, (timerContainerWidth - (HORIZONTAL_TIMER_OFFSET * 2)) / 2);
 
-const TimerWidget = ({ timerStarted, startTimer, stopTimer, navigation, ...props }) => (
+const TimerWidget = ({ isTimerStarted, startTimer, stopTimer, navigation, ...props }) => (
   <View style={styles.container}>
     <View style={styles.timerContainer}>
       <TouchableOpacity
@@ -29,22 +29,22 @@ const TimerWidget = ({ timerStarted, startTimer, stopTimer, navigation, ...props
       </TouchableOpacity>
       <Timer
         radius={timerRadius}
-        timerStarted={timerStarted}
+        isTimerStarted={isTimerStarted}
         {...props}
       />
     </View>
     <View style={styles.btnsContainer}>
       <TouchableOpacity
         style={{ ...styles.btn, ...styles.btn__top }}
-        onPress={!timerStarted ? startTimer : stopTimer}
+        onPress={!isTimerStarted ? startTimer : stopTimer}
       >
         <Ionicons
           style={styles.btnIcon}
-          name={!timerStarted ? 'ios-rocket' : 'ios-trash'}
+          name={!isTimerStarted ? 'ios-rocket' : 'ios-trash'}
           size={32}
           color="#F1F1F1"
         />
-        <Text style={styles.btnText}>{!timerStarted ? 'Start Timer' : 'Discard'}</Text>
+        <Text style={styles.btnText}>{!isTimerStarted ? 'Start Timer' : 'Discard'}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={{ ...styles.btn, ...styles.btn__bottom }}
@@ -58,7 +58,7 @@ const TimerWidget = ({ timerStarted, startTimer, stopTimer, navigation, ...props
 );
 
 TimerWidget.propTypes = {
-  timerStarted: PropTypes.bool.isRequired,
+  isTimerStarted: PropTypes.bool.isRequired,
   startTimer: PropTypes.func.isRequired,
   stopTimer: PropTypes.func.isRequired,
 };
