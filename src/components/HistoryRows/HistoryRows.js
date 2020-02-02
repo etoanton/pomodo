@@ -26,9 +26,8 @@ const HistoryRows = () => {
   const [activeTabId, setActiveTabId] = useState(TABS.DAY);
   const [data, setData] = useState([]);
 
-  const { loading, results, error } = useDataFetching(Pomodos.getPomodos);
+  const { loading, results, refetch } = useDataFetching(Pomodos.getPomodos);
 
-  const onRefresh = () => {};
   const scrollToday = () => {
     const { currentDayRowIndex } = getCurrentDayIndex();
     listRef.scrollToIndex({ index: currentDayRowIndex, animated: true, viewPosition: 0.5 });
@@ -44,8 +43,6 @@ const HistoryRows = () => {
 
     setData(mergedData);
   }, [results]);
-
-  // TODO: https://facebook.github.io/react-native/docs/refreshcontrol
 
   return (
     <View style={styles.container}>
@@ -72,7 +69,7 @@ const HistoryRows = () => {
             />
           )}
           keyExtractor={row => `${row.id}`}
-          refreshControl={<RefreshControl refreshing={loading} onRefresh={onRefresh} />}
+          refreshControl={<RefreshControl refreshing={loading} onRefresh={refetch} />}
         />
       </View>
       <View style={styles.dayPreviewContainer}>
