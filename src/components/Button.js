@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ActivityIndicator,
   View,
@@ -10,22 +11,32 @@ import {
 const noop = () => {};
 
 const Button = ({
-  label = '',
-  onPress = noop,
-  loading = false,
+  label,
+  onPress,
+  loading,
   btnStyles = {},
-}) => {
-  return (
-    <TouchableOpacity
-      style={{ ...styles.submitButtonContainer, ...btnStyles }}
-      onPress={!loading ? onPress : noop}
-    >
-      <View style={styles.btnContent}>
-        { loading && <ActivityIndicator size="small" color="#F1F1F1"  /> }
-        <Text style={styles.submitButtonText}>{label}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+}) => (
+  <TouchableOpacity
+    style={{ ...styles.submitButtonContainer, ...btnStyles }}
+    onPress={!loading ? onPress : noop}
+  >
+    <View style={styles.btnContent}>
+      { loading && <ActivityIndicator size="small" color="#F1F1F1"  /> }
+      <Text style={styles.submitButtonText}>{label}</Text>
+    </View>
+  </TouchableOpacity>
+);
+
+Button.defaultProps = {
+  loading: false,
+  btnStyles: {},
+};
+
+Button.propTypes = {
+  loading: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+  btnStyles: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

@@ -30,13 +30,18 @@ const App = () => {
     validateAuthentification();
   }, []);
 
+  const contextValue = {
+    user,
+    loading,
+    setUser,
+    logout,
+  };
+
   return (
-    <AppStateContext.Provider value={{ user, loading, setUser, logout }}>
+    <AppStateContext.Provider value={contextValue}>
       <RootNavigator />
     </AppStateContext.Provider>
   );
 };
 
 export default App;
-
-

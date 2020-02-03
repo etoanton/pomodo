@@ -1,10 +1,20 @@
 import React from 'react';
-import { StyleSheet, View, Picker, TouchableWithoutFeedback } from 'react-native';
 import PropTypes from 'prop-types';
+import {
+  StyleSheet,
+  View,
+  Picker,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
 import { Tags, useDataFetching } from '../api';
 
-const TagsPicker = ({ value, setValue, visible, togglePicker }) => {
+const TagsPicker = ({
+  value,
+  setValue,
+  visible,
+  togglePicker,
+}) => {
   const { loading, results } = useDataFetching(Tags.getTags);
 
   const values = results.data ? results.data.map(({ id, name }) => ({
@@ -17,22 +27,22 @@ const TagsPicker = ({ value, setValue, visible, togglePicker }) => {
       <TouchableWithoutFeedback onPress={() => togglePicker(false)}>
         <View style={styles.pickerOverlay}>
           <View style={styles.pickerContainer}>
-            { !loading && 
+            { !loading && (
               <Picker
                 selectedValue={value}
                 onValueChange={v => setValue(v)}
                 style={styles.picker}
               >
-                {values.map(({ label, value }) => (
+                {values.map(valueItem => (
                   <Picker.Item
                     key={value}
                     color="#ffffff"
-                    label={label}
-                    value={value}
+                    label={valueItem.label}
+                    value={valueItem.value}
                   />
                 ))}
               </Picker>
-            }
+            )}
           </View>
         </View>
       </TouchableWithoutFeedback>
@@ -40,8 +50,12 @@ const TagsPicker = ({ value, setValue, visible, togglePicker }) => {
   );
 };
 
+TagsPicker.defaultProps = {
+  value: null,
+};
+
 TagsPicker.propTypes = {
-  value: PropTypes.any,
+  value: PropTypes.string,
   visible: PropTypes.bool.isRequired,
   togglePicker: PropTypes.func.isRequired,
   setValue: PropTypes.func.isRequired,

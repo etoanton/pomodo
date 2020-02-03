@@ -6,7 +6,7 @@ import {
   View,
   Dimensions,
 } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 
@@ -21,20 +21,26 @@ const HORIZONTAL_SCREEN_OFFSET = 12;
 const HORIZONTAL_TIMER_OFFSET = 20;
 const WIDGET_HEIGHT = 255;
 const widgetWidth = screenWidth - HORIZONTAL_SCREEN_OFFSET * 2;
-const timerContainerWidth = widgetWidth * LEFT_PART / (LEFT_PART + RIGHT_PART);
+const timerContainerWidth = (widgetWidth * LEFT_PART) / (LEFT_PART + RIGHT_PART);
 const timerRadius = Math.min(
   (WIDGET_HEIGHT - 30) / 2, (timerContainerWidth - (HORIZONTAL_TIMER_OFFSET * 2)) / 2,
 );
 
-const TimerWidget = ({ isTimerStarted, startTimer, stopTimer, navigation, ...props }) => (
+const TimerWidget = ({
+  isTimerStarted,
+  startTimer,
+  stopTimer,
+  navigation,
+  ...props
+}) => (
   <View style={styles.container}>
     <View style={styles.timerContainer}>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.fullScreenBtn}
         hitSlop={{ top: 10, left: 10, right: 10, bottom: 10 }}
       >
         <MaterialIcons name="fullscreen" size={32} color="#CFCFCF" />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <Timer
         radius={timerRadius}
         isTimerStarted={isTimerStarted}

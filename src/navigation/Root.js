@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -18,7 +19,7 @@ const HomeScreenStack = createStackNavigator(
     mode: 'modal',
     headerMode: 'none',
     // transparentCard: true
-  }
+  },
 );
 
 const AppNavigator = createStackNavigator(

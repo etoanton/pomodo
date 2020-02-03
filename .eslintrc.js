@@ -26,5 +26,7 @@ module.exports = {
     "no-use-before-define": "off",
     "react/jsx-props-no-spreading": "off",
     "arrow-parens": "off",
+    "react/forbid-prop-types": "off",
+    "import/no-extraneous-dependencies": "off",
   },
 };

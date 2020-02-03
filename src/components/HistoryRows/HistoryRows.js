@@ -1,5 +1,12 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, FlatList, View, RefreshControl } from 'react-native';
+import PropTypes from 'prop-types';
+import {
+  StyleSheet,
+  FlatList,
+  View,
+  RefreshControl,
+} from 'react-native';
 
 import { Pomodos, useDataFetching } from '../../api';
 import daysList from '../../../helpers/2020-days.json';
@@ -14,7 +21,7 @@ const TABS = {
   WEEK: 'w',
   MONTH: 'm',
   YEAR: 'y',
-}
+};
 
 const daysData = separateToRows(daysList);
 const weeksData = separateToRows(daysList);
@@ -30,7 +37,7 @@ const HistoryRows = ({ user }) => {
 
   const scrollToday = () => {
     const { currentDayRowIndex } = getCurrentDayIndex();
-    listRef.scrollToIndex({ 
+    listRef.scrollToIndex({
       index: currentDayRowIndex,
       animated: true,
       viewPosition: 0.5,
@@ -68,10 +75,10 @@ const HistoryRows = ({ user }) => {
       </View>
       <View style={styles.listContainer}>
         <FlatList
-          ref={ref => listRef = ref}
+          ref={ref => { listRef = ref; }}
           data={data}
           renderItem={({ item = [] }) => (
-            <SingleRow 
+            <SingleRow
               row={item}
               setSelectedDay={setSelectedDay}
             />
@@ -81,11 +88,21 @@ const HistoryRows = ({ user }) => {
         />
       </View>
       <View style={styles.dayPreviewContainer}>
-        { selectedDay !== null && <DayPreview selectedDay={selectedDay} setSelectedDay={setSelectedDay} /> }
+        { selectedDay !== null && (
+          <DayPreview selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+        ) }
       </View>
     </View>
   );
-}
+};
+
+HistoryRows.defaultProps = {
+  user: null,
+};
+
+HistoryRows.propTypes = {
+  user: PropTypes.object,
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -97,7 +114,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   listContainer: {
     flex: 1,

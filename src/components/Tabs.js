@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 const Tab = ({ name, onPress, active }) => (
   <TouchableOpacity
@@ -76,15 +76,13 @@ const styles = StyleSheet.create({
   separator: {
     width: 1,
     height: 30,
-    backgroundColor: '#fafafa'
+    backgroundColor: '#fafafa',
   },
   todayBtn: {
     width: 50,
     alignItems: 'center',
     borderRadius: 7,
     paddingVertical: 5,
-    // borderWidth: 1,
-    // borderColor: '#67B78F',
   },
   todayBtnText: {
     fontWeight: '600',

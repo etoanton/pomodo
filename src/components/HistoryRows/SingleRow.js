@@ -1,12 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 
-import { DOT_SIZE, SCREEN_HORIZONTAL_PADDING, ROW_ELEMENT_COUNT } from './config';
+import { DOT_SIZE, SCREEN_HORIZONTAL_PADDING } from './config';
 import { calculateFrameSizes, calculateFramePositions, getCurrentDayIndex } from './helpers';
 
-const { offsetBetweenDots, startFrom, singleFrameWidth, spaceBetweenFrames } = calculateFrameSizes();
+const {
+  offsetBetweenDots,
+  startFrom,
+  singleFrameWidth,
+  spaceBetweenFrames,
+} = calculateFrameSizes();
 
-const SingleRow = ({ row, setSelectedDay }) => {
+const SingleRow = ({
+  row,
+  setSelectedDay,
+}) => {
   const { currentDayIndex } = getCurrentDayIndex();
   const frames = calculateFramePositions(row.data);
 
@@ -14,7 +23,7 @@ const SingleRow = ({ row, setSelectedDay }) => {
     <View style={styles.rowContainer}>
       {row.data.map(({ id }) => {
         const isToday = (id + 1) === currentDayIndex;
-        
+
         return (
           <TouchableOpacity
             key={`${id}_item`}
@@ -38,13 +47,30 @@ const SingleRow = ({ row, setSelectedDay }) => {
               width,
             }}
           />
-        )
+        );
       }) }
       {/* { isScrolling && <View style={styles.rowLabelContainer}>
         <Text style={styles.rowLabel}>{rowIndex * ROW_ELEMENT_COUNT + 1}</Text>
       </View> } */}
     </View>
   );
+};
+
+SingleRow.propTypes = {
+  row: PropTypes.shape({
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        completedTasks: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            // ...
+          }),
+        ),
+      }),
+    ),
+  }).isRequired,
+  setSelectedDay: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

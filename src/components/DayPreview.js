@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Ionicons } from '@expo/vector-icons';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -6,7 +8,6 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 import { Pomodos, useDataFetching } from '../api';
 import { getFormattedDateBasedOnDayOfYear } from '../dateTooklit';
@@ -49,6 +50,11 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
       </TouchableOpacity>
     </View>
   );
+};
+
+DayPreview.propTypes = {
+  selectedDay: PropTypes.string.isRequired,
+  setSelectedDay: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

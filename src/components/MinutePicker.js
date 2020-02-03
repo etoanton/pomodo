@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   View,
   Picker,
   TouchableWithoutFeedback,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 // TODO: remove 0.1 - it's for testing
 const values = [0.05, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
