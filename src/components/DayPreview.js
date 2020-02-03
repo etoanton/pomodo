@@ -53,7 +53,7 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
 };
 
 DayPreview.propTypes = {
-  selectedDay: PropTypes.string.isRequired,
+  selectedDay: PropTypes.number.isRequired,
   setSelectedDay: PropTypes.func.isRequired,
 };
 
