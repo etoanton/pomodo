@@ -9,7 +9,7 @@ const ProgressBar = ({ completed }) => (
 );
 
 ProgressBar.propTypes = {
-  completed: PropTypes.number,
+  completed: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({

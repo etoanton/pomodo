@@ -1,13 +1,18 @@
 import React from 'react';
-import { StyleSheet, View, Picker, TouchableWithoutFeedback } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Picker,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import PropTypes from 'prop-types';
 
 // TODO: remove 0.1 - it's for testing
 const values = [0.05, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
   .map(v => {
-    const tempMinutesV = Math.trunc(v * 60/60);
+    const tempMinutesV = Math.trunc((v * 60) / 60);
     const minutesV = tempMinutesV < 10 ? `0${tempMinutesV}` : tempMinutesV;
-    const tempSecondsV = v * 60 % 60;
+    const tempSecondsV = (v * 60) % 60;
     const secondsV = tempSecondsV < 10 ? `0${tempSecondsV}` : tempSecondsV;
 
     return {
@@ -16,8 +21,12 @@ const values = [0.05, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80
     };
   });
 
-
-const MinutePicker = ({ value, setValue, visible, togglePicker }) => (
+const MinutePicker = ({
+  value,
+  setValue,
+  visible,
+  togglePicker,
+}) => (
   visible && (
     <TouchableWithoutFeedback onPress={() => togglePicker(false)}>
       <View style={styles.pickerOverlay}>
@@ -27,12 +36,12 @@ const MinutePicker = ({ value, setValue, visible, togglePicker }) => (
             onValueChange={v => setValue(v)}
             style={styles.picker}
           >
-            {values.map(({ label, value }) => (
+            {values.map((valueItem) => (
               <Picker.Item
                 key={value}
                 color="#ffffff"
-                label={label}
-                value={value}
+                label={valueItem.label}
+                value={valueItem.value}
               />
             ))}
           </Picker>
@@ -43,7 +52,7 @@ const MinutePicker = ({ value, setValue, visible, togglePicker }) => (
 );
 
 MinutePicker.propTypes = {
-  value: PropTypes.any.isRequired,
+  value: PropTypes.number.isRequired,
   visible: PropTypes.bool.isRequired,
   togglePicker: PropTypes.func.isRequired,
   setValue: PropTypes.func.isRequired,

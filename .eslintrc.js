@@ -25,5 +25,6 @@ module.exports = {
     "react/jsx-filename-extension": "off",
     "no-use-before-define": "off",
     "react/jsx-props-no-spreading": "off",
+    "arrow-parens": "off",
   },
 };

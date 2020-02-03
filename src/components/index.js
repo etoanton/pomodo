@@ -1,4 +1,3 @@
-
 import HistoryRows from './HistoryRows';
 import Button from './Button';
 import DayPreview from './DayPreview';

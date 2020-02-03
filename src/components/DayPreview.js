@@ -1,5 +1,11 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Pomodos, useDataFetching } from '../api';
@@ -9,7 +15,7 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
   const rawSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'yyyy-MM-dd');
   const formattedSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'do MMM');
 
-  const { loading, results, error } = useDataFetching(Pomodos.getPomodo, rawSelectedDate);
+  const { loading, results } = useDataFetching(Pomodos.getPomodo, rawSelectedDate);
   const completedCount = results && results.data ? results.data.length : 0;
 
   return (
@@ -20,13 +26,17 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
           name="ios-menu"
           size={21}
           color="#F1F1F1"
-          />
+        />
       </TouchableOpacity>
       <View style={styles.countContainer}>
-        <Text style={styles.textCount}>{completedCount} pomodo(s)</Text>
-        <Text style={styles.textDate}>at {formattedSelectedDate}</Text>
+        <Text style={styles.textCount}>
+          {`${completedCount} pomodo(s)`}
+        </Text>
+        <Text style={styles.textDate}>{`at ${formattedSelectedDate}`}</Text>
         { loading && (
-          <View style={styles.loadingDate}><ActivityIndicator size="small" color="#F1F1F1" /></View>
+          <View style={styles.loadingDate}>
+            <ActivityIndicator size="small" color="#F1F1F1" />
+          </View>
         ) }
       </View>
       <TouchableOpacity style={styles.closeContainer} onPress={() => setSelectedDay(null)}>
@@ -50,7 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
 
-    shadowColor: "#000000",
+    shadowColor: '#000000',
     shadowOffset: {
       width: 0,
       height: 3,
@@ -76,7 +86,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   textDate: {
-    color: '#F1F1F1',
     paddingLeft: 4,
     color: '#B6B6B6',
     fontWeight: '300',

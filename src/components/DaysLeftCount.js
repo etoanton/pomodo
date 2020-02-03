@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-
 import {
   startOfWeek,
   addMonths,
@@ -44,7 +43,9 @@ const DaysLeftCount = ({ label }) => {
         <Text style={styles.count}>{leftCount}</Text>
         <View style={styles.textContainer}>
           <Text style={styles.text}>day(s) of</Text>
-          <Text style={styles.text}>{label} left</Text>
+          <Text style={styles.text}>
+            {`${label} left`}
+          </Text>
         </View>
       </View>
       <View style={styles.progressContainer}>
@@ -52,7 +53,7 @@ const DaysLeftCount = ({ label }) => {
       </View>
     </View>
   );
-}  
+};
 
 DaysLeftCount.week = 'week';
 DaysLeftCount.month = 'month';

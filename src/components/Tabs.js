@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import PropTypes from 'prop-types';
 
 const Tab = ({ name, onPress, active }) => (
@@ -11,32 +16,44 @@ const Tab = ({ name, onPress, active }) => (
   </TouchableOpacity>
 );
 
-const Tabs = ({ activeTabId, tabsConfig = [], handlePress, scrollToday }) => {
-  return (
-    <View style={styles.tabsContainer}>
-      {tabsConfig.map(({ id, name }) => (
-        <Tab
-          key={name}
-          active={id === activeTabId}
-          name={name}
-          onPress={() => handlePress(id)}
-        />
-      ))}
-
-      <TouchableOpacity style={styles.todayBtn} onPress={scrollToday}>
-        <Text style={styles.todayBtnText}>Today</Text>
-      </TouchableOpacity>
-    </View>
-  );
+Tab.propTypes = {
+  name: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+  active: PropTypes.bool.isRequired,
 };
 
+const Tabs = ({
+  activeTabId,
+  tabsConfig,
+  handlePress,
+  scrollToday,
+}) => (
+  <View style={styles.tabsContainer}>
+    {tabsConfig.map(({ id, name }) => (
+      <Tab
+        key={name}
+        active={id === activeTabId}
+        name={name}
+        onPress={() => handlePress(id)}
+      />
+    ))}
+
+    <TouchableOpacity style={styles.todayBtn} onPress={scrollToday}>
+      <Text style={styles.todayBtnText}>Today</Text>
+    </TouchableOpacity>
+  </View>
+);
+
 Tabs.propTypes = {
+  activeTabId: PropTypes.string.isRequired,
   tabsConfig: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      handler: PropTypes.func
-    })
+      handler: PropTypes.func,
+    }),
   ).isRequired,
+  handlePress: PropTypes.func.isRequired,
+  scrollToday: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({
