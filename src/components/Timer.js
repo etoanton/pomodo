@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 import TicksBackground from './TicksBackground';
+import { getTimerMSValues } from '../dateTooklit';
 
 const BORDER_WIDTH = 6;
 const TICK_SIZE = 10;
@@ -17,12 +18,9 @@ const Timer = ({
   const outerDiameter = outerRadius * 2;
   const innerDiameter = innerRadius * 2;
 
-  const tempMinutesV = Math.trunc(timerValue/60);
-  const minutesV = tempMinutesV < 10 ? `0${tempMinutesV}` : tempMinutesV;
-  const tempSecondsV = timerValue % 60;
-  const secondsV = tempSecondsV < 10 ? `0${tempSecondsV}` : tempSecondsV;
-
   const ticksCircleRadius = outerRadius - BORDER_WIDTH * 2 - TICK_SIZE;
+
+  const { min, sec } = getTimerMSValues(timerValue);
 
   return (
     <View style={styles.container}>
@@ -33,7 +31,7 @@ const Timer = ({
           disabled={isTimerStarted}
           onPress={() => togglePicker(true)}
         >
-          <Text style={styles.timeText}>{`${minutesV}:${secondsV}`}</Text>
+          <Text style={styles.timeText}>{`${min}:${sec}`}</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.ticksBackgroundContainer}>

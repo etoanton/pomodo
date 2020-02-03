@@ -26,11 +26,15 @@ const HistoryRows = () => {
   const [activeTabId, setActiveTabId] = useState(TABS.DAY);
   const [data, setData] = useState([]);
 
-  const { loading, results, refetch } = useDataFetching(Pomodos.getPomodos);
+  const { loading, results, refetch: refetchPomodos } = useDataFetching(Pomodos.getPomodos);
 
   const scrollToday = () => {
     const { currentDayRowIndex } = getCurrentDayIndex();
-    listRef.scrollToIndex({ index: currentDayRowIndex, animated: true, viewPosition: 0.5 });
+    listRef.scrollToIndex({ 
+      index: currentDayRowIndex,
+      animated: true,
+      viewPosition: 0.5,
+    });
   };
 
   /* Merge "empty" list of days data & user data */
@@ -69,7 +73,7 @@ const HistoryRows = () => {
             />
           )}
           keyExtractor={row => `${row.id}`}
-          refreshControl={<RefreshControl refreshing={loading} onRefresh={refetch} />}
+          refreshControl={<RefreshControl refreshing={loading} onRefresh={refetchPomodos} />}
         />
       </View>
       <View style={styles.dayPreviewContainer}>

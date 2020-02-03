@@ -1,51 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Modal,
   Text,
   View,
   StyleSheet,
+  ActivityIndicator,
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native';
 
-import { Pomodos } from '../api';
+import { getTimerMSValues } from '../dateTooklit';
+import { Pomodos, Tags, useDataFetching } from '../api';
 import Button from '../components/Button';
 
+import TagsPicker from '../components/TagsPicker'
+
 const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
-  const [loading, setLoading] = useState(false);
+  const [saveLoading, setSaveLoading] = useState(false);
+  const [isPickerVisible, togglePicker] = useState(false);
+  const [tagId, setTagId] = useState(null);
+
+  const { min, sec } = getTimerMSValues(timeSpent);
 
   const savePomodo = async () => {
-    setLoading(true)
+    setSaveLoading(true)
     try {
-      await Pomodos.savePomodo({
-        taskNotes: null,
-        tagId: null,
-        timeSpent,
-      });
-
+      await Pomodos.savePomodo({ taskNotes: null, tagId, timeSpent });
       toggleVisibility(false);
     } catch (error) {
-      console.log('Failed to save pomodo', error);
+      console.log('NOTIFICATION: Failed to save pomodo', error);
     } finally {
-      setLoading(false);
+      setSaveLoading(false);
     }
-
   };
 
+  const {
+    loading: tagsLoading,
+    results: { data: tagsData = [] },
+    error,
+  } = useDataFetching(Tags.getTags);
+
+  useEffect(() => {
+    if (tagsData.length) {
+      const defaultTag = tagsData.find(({ name }) => name.toLowerCase() === 'other').id;
+      setTagId(defaultTag);
+    }
+  }, [tagsData])
+
+  const tagLabel = tagId ? tagsData.find(({ id }) => id === tagId).name : '';
+
   return (
-    <Modal
-      visible={visible}
-      animationType="fade"
-      transparent
-    >
+    <Modal visible={visible} animationType="fade" transparent>
       <TouchableWithoutFeedback onPress={() => toggleVisibility(false)}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Success!</Text>
             <View style={styles.resultsContent}>
-              <Text style={styles.resultsText}>15 minutes of</Text>
-              <TouchableOpacity style={styles.tagContainer}>
-                <Text style={styles.tagLabel}>Work</Text>
+              <Text style={styles.resultsText}>{`${min}:${sec}`} of</Text>
+              <TouchableOpacity style={styles.tagContainer} onPress={() => togglePicker(true)}>
+                {tagsLoading && <ActivityIndicator size="small" color="#F1F1F1"  />}
+                {!tagsLoading && <Text style={styles.tagLabel}>{tagLabel}</Text>}
               </TouchableOpacity>
             </View>
             <View style={styles.btnsContainer}>
@@ -53,7 +67,7 @@ const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
                 <Button
                   label="Save"
                   btnStyles={styles.successBtn}
-                  loading={loading}
+                  loading={saveLoading}
                   onPress={savePomodo}
                 />
               </View>
@@ -68,6 +82,13 @@ const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
           </View>
         </View>
       </TouchableWithoutFeedback>
+
+      <TagsPicker
+        visible={isPickerVisible}
+        value={tagId}
+        setValue={setTagId}
+        togglePicker={togglePicker}
+      />
     </Modal>
   );
 };

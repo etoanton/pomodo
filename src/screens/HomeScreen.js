@@ -20,7 +20,6 @@ const HomeScreen = () => {
   const [finishTimeStamp, setFinishTimeStamp] = useState(null);
 
   const [completedTimerValue, setCompletedTimerValue] = useState(0);
-  const [timerId, setTimerId] = useState(null);
 
   const startTimer = () => {
     toggleStartTimer(true);
@@ -38,8 +37,6 @@ const HomeScreen = () => {
         completePomodo();
       }
     }, 100);
-
-    setTimerId(timerId);
   };
 
   const completePomodo = () => {
@@ -57,7 +54,6 @@ const HomeScreen = () => {
     setTimerValue(INIT_TIMER_VALUE);
     setFinishTimeStamp(null);
     toggleStartTimer(false);
-    setTimerId(null);
   };
 
   return (
@@ -75,10 +71,10 @@ const HomeScreen = () => {
       </View>
       <View style={styles.timerContainer}>
         <TimerWidget
+          timerValue={timerValue}
           isTimerStarted={isTimerStarted}
           startTimer={startTimer}
           stopTimer={discardPomodo}
-          timerValue={timerValue}
           togglePicker={togglePicker}
         />
       </View>
@@ -90,7 +86,8 @@ const HomeScreen = () => {
         visible={isPickerVisible}
         value={timerValue}
         setValue={setTimerValue}
-        togglePicker={togglePicker} />
+        togglePicker={togglePicker}
+      />
 
       <TaskSuccessModal
         visible={isSuccessModalVisible}
