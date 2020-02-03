@@ -1,5 +1,11 @@
 import React from 'react';
-import { ActivityIndicator, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  ActivityIndicator,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 
 const noop = () => {};
 
@@ -19,7 +25,7 @@ const Button = ({
         <Text style={styles.submitButtonText}>{label}</Text>
       </View>
     </TouchableOpacity>
-  );    
+  );
 };
 
 const styles = StyleSheet.create({

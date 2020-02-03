@@ -73,7 +73,7 @@ const SignInScreen = ({ navigation }) => {
       .then((response) => response.json())
       .then(({ data }) => {
         AsyncStorage.setItem('@Auth:token', data.token);
-        setUser(data.user)
+        setUser(data.user);
         navigation.popToTop();
       });
   };
@@ -88,8 +88,10 @@ const SignInScreen = ({ navigation }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Success:', data.token);
-      })
+        AsyncStorage.setItem('@Auth:token', data.token);
+        setUser(data.user);
+        navigation.popToTop();
+      });
   };
 
   return (
@@ -126,81 +128,85 @@ const SignInScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        { authType === SIGN_IN && <View style={styles.formContainer}>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...emailCommonProps}
-              autoCompleteType="username"
-              style={styles.input}
-              value={email}
-              onChangeText={onChangeEmail}
-            />
+        { authType === SIGN_IN && (
+          <View style={styles.formContainer}>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...emailCommonProps}
+                autoCompleteType="username"
+                style={styles.input}
+                value={email}
+                onChangeText={onChangeEmail}
+              />
+            </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...passwordCommonProps}
+                autoCompleteType="password"
+                style={styles.input}
+                value={passwordSignIn}
+                onChangeText={onChangePasswordSignIn}
+              />
+            </View>
+            <View style={styles.submitButtonContainer}>
+              <TouchableOpacity
+                style={styles.submitButton}
+                onPress={signIn}
+              >
+                <Text style={styles.submitButtonText}>Sign In</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...passwordCommonProps}
-              autoCompleteType="password"
-              style={styles.input}
-              value={passwordSignIn}
-              onChangeText={onChangePasswordSignIn}
-            />
-          </View>
-          <View style={styles.submitButtonContainer}>
-            <TouchableOpacity
-              style={styles.submitButton}
-              onPress={signIn}
-            >
-              <Text style={styles.submitButtonText}>Sign In</Text>
-            </TouchableOpacity>
-          </View>
-        </View> }
+        ) }
 
-        { authType === SIGN_UP && <View style={styles.formContainer}>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...emailCommonProps}
-              autoCompleteType="username"
-              style={styles.input}
-              value={email}
-              onChangeText={onChangeEmail}
-            />
+        { authType === SIGN_UP && (
+          <View style={styles.formContainer}>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...emailCommonProps}
+                autoCompleteType="username"
+                style={styles.input}
+                value={email}
+                onChangeText={onChangeEmail}
+              />
+            </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...passwordCommonProps}
+                style={styles.input}
+                value={passwordSignUp}
+                onChangeText={onChangePasswordSignUp}
+              />
+            </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                {...commonInputProps}
+                {...passwordCommonProps}
+                placeholder="Repeat password"
+                textContentType="newPassword"
+                style={styles.input}
+                value={passwordSignUpRepeat}
+                onChangeText={onChangePasswordSignUpRepeat}
+              />
+            </View>
+            <View style={styles.submitButtonContainer}>
+              <TouchableOpacity
+                style={styles.submitButton}
+                onPress={signUp}
+              >
+                <Text style={styles.submitButtonText}>Sign Up</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...passwordCommonProps}
-              style={styles.input}
-              value={passwordSignUp}
-              onChangeText={onChangePasswordSignUp}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <TextInput
-              {...commonInputProps}
-              {...passwordCommonProps}
-              placeholder="Repeat password"
-              textContentType="newPassword"
-              style={styles.input}
-              value={passwordSignUpRepeat}
-              onChangeText={onChangePasswordSignUpRepeat}
-            />
-          </View>
-          <View style={styles.submitButtonContainer}>
-            <TouchableOpacity
-              style={styles.submitButton}
-              onPress={signUp}
-            >
-              <Text style={styles.submitButtonText}>Sign Up</Text>
-            </TouchableOpacity>
-          </View>
-        </View> }
+        ) }
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
-}
+};
 
 SignInScreen.navigationOptions = {
   headerShown: false,
@@ -261,7 +267,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   submitButton: {
-    backgroundColor: BACKGROUND_DARK_COLOR,
     paddingVertical: 15,
     paddingHorizontal: 12,
     borderRadius: 5,
@@ -273,6 +278,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-});  
+});
 
 export default SignInScreen;

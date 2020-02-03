@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { addSeconds, differenceInSeconds } from 'date-fns';
 
@@ -113,10 +113,10 @@ const HomeScreen = ({ navigation }) => {
         visible={isSuccessModalVisible}
         toggleVisibility={setModalVisibility}
         timeSpent={completedTimerValue}
-      />  
+      />
     </SafeAreaView>
   );
-}
+};
 
 HomeScreen.navigationOptions = {
   headerShown: false,

@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: MAIN_BACKGROUND_COLOR,
   },
   screenUnderlay: {
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   menuContainer: {
     flex: 1,
@@ -77,4 +77,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeMenuModal;
-

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Tags, useDataFetching } from '../api';
 
 const TagsPicker = ({ value, setValue, visible, togglePicker }) => {
-  const { loading, results, error } = useDataFetching(Tags.getTags);
+  const { loading, results } = useDataFetching(Tags.getTags);
 
   const values = results.data ? results.data.map(({ id, name }) => ({
     value: id,
@@ -41,7 +41,7 @@ const TagsPicker = ({ value, setValue, visible, togglePicker }) => {
 };
 
 TagsPicker.propTypes = {
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any,
   visible: PropTypes.bool.isRequired,
   togglePicker: PropTypes.func.isRequired,
   setValue: PropTypes.func.isRequired,

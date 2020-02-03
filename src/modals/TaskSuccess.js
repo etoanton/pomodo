@@ -23,7 +23,7 @@ const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
   const { min, sec } = getTimerMSValues(timeSpent);
 
   const savePomodo = async () => {
-    setSaveLoading(true)
+    setSaveLoading(true);
     try {
       await Pomodos.savePomodo({ taskNotes: null, tagId, timeSpent });
       toggleVisibility(false);
@@ -37,7 +37,6 @@ const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
   const {
     loading: tagsLoading,
     results: { data: tagsData = [] },
-    error,
   } = useDataFetching(Tags.getTags);
 
   useEffect(() => {
@@ -45,7 +44,7 @@ const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
       const defaultTag = tagsData.find(({ name }) => name.toLowerCase() === 'other').id;
       setTagId(defaultTag);
     }
-  }, [tagsData])
+  }, [tagsData]);
 
   const tagLabel = tagId ? tagsData.find(({ id }) => id === tagId).name : '';
 
@@ -56,9 +55,9 @@ const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Success!</Text>
             <View style={styles.resultsContent}>
-              <Text style={styles.resultsText}>{`${min}:${sec}`} of</Text>
+              <Text style={styles.resultsText}>{`${min}:${sec} of`}</Text>
               <TouchableOpacity style={styles.tagContainer} onPress={() => togglePicker(true)}>
-                {tagsLoading && <ActivityIndicator size="small" color="#F1F1F1"  />}
+                {tagsLoading && <ActivityIndicator size="small" color="#F1F1F1" />}
                 {!tagsLoading && <Text style={styles.tagLabel}>{tagLabel}</Text>}
               </TouchableOpacity>
             </View>
@@ -145,8 +144,8 @@ const styles = StyleSheet.create({
   discardBtn: {
     borderRadius: 10,
     paddingVertical: 8,
-    backgroundColor: '#424555'
+    backgroundColor: '#424555',
   },
-});  
+});
 
 export default TaskSuccess;

@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import PropTypes from 'prop-types';
 
 import TicksBackground from './TicksBackground';
@@ -9,7 +14,7 @@ const BORDER_WIDTH = 6;
 const TICK_SIZE = 10;
 
 const Timer = ({
-  radius: outerRadius = 100,
+  radius: outerRadius,
   isTimerStarted,
   timerValue,
   togglePicker,
@@ -22,10 +27,24 @@ const Timer = ({
 
   const { min, sec } = getTimerMSValues(timerValue);
 
+  const outerCircleStyles = {
+    ...styles.timerOuterCircle,
+    width: outerDiameter,
+    height: outerDiameter,
+    borderRadius: outerRadius,
+  };
+
+  const innerCircleStyles = {
+    ...styles.timerInnerCircle,
+    width: innerDiameter,
+    height: innerDiameter,
+    borderRadius: innerDiameter,
+  };
+
   return (
     <View style={styles.container}>
-      <View style={{ ...styles.timerOuterCircle, width: outerDiameter, height: outerDiameter, borderRadius: outerRadius }} />
-      <View style={{ ...styles.timerInnerCircle, width: innerDiameter, height: innerDiameter, borderRadius: innerDiameter }} />
+      <View style={outerCircleStyles} />
+      <View style={innerCircleStyles} />
       <View style={styles.timeTextContainer}>
         <TouchableOpacity
           disabled={isTimerStarted}
@@ -42,6 +61,10 @@ const Timer = ({
       </View>
     </View>
   );
+};
+
+Timer.defaultProps = {
+  radius: 100,
 };
 
 Timer.propTypes = {

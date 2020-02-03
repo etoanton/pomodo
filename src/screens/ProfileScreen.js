@@ -1,5 +1,11 @@
 import React, { useEffect, useContext } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import AppStateContext from '../AppStateContext';
@@ -35,11 +41,11 @@ const ProfileScreen = ({ navigation }) => {
             </View>
           </View>
         </View>
-        
+
         <Button label="Sign Out" onPress={logout} />
       </View>
     </SafeAreaView>
-  );    
+  );
 };
 
 const styles = StyleSheet.create({
@@ -47,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: MAIN_BACKGROUND_COLOR,
     alignItems: 'stretch',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
   },
   closeBtnContainer: {
     position: 'absolute',
