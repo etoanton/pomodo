@@ -7,6 +7,7 @@ import ProgressBar from './ProgressBar';
 import Tabs from './Tabs';
 import TagsPicker from './TagsPicker';
 import TimerWidget from './TimerWidget';
+import TextInput from './TextInput';
 
 export {
   HistoryRows,
@@ -18,4 +19,5 @@ export {
   Tabs,
   TagsPicker,
   TimerWidget,
+  TextInput,
 };

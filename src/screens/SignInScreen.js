@@ -3,7 +3,7 @@ import {
   Text,
   View,
   StyleSheet,
-  TextInput,
+  // TextInput,
   TouchableOpacity,
   SafeAreaView,
   KeyboardAvoidingView,
@@ -13,33 +13,11 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { ENV } from '../config';
 import AppStateContext from '../AppStateContext';
-import { MAIN_BACKGROUND_COLOR, BACKGROUND_DARK_COLOR } from '../styles/colors';
+import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
+import { TextInput } from '../components';
 
 const SIGN_IN = 0;
 const SIGN_UP = 1;
-
-const commonInputProps = {
-  clearButtonMode: 'while-editing',
-  autoCorrect: false,
-  keyboardAppearance: 'dark',
-  maxLength: 50,
-  placeholderTextColor: '#636572',
-  spellCheck: false,
-};
-
-const emailCommonProps = {
-  autoFocus: true,
-  keyboardType: 'email-address',
-  placeholder: 'Email',
-  textContentType: 'username',
-  autoCapitalize: 'none',
-};
-
-const passwordCommonProps = {
-  placeholder: 'Password',
-  secureTextEntry: true,
-  textContentType: 'password',
-};
 
 const SignInScreen = ({ navigation }) => {
   const { setUser } = useContext(AppStateContext);
@@ -132,20 +110,16 @@ const SignInScreen = ({ navigation }) => {
           <View style={styles.formContainer}>
             <View style={styles.inputContainer}>
               <TextInput
-                {...commonInputProps}
-                {...emailCommonProps}
+                type="email"
                 autoCompleteType="username"
-                style={styles.input}
                 value={email}
                 onChangeText={onChangeEmail}
               />
             </View>
             <View style={styles.inputContainer}>
               <TextInput
-                {...commonInputProps}
-                {...passwordCommonProps}
+                type="password"
                 autoCompleteType="password"
-                style={styles.input}
                 value={passwordSignIn}
                 onChangeText={onChangePasswordSignIn}
               />
@@ -165,30 +139,24 @@ const SignInScreen = ({ navigation }) => {
           <View style={styles.formContainer}>
             <View style={styles.inputContainer}>
               <TextInput
-                {...commonInputProps}
-                {...emailCommonProps}
+                type="email"
                 autoCompleteType="username"
-                style={styles.input}
                 value={email}
                 onChangeText={onChangeEmail}
               />
             </View>
             <View style={styles.inputContainer}>
               <TextInput
-                {...commonInputProps}
-                {...passwordCommonProps}
-                style={styles.input}
+                type="password"
                 value={passwordSignUp}
                 onChangeText={onChangePasswordSignUp}
               />
             </View>
             <View style={styles.inputContainer}>
               <TextInput
-                {...commonInputProps}
-                {...passwordCommonProps}
+                type="password"
                 placeholder="Repeat password"
                 textContentType="newPassword"
-                style={styles.input}
                 value={passwordSignUpRepeat}
                 onChangeText={onChangePasswordSignUpRepeat}
               />
@@ -256,15 +224,6 @@ const styles = StyleSheet.create({
   submitButtonContainer: {
     marginTop: 10,
     paddingHorizontal: 20,
-  },
-  input: {
-    fontWeight: '300',
-    fontSize: 16,
-    color: '#fff',
-    backgroundColor: '#2F303B',
-    paddingVertical: 15,
-    paddingHorizontal: 18,
-    borderRadius: 5,
   },
   submitButton: {
     paddingVertical: 15,
