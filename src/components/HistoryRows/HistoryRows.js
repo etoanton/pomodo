@@ -20,7 +20,7 @@ const daysData = separateToRows(daysList);
 const weeksData = separateToRows(daysList);
 const monthesData = separateToRows(daysList);
 
-const HistoryRows = () => {
+const HistoryRows = ({ user }) => {
   let listRef = null;
   const [selectedDay, setSelectedDay] = useState(null);
   const [activeTabId, setActiveTabId] = useState(TABS.DAY);
@@ -36,6 +36,10 @@ const HistoryRows = () => {
       viewPosition: 0.5,
     });
   };
+
+  useEffect(() => {
+    refetchPomodos();
+  }, [user]);
 
   /* Merge "empty" list of days data & user data */
   useEffect(() => {

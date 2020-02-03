@@ -31,7 +31,7 @@ const App = () => {
   }, []);
 
   return (
-    <AppStateContext.Provider value={{ user, loading, logout }}>
+    <AppStateContext.Provider value={{ user, loading, setUser, logout }}>
       <RootNavigator />
     </AppStateContext.Provider>
   );

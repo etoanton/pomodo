@@ -15,18 +15,19 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
   return (
     <View style={styles.contentContainer}>
       <TouchableOpacity style={styles.viewAllContainer}>
-        { loading && <ActivityIndicator size="small" color="#F1F1F1" /> }
-        { !loading && <Ionicons
+        <Ionicons
           style={styles.btnIcon}
           name="ios-menu"
           size={21}
           color="#F1F1F1"
-          /> }
+          />
       </TouchableOpacity>
       <View style={styles.countContainer}>
-        
         <Text style={styles.textCount}>{completedCount} pomodo(s)</Text>
         <Text style={styles.textDate}>at {formattedSelectedDate}</Text>
+        { loading && (
+          <View style={styles.loadingDate}><ActivityIndicator size="small" color="#F1F1F1" /></View>
+        ) }
       </View>
       <TouchableOpacity style={styles.closeContainer} onPress={() => setSelectedDay(null)}>
         <Ionicons
@@ -43,7 +44,7 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
 const styles = StyleSheet.create({
   contentContainer: {
     paddingVertical: 3,
-    width: 280,
+    width: 300,
     borderRadius: 20,
     backgroundColor: '#2F2F38',
     flexDirection: 'row',

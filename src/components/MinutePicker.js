@@ -24,7 +24,7 @@ const MinutePicker = ({ value, setValue, visible, togglePicker }) => (
         <View style={styles.pickerContainer}>
           <Picker
             selectedValue={value}
-            onValueChange={setValue}
+            onValueChange={v => setValue(v)}
             style={styles.picker}
           >
             {values.map(({ label, value }) => (

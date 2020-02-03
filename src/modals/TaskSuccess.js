@@ -102,10 +102,10 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     paddingVertical: 30,
-    paddingHorizontal: 50,
+    paddingHorizontal: 30,
     backgroundColor: '#27272E',
     borderRadius: 25,
-    width: 250,
+    width: 300,
   },
   modalTitle: {
     color: '#fff',
@@ -113,10 +113,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   resultsContent: {
-    paddingVertical: 20,
+    paddingVertical: 24,
   },
   resultsText: {
-    fontSize: 14,
+    fontSize: 18,
     color: '#fff',
     textAlign: 'center',
   },
@@ -134,9 +134,7 @@ const styles = StyleSheet.create({
     fontWeight: '200',
     textAlign: 'center',
   },
-  btnsContainer: {
-
-  },
+  btnsContainer: {},
   btnContainer: {
     paddingTop: 10,
   },

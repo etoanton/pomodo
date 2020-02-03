@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Text,
   View,
@@ -10,8 +10,9 @@ import {
   AsyncStorage,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { ENV } from '../config';
 
+import { ENV } from '../config';
+import AppStateContext from '../AppStateContext';
 import { MAIN_BACKGROUND_COLOR, BACKGROUND_DARK_COLOR } from '../styles/colors';
 
 const SIGN_IN = 0;
@@ -41,6 +42,8 @@ const passwordCommonProps = {
 };
 
 const SignInScreen = ({ navigation }) => {
+  const { setUser } = useContext(AppStateContext);
+
   const [authType, setAuthType] = useState(SIGN_IN);
   const [email, onChangeEmail] = useState('');
   const [passwordSignIn, onChangePasswordSignIn] = useState('');
@@ -68,8 +71,9 @@ const SignInScreen = ({ navigation }) => {
       body: JSON.stringify({ email, password: passwordSignIn }),
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(({ data }) => {
         AsyncStorage.setItem('@Auth:token', data.token);
+        setUser(data.user)
         navigation.popToTop();
       });
   };

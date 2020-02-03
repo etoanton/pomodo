@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { addSeconds, differenceInSeconds } from 'date-fns';
 
-import DaysLeftCount from '../components/DaysLeftCount';
-import TimerWidget from '../components/TimerWidget';
-import HistoryRows from '../components/HistoryRows';
-import MinutePicker from '../components/MinutePicker';
-import TaskSuccessModal from '../modals/TaskSuccess';
+import {
+  DaysLeftCount,
+  TimerWidget,
+  HistoryRows,
+  MinutePicker,
+} from '../components';
+
+import { TaskSuccessModal } from '../modals';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
+import AppStateContext from '../AppStateContext';
 
 const INIT_TIMER_VALUE = 15 * 60;
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
+  const { user, loading: userLoading } = useContext(AppStateContext);
+
   const [isPickerVisible, togglePicker] = useState(false);
   const [isSuccessModalVisible, setModalVisibility] = useState(false);
 
@@ -19,24 +25,31 @@ const HomeScreen = () => {
   const [timerValue, setTimerValue] = useState(INIT_TIMER_VALUE);
   const [finishTimeStamp, setFinishTimeStamp] = useState(null);
 
+  const [timerId, setTimerId] = useState(0);
   const [completedTimerValue, setCompletedTimerValue] = useState(0);
 
   const startTimer = () => {
+    if (!user) {
+      if (userLoading) return;
+      navigation.navigate('SignIn');
+      return;
+    }
+
     toggleStartTimer(true);
-
     const nextFinishTimeStamp = addSeconds(new Date(), timerValue);
-    setFinishTimeStamp(nextFinishTimeStamp)
+    setFinishTimeStamp(nextFinishTimeStamp);
 
-    const timerId = setInterval(() => {
+    const localTimerId = setInterval(() => {
       const finishTimeStampValue = finishTimeStamp || nextFinishTimeStamp;
       const nextValue = differenceInSeconds(finishTimeStampValue, new Date());
       if (nextValue >= 0) {
         setTimerValue(nextValue);
       } else {
-        clearInterval(timerId);
+        clearInterval(localTimerId);
         completePomodo();
       }
-    }, 100);
+    }, 500);
+    setTimerId(localTimerId);
   };
 
   const completePomodo = () => {
@@ -51,6 +64,7 @@ const HomeScreen = () => {
   };
 
   const cleanUpTimer = () => {
+    if (timerId) clearInterval(timerId);
     setTimerValue(INIT_TIMER_VALUE);
     setFinishTimeStamp(null);
     toggleStartTimer(false);
@@ -58,6 +72,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.screenContainer}>
+      {/* Days left count */}
       <View style={styles.statsContainer}>
         <View style={styles.itemContainer}>
           <DaysLeftCount label={DaysLeftCount.week} />
@@ -69,6 +84,8 @@ const HomeScreen = () => {
           <DaysLeftCount label={DaysLeftCount.year} />
         </View>
       </View>
+
+      {/* Timer + Control Buttons */}
       <View style={styles.timerContainer}>
         <TimerWidget
           timerValue={timerValue}
@@ -78,10 +95,13 @@ const HomeScreen = () => {
           togglePicker={togglePicker}
         />
       </View>
+
+      {/* Abstract calendar */}
       <View style={styles.historyContainer}>
-        <HistoryRows />
+        <HistoryRows user={user} />
       </View>
 
+      {/* Modals & Pickers */}
       <MinutePicker
         visible={isPickerVisible}
         value={timerValue}

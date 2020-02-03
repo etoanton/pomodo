@@ -20,7 +20,7 @@ const TagsPicker = ({ value, setValue, visible, togglePicker }) => {
             { !loading && 
               <Picker
                 selectedValue={value}
-                onValueChange={setValue}
+                onValueChange={v => setValue(v)}
                 style={styles.picker}
               >
                 {values.map(({ label, value }) => (
