@@ -1,4 +1,5 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Text,
   View,
@@ -7,17 +8,25 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import * as firebase from 'firebase';
 
-import AppStateContext from '../AppStateContext';
 import Button from '../components/Button';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
 const ProfileScreen = ({ navigation }) => {
-  const { user = {}, loading, logout } = useContext(AppStateContext);
+  const [user, setUser] = useState({});
+
+  const signOut = () => {
+    firebase.auth().signOut();
+    navigation.replace('SignIn');
+  };
 
   useEffect(() => {
-    if (!loading && !user) navigation.replace('SignIn');
-  }, [user, loading]);
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if (!currentUser) navigation.replace('SignIn');
+      setUser(currentUser);
+    });
+  }, []);
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -42,7 +51,7 @@ const ProfileScreen = ({ navigation }) => {
           </View>
         </View>
 
-        <Button label="Sign Out" onPress={logout} />
+        <Button label="Sign Out" onPress={signOut} />
       </View>
     </SafeAreaView>
   );
@@ -93,5 +102,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+ProfileScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default ProfileScreen;

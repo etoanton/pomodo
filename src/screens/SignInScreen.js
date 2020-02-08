@@ -1,18 +1,16 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Text,
   View,
   StyleSheet,
-  // TextInput,
   TouchableOpacity,
   SafeAreaView,
   KeyboardAvoidingView,
-  AsyncStorage,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { ENV } from '../config';
-import AppStateContext from '../AppStateContext';
+import { Users } from '../api';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 import { TextInput } from '../components';
 
@@ -20,8 +18,6 @@ const SIGN_IN = 0;
 const SIGN_UP = 1;
 
 const SignInScreen = ({ navigation }) => {
-  const { setUser } = useContext(AppStateContext);
-
   const [authType, setAuthType] = useState(SIGN_IN);
   const [email, onChangeEmail] = useState('');
   const [passwordSignIn, onChangePasswordSignIn] = useState('');
@@ -39,37 +35,14 @@ const SignInScreen = ({ navigation }) => {
     setAuthType(SIGN_UP);
   };
 
-  // TODO: Use axios + interceptors
-  const signIn = () => {
-    fetch(`${ENV.apiUrl}/v1/users/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password: passwordSignIn }),
-    })
-      .then((response) => response.json())
-      .then(({ data }) => {
-        AsyncStorage.setItem('@Auth:token', data.token);
-        setUser(data.user);
-        navigation.popToTop();
-      });
+  const signIn = async () => {
+    const isSuccess = await Users.login(email, passwordSignIn);
+    if (isSuccess) navigation.popToTop();
   };
 
-  const signUp = () => {
-    fetch(`${ENV.apiUrl}/v1/users`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password: passwordSignUp }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        AsyncStorage.setItem('@Auth:token', data.token);
-        setUser(data.user);
-        navigation.popToTop();
-      });
+  const createUser = async () => {
+    const isSuccess = await Users.createUser(email, passwordSignUp);
+    if (isSuccess) navigation.popToTop();
   };
 
   return (
@@ -164,9 +137,9 @@ const SignInScreen = ({ navigation }) => {
             <View style={styles.submitButtonContainer}>
               <TouchableOpacity
                 style={styles.submitButton}
-                onPress={signUp}
+                onPress={createUser}
               >
-                <Text style={styles.submitButtonText}>Sign Up</Text>
+                <Text style={styles.submitButtonText}>Create New User</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -176,16 +149,12 @@ const SignInScreen = ({ navigation }) => {
   );
 };
 
-SignInScreen.navigationOptions = {
-  headerShown: false,
-};
-
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     backgroundColor: MAIN_BACKGROUND_COLOR,
     alignItems: 'stretch',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   contentContainer: {
     // paddingTop: 200,
@@ -238,5 +207,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+SignInScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
+
+SignInScreen.navigationOptions = {
+  headerShown: false,
+};
 
 export default SignInScreen;

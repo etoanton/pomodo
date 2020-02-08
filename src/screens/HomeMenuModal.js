@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   Text,
@@ -7,16 +8,27 @@ import {
   StyleSheet,
   SafeAreaView,
 } from 'react-native';
-
-import AppStateContext from '../AppStateContext';
+import * as firebase from 'firebase';
 
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
 const HomeMenuModal = ({ navigation }) => {
-  const { user, loading } = useContext(AppStateContext);
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    let didCancel = false;
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (!didCancel) setLoggedIn(!!user);
+    });
+
+    return () => {
+      didCancel = true;
+    };
+  }, []);
 
   const navigateToProfile = () => {
-    if (!loading && user && user.id) {
+    if (isLoggedIn) {
       navigation.navigate('Profile');
     } else {
       navigation.navigate('SignIn');
@@ -75,5 +87,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
 });
+
+HomeMenuModal.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default HomeMenuModal;

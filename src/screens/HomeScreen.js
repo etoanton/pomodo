@@ -1,6 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { addSeconds, differenceInSeconds } from 'date-fns';
+import * as firebase from 'firebase';
 
 import {
   DaysLeftCount,
@@ -11,12 +13,11 @@ import {
 
 import { TaskSuccessModal } from '../modals';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
-import AppStateContext from '../AppStateContext';
 
 const INIT_TIMER_VALUE = 15 * 60;
 
 const HomeScreen = ({ navigation }) => {
-  const { user, loading: userLoading } = useContext(AppStateContext);
+  const [user, setUser] = useState({});
 
   const [isPickerVisible, togglePicker] = useState(false);
   const [isSuccessModalVisible, setModalVisibility] = useState(false);
@@ -28,9 +29,15 @@ const HomeScreen = ({ navigation }) => {
   const [timerId, setTimerId] = useState(0);
   const [completedTimerValue, setCompletedTimerValue] = useState(0);
 
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if (!currentUser) navigation.replace('SignIn');
+      setUser(currentUser);
+    });
+  }, []);
+
   const startTimer = () => {
     if (!user) {
-      if (userLoading) return;
       navigation.navigate('SignIn');
       return;
     }
@@ -127,7 +134,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: MAIN_BACKGROUND_COLOR,
     alignItems: 'stretch',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
   },
   statsContainer: {
     flexDirection: 'row',
@@ -151,5 +158,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default HomeScreen;

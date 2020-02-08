@@ -49,9 +49,6 @@ const SingleRow = ({
           />
         );
       }) }
-      {/* { isScrolling && <View style={styles.rowLabelContainer}>
-        <Text style={styles.rowLabel}>{rowIndex * ROW_ELEMENT_COUNT + 1}</Text>
-      </View> } */}
     </View>
   );
 };
@@ -93,7 +90,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 3,
     bottom: 3,
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
     borderRadius: DOT_SIZE,
     zIndex: -1,
   },
