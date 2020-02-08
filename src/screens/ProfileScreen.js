@@ -10,21 +10,57 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
 
-import Button from '../components/Button';
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
+import { TextInput, Button } from '../components';
 
 const ProfileScreen = ({ navigation }) => {
-  const [user, setUser] = useState({});
+  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [isEmailVerified, setEmailVerified] = useState(false);
 
   const signOut = () => {
     firebase.auth().signOut();
     navigation.replace('SignIn');
   };
 
+  const sendEmailVerification = async () => {
+    const { currentUser } = firebase.auth();
+    await currentUser.sendEmailVerification();
+    console.log('NOTIFICATION: Notification sent');
+  };
+
+  const saveUserInfo = async () => {
+    const { currentUser } = firebase.auth();
+    if (!isEmailVerified && currentUser.email !== userEmail) {
+      try {
+        await currentUser.updateEmail(userEmail);
+        console.log('NOTIFICATION: User email updated');
+      } catch (error) {
+        console.error('NOTIFICATION: Failed to update email address', error);
+      }
+    }
+
+    if (currentUser.displayName !== userName) {
+      try {
+        await currentUser.updateProfile({ displayName: userName });
+        console.log('NOTIFICATION: User info updated');
+      } catch (error) {
+        console.error('NOTIFICATION: Failed to update email address', error);
+      }
+    }
+  };
+
   useEffect(() => {
     firebase.auth().onAuthStateChanged(currentUser => {
-      if (!currentUser) navigation.replace('SignIn');
-      setUser(currentUser);
+      if (!currentUser) {
+        navigation.replace('Home');
+        return;
+      }
+
+      const { email, displayName = '', emailVerified } = currentUser;
+
+      setUserEmail(email);
+      setUserName(displayName || '');
+      setEmailVerified(emailVerified);
     });
   }, []);
 
@@ -41,26 +77,59 @@ const ProfileScreen = ({ navigation }) => {
       </View>
       <View style={styles.contentContainer}>
         <View style={styles.settingsList}>
-          <View style={styles.settingsRow}>
+          <View style={styles.settingsGroupContainer}>
             <View style={styles.settingsTitleContainer}>
-              <Text style={styles.settingsValue}>Email:</Text>
+              <Text style={styles.settingsTitle}>Contacts</Text>
             </View>
-            <View style={styles.settingsValueContainer}>
-              <Text style={styles.settingsValue}>{user && user.email}</Text>
+            <View style={styles.settingsGroup}>
+              <View style={styles.settingsValueContainer}>
+                <TextInput
+                  placeholder="Display name"
+                  value={userName}
+                  onChangeText={setUserName}
+                />
+              </View>
+              <View style={styles.settingsValueContainer}>
+                <TextInput
+                  editable={!isEmailVerified}
+                  autoFocus={false}
+                  type="email"
+                  value={userEmail}
+                  onChangeText={setUserEmail}
+                />
+              </View>
             </View>
+            {!isEmailVerified && (
+              <View style={styles.settingsExtraLabelContainer}>
+                <Text style={styles.settingsExtraLabel}>Email address is not verified</Text>
+                <TouchableOpacity onPress={sendEmailVerification}>
+                  <Text style={styles.settingsExtraLabelActionText}>Resend</Text>
+                </TouchableOpacity>
+              </View>
+            )}
           </View>
         </View>
 
-        <Button label="Sign Out" onPress={signOut} />
+        <View style={styles.actionListContainer}>
+          <View style={styles.actionContainer}>
+            <Button label="Save" onPress={saveUserInfo} />
+          </View>
+          <View style={styles.actionContainer}>
+            <Button label="Sign Out" onPress={signOut} btnStyles={styles.signOutBtn} />
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );
 };
 
+const INPUT_GROUP_H_PADDING = 12;
+const INPUT_GROUP_V_PADDING = 12;
+
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: MAIN_BACKGROUND_COLOR,
+    backgroundColor: '#32323d', // MAIN_BACKGROUND_COLOR,
     alignItems: 'stretch',
     justifyContent: 'flex-start',
   },
@@ -79,27 +148,49 @@ const styles = StyleSheet.create({
   settingsList: {
     paddingTop: 45,
   },
-  settingsRow: {
+  settingsGroupContainer: {},
+  settingsTitleContainer: {
+    marginBottom: 10,
+    marginLeft: INPUT_GROUP_H_PADDING,
+  },
+  settingsTitle: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '500',
+  },
+  settingsGroup: {
+    paddingLeft: INPUT_GROUP_H_PADDING,
+    paddingRight: INPUT_GROUP_H_PADDING,
+    paddingBottom: INPUT_GROUP_V_PADDING,
+    borderRadius: 15,
+    backgroundColor: '#3e3f4d',
+  },
+  settingsValueContainer: {
+    marginTop: INPUT_GROUP_V_PADDING,
+  },
+  settingsExtraLabelContainer: {
+    marginTop: 8,
+    marginHorizontal: INPUT_GROUP_H_PADDING,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  settingsTitleContainer: {},
-  settingsValueContainer: {},
-  settingsValue: {
-    color: '#fff',
-    fontSize: 16,
+  settingsExtraLabel: {
+    color: '#a3a3a3',
+    fontSize: 14,
   },
-  submitButton: {
-    paddingVertical: 15,
-    paddingHorizontal: 12,
-    borderRadius: 5,
-    backgroundColor: '#37853D',
+  settingsExtraLabelAction: {},
+  settingsExtraLabelActionText: {
+    color: '#a3a3a3',
+    fontSize: 14,
+    textDecorationLine: 'underline',
   },
-  submitButtonText: {
-    color: '#fff',
-    fontWeight: '400',
-    fontSize: 16,
-    textAlign: 'center',
+  actionListContainer: {},
+  actionContainer: {
+    marginTop: 10,
+  },
+  signOutBtn: {
+    backgroundColor: '#373845',
   },
 });
 

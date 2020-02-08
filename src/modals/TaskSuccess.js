@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   Modal,
   Text,
@@ -13,9 +14,13 @@ import { getTimerMSValues } from '../dateTooklit';
 import { Pomodos, Tags, useDataFetching } from '../api';
 import Button from '../components/Button';
 
-import TagsPicker from '../components/TagsPicker'
+import TagsPicker from '../components/TagsPicker';
 
-const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
+const TaskSuccess = ({
+  visible,
+  toggleVisibility,
+  timeSpent,
+}) => {
   const [saveLoading, setSaveLoading] = useState(false);
   const [isPickerVisible, togglePicker] = useState(false);
   const [tagId, setTagId] = useState(null);
@@ -90,6 +95,12 @@ const TaskSuccess = ({ visible, toggleVisibility, timeSpent }) => {
       />
     </Modal>
   );
+};
+
+TaskSuccess.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  toggleVisibility: PropTypes.func.isRequired,
+  timeSpent: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({

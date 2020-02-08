@@ -30,10 +30,7 @@ const HomeScreen = ({ navigation }) => {
   const [completedTimerValue, setCompletedTimerValue] = useState(0);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(currentUser => {
-      if (!currentUser) navigation.replace('SignIn');
-      setUser(currentUser);
-    });
+    firebase.auth().onAuthStateChanged(currentUser => setUser(currentUser));
   }, []);
 
   const startTimer = () => {

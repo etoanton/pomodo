@@ -11,7 +11,10 @@ const fetchData = async ({
   body,
 }) => {
   try {
-    const token = await firebase.auth().currentUser.getIdToken(true);
+    let token;
+    if (firebase.auth().currentUser) {
+      token = await firebase.auth().currentUser.getIdToken(true);
+    }
 
     const payload = {
       method,

@@ -33,6 +33,7 @@ const passwordCommonProps = {
 const Input = ({
   value,
   type,
+  editable,
   ...props
 }) => {
   let configProps = commonInputProps;
@@ -46,10 +47,16 @@ const Input = ({
   return (
     <View style={styles.textInputContainer}>
       <TextInput
-        placeholder={placeholder}
-        style={{ ...styles.textInput, ...(hasValue ? styles.textInputWithValue : {}) }}
-        {...props}
+        value={value}
+        editable={editable}
+        style={{
+          ...styles.textInput,
+          ...(hasValue ? styles.textInputWithValue : {}),
+          ...(!editable ? styles.disabledInput : {}),
+        }}
         {...configProps}
+        {...props}
+        placeholder={placeholder}
       />
       { hasValue && (
         <View style={styles.placeholderContainer}>
@@ -64,12 +71,14 @@ Input.defaultProps = {
   value: '',
   placeholder: '',
   type: 'default',
+  editable: true,
 };
 
 Input.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  type: PropTypes.oneOf(['email', 'password']),
+  type: PropTypes.oneOf(['email', 'password', 'default']),
+  editable: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({
@@ -82,10 +91,15 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 18,
     borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#2F303B',
   },
   textInputWithValue: {
     paddingTop: 20,
     paddingBottom: 10,
+  },
+  disabledInput: {
+    backgroundColor: '#3e3f4d',
   },
   placeholderContainer: {
     position: 'absolute',
