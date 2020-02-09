@@ -19,7 +19,10 @@ const HomeMenuModal = ({ navigation }) => {
     let didCancel = false;
 
     firebase.auth().onAuthStateChanged(user => {
-      if (!didCancel) setLoggedIn(!!user);
+      if (!didCancel) {
+        const loggedIn = user && !user.isAnonymous;
+        setLoggedIn(loggedIn);
+      }
     });
 
     return () => {

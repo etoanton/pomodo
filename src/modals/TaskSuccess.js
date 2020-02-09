@@ -51,7 +51,7 @@ const TaskSuccess = ({
     }
   }, [tagsData]);
 
-  const tagLabel = tagId ? tagsData.find(({ id }) => id === tagId).name : '';
+  const tagLabel = tagId && tagsData.length ? tagsData.find(({ id }) => id === tagId).name : '';
 
   return (
     <Modal visible={visible} animationType="fade" transparent>

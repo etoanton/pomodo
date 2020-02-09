@@ -51,7 +51,7 @@ const ProfileScreen = ({ navigation }) => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(currentUser => {
-      if (!currentUser) {
+      if (!currentUser || currentUser.isAnonymous) {
         navigation.replace('Home');
         return;
       }

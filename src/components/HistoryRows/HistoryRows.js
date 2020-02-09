@@ -50,9 +50,9 @@ const HistoryRows = ({ user }) => {
 
   /* Merge "empty" list of days data & user data */
   useEffect(() => {
-    const rawData = activeTabId === TABS.DAY ? daysData :
-      activeTabId === TABS.WEEK ? weeksData :
-        activeTabId === TABS.MONTH ? monthesData : daysData;
+    const rawData = activeTabId === TABS.DAY ? daysData
+      : activeTabId === TABS.WEEK ? weeksData
+        : activeTabId === TABS.MONTH ? monthesData : daysData;
 
     const mergedData = results && results.data ? mergeLists(rawData, results.data) : rawData;
 
