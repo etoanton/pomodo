@@ -3,9 +3,15 @@ import fetchData from './helpers/fetchData';
 
 const Users = {
   async login(email, password) {
-    // TODO: Merge anonymous & existing user
-
     try {
+      const { currentUser } = firebase.auth();
+
+      /* User already exists & successfully signed in */
+      if (currentUser && !currentUser.isAnonymous) {
+        return true;
+      }
+
+      /* Login user */
       await firebase.auth().signInWithEmailAndPassword(email, password);
       return true;
     } catch (error) {
@@ -15,8 +21,22 @@ const Users = {
   },
   async createUser(email, password) {
     try {
-      // TODO: Merge anonymous & new user
+      const { currentUser } = firebase.auth();
 
+      /* User already exists & successfully signed in */
+      if (currentUser && !currentUser.isAnonymous) {
+        return true;
+      }
+
+      /* Convert existing anonymous user */
+      if (currentUser && currentUser.isAnonymous) {
+        const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+        await firebase.auth().currentUser.linkWithCredential(credential);
+        await fetchData({ url: '/v1/users/convert', method: 'POST', body: { email } });
+        return true;
+      }
+
+      /* Create new user */
       const { token } = await fetchData({ url: '/v1/users', method: 'POST', body: { email, password } });
       if (!token) throw Error('Failed to sign up, token is null');
       await firebase.auth().signInWithCustomToken(token);
