@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged(async user => {
-      if (!user) {
+      if (isInitialStart && !user) {
         await Users.createTemporaryUser();
       }
       setIsInitial(false);
