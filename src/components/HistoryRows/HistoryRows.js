@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import { Pomodos, useDataFetching } from '../../api';
-import daysList from '../../../helpers/2020-days.json';
+import daysList from '../../../helpers/2020/days.json';
 import DayPreview from '../DayPreview';
 import Tabs from '../Tabs';
 
@@ -20,7 +20,6 @@ const TABS = {
   DAY: 'd',
   WEEK: 'w',
   MONTH: 'm',
-  YEAR: 'y',
 };
 
 const daysData = separateToRows(daysList);

@@ -1,5 +1,12 @@
 [
   {
+    "id": 0,
+    "completedTasks": [],
+    "keys": [
+      "2020-01-01"
+    ]
+  },
+  {
     "id": 1,
     "completedTasks": [],
     "keys": [
@@ -2552,13 +2559,6 @@
     "completedTasks": [],
     "keys": [
       "2020-12-31"
-    ]
-  },
-  {
-    "id": 366,
-    "completedTasks": [],
-    "keys": [
-      "2021-01-01"
     ]
   }
 ]
