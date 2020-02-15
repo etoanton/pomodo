@@ -119,11 +119,12 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 28,
+    fontWeight: '500',
     textAlign: 'center',
   },
   resultsContent: {
-    paddingVertical: 24,
+    paddingVertical: 36,
   },
   resultsText: {
     fontSize: 18,

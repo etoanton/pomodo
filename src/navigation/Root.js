@@ -4,16 +4,20 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import HomeScreen from '../screens/HomeScreen';
-import HomeMenuModal from '../screens/HomeMenuModal';
+import NavigationMenu from '../screens/NavigationMenu';
 import SignInScreen from '../screens/SignInScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import InsightsScreen from '../screens/InsightsScreen';
+import DayOverviewScreen from '../screens/DayOverviewScreen';
 
 const HomeScreenStack = createStackNavigator(
   {
     Home: HomeScreen,
-    HomeMenu: HomeMenuModal,
+    Menu: NavigationMenu,
+    DayOverview: DayOverviewScreen,
     SignIn: SignInScreen,
     Profile: ProfileScreen,
+    Insights: InsightsScreen,
   },
   {
     mode: 'modal',

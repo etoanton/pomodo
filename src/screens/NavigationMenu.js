@@ -12,27 +12,31 @@ import * as firebase from 'firebase';
 
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
-const HomeMenuModal = ({ navigation }) => {
+const NavigationMenu = ({ navigation }) => {
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    let didCancel = false;
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (!didCancel) {
-        const loggedIn = user && !user.isAnonymous;
-        setLoggedIn(loggedIn);
-      }
+    const firebaseListener = firebase.auth().onAuthStateChanged(user => {
+      const loggedIn = user && !user.isAnonymous;
+      setLoggedIn(loggedIn);
     });
 
     return () => {
-      didCancel = true;
+      if (firebaseListener) firebaseListener();
     };
   }, []);
 
   const navigateToProfile = () => {
     if (isLoggedIn) {
       navigation.navigate('Profile');
+    } else {
+      navigation.navigate('SignIn');
+    }
+  };
+
+  const navigateToInsights = () => {
+    if (isLoggedIn) {
+      navigation.navigate('Insights');
     } else {
       navigation.navigate('SignIn');
     }
@@ -53,9 +57,9 @@ const HomeMenuModal = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => {}}
+            onPress={navigateToInsights}
           >
-            <Text style={styles.menuText}>Statistics</Text>
+            <Text style={styles.menuText}>Insights</Text>
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>
@@ -91,8 +95,8 @@ const styles = StyleSheet.create({
   },
 });
 
-HomeMenuModal.propTypes = {
+NavigationMenu.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default HomeMenuModal;
+export default NavigationMenu;

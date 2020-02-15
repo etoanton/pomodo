@@ -62,7 +62,7 @@ const TimerWidget = ({
       </TouchableOpacity>
       <TouchableOpacity
         style={{ ...styles.btn, ...styles.btn__bottom }}
-        onPress={() => navigation.navigate('HomeMenu')}
+        onPress={() => navigation.navigate('Menu')}
       >
         <Ionicons style={{ ...styles.btnIcon, ...styles.btnIconMenu }} name="ios-more" size={32} color="#F1F1F1" />
         <Text style={styles.btnText}>Menu</Text>

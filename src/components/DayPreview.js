@@ -8,20 +8,25 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 import { Pomodos, useDataFetching } from '../api';
 import { getFormattedDateBasedOnDayOfYear } from '../dateTooklit';
 
-const DayPreview = ({ selectedDay, setSelectedDay }) => {
+const DayPreview = ({ selectedDay, setSelectedDay, navigation }) => {
   const rawSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'yyyy-MM-dd');
   const formattedSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'do MMM');
 
   const { loading, results } = useDataFetching(Pomodos.getPomodo, rawSelectedDate);
   const completedCount = results && results.data ? results.data.length : 0;
 
+  const navigateToDayOverview = () => {
+    navigation.navigate('DayOverview');
+  };
+
   return (
     <View style={styles.contentContainer}>
-      <TouchableOpacity style={styles.viewAllContainer}>
+      <TouchableOpacity style={styles.viewAllContainer} onPress={navigateToDayOverview}>
         <Ionicons
           style={styles.btnIcon}
           name="ios-menu"
@@ -55,6 +60,7 @@ const DayPreview = ({ selectedDay, setSelectedDay }) => {
 DayPreview.propTypes = {
   selectedDay: PropTypes.number.isRequired,
   setSelectedDay: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 const styles = StyleSheet.create({
@@ -98,4 +104,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DayPreview;
+export default withNavigation(DayPreview);
