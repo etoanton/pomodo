@@ -3,6 +3,7 @@ import Button from './Button';
 import DayPreview from './DayPreview';
 import DaysLeftCount from './DaysLeftCount';
 import MinutePicker from './MinutePicker';
+import PomodoItem from './PomodoItem';
 import ProgressBar from './ProgressBar';
 import Tabs from './Tabs';
 import TagsPicker from './TagsPicker';
@@ -15,6 +16,7 @@ export {
   DayPreview,
   DaysLeftCount,
   MinutePicker,
+  PomodoItem,
   ProgressBar,
   Tabs,
   TagsPicker,

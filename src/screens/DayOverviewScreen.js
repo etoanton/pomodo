@@ -1,31 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Text,
   View,
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
+  ActivityIndicator,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { PomodoItem } from '../components';
+import { Pomodos, useDataFetching } from '../api';
 
-const DayOverviewScreen = ({ navigation }) => (
-  <SafeAreaView style={styles.screenContainer}>
-    <View style={styles.closeBtnContainer}>
-      <TouchableOpacity onPress={() => navigation.popToTop()}>
-        <Ionicons
-          name="md-close"
-          size={32}
-          color="#F1F1F1"
-        />
-      </TouchableOpacity>
-    </View>
-    <View style={styles.contentContainer}>
-      <Text>DayOverviewScreen</Text>
-    </View>
-  </SafeAreaView>
-);
+const DayOverviewScreen = ({ navigation }) => {
+  const { selectedDay } = navigation.state.params;
+
+  const { loading, results } = useDataFetching(Pomodos.getPomodo, selectedDay);
+
+  return (
+    <SafeAreaView style={styles.screenContainer}>
+      <View style={styles.closeBtnContainer}>
+        <TouchableOpacity onPress={() => navigation.popToTop()}>
+          <Ionicons
+            name="md-close"
+            size={32}
+            color="#F1F1F1"
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.contentContainer}>
+        { loading && <ActivityIndicator size="small" color="#F1F1F1" /> }
+        { !loading && results.data && results.data.map(item => (
+          <PomodoItem key={item.id} item={item} />
+        )) }
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   screenContainer: {
@@ -42,8 +53,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    justifyContent: 'space-between',
-    paddingVertical: 10,
+    paddingTop: 60,
     paddingHorizontal: 20,
   },
 });

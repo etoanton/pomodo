@@ -21,7 +21,7 @@ const DayPreview = ({ selectedDay, setSelectedDay, navigation }) => {
   const completedCount = results && results.data ? results.data.length : 0;
 
   const navigateToDayOverview = () => {
-    navigation.navigate('DayOverview');
+    navigation.navigate('DayOverview', { selectedDay: rawSelectedDate });
   };
 
   return (
