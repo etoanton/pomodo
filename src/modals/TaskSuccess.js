@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
-import { getTimerMSValues } from '../dateTooklit';
+import { getTimerMSValues, getFormattedDistance } from '../dateTooklit';
 import { Pomodos, Tags, useDataFetching } from '../api';
 import Button from '../components/Button';
 
@@ -26,6 +26,7 @@ const TaskSuccess = ({
   const [tagId, setTagId] = useState(null);
 
   const { min, sec } = getTimerMSValues(timeSpent);
+  const formattedDistance = getFormattedDistance(timeSpent);
 
   const savePomodo = async () => {
     setSaveLoading(true);
@@ -60,7 +61,7 @@ const TaskSuccess = ({
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Success!</Text>
             <View style={styles.resultsContent}>
-              <Text style={styles.resultsText}>{`${min}:${sec} of`}</Text>
+              <Text style={styles.resultsText}>{`Spent ${formattedDistance} on`}</Text>
               <TouchableOpacity style={styles.tagContainer} onPress={() => togglePicker(true)}>
                 {tagsLoading && <ActivityIndicator size="small" color="#F1F1F1" />}
                 {!tagsLoading && <Text style={styles.tagLabel}>{tagLabel}</Text>}
@@ -125,6 +126,7 @@ const styles = StyleSheet.create({
   },
   resultsContent: {
     paddingVertical: 36,
+    alignItems: 'center',
   },
   resultsText: {
     fontSize: 18,
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
     borderColor: '#D3D3D3',
     paddingVertical: 7,
     marginTop: 8,
+    width: 200,
   },
   tagLabel: {
     color: '#fff',
@@ -145,9 +148,12 @@ const styles = StyleSheet.create({
     fontWeight: '200',
     textAlign: 'center',
   },
-  btnsContainer: {},
+  btnsContainer: {
+    alignItems: 'center',
+  },
   btnContainer: {
     paddingTop: 10,
+    width: 200,
   },
   successBtn: {
     borderRadius: 10,

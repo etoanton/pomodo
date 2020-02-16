@@ -1,4 +1,10 @@
-import { startOfYear, addDays, format } from 'date-fns';
+import {
+  startOfYear,
+  addDays,
+  addSeconds,
+  format,
+  formatDistanceStrict,
+} from 'date-fns';
 
 const now = new Date();
 const firstDayOfTheYear = startOfYear(now);
@@ -17,9 +23,15 @@ export const getFormattedDateBasedOnDayOfYear = (num, dateFormat = 'yyyy-MM-dd')
   361 -> 6:01
 */
 export const getTimerMSValues = timerValue => {
-  const tempMinutesV = Math.trunc(timerValue/60);
+  const tempMinutesV = Math.trunc(timerValue / 60);
   const min = tempMinutesV < 10 ? `0${tempMinutesV}` : tempMinutesV;
   const tempSecondsV = timerValue % 60;
   const sec = tempSecondsV < 10 ? `0${tempSecondsV}` : tempSecondsV;
   return { min, sec };
+};
+
+export const getFormattedDistance = seconds => {
+  const nowDate = new Date();
+  const differenceDate = addSeconds(nowDate, seconds);
+  return formatDistanceStrict(nowDate, differenceDate, { includeSeconds: true });
 };
