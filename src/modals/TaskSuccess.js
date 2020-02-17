@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
-import { getTimerMSValues, getFormattedDistance } from '../dateTooklit';
+import { getFormattedDistance } from '../dateTooklit';
 import { Pomodos, Tags, useDataFetching } from '../api';
 import Button from '../components/Button';
 
@@ -25,7 +25,6 @@ const TaskSuccess = ({
   const [isPickerVisible, togglePicker] = useState(false);
   const [tagId, setTagId] = useState(null);
 
-  const { min, sec } = getTimerMSValues(timeSpent);
   const formattedDistance = getFormattedDistance(timeSpent);
 
   const savePomodo = async () => {

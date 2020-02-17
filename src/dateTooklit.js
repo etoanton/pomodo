@@ -33,5 +33,5 @@ export const getTimerMSValues = timerValue => {
 export const getFormattedDistance = seconds => {
   const nowDate = new Date();
   const differenceDate = addSeconds(nowDate, seconds);
-  return formatDistanceStrict(nowDate, differenceDate, { includeSeconds: true });
+  return formatDistanceStrict(nowDate, differenceDate, { roundingMethod: 'floor' });
 };

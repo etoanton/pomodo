@@ -8,17 +8,33 @@ import {
 
 import { format } from 'date-fns';
 
+import { getFormattedDistance } from '../dateTooklit';
+
 
 const PomodoItem = ({ item }) => {
-  const date = new Date(item.createdAt);
-  const dateFormatted = format(date, 'do MMM HH:mm');
+  const {
+    timeSpent,
+    tagName,
+    createdAt,
+  } = item;
 
-  // const { taskNotes, timeSpent, tagId } = item;
+  const date = new Date(createdAt);
+  const dateFormatted = format(date, 'do MMM');
+  const timeFormatted = format(date, 'HH:mm');
 
   return (
     <View style={styles.itemContainer}>
       <View style={styles.dateContainer}>
         <Text style={styles.dateValue}>{dateFormatted}</Text>
+        <Text style={styles.dateValue}>{timeFormatted}</Text>
+      </View>
+      <View style={styles.timeSpentContainer}>
+        <Text style={styles.timeSpentValue}>
+          {`Spent ${getFormattedDistance(timeSpent)}`}
+        </Text>
+        <View style={styles.tagContainer}>
+          <Text style={styles.tagValue}>{`#${tagName}`}</Text>
+        </View>
       </View>
     </View>
   );
@@ -27,24 +43,39 @@ const PomodoItem = ({ item }) => {
 const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',
-    // justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#27272E',
     marginBottom: 10,
     borderRadius: 10,
-    padding: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 12,
 
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.4,
-    shadowRadius: 2.5,
+    // shadowColor: '#000000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 0.4,
+    // shadowRadius: 2.5,
   },
-  dateContainer: {},
+  dateContainer: {
+    paddingRight: 20,
+    height: 40,
+    justifyContent: 'space-around',
+  },
   dateValue: {
+    color: '#d1d1d1',
+  },
+  timeSpentContainer: {
+    height: 40,
+    justifyContent: 'space-around',
+  },
+  timeSpentValue: {
     color: '#fff',
+  },
+  tagContainer: {},
+  tagValue: {
+    color: '#737373',
   },
 });
 
@@ -52,6 +83,7 @@ PomodoItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
     tagId: PropTypes.string.isRequired,
+    tagName: PropTypes.string.isRequired,
     taskNotes: PropTypes.string,
     timeSpent: PropTypes.number.isRequired,
     userId: PropTypes.string.isRequired,
