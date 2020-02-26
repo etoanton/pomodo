@@ -4,14 +4,24 @@ import {
   StyleSheet,
   View,
   Text,
+  ActivityIndicator,
 } from 'react-native';
 
 const InsightItem = ({
   title,
+  loading,
   list,
   footerLabel,
   footerValue,
 }) => {
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
+
   console.log(title, list);
 
   return (
@@ -31,6 +41,11 @@ const InsightItem = ({
 };
 
 const styles = StyleSheet.create({
+  loadingContainer: {
+    height: 250,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {},
   headerContainer: {},
   headerText: {
@@ -76,6 +91,7 @@ InsightItem.propTypes = {
   title: PropTypes.string.isRequired,
   footerLabel: PropTypes.string,
   footerValue: PropTypes.string,
+  loading: PropTypes.bool.isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({
     date: PropTypes.string.isRequired,
     timeSpent: PropTypes.number,

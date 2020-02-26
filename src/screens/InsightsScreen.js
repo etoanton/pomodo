@@ -14,11 +14,18 @@ import { InsightItem } from '../components';
 const round = v => Math.round(v * 100) / 100;
 
 const InsightsScreen = ({ navigation }) => {
-  const { results: countResults } = useDataFetching(Insights.getCount);
-  const { results: durationResults } = useDataFetching(Insights.getDuration);
+  const {
+    results: countResults,
+    loading: countLoading,
+  } = useDataFetching(Insights.getCount);
 
-  const { data: { average: countAverage = 0, list: countList } } = countResults;
-  const { data: { average: durationAverage = 0, list: durationList } } = durationResults;
+  const {
+    results: durationResults,
+    loading: durationLoading,
+  } = useDataFetching(Insights.getDuration);
+
+  const { average: countAverage = 0, list: countList } = countResults.data || {};
+  const { average: durationAverage = 0, list: durationList } = durationResults.data || {};
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -35,6 +42,7 @@ const InsightsScreen = ({ navigation }) => {
         <View style={styles.itemContainer}>
           <InsightItem
             title="Count"
+            loading={countLoading}
             list={countList}
             footerLabel="Average"
             footerValue={`${round(countAverage)} times / day`}
@@ -43,6 +51,7 @@ const InsightsScreen = ({ navigation }) => {
         <View style={styles.itemContainer}>
           <InsightItem
             title="Duration"
+            loading={durationLoading}
             list={durationList}
             footerLabel="Average"
             footerValue={`${round(durationAverage)} min / day`}

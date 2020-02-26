@@ -21,7 +21,7 @@ const Button = ({
     onPress={!loading ? onPress : noop}
   >
     <View style={styles.btnContent}>
-      { loading && <ActivityIndicator size="small" color="#F1F1F1"  /> }
+      { loading && <ActivityIndicator size="small" color="#F1F1F1" /> }
       <Text style={styles.submitButtonText}>{label}</Text>
     </View>
   </TouchableOpacity>
