@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Text,
   View,
   TouchableOpacity,
   StyleSheet,
@@ -10,14 +9,16 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 
 import { Insights, useDataFetching } from '../api';
+import { InsightItem } from '../components';
 
+const round = v => Math.round(v * 100) / 100;
 
 const InsightsScreen = ({ navigation }) => {
   const { results: countResults } = useDataFetching(Insights.getCount);
   const { results: durationResults } = useDataFetching(Insights.getDuration);
 
-  console.log('InsightsScreen (count)', countResults);
-  console.log('InsightsScreen (durations)', durationResults);
+  const { data: { average: countAverage = 0, list: countList } } = countResults;
+  const { data: { average: durationAverage = 0, list: durationList } } = durationResults;
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -31,7 +32,22 @@ const InsightsScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={styles.contentContainer}>
-        <Text>Insights</Text>
+        <View style={styles.itemContainer}>
+          <InsightItem
+            title="Count"
+            list={countList}
+            footerLabel="Average"
+            footerValue={round(countAverage)}
+          />
+        </View>
+        <View style={styles.itemContainer}>
+          <InsightItem
+            title="Duration"
+            list={durationList}
+            footerLabel="Average"
+            footerValue={`${round(durationAverage)}m`}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -52,9 +68,12 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    justifyContent: 'space-between',
+    paddingTop: 30,
     paddingVertical: 10,
     paddingHorizontal: 20,
+  },
+  itemContainer: {
+    marginBottom: 15,
   },
 });
 

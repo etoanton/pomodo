@@ -9,6 +9,7 @@ import Tabs from './Tabs';
 import TagsPicker from './TagsPicker';
 import TimerWidget from './TimerWidget';
 import TextInput from './TextInput';
+import InsightItem from './InsightItem';
 
 export {
   HistoryRows,
@@ -22,4 +23,5 @@ export {
   TagsPicker,
   TimerWidget,
   TextInput,
+  InsightItem,
 };

@@ -30,7 +30,7 @@ const PomodoItem = ({ item }) => {
       </View>
       <View style={styles.timeSpentContainer}>
         <Text style={styles.timeSpentValue}>
-          {`Spent ${getFormattedDistance(timeSpent)}`}
+          {`${getFormattedDistance(timeSpent)} on`}
         </Text>
         <View style={styles.tagContainer}>
           <Text style={styles.tagValue}>{`#${tagName}`}</Text>
