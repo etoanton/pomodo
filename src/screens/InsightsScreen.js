@@ -37,7 +37,7 @@ const InsightsScreen = ({ navigation }) => {
             title="Count"
             list={countList}
             footerLabel="Average"
-            footerValue={round(countAverage)}
+            footerValue={`${round(countAverage)} times / day`}
           />
         </View>
         <View style={styles.itemContainer}>
@@ -45,7 +45,7 @@ const InsightsScreen = ({ navigation }) => {
             title="Duration"
             list={durationList}
             footerLabel="Average"
-            footerValue={`${round(durationAverage)}m`}
+            footerValue={`${round(durationAverage)} min / day`}
           />
         </View>
       </View>
