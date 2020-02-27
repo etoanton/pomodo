@@ -7,10 +7,13 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
+import { BarChart, Grid } from 'react-native-svg-charts';
+
 const InsightItem = ({
   title,
   loading,
   list,
+  keyExtract,
   footerLabel,
   footerValue,
 }) => {
@@ -22,14 +25,23 @@ const InsightItem = ({
     );
   }
 
-  console.log(title, list);
+  const data = list.map(item => item[keyExtract]);
 
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>{title}</Text>
       </View>
-      <View style={styles.chartContainer} />
+      <View style={styles.chartContainer}>
+        <BarChart
+          style={{ height: 200 }}
+          data={data}
+          svg={{ fill: '#ccc' }}
+          contentInset={{ top: 30, bottom: 30 }}
+        >
+          <Grid />
+        </BarChart>
+      </View>
       <View style={styles.footerContainer}>
         <Text style={styles.footerLabel}>{footerLabel}</Text>
         <View style={styles.footerValueContainer}>
@@ -58,6 +70,7 @@ const styles = StyleSheet.create({
     marginVertical: 7,
     borderRadius: 10,
     backgroundColor: '#2b2b33',
+    paddingHorizontal: 10,
   },
   footerContainer: {
     flexDirection: 'row',
@@ -92,6 +105,7 @@ InsightItem.propTypes = {
   footerLabel: PropTypes.string,
   footerValue: PropTypes.string,
   loading: PropTypes.bool.isRequired,
+  keyExtract: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({
     date: PropTypes.string.isRequired,
     timeSpent: PropTypes.number,

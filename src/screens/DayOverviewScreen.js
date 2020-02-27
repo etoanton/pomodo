@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
-  ActivityIndicator,
+  ScrollView,
+  RefreshControl,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -15,7 +16,11 @@ import { Pomodos, useDataFetching } from '../api';
 const DayOverviewScreen = ({ navigation }) => {
   const { selectedDay } = navigation.state.params;
 
-  const { loading, results } = useDataFetching(Pomodos.getPomodo, selectedDay);
+  const {
+    loading,
+    results,
+    refetch: refetchPomodos,
+  } = useDataFetching(Pomodos.getPomodo, selectedDay);
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -28,12 +33,15 @@ const DayOverviewScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <View style={styles.contentContainer}>
-        { loading && <ActivityIndicator size="small" color="#F1F1F1" /> }
-        { !loading && results.data && results.data.map(item => (
-          <PomodoItem key={item.id} item={item} />
-        )) }
-      </View>
+      <ScrollView
+        refreshControl={<RefreshControl refreshing={loading} onRefresh={refetchPomodos} />}
+      >
+        <View style={styles.contentContainer}>
+          { results.data && results.data.map(item => (
+            <PomodoItem key={item.id} item={item} />
+          )) }
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

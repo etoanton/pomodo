@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
+  ScrollView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -38,26 +39,30 @@ const InsightsScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <View style={styles.contentContainer}>
-        <View style={styles.itemContainer}>
-          <InsightItem
-            title="Count"
-            loading={countLoading}
-            list={countList}
-            footerLabel="Average"
-            footerValue={`${round(countAverage)} times / day`}
-          />
+      <ScrollView>
+        <View style={styles.contentContainer}>
+          <View style={styles.itemContainer}>
+            <InsightItem
+              title="Count"
+              loading={countLoading}
+              list={countList}
+              keyExtract="completedCount"
+              footerLabel="Average"
+              footerValue={`${round(countAverage)} times / day`}
+            />
+          </View>
+          <View style={styles.itemContainer}>
+            <InsightItem
+              title="Duration"
+              loading={durationLoading}
+              list={durationList}
+              keyExtract="timeSpent"
+              footerLabel="Average"
+              footerValue={`${round(durationAverage)} min / day`}
+            />
+          </View>
         </View>
-        <View style={styles.itemContainer}>
-          <InsightItem
-            title="Duration"
-            loading={durationLoading}
-            list={durationList}
-            footerLabel="Average"
-            footerValue={`${round(durationAverage)} min / day`}
-          />
-        </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
