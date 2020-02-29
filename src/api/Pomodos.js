@@ -19,7 +19,7 @@ const Pomodos = {
   },
   async savePomodo({ taskNotes, tagId, timeSpent }) {
     try {
-      const body = { taskNotes, tagId, timeSpent }
+      const body = { taskNotes, tagId, timeSpent };
       const { data } = await fetchData({ url: '/v1/pomodos', method: 'POST', body });
       return { data };
     } catch (e) {

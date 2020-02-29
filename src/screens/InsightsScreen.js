@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { startOfMonth, endOfMonth, format } from 'date-fns';
 
 import { Insights, useDataFetching } from '../api';
 import { InsightItem } from '../components';
@@ -22,12 +23,20 @@ const InsightsScreen = ({ navigation }) => {
   const {
     results: countResults,
     loading: countLoading,
-  } = useDataFetching(Insights.getCount);
+  } = useDataFetching(
+    Insights.getCount,
+    format(startOfMonth(selectedCountDate), 'yyyy-MM-dd'),
+    format(endOfMonth(selectedCountDate), 'yyyy-MM-dd 23:59:59'),
+  );
 
   const {
     results: durationResults,
     loading: durationLoading,
-  } = useDataFetching(Insights.getDuration);
+  } = useDataFetching(
+    Insights.getDuration,
+    format(startOfMonth(selectedDurationDate), 'yyyy-MM-dd'),
+    format(endOfMonth(selectedDurationDate), 'yyyy-MM-dd 23:59:59'),
+  );
 
   const { average: countAverage = 0, list: countList } = countResults.data || {};
   const { average: durationAverage = 0, list: durationList } = durationResults.data || {};

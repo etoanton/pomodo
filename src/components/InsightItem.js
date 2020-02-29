@@ -81,7 +81,7 @@ const InsightItem = ({
 
 const styles = StyleSheet.create({
   loadingContainer: {
-    height: 250,
+    height: 298.5,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -101,12 +101,12 @@ const styles = StyleSheet.create({
     marginVertical: 7,
     borderRadius: 10,
     backgroundColor: '#2b2b33',
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     paddingBottom: 15,
   },
   monthPickerContainer: {
-    paddingTop: 14,
-    paddingHorizontal: 10,
+    paddingTop: 18,
+    paddingHorizontal: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
