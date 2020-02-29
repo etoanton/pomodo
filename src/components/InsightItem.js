@@ -22,14 +22,6 @@ const InsightItem = ({
   keyExtract,
   extraInfo,
 }) => {
-  if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator />
-      </View>
-    );
-  }
-
   const setNextDate = () => setDate(addMonths(currentDate, 1));
   const setPreviousDate = () => setDate(addMonths(currentDate, -1));
 
@@ -74,6 +66,12 @@ const InsightItem = ({
         >
           <Grid />
         </BarChart>
+
+        {loading && (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator />
+          </View>
+        )}
       </View>
     </View>
   );
@@ -81,9 +79,14 @@ const InsightItem = ({
 
 const styles = StyleSheet.create({
   loadingContainer: {
-    height: 298.5,
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    zIndex: 10,
   },
   container: {},
   headerContainer: {
