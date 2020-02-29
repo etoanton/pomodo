@@ -12,28 +12,28 @@ import {
 
 import ProgressBar from './ProgressBar';
 
-const now = new Date();
-
-// TODO: weekStartsOn: 0 or 1 (Sunday or Monday)
-const startOfCurrentWeek = startOfWeek(now, { weekStartsOn: 1 });
-const startOfCurrentMonth = startOfMonth(now);
-const startOfNextMonth = addMonths(startOfCurrentMonth, 1);
-const startOfCurrentYear = startOfYear(now);
-const startOfNextYear = addYears(startOfCurrentYear, 1);
-
-const totalMapCount = {
-  week: 7,
-  month: differenceInDays(startOfNextMonth, startOfCurrentMonth),
-  year: differenceInDays(startOfNextYear, startOfCurrentYear),
-};
-
-const completedMapCount = {
-  week: differenceInDays(now, startOfCurrentWeek),
-  month: differenceInDays(now, startOfCurrentMonth),
-  year: differenceInDays(now, startOfCurrentYear),
-};
-
 const DaysLeftCount = ({ label }) => {
+  const now = new Date();
+
+  // TODO: weekStartsOn: 0 or 1 (Sunday or Monday)
+  const startOfCurrentWeek = startOfWeek(now, { weekStartsOn: 1 });
+  const startOfCurrentMonth = startOfMonth(now);
+  const startOfNextMonth = addMonths(startOfCurrentMonth, 1);
+  const startOfCurrentYear = startOfYear(now);
+  const startOfNextYear = addYears(startOfCurrentYear, 1);
+
+  const totalMapCount = {
+    week: 7,
+    month: differenceInDays(startOfNextMonth, startOfCurrentMonth),
+    year: differenceInDays(startOfNextYear, startOfCurrentYear),
+  };
+
+  const completedMapCount = {
+    week: differenceInDays(now, startOfCurrentWeek),
+    month: differenceInDays(now, startOfCurrentMonth),
+    year: differenceInDays(now, startOfCurrentYear),
+  };
+
   const totalCount = totalMapCount[label];
   const completedCount = completedMapCount[label];
   const leftCount = totalCount - completedCount;
