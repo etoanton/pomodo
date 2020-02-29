@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -15,6 +15,10 @@ import { InsightItem } from '../components';
 const round = v => Math.round(v * 100) / 100;
 
 const InsightsScreen = ({ navigation }) => {
+  const now = new Date();
+  const [selectedCountDate, setSelectedCountDate] = useState(now);
+  const [selectedDurationDate, setSelectedDurationDate] = useState(now);
+
   const {
     results: countResults,
     loading: countLoading,
@@ -44,21 +48,23 @@ const InsightsScreen = ({ navigation }) => {
           <View style={styles.itemContainer}>
             <InsightItem
               title="Count"
+              currentDate={selectedCountDate}
+              setDate={setSelectedCountDate}
               loading={countLoading}
               list={countList}
               keyExtract="completedCount"
-              footerLabel="Average"
-              footerValue={`${round(countAverage)} times / day`}
+              extraInfo={{ label: 'Average', value: `${round(countAverage)} times / day` }}
             />
           </View>
           <View style={styles.itemContainer}>
             <InsightItem
               title="Duration"
+              currentDate={selectedDurationDate}
+              setDate={setSelectedDurationDate}
               loading={durationLoading}
               list={durationList}
               keyExtract="timeSpent"
-              footerLabel="Average"
-              footerValue={`${round(durationAverage)} min / day`}
+              extraInfo={{ label: 'Average', value: `${round(durationAverage)} min / day` }}
             />
           </View>
         </View>
@@ -82,7 +88,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    paddingTop: 30,
+    paddingTop: 45,
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
