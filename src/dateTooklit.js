@@ -19,7 +19,11 @@ export const getDateBasedOnDayOfYear = num => {
   );
 };
 
-export const getFormattedDateBasedOnDayOfYear = (num, dateFormat = 'yyyy-MM-dd') => format(num > 0 ? addDays(firstDayOfTheYear, num) : firstDayOfTheYear, dateFormat);
+export const getFormattedDateBasedOnDayOfYear = (num, dateFormat = 'yyyy-MM-dd') => {
+  const now = new Date();
+  const firstDayOfTheYear = startOfYear(now);
+  return format(num > 0 ? addDays(firstDayOfTheYear, num) : firstDayOfTheYear, dateFormat);
+};
 
 /*
   120 -> 2:00
