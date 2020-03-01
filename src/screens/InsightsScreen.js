@@ -62,7 +62,7 @@ const InsightsScreen = ({ navigation }) => {
               loading={countLoading}
               list={countList}
               keyExtract="completedCount"
-              extraInfo={{ label: 'Average', value: `${round(countAverage)} times / day` }}
+              extraInfo={{ label: 'Average:', value: `${round(countAverage)} times / day` }}
             />
           </View>
           <View style={styles.itemContainer}>
@@ -73,7 +73,7 @@ const InsightsScreen = ({ navigation }) => {
               loading={durationLoading}
               list={durationList}
               keyExtract="timeSpent"
-              extraInfo={{ label: 'Average', value: `${round(durationAverage)} min / day` }}
+              extraInfo={{ label: 'Average:', value: `${round(durationAverage)} min / day` }}
             />
           </View>
         </View>

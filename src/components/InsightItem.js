@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { format, addMonths } from 'date-fns';
+import { BarChart, Grid, XAxis, YAxis } from 'react-native-svg-charts';
 
-import { BarChart, Grid } from 'react-native-svg-charts';
 import { UNDERLAY_COLOR } from '../styles/colors';
 
 const InsightItem = ({
@@ -26,6 +26,7 @@ const InsightItem = ({
   const setPreviousDate = () => setDate(addMonths(currentDate, -1));
 
   const data = list.map(item => item[keyExtract]);
+  console.log('data', data);
 
   return (
     <View style={styles.container}>
@@ -44,7 +45,7 @@ const InsightItem = ({
         <View style={styles.monthPickerContainer}>
           <TouchableOpacity style={styles.monthPickerBtn} onPress={setPreviousDate}>
             <Ionicons
-              name="ios-arrow-dropleft"
+              name="md-arrow-dropleft"
               size={24}
               color="#F1F1F1"
             />
@@ -52,20 +53,39 @@ const InsightItem = ({
           <Text style={styles.currentMonthText}>{format(currentDate, 'MMM yyyy')}</Text>
           <TouchableOpacity style={styles.monthPickerBtn} onPress={setNextDate}>
             <Ionicons
-              name="ios-arrow-dropright"
+              name="md-arrow-dropright"
               size={24}
               color="#F1F1F1"
             />
           </TouchableOpacity>
         </View>
-        <BarChart
-          style={{ height: 200 }}
-          data={data}
-          svg={{ fill: '#ccc' }}
-          contentInset={{ top: 30, bottom: 30 }}
-        >
-          <Grid />
-        </BarChart>
+        <View style={styles.chartContent}>
+          <YAxis
+            data={data}
+            contentInset={{ top: 10, bottom: 10 }}
+            formatLabel={(value, idx) => ((idx + 1) % 3 === 0 ? value : '')}
+            svg={{
+              fill: 'grey',
+              fontSize: 10,
+            }}
+          />
+          <View style={{ flex: 1, marginLeft: 10 }}>
+            <BarChart
+              style={{ height: 160 }}
+              data={data}
+              svg={{ fill: '#ccc' }}
+            >
+              <Grid />
+            </BarChart>
+            <XAxis
+              style={{ marginTop: 10 }}
+              data={data}
+              formatLabel={(_, idx) => (idx % 3 === 0 ? idx + 1 : '')}
+              contentInset={{ left: 5, right: 5 }}
+              svg={{ fontSize: 10, fill: '#878787' }}
+            />
+          </View>
+        </View>
 
         {loading && (
           <View style={styles.loadingContainer}>
@@ -105,10 +125,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#2b2b33',
     paddingHorizontal: 20,
-    paddingBottom: 15,
+    paddingBottom: 25,
   },
   monthPickerContainer: {
-    paddingTop: 18,
+    paddingVertical: 15,
     paddingHorizontal: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -117,6 +137,15 @@ const styles = StyleSheet.create({
   currentMonthText: {
     color: '#fff',
     fontSize: 18,
+  },
+  buttonForward: {
+    transform: [
+      { rotate: '-90deg' },
+    ],
+  },
+  chartContent: {
+    flex: 1,
+    flexDirection: 'row',
   },
   extraInfoContainer: {
     flexDirection: 'row',
