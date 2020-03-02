@@ -26,10 +26,10 @@ export const getFormattedDateBasedOnDayOfYear = (num, dateFormat = 'yyyy-MM-dd')
 };
 
 /*
-  120 -> 2:00
-  361 -> 6:01
+  120 seconds -> 2:00
+  361 seconds -> 6:01
 */
-export const getTimerMSValues = timerValue => {
+export const getFormattedTimerValue = timerValue => {
   const tempMinutesV = Math.trunc(timerValue / 60);
   const min = tempMinutesV < 10 ? `0${tempMinutesV}` : tempMinutesV;
   const tempSecondsV = timerValue % 60;

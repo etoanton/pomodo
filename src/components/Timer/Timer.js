@@ -1,0 +1,60 @@
+import React from 'react';
+import {
+  StyleSheet,
+  View,
+} from 'react-native';
+import PropTypes from 'prop-types';
+
+import TicksBackground from './TicksBackground';
+import OuterCircle from './OuterCircle';
+import InnerCircle from './InnerCircle';
+import FormattedTimerValue from './FormattedTimerValue';
+// import SectorList from './SectorList';
+
+const BORDER_WIDTH = 6;
+const TICK_SIZE = 10;
+export const MAX_TIMER_VALUE = 90;
+
+const Timer = ({
+  radius: outerRadius,
+  isTimerStarted,
+  timerValue,
+  togglePicker,
+}) => {
+  const innerCircleRadius = outerRadius - BORDER_WIDTH;
+  const ticksCircleRadius = outerRadius - BORDER_WIDTH * 2 - TICK_SIZE;
+  // const sectorRadius = outerRadius - BORDER_WIDTH * 2;
+
+  return (
+    <View style={styles.container}>
+      <OuterCircle outerRadius={outerRadius} borderWidth={BORDER_WIDTH} />
+      <InnerCircle innerRadius={innerCircleRadius} borderWidth={BORDER_WIDTH} />
+      <TicksBackground radius={ticksCircleRadius} tickSize={TICK_SIZE} />
+      {/* <SectorList radius={sectorRadius} borderWidth={BORDER_WIDTH} /> */}
+
+      {/* 15:00 */}
+      <FormattedTimerValue
+        timerValue={timerValue}
+        disabled={isTimerStarted}
+        onPress={() => togglePicker(true)}
+      />
+    </View>
+  );
+};
+
+Timer.defaultProps = {
+  radius: 100,
+};
+
+Timer.propTypes = {
+  radius: PropTypes.number,
+  isTimerStarted: PropTypes.bool.isRequired,
+  timerValue: PropTypes.number.isRequired,
+  togglePicker: PropTypes.func.isRequired,
+};
+
+const styles = StyleSheet.create({
+  container: {},
+});
+
+export default Timer;
