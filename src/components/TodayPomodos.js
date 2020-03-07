@@ -11,9 +11,9 @@ import {
 import { withNavigation } from 'react-navigation';
 
 import { Pomodos, useDataFetching } from '../api';
-import { getFormattedDateBasedOnDayOfYear } from '../dateTooklit';
+import { getFormattedDateBasedOnDayOfYear } from '../utils/dateTooklit';
 
-const DayPreview = ({ selectedDay, setSelectedDay, navigation }) => {
+const TodayPomodos = ({ selectedDay, setSelectedDay, navigation }) => {
   const rawSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'yyyy-MM-dd');
   const formattedSelectedDate = getFormattedDateBasedOnDayOfYear(selectedDay, 'do MMM');
 
@@ -57,7 +57,7 @@ const DayPreview = ({ selectedDay, setSelectedDay, navigation }) => {
   );
 };
 
-DayPreview.propTypes = {
+TodayPomodos.propTypes = {
   selectedDay: PropTypes.number.isRequired,
   setSelectedDay: PropTypes.func.isRequired,
   navigation: PropTypes.object.isRequired,
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(DayPreview);
+export default withNavigation(TodayPomodos);

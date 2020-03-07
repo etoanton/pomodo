@@ -10,7 +10,7 @@ import {
 
 import { Pomodos, useDataFetching } from '../../api';
 import daysList from '../../../helpers/2020/days.json';
-import SessionsOverviewPopup from '../SessionsOverviewPopup';
+import TodayPomodos from '../TodayPomodos';
 import Tabs from '../Tabs';
 
 import SingleRow from './SingleRow';
@@ -26,7 +26,7 @@ const daysData = separateToRows(daysList);
 const weeksData = separateToRows(daysList);
 const monthesData = separateToRows(daysList);
 
-const HistoryRows = ({ user }) => {
+const HistoryDots = ({ user }) => {
   let listRef = null;
   const [selectedDay, setSelectedDay] = useState(null);
   const [activeTabId, setActiveTabId] = useState(TABS.DAY);
@@ -88,18 +88,18 @@ const HistoryRows = ({ user }) => {
       </View>
       <View style={styles.dayPreviewContainer}>
         { selectedDay !== null && (
-          <SessionsOverviewPopup selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+          <TodayPomodos selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
         ) }
       </View>
     </View>
   );
 };
 
-HistoryRows.defaultProps = {
+HistoryDots.defaultProps = {
   user: null,
 };
 
-HistoryRows.propTypes = {
+HistoryDots.propTypes = {
   user: PropTypes.object,
 };
 
@@ -129,4 +129,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HistoryRows;
+export default HistoryDots;

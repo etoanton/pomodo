@@ -10,7 +10,7 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 
-import Timer from './Timer';
+import TimerClock from './TimerClock';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -43,7 +43,7 @@ const TimerWidget = ({
       >
         <MaterialIcons name="fullscreen" size={32} color="#CFCFCF" />
       </TouchableOpacity>
-      <Timer
+      <TimerClock
         radius={timerRadius}
         isTimerStarted={isTimerStarted}
         {...props}

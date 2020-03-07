@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
-import { getFormattedDistance } from '../dateTooklit';
+import { getFormattedDistance } from '../utils/dateTooklit';
 import { Pomodos, Tags, useDataFetching } from '../api';
 import Button from '../components/Button';
 

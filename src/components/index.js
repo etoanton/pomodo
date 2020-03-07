@@ -1,6 +1,6 @@
-import HistoryRows from './HistoryRows';
+import HistoryDots from './HistoryDots';
 import Button from './Button';
-import SessionsOverviewPopup from './SessionsOverviewPopup';
+import TodayPomodos from './TodayPomodos';
 import DaysLeftCount from './DaysLeftCount';
 import MinutePicker from './MinutePicker';
 import PomodoItem from './PomodoItem';
@@ -14,9 +14,9 @@ import TimeBoundaries from './TimeBoundaries';
 import SettingsItem from './SettingsItem';
 
 export {
-  HistoryRows,
+  HistoryDots,
   Button,
-  SessionsOverviewPopup,
+  TodayPomodos,
   DaysLeftCount,
   MinutePicker,
   PomodoItem,

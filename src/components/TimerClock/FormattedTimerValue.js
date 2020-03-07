@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { getFormattedTimerValue } from '../../dateTooklit';
+import { getFormattedTimerValue } from '../../utils/dateTooklit';
 
 const FormattedTimerValue = ({ disabled, timerValue, onPress }) => {
   const { min, sec } = getFormattedTimerValue(timerValue);

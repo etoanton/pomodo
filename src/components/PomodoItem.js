@@ -8,7 +8,7 @@ import {
 
 import { format } from 'date-fns';
 
-import { getFormattedDistance } from '../dateTooklit';
+import { getFormattedDistance } from '../utils/dateTooklit';
 
 
 const PomodoItem = ({ item }) => {

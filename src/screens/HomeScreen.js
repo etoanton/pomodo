@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 import {
   DaysLeftCount,
   TimerWidget,
-  HistoryRows,
+  HistoryDots,
   MinutePicker,
 } from '../components';
 
@@ -107,7 +107,7 @@ const HomeScreen = ({ navigation }) => {
 
       {/* Abstract calendar */}
       <View style={styles.historyContainer}>
-        <HistoryRows user={user} />
+        <HistoryDots user={user} />
       </View>
 
       {/* Modals & Pickers */}

@@ -9,13 +9,12 @@ import TicksBackground from './TicksBackground';
 import OuterCircle from './OuterCircle';
 import InnerCircle from './InnerCircle';
 import FormattedTimerValue from './FormattedTimerValue';
-// import SectorList from './SectorList';
 
 const BORDER_WIDTH = 6;
 const TICK_SIZE = 10;
 export const MAX_TIMER_VALUE = 90;
 
-const Timer = ({
+const TimerClock = ({
   radius: outerRadius,
   isTimerStarted,
   timerValue,
@@ -42,11 +41,11 @@ const Timer = ({
   );
 };
 
-Timer.defaultProps = {
+TimerClock.defaultProps = {
   radius: 100,
 };
 
-Timer.propTypes = {
+TimerClock.propTypes = {
   radius: PropTypes.number,
   isTimerStarted: PropTypes.bool.isRequired,
   timerValue: PropTypes.number.isRequired,
@@ -57,4 +56,4 @@ const styles = StyleSheet.create({
   container: {},
 });
 
-export default Timer;
+export default TimerClock;

@@ -10,6 +10,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import InsightsScreen from '../screens/InsightsScreen';
 import DayOverviewScreen from '../screens/DayOverviewScreen';
 import TimerSetupScreen from '../screens/TimerSetupScreen';
+import TimerProgressScreen from '../screens/TimerProgressScreen';
 
 const HomeScreenStack = createStackNavigator(
   {
@@ -19,6 +20,7 @@ const HomeScreenStack = createStackNavigator(
     Profile: ProfileScreen,
     Insights: InsightsScreen,
     TimerSetup: TimerSetupScreen,
+    TimerProgress: TimerProgressScreen,
 
     SignIn: SignInScreen,
   },

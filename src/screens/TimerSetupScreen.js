@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -6,9 +6,10 @@ import {
   SafeAreaView,
 } from 'react-native';
 
+import TimerContext from '../state/TimerContext';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 import { Button, TimeBoundaries, SettingsItem } from '../components';
-import { calculateDuration, calculateTimeStampBoundaries } from '../utils/timer_setup';
+import { calculateDuration, calculateTimeStampBoundaries } from '../utils/timerSetup';
 
 const FOCUS_TIME_OPTIONS = [
   { value: 900, label: '15 minutes' },
@@ -59,6 +60,19 @@ const TimerSetupScreen = ({ navigation }) => {
 
   const { from, to } = calculateTimeStampBoundaries(duration);
 
+  const { startTimer } = useContext(TimerContext);
+
+  const handleStartTimer = () => {
+    startTimer({
+      focusTime,
+      shortBreakTime,
+      sessionsCount,
+      longBreakTime,
+      longBreakPeriodicity: LONG_BREAK_PERIODICITY,
+    });
+    navigation.navigate('TimerProgress');
+  };
+
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.screenContentContainer}>
@@ -99,7 +113,7 @@ const TimerSetupScreen = ({ navigation }) => {
         </View>
         <View style={styles.actionListContainer}>
           <View style={styles.actionContainer}>
-            <Button label="Start" onPress={() => {}} />
+            <Button label="Start" onPress={handleStartTimer} />
           </View>
           <View style={styles.actionContainer}>
             <Button label="Cancel" onPress={() => navigation.navigate('Home')} btnStyles={styles.cancelBtn} />
