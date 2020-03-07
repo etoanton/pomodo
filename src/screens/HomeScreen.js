@@ -74,6 +74,10 @@ const HomeScreen = ({ navigation }) => {
     toggleStartTimer(false);
   };
 
+  const handleExpandPress = () => {
+    navigation.navigate('TimerSetup');
+  };
+
   return (
     <SafeAreaView style={styles.screenContainer}>
       {/* Days left count */}
@@ -96,6 +100,7 @@ const HomeScreen = ({ navigation }) => {
           isTimerStarted={isTimerStarted}
           startTimer={startTimer}
           stopTimer={discardPomodo}
+          onExpandPress={handleExpandPress}
           togglePicker={togglePicker}
         />
       </View>

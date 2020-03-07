@@ -9,15 +9,18 @@ import SignInScreen from '../screens/SignInScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import InsightsScreen from '../screens/InsightsScreen';
 import DayOverviewScreen from '../screens/DayOverviewScreen';
+import TimerSetupScreen from '../screens/TimerSetupScreen';
 
 const HomeScreenStack = createStackNavigator(
   {
     Home: HomeScreen,
     Menu: NavigationMenu,
     DayOverview: DayOverviewScreen,
-    SignIn: SignInScreen,
     Profile: ProfileScreen,
     Insights: InsightsScreen,
+    TimerSetup: TimerSetupScreen,
+
+    SignIn: SignInScreen,
   },
   {
     mode: 'modal',

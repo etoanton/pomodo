@@ -6,7 +6,7 @@ import {
   View,
   Dimensions,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 
@@ -31,16 +31,18 @@ const TimerWidget = ({
   startTimer,
   stopTimer,
   navigation,
+  onExpandPress,
   ...props
 }) => (
   <View style={styles.container}>
     <View style={styles.timerContainer}>
-      {/* <TouchableOpacity
+      <TouchableOpacity
         style={styles.fullScreenBtn}
+        onPress={onExpandPress}
         hitSlop={{ top: 10, left: 10, right: 10, bottom: 10 }}
       >
         <MaterialIcons name="fullscreen" size={32} color="#CFCFCF" />
-      </TouchableOpacity> */}
+      </TouchableOpacity>
       <Timer
         radius={timerRadius}
         isTimerStarted={isTimerStarted}
@@ -76,6 +78,7 @@ TimerWidget.propTypes = {
   isTimerStarted: PropTypes.bool.isRequired,
   startTimer: PropTypes.func.isRequired,
   stopTimer: PropTypes.func.isRequired,
+  onExpandPress: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

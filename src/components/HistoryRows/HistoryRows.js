@@ -10,7 +10,7 @@ import {
 
 import { Pomodos, useDataFetching } from '../../api';
 import daysList from '../../../helpers/2020/days.json';
-import DayPreview from '../DayPreview';
+import SessionsOverviewPopup from '../SessionsOverviewPopup';
 import Tabs from '../Tabs';
 
 import SingleRow from './SingleRow';
@@ -88,7 +88,7 @@ const HistoryRows = ({ user }) => {
       </View>
       <View style={styles.dayPreviewContainer}>
         { selectedDay !== null && (
-          <DayPreview selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+          <SessionsOverviewPopup selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
         ) }
       </View>
     </View>
