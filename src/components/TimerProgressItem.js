@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   View,
   Text,
+  Animated,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { getFormattedTimerValue } from '../utils/dateTooklit';
-
-// Completed green - 5C9961
 
 const TimerProgressItem = ({
   isActive,
@@ -16,6 +15,8 @@ const TimerProgressItem = ({
   timeTotal,
   timeCompleted,
 }) => {
+  const [completedA] = useState(new Animated.Value(0));
+
   const minSecTotal = getFormattedTimerValue(timeTotal);
   const minSecCompleted = getFormattedTimerValue(timeCompleted);
   const minSec = !isActive ? minSecTotal : `${minSecCompleted} / ${minSecTotal}`;
@@ -24,6 +25,16 @@ const TimerProgressItem = ({
   const completed = Math.round((timeCompleted / timeTotal) * 100);
   console.log('completed', completed);
 
+  useEffect(() => {
+    Animated.timing(
+      completedA,
+      {
+        toValue: completed,
+        duration: 500,
+      },
+    ).start();
+  }, [completed]);
+
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
@@ -31,7 +42,13 @@ const TimerProgressItem = ({
         <Text style={styles.itemTime}>{minSec}</Text>
       </View>
 
-      <View style={styles.backgroundUnderlay} width={`${completed}%`} />
+      <Animated.View
+        style={styles.backgroundUnderlay}
+        width={completedA.interpolate({
+          inputRange: [0, 100],
+          outputRange: ['0%', '100%'],
+        })}
+      />
     </View>
   );
 };

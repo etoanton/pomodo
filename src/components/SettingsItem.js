@@ -8,6 +8,13 @@ import {
 import PropTypes from 'prop-types';
 import { Ionicons } from '@expo/vector-icons';
 
+const btnHitSlop = {
+  top: 10,
+  left: 10,
+  right: 10,
+  bottom: 10,
+};
+
 const SettingsItem = ({
   settingsLabel,
   value,
@@ -35,7 +42,11 @@ const SettingsItem = ({
     <View style={styles.container}>
       <Text style={styles.settingsLabel}>{settingsLabel}</Text>
       <View style={styles.controlsContainer}>
-        <TouchableOpacity style={styles.leftControlContainer} onPress={() => handleValueChange(-1)}>
+        <TouchableOpacity
+          hitSlop={btnHitSlop}
+          style={styles.leftControlContainer}
+          onPress={() => handleValueChange(-1)}
+        >
           <Ionicons
             style={styles.controlIcon}
             name="md-arrow-dropleft"
@@ -44,7 +55,11 @@ const SettingsItem = ({
           />
         </TouchableOpacity>
         <Text style={styles.controlsLabel}>{valuesMap[value]}</Text>
-        <TouchableOpacity style={styles.rightControlContainer} onPress={() => handleValueChange(1)}>
+        <TouchableOpacity
+          hitSlop={btnHitSlop}
+          style={styles.rightControlContainer}
+          onPress={() => handleValueChange(1)}
+        >
           <Ionicons
             style={styles.controlIcon}
             name="md-arrow-dropright"

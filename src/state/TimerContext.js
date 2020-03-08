@@ -88,6 +88,7 @@ function reducer(state, action) {
         return {
           ...item,
           startedAt: addSeconds(item.startedAt, pauseDurationSec),
+          finishedAt: addSeconds(item.finishedAt, pauseDurationSec),
         };
       });
 
@@ -164,9 +165,10 @@ const TimerProvider = ({ children }) => {
   }, [dispatch, setTimerId]);
 
   const resetTimer = useCallback(() => {
+    clearInterval(timerId);
     setTimerId(null);
     dispatch({ type: ACTIONS.RESEST_TIMER });
-  }, [dispatch, setTimerId]);
+  }, [dispatch, timerId, setTimerId]);
 
   const tickTimer = useCallback(() => {
     dispatch({ type: ACTIONS.TICK_TIMER });
@@ -186,6 +188,8 @@ const TimerProvider = ({ children }) => {
         tickTimer();
       }, 1000);
       setTimerId(localTimerId);
+
+      // TODO: Save in local storage to be able to restore
     }
   }, [state.status, timerId, setTimerId, tickTimer]);
 
@@ -201,7 +205,7 @@ const TimerProvider = ({ children }) => {
       /*
         TODO: Save: {
           sessionsCount: 3,
-          focusTime: 900,
+          focusTimePerSession: 900,
           startedAt: new Date(),
           finishedAt: new Date(),
         }
