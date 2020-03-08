@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Text,
   View,
   StyleSheet,
   SafeAreaView,
@@ -9,21 +8,44 @@ import {
 
 import TimerContext from '../state/TimerContext';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
-import { Button } from '../components';
+import { Button, TimerProgressItem } from '../components';
+import { getFormattedTimerValue } from '../utils/dateTooklit';
 
 const TimerProgressScreen = ({ navigation }) => {
   const { timerState: { list } } = useContext(TimerContext);
+
+  const activeItemIdx = list.findIndex(item => item.timeCompleted < item.timeTotal);
 
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.screenContentContainer}>
         <View style={styles.contentContainer}>
-          {list.map(({ label }) => <Text>{label}</Text>)}
+          {list.map((item, idx) => {
+            const {
+              id,
+              label,
+              timeTotal,
+              timeCompleted,
+            } = item;
+
+            const minSecTotal = getFormattedTimerValue(timeTotal);
+            const minSecCompleted = getFormattedTimerValue(timeCompleted);
+            const isActive = idx === activeItemIdx;
+            const minSec = !isActive ? minSecTotal : `${minSecCompleted} / ${minSecTotal}`;
+            return (
+              <View key={id} style={styles.itemContainer}>
+                <TimerProgressItem label={label} time={minSec} />
+              </View>
+            );
+          })}
         </View>
-        {/* <Button>TimerProgressScreen</Button> */}
         <View style={styles.actionListContainer}>
           <View style={styles.actionContainer}>
-            <Button label="Cancel" onPress={() => navigation.navigate('TimerSetup')} btnStyles={styles.cancelBtn} />
+            <Button
+              label="Cancel"
+              onPress={() => navigation.navigate('TimerSetup')}
+              btnStyles={styles.cancelBtn}
+            />
           </View>
         </View>
       </View>
@@ -41,6 +63,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 10,
     paddingHorizontal: 20,
+  },
+  contentContainer: {
+    paddingBottom: 15,
+  },
+  itemContainer: {
+    marginTop: 12,
   },
   actionListContainer: {},
   actionContainer: {

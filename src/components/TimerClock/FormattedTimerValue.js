@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { getFormattedTimerValue } from '../../utils/dateTooklit';
 
 const FormattedTimerValue = ({ disabled, timerValue, onPress }) => {
-  const { min, sec } = getFormattedTimerValue(timerValue);
+  const minSec = getFormattedTimerValue(timerValue);
 
   return (
     <View style={styles.timeTextContainer}>
@@ -18,7 +18,7 @@ const FormattedTimerValue = ({ disabled, timerValue, onPress }) => {
         disabled={disabled}
         onPress={onPress}
       >
-        <Text style={styles.timeText}>{`${min}:${sec}`}</Text>
+        <Text style={styles.timeText}>{minSec}</Text>
       </TouchableOpacity>
     </View>
   );

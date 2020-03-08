@@ -12,6 +12,7 @@ import TextInput from './TextInput';
 import InsightItem from './InsightItem';
 import TimeBoundaries from './TimeBoundaries';
 import SettingsItem from './SettingsItem';
+import TimerProgressItem from './TimerProgressItem';
 
 export {
   HistoryDots,
@@ -28,4 +29,5 @@ export {
   InsightItem,
   TimeBoundaries,
   SettingsItem,
+  TimerProgressItem,
 };

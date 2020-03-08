@@ -34,7 +34,7 @@ export const getFormattedTimerValue = timerValue => {
   const min = tempMinutesV < 10 ? `0${tempMinutesV}` : tempMinutesV;
   const tempSecondsV = timerValue % 60;
   const sec = tempSecondsV < 10 ? `0${tempSecondsV}` : tempSecondsV;
-  return { min, sec };
+  return `${min}:${sec}`;
 };
 
 export const getFormattedDistance = seconds => {
