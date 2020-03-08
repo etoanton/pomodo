@@ -34,14 +34,16 @@ const ACTIONS = {
   START_TIMER: 'start_timer',
   PAUSE_TIMER: 'pause_timer',
   RESUME_TIMER: 'resume_timer',
+  COMPLETE_TIMER: 'complete_timer',
   RESEST_TIMER: 'reset_timer',
   TICK_TIMER: 'tick_timer',
   UPDATE_STATE: 'update_state',
 };
 
-const STATUSES = {
+const TIMER_STATUSES = {
   STARTED: 'started',
   PAUSED: 'paused',
+  COMPLETED: 'completed',
 };
 
 function reducer(state, action) {
@@ -66,14 +68,14 @@ function reducer(state, action) {
 
       return {
         ...state,
-        status: STATUSES.STARTED,
+        status: TIMER_STATUSES.STARTED,
         startedAt: now,
         list: nextList,
       };
     }
     case ACTIONS.PAUSE_TIMER: {
       const now = new Date();
-      return { ...state, status: STATUSES.PAUSED, pauseStartedAt: now };
+      return { ...state, status: TIMER_STATUSES.PAUSED, pauseStartedAt: now };
     }
     case ACTIONS.RESUME_TIMER: {
       const now = new Date();
@@ -91,7 +93,7 @@ function reducer(state, action) {
 
       return {
         ...state,
-        status: STATUSES.STARTED,
+        status: TIMER_STATUSES.STARTED,
         pauseStartedAt: null,
         list: nextList,
       };
@@ -129,6 +131,9 @@ function reducer(state, action) {
 
       return { ...state, list: nextList };
     }
+    case ACTIONS.COMPLETE_TIMER: {
+      return { ...state, status: TIMER_STATUSES.COMPLETED };
+    }
     case ACTIONS.RESEST_TIMER: {
       return { ...state, status: null };
     }
@@ -153,6 +158,11 @@ const TimerProvider = ({ children }) => {
     dispatch({ type: ACTIONS.RESUME_TIMER });
   }, [dispatch]);
 
+  const completeTimer = useCallback(() => {
+    setTimerId(null);
+    dispatch({ type: ACTIONS.COMPLETE_TIMER });
+  }, [dispatch, setTimerId]);
+
   const resetTimer = useCallback(() => {
     setTimerId(null);
     dispatch({ type: ACTIONS.RESEST_TIMER });
@@ -170,7 +180,7 @@ const TimerProvider = ({ children }) => {
 
   // STARTED
   useEffect(() => {
-    if (state.status === STATUSES.STARTED && !timerId) {
+    if (state.status === TIMER_STATUSES.STARTED && !timerId) {
       const localTimerId = setInterval(tickTimer, 1000);
       setTimerId(localTimerId);
     }
@@ -183,7 +193,7 @@ const TimerProvider = ({ children }) => {
   useEffect(() => {
     if (isTimerCompleted) {
       clearInterval(timerId);
-      resetTimer();
+      completeTimer();
 
       /*
         TODO: Save: {
@@ -194,7 +204,7 @@ const TimerProvider = ({ children }) => {
         }
       */
     }
-  }, [isTimerCompleted, timerId, resetTimer]);
+  }, [isTimerCompleted, timerId, completeTimer]);
 
   return (
     <TimerContext.Provider
@@ -204,6 +214,8 @@ const TimerProvider = ({ children }) => {
         pauseTimer,
         resumeTimer,
         updateTimer,
+        resetTimer,
+        completeTimer,
       }}
     >
       {children}
@@ -215,8 +227,6 @@ TimerProvider.propTypes = {
   children: PropTypes.object.isRequired,
 };
 
-export { reducer };
-
-export { TimerProvider };
+export { TimerProvider, TIMER_STATUSES };
 
 export default TimerContext;

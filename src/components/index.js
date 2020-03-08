@@ -7,7 +7,7 @@ import PomodoItem from './PomodoItem';
 import ProgressBar from './ProgressBar';
 import Tabs from './Tabs';
 import TagsPicker from './TagsPicker';
-import TimerWidget from './TimerWidget';
+import TimerWidget from './TimerWidget/TimerWidget';
 import TextInput from './TextInput';
 import InsightItem from './InsightItem';
 import TimeBoundaries from './TimeBoundaries';

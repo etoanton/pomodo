@@ -43,7 +43,7 @@ const TimerProgressScreen = ({ navigation }) => {
           <View style={styles.actionContainer}>
             <Button
               label="Cancel"
-              onPress={() => navigation.navigate('TimerSetup')}
+              onPress={() => navigation.navigate('Home')}
               btnStyles={styles.cancelBtn}
             />
           </View>

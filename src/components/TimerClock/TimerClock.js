@@ -16,9 +16,7 @@ export const MAX_TIMER_VALUE = 90;
 
 const TimerClock = ({
   radius: outerRadius,
-  isTimerStarted,
   timerValue,
-  togglePicker,
 }) => {
   const innerCircleRadius = outerRadius - BORDER_WIDTH;
   const ticksCircleRadius = outerRadius - BORDER_WIDTH * 2 - TICK_SIZE;
@@ -32,11 +30,7 @@ const TimerClock = ({
       {/* <SectorList radius={sectorRadius} borderWidth={BORDER_WIDTH} /> */}
 
       {/* 15:00 */}
-      <FormattedTimerValue
-        timerValue={timerValue}
-        disabled={isTimerStarted}
-        onPress={() => togglePicker(true)}
-      />
+      <FormattedTimerValue timerValue={timerValue} />
     </View>
   );
 };

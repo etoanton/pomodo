@@ -3,31 +3,23 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { getFormattedTimerValue } from '../../utils/dateTooklit';
 
-const FormattedTimerValue = ({ disabled, timerValue, onPress }) => {
+const FormattedTimerValue = ({ timerValue }) => {
   const minSec = getFormattedTimerValue(timerValue);
 
   return (
     <View style={styles.timeTextContainer}>
-      <TouchableOpacity
-        disabled={disabled}
-        onPress={onPress}
-      >
-        <Text style={styles.timeText}>{minSec}</Text>
-      </TouchableOpacity>
+      <Text style={styles.timeText}>{minSec}</Text>
     </View>
   );
 };
 
 FormattedTimerValue.propTypes = {
-  disabled: PropTypes.bool.isRequired,
   timerValue: PropTypes.number.isRequired,
-  onPress: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({
