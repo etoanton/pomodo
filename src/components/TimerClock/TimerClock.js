@@ -41,9 +41,7 @@ TimerClock.defaultProps = {
 
 TimerClock.propTypes = {
   radius: PropTypes.number,
-  isTimerStarted: PropTypes.bool.isRequired,
   timerValue: PropTypes.number.isRequired,
-  togglePicker: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

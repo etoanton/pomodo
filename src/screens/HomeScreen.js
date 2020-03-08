@@ -11,7 +11,6 @@ import {
 
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 
-
 const HomeScreen = () => {
   const [user, setUser] = useState({});
 
@@ -35,14 +34,10 @@ const HomeScreen = () => {
       </View>
 
       {/* Timer + Control Buttons */}
-      <View style={styles.timerContainer}>
-        <TimerWidget />
-      </View>
+      <View style={styles.timerContainer}><TimerWidget /></View>
 
       {/* Abstract calendar */}
-      <View style={styles.historyContainer}>
-        <HistoryDots user={user} />
-      </View>
+      <View style={styles.historyContainer}><HistoryDots user={user} /></View>
     </SafeAreaView>
   );
 };

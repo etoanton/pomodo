@@ -35,7 +35,6 @@ const TimerWidget = ({ navigation }) => {
   const timerValue = (isTimerStarted && activeItem)
     ? (activeItem.timeTotal - activeItem.timeCompleted) : INIT_TIMER_VALUE;
 
-
   useEffect(() => {
     if (status === TIMER_STATUSES.COMPLETED) {
       console.log('COMPLETED!!');
@@ -53,18 +52,20 @@ const TimerWidget = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.timerContainer}>
-        <TouchableOpacity
-          style={styles.fullScreenBtn}
-          onPress={startTimerSetup}
-          hitSlop={{
-            top: 10,
-            left: 10,
-            right: 10,
-            bottom: 10,
-          }}
-        >
-          <MaterialIcons name="fullscreen" size={32} color="#CFCFCF" />
-        </TouchableOpacity>
+        { isTimerStarted && (
+          <TouchableOpacity
+            style={styles.fullScreenBtn}
+            onPress={startTimerSetup}
+            hitSlop={{
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: 10,
+            }}
+          >
+            <MaterialIcons name="fullscreen" size={32} color="#CFCFCF" />
+          </TouchableOpacity>
+        )}
         <TimerClock
           radius={timerRadius}
           timerValue={timerValue}

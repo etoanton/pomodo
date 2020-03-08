@@ -9,7 +9,6 @@ import {
 import TimerContext from '../state/TimerContext';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 import { Button, TimerProgressItem } from '../components';
-import { getFormattedTimerValue } from '../utils/dateTooklit';
 
 const TimerProgressScreen = ({ navigation }) => {
   const { timerState: { list } } = useContext(TimerContext);
@@ -28,13 +27,16 @@ const TimerProgressScreen = ({ navigation }) => {
               timeCompleted,
             } = item;
 
-            const minSecTotal = getFormattedTimerValue(timeTotal);
-            const minSecCompleted = getFormattedTimerValue(timeCompleted);
             const isActive = idx === activeItemIdx;
-            const minSec = !isActive ? minSecTotal : `${minSecCompleted} / ${minSecTotal}`;
+
             return (
               <View key={id} style={styles.itemContainer}>
-                <TimerProgressItem label={label} time={minSec} />
+                <TimerProgressItem
+                  label={label}
+                  timeTotal={timeTotal}
+                  timeCompleted={timeCompleted}
+                  isActive={isActive}
+                />
               </View>
             );
           })}

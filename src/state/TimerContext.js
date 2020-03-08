@@ -181,7 +181,10 @@ const TimerProvider = ({ children }) => {
   // STARTED
   useEffect(() => {
     if (state.status === TIMER_STATUSES.STARTED && !timerId) {
-      const localTimerId = setInterval(tickTimer, 1000);
+      const localTimerId = setInterval(() => {
+        console.log('tickTimer');
+        tickTimer();
+      }, 1000);
       setTimerId(localTimerId);
     }
   }, [state.status, timerId, setTimerId, tickTimer]);

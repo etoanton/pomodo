@@ -6,25 +6,47 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-const TimerProgressItem = ({ label, time }) => (
-  <View style={styles.container}>
-    <Text style={styles.itemLabel}>{label}</Text>
-    <Text style={styles.itemTime}>{time}</Text>
-  </View>
-);
+import { getFormattedTimerValue } from '../utils/dateTooklit';
+
+// Completed green - 5C9961
+
+const TimerProgressItem = ({
+  isActive,
+  label,
+  timeTotal,
+  timeCompleted,
+}) => {
+  const minSecTotal = getFormattedTimerValue(timeTotal);
+  const minSecCompleted = getFormattedTimerValue(timeCompleted);
+  const minSec = !isActive ? minSecTotal : `${minSecCompleted} / ${minSecTotal}`;
+
+  // 0...100 %
+  const completed = Math.round((timeCompleted / timeTotal) * 100);
+  console.log('completed', completed);
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.contentContainer}>
+        <Text style={styles.itemLabel}>{label}</Text>
+        <Text style={styles.itemTime}>{minSec}</Text>
+      </View>
+
+      <View style={styles.backgroundUnderlay} width={`${completed}%`} />
+    </View>
+  );
+};
 
 TimerProgressItem.propTypes = {
+  isActive: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
+  timeTotal: PropTypes.number.isRequired,
+  timeCompleted: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({
   container: {
     borderRadius: 8,
     backgroundColor: '#2F2F38',
-    padding: 18,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
 
     shadowColor: '#000000',
     shadowOffset: {
@@ -34,6 +56,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 2.5,
   },
+  contentContainer: {
+    padding: 18,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   itemLabel: {
     fontSize: 17,
     color: '#fff',
@@ -41,6 +68,15 @@ const styles = StyleSheet.create({
   itemTime: {
     fontSize: 17,
     color: '#fff',
+  },
+  backgroundUnderlay: {
+    zIndex: -1,
+    position: 'absolute',
+    backgroundColor: '#5C9961',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    borderRadius: 8,
   },
 });
 
