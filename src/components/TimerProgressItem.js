@@ -30,7 +30,7 @@ const TimerProgressItem = ({
       completedA,
       {
         toValue: completed,
-        duration: 500,
+        duration: 300,
       },
     ).start();
   }, [completed]);

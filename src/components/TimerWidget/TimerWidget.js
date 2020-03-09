@@ -9,7 +9,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 
-import TimerContext, { TIMER_STATUSES } from '../../state/TimerContext';
+import { TimerContext, TIMER_STATUSES } from '../../state/Timer';
 import TimerClock from '../TimerClock';
 import { LEFT_PART, RIGHT_PART } from './constants';
 import WidgetControls from './WidgetControls';

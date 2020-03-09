@@ -6,7 +6,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import TimerContext from '../state/TimerContext';
+import { TimerContext } from '../state/Timer';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 import { Button, TimerProgressItem } from '../components';
 

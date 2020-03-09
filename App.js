@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
-import { TimerProvider } from './src/state/TimerContext';
+import { TimerProvider } from './src/state/Timer';
 import firebase from './src/api/firebase';
 import RootNavigator from './src/navigation/Root';
 import { Users } from './src/api';
