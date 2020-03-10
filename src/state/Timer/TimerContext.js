@@ -106,13 +106,25 @@ const TimerProvider = ({ children }) => {
       setTimerId(localTimerId);
 
       if (isCleanStart) {
-        const notificationsConfig = timerState.list.map(({ label, finishedAt }) => ({
-          title: label,
-          body: label,
-          timeStamp: finishedAt,
-        }));
-        persistTimer.setPersisted(timerState);
         Vibration.vibrate();
+
+        const notificationsConfig = timerState.list.map(({ finishedAt }, idx) => {
+          if (idx === timerState.list.length - 1) {
+            return {
+              title: 'Session completed',
+              body: 'Open app to save progress',
+              timeStamp: finishedAt,
+            };
+          }
+
+          return {
+            title: timerState.list[idx + 1].label,
+            body: timerState.list[idx + 1].label,
+            timeStamp: finishedAt,
+          };
+        });
+        persistTimer.setPersisted(timerState);
+
         scheduleMultipleNotifications(notificationsConfig);
       }
     }
