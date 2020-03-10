@@ -34,7 +34,8 @@ const SessionComplete = ({ navigation }) => {
       await Pomodos.savePomodo(payload);
       navigation.popToTop();
     } catch (error) {
-      Alert.alert(error);
+      Alert.alert('Error occured while trying to save completed session');
+      console.log('Error occured while trying to save completed session', error);
     } finally {
       setSaveLoading(false);
     }

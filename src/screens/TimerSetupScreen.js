@@ -13,6 +13,10 @@ import { Button, TimeBoundaries, SettingsItem } from '../components';
 import { calculateDuration, calculateTimeStampBoundaries } from '../utils/timerSetup';
 
 const FOCUS_TIME_OPTIONS = [
+  { value: 5, label: '5 seconds' },
+  { value: 10, label: '10 seconds' },
+  { value: 15, label: '15 seconds' },
+
   { value: 900, label: '15 minutes' },
   { value: 1200, label: '20 minutes' },
   { value: 1500, label: '25 minutes' },
@@ -23,6 +27,10 @@ const FOCUS_TIME_OPTIONS = [
 ];
 
 const SHORT_BREAK_TIME_OPTIONS = [
+  { value: 5, label: '5 seconds' },
+  { value: 10, label: '10 seconds' },
+  { value: 15, label: '15 seconds' },
+
   { value: 300, label: '5 minutes' },
   { value: 600, label: '10 minutes' },
   { value: 900, label: '15 minutes' },

@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import { Alert } from 'react-native';
 import fetchData from './helpers/fetchData';
 
 const Users = {
@@ -15,6 +16,7 @@ const Users = {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       return true;
     } catch (error) {
+      Alert.alert('Error while trying to login user');
       console.log('Error while trying to login user', error);
       return false;
     }
@@ -42,6 +44,7 @@ const Users = {
       await firebase.auth().signInWithCustomToken(token);
       return true;
     } catch (error) {
+      Alert.alert('Error while trying to create user');
       console.log('Error while trying to create user', error);
       return false;
     }
