@@ -17,9 +17,23 @@ const Pomodos = {
       return { error: e };
     }
   },
-  async savePomodo({ taskNotes, tagId, timeSpent }) {
+  async savePomodo({
+    sessionNotes,
+    tagId,
+    sessionDuration,
+    sessionsCount,
+    startedAt,
+    finishedAt,
+  }) {
     try {
-      const body = { taskNotes, tagId, timeSpent };
+      const body = {
+        sessionNotes,
+        tagId,
+        sessionDuration,
+        sessionsCount,
+        startedAt,
+        finishedAt,
+      };
       const { data } = await fetchData({ url: '/v1/pomodos', method: 'POST', body });
       return { data };
     } catch (e) {

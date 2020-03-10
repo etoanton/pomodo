@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   View,
   StyleSheet,
+  ScrollView,
   SafeAreaView,
 } from 'react-native';
 
@@ -18,7 +19,7 @@ const TimerProgressScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.screenContentContainer}>
-        <View style={styles.contentContainer}>
+        <ScrollView style={styles.contentContainer}>
           {list.map((item, idx) => {
             const {
               id,
@@ -40,7 +41,7 @@ const TimerProgressScreen = ({ navigation }) => {
               </View>
             );
           })}
-        </View>
+        </ScrollView>
         <View style={styles.actionListContainer}>
           <View style={styles.actionContainer}>
             <Button

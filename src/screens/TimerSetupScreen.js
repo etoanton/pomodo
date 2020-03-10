@@ -4,9 +4,10 @@ import {
   View,
   StyleSheet,
   SafeAreaView,
+  ScrollView,
 } from 'react-native';
 
-import TimerContext from '../state/TimerContext';
+import { TimerContext } from '../state/Timer';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 import { Button, TimeBoundaries, SettingsItem } from '../components';
 import { calculateDuration, calculateTimeStampBoundaries } from '../utils/timerSetup';
@@ -24,6 +25,8 @@ const FOCUS_TIME_OPTIONS = [
 const SHORT_BREAK_TIME_OPTIONS = [
   { value: 300, label: '5 minutes' },
   { value: 600, label: '10 minutes' },
+  { value: 900, label: '15 minutes' },
+  { value: 1200, label: '20 minutes' },
 ];
 
 const SESSION_COUNT_OPTIONS = [
@@ -33,6 +36,10 @@ const SESSION_COUNT_OPTIONS = [
   { value: 4, label: '4 times' },
   { value: 5, label: '5 times' },
   { value: 6, label: '6 times' },
+  { value: 7, label: '7 times' },
+  { value: 8, label: '8 times' },
+  { value: 9, label: '9 times' },
+  { value: 10, label: '10 times' },
 ];
 
 const LONG_BREAK_TIME_OPTIONS = [
@@ -40,6 +47,8 @@ const LONG_BREAK_TIME_OPTIONS = [
   { value: 600, label: '10 minutes' },
   { value: 900, label: '15 minutes' },
   { value: 1200, label: '20 minutes' },
+  { value: 1500, label: '25 minutes' },
+  { value: 1800, label: '30 minutes' },
 ];
 
 const LONG_BREAK_PERIODICITY = 4;
@@ -76,7 +85,7 @@ const TimerSetupScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.screenContentContainer}>
-        <View style={styles.contentContainer}>
+        <ScrollView style={styles.contentContainer}>
           <TimeBoundaries from={from} to={to} />
           <View style={styles.settingsItemContainer}>
             <SettingsItem
@@ -110,7 +119,7 @@ const TimerSetupScreen = ({ navigation }) => {
               onValueChange={v => setLongBreakTime(v)}
             />
           </View>
-        </View>
+        </ScrollView>
         <View style={styles.actionListContainer}>
           <View style={styles.actionContainer}>
             <Button label="Start" onPress={handleStartTimer} />
@@ -135,7 +144,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
-  contentContainer: {},
+  contentContainer: {
+    flex: 1,
+  },
   settingsItemContainer: {
     marginTop: 12,
   },

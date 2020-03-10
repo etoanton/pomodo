@@ -25,7 +25,7 @@ function reducer(state, action) {
       return restoreTimerStateReducer(state, action);
     }
     case ACTIONS.COMPLETE_TIMER: {
-      return { ...state, status: TIMER_STATUSES.COMPLETED };
+      return { ...state, status: TIMER_STATUSES.COMPLETED, finishedAt: new Date() };
     }
     case ACTIONS.RESEST_TIMER: {
       return { ...state, status: null };

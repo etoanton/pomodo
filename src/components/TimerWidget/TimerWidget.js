@@ -37,7 +37,7 @@ const TimerWidget = ({ navigation }) => {
 
   useEffect(() => {
     if (status === TIMER_STATUSES.COMPLETED) {
-      console.log('COMPLETED!!');
+      navigation.navigate('SessionComplete');
     }
   }, [status]);
 

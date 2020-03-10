@@ -29,7 +29,7 @@ const fetchData = async ({
     const response = await fetch(`${API_URL}${url}`, payload);
     const data = await response.json();
 
-    console.log('fetchData:', method, url);
+    console.log('fetchData:', { method, url, tokenLength: token.length });
 
     return data;
   } catch (e) {

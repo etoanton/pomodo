@@ -5,8 +5,9 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { AppState } from 'react-native';
+import { AppState, Vibration } from 'react-native';
 
+import { scheduleMultipleNotifications } from '../../native/notifications';
 import { ACTIONS, TIMER_STATUSES } from './constants';
 import reducer from './reducer';
 import persistTimer from './persist';
@@ -18,20 +19,30 @@ const initialState = {
   finishedAt: null,
   pauseStartedAt: null,
   status: null,
-  list: [{
-    label: 'Focus',
-    timeTotal: 1200,
-    timeCompleted: 0,
-    startedAt: null,
-    finishedAt: null,
-  }],
+  list: [
+    {
+      label: 'Focus',
+      timeTotal: 900,
+      timeCompleted: 0,
+      startedAt: null,
+      finishedAt: null,
+    },
+    {
+      label: 'Short break',
+      timeTotal: 300,
+      timeCompleted: 0,
+      startedAt: null,
+      finishedAt: null,
+    },
+  ],
 };
 
 const TimerProvider = ({ children }) => {
   const [timerId, setTimerId] = useState(null);
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [timerState, dispatch] = useReducer(reducer, initialState);
 
   const startTimer = useCallback(config => {
+    // TODO: Check if not started
     dispatch({ type: ACTIONS.START_TIMER, payload: config });
   }, [dispatch]);
 
@@ -47,16 +58,23 @@ const TimerProvider = ({ children }) => {
   }, [dispatch, timerId, setTimerId]);
 
   const tickTimer = useCallback(() => {
+    console.log('tickTimer');
     dispatch({ type: ACTIONS.TICK_TIMER });
   }, [dispatch]);
 
-  const restoreTimer = useCallback(timerState => {
-    dispatch({ type: ACTIONS.RESTORE_TIMER, payload: timerState });
+  const restoreTimer = useCallback(persistedState => {
+    dispatch({ type: ACTIONS.RESTORE_TIMER, payload: persistedState });
   }, [dispatch]);
 
-  const isTimerCompleted = state.list.every(item => item.timeCompleted === item.timeTotal);
+  const totalSessionsCount = timerState.list.length;
+  const completedSessionsCount = timerState.list.reduce((acc, item) => {
+    if (item.timeCompleted === item.timeTotal) return acc + 1;
+    return acc;
+  }, 0);
 
-  // INIT
+  const isTimerCompleted = totalSessionsCount === completedSessionsCount;
+
+  // INIT app state handler
   useEffect(() => {
     const handleAppStateChange = async nextAppState => {
       if (nextAppState === 'active') {
@@ -71,6 +89,7 @@ const TimerProvider = ({ children }) => {
         resetTimer();
       }
     };
+
     AppState.addEventListener('change', handleAppStateChange);
 
     return () => {
@@ -78,43 +97,43 @@ const TimerProvider = ({ children }) => {
     };
   }, [resetTimer, restoreTimer]);
 
-  // STARTED
+  // START NEW or RESTORE from `background` state
   useEffect(() => {
-    if (state.status === TIMER_STATUSES.STARTED && !timerId) {
-      const localTimerId = setInterval(() => {
-        console.log('tickTimer');
-        tickTimer();
-      }, 1000);
+    if (timerState.status === TIMER_STATUSES.STARTED && !timerId) {
+      const isCleanStart = timerState.list.every(({ timeCompleted }) => timeCompleted === 0);
+
+      const localTimerId = setInterval(tickTimer, 1000);
       setTimerId(localTimerId);
 
-      persistTimer.setPersisted(state);
+      if (isCleanStart) {
+        const notificationsConfig = timerState.list.map(({ label, finishedAt }) => ({
+          title: label,
+          body: label,
+          timeStamp: finishedAt,
+        }));
+        persistTimer.setPersisted(timerState);
+        Vibration.vibrate();
+        scheduleMultipleNotifications(notificationsConfig);
+      }
     }
-  }, [state.status, timerId, setTimerId, tickTimer]);
+  }, [timerState.status, timerId, setTimerId, tickTimer, timerState.list]);
 
   // COMPLETED
   useEffect(() => {
     if (isTimerCompleted) {
       clearInterval(timerId);
       completeTimer();
-
-      /*
-        TODO: Save: {
-          sessionsCount: 3,
-          focusTimePerSession: 900,
-          startedAt: new Date(),
-          finishedAt: new Date(),
-        }
-      */
+      Vibration.vibrate();
+      persistTimer.clearPersisted();
     }
   }, [isTimerCompleted, timerId, completeTimer]);
 
   return (
     <TimerContext.Provider
       value={{
-        timerState: state,
+        timerState,
         startTimer,
         resetTimer,
-        completeTimer,
         restoreTimer,
       }}
     >

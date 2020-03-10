@@ -11,6 +11,7 @@ import InsightsScreen from '../screens/InsightsScreen';
 import DayOverviewScreen from '../screens/DayOverviewScreen';
 import TimerSetupScreen from '../screens/TimerSetupScreen';
 import TimerProgressScreen from '../screens/TimerProgressScreen';
+import SessionCompleteScreen from '../screens/SessionCompleteScreen';
 
 const HomeScreenStack = createStackNavigator(
   {
@@ -21,6 +22,7 @@ const HomeScreenStack = createStackNavigator(
     Insights: InsightsScreen,
     TimerSetup: TimerSetupScreen,
     TimerProgress: TimerProgressScreen,
+    SessionComplete: SessionCompleteScreen,
 
     SignIn: SignInScreen,
   },
