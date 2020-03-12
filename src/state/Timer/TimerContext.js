@@ -7,7 +7,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { AppState, Vibration } from 'react-native';
 
-import { scheduleMultipleNotifications } from '../../native/notifications';
+import { scheduleTimerMultipleNotifications } from '../../native/notifications';
 import { ACTIONS, TIMER_STATUSES } from './constants';
 import reducer from './reducer';
 import persistTimer from './persist';
@@ -118,14 +118,14 @@ const TimerProvider = ({ children }) => {
           }
 
           return {
-            title: timerState.list[idx + 1].label,
-            body: timerState.list[idx + 1].label,
+            title: `Completed: ${timerState.list[idx].label}`,
+            body: `Next up: ${timerState.list[idx + 1].label}`,
             timeStamp: finishedAt,
           };
         });
         persistTimer.setPersisted(timerState);
 
-        scheduleMultipleNotifications(notificationsConfig);
+        scheduleTimerMultipleNotifications(notificationsConfig);
       }
     }
   }, [timerState.status, timerId, setTimerId, tickTimer, timerState.list]);

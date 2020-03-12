@@ -1,7 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import { Notifications } from 'expo';
 
-export const scheduleMultipleNotifications = (config = []) => {
+export const scheduleTimerMultipleNotifications = async (config = []) => {
+  await Notifications.cancelAllScheduledNotificationsAsync();
+
   config.forEach(({ title, body, timeStamp }) => {
     const localnotification = {
       title,
