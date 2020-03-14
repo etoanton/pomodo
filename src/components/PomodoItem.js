@@ -6,17 +6,19 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import { format } from 'date-fns';
-
-import { getFormattedDistance } from '../utils/dateTooklit';
-
+import { format, formatDistanceStrict } from 'date-fns';
 
 const PomodoItem = ({ item }) => {
   const {
-    timeSpent,
+    startedAt,
+    finishedAt,
     tagName,
     createdAt,
   } = item;
+
+  const startedAtDate = new Date(startedAt);
+  const finishedAtDate = new Date(finishedAt);
+  const timeSpent = formatDistanceStrict(startedAtDate, finishedAtDate);
 
   const date = new Date(createdAt);
   const dateFormatted = format(date, 'do MMM');
@@ -30,7 +32,7 @@ const PomodoItem = ({ item }) => {
       </View>
       <View style={styles.timeSpentContainer}>
         <Text style={styles.timeSpentValue}>
-          {`${getFormattedDistance(timeSpent)} on`}
+          {`${timeSpent} on`}
         </Text>
         <View style={styles.tagContainer}>
           <Text style={styles.tagValue}>{`#${tagName}`}</Text>
@@ -85,8 +87,9 @@ PomodoItem.propTypes = {
     tagId: PropTypes.string.isRequired,
     tagName: PropTypes.string.isRequired,
     taskNotes: PropTypes.string,
-    timeSpent: PropTypes.number.isRequired,
     userId: PropTypes.string.isRequired,
+    startedAt: PropTypes.string.isRequired,
+    finishedAt: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
   }).isRequired,
 };
