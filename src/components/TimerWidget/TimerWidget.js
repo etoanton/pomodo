@@ -27,15 +27,27 @@ const timerRadius = Math.min(
 
 const INIT_TIMER_VALUE = 15 * 60;
 
+const btnHitSlop = {
+  top: 10,
+  left: 10,
+  right: 10,
+  bottom: 10,
+};
+
 const TimerWidget = ({ navigation }) => {
-  const { timerState: { status, list }, resetTimer } = useContext(TimerContext);
+  const {
+    timerState: { status, list = [] },
+    activeTimerItemIdx,
+    resetTimer,
+  } = useContext(TimerContext);
 
   const isTimerStarted = status === TIMER_STATUSES.STARTED;
-  const activeItem = isTimerStarted ? list.find(item => item.timeCompleted < item.timeTotal) : null;
+  const activeItem = list[activeTimerItemIdx];
   const timerValue = (isTimerStarted && activeItem)
     ? (activeItem.timeTotal - activeItem.timeCompleted) : INIT_TIMER_VALUE;
 
   useEffect(() => {
+    // TIMER COMPLETED!
     if (status === TIMER_STATUSES.COMPLETED) {
       navigation.navigate('SessionComplete');
     }
@@ -56,12 +68,7 @@ const TimerWidget = ({ navigation }) => {
           <TouchableOpacity
             style={styles.fullScreenBtn}
             onPress={startTimerSetup}
-            hitSlop={{
-              top: 10,
-              left: 10,
-              right: 10,
-              bottom: 10,
-            }}
+            hitSlop={btnHitSlop}
           >
             <MaterialIcons name="fullscreen" size={32} color="#CFCFCF" />
           </TouchableOpacity>
@@ -69,6 +76,8 @@ const TimerWidget = ({ navigation }) => {
         <TimerClock
           radius={timerRadius}
           timerValue={timerValue}
+          taskLisk={list}
+          activeTimerItemIdx={activeTimerItemIdx}
         />
       </View>
       <WidgetControls

@@ -12,9 +12,7 @@ import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
 import { Button, TimerProgressItem } from '../components';
 
 const TimerProgressScreen = ({ navigation }) => {
-  const { timerState: { list } } = useContext(TimerContext);
-
-  const activeItemIdx = list.findIndex(item => item.timeCompleted < item.timeTotal);
+  const { timerState: { list }, activeTimerItemIdx } = useContext(TimerContext);
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -28,7 +26,7 @@ const TimerProgressScreen = ({ navigation }) => {
               timeCompleted,
             } = item;
 
-            const isActive = idx === activeItemIdx;
+            const isActive = idx === activeTimerItemIdx;
 
             return (
               <View key={id} style={styles.itemContainer}>

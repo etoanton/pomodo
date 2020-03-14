@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import TicksBackground from './TicksBackground';
 import OuterCircle from './OuterCircle';
 import InnerCircle from './InnerCircle';
-import FormattedTimerValue from './FormattedTimerValue';
+import FormattedTextInfo from './FormattedTextInfo';
 
 const BORDER_WIDTH = 6;
 const TICK_SIZE = 10;
@@ -17,6 +17,8 @@ export const MAX_TIMER_VALUE = 90;
 const TimerClock = ({
   radius: outerRadius,
   timerValue,
+  taskLisk,
+  activeTimerItemIdx,
 }) => {
   const innerCircleRadius = outerRadius - BORDER_WIDTH;
   const ticksCircleRadius = outerRadius - BORDER_WIDTH * 2 - TICK_SIZE;
@@ -29,8 +31,12 @@ const TimerClock = ({
       <TicksBackground radius={ticksCircleRadius} tickSize={TICK_SIZE} />
       {/* <SectorList radius={sectorRadius} borderWidth={BORDER_WIDTH} /> */}
 
-      {/* 15:00 */}
-      <FormattedTimerValue timerValue={timerValue} />
+      {/* Focus / 15:00 / .... */}
+      <FormattedTextInfo
+        timerValue={timerValue}
+        taskLisk={taskLisk}
+        activeTimerItemIdx={activeTimerItemIdx}
+      />
     </View>
   );
 };
@@ -42,6 +48,18 @@ TimerClock.defaultProps = {
 TimerClock.propTypes = {
   radius: PropTypes.number,
   timerValue: PropTypes.number.isRequired,
+  taskLisk: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      startedAt: PropTypes.string.isRequired,
+      finishedAt: PropTypes.string.isRequired,
+      timeCompleted: PropTypes.number.isRequired,
+      timeTotal: PropTypes.number.isRequired,
+
+    }),
+  ).isRequired,
+  activeTimerItemIdx: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({

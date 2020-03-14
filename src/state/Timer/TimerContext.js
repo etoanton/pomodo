@@ -7,7 +7,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { AppState, Vibration } from 'react-native';
 
-import { scheduleTimerMultipleNotifications } from '../../native/notifications';
+import { scheduleTimerMultipleNotifications, cancelAllScheduledNotificationsAsync } from '../../native/notifications';
 import { ACTIONS, TIMER_STATUSES } from './constants';
 import reducer from './reducer';
 import persistTimer from './persist';
@@ -34,11 +34,26 @@ const initialState = {
       startedAt: null,
       finishedAt: null,
     },
+    {
+      label: 'Focus',
+      timeTotal: 900,
+      timeCompleted: 0,
+      startedAt: null,
+      finishedAt: null,
+    },
+    {
+      label: 'Short break',
+      timeTotal: 300,
+      timeCompleted: 0,
+      startedAt: null,
+      finishedAt: null,
+    },
   ],
 };
 
 const TimerProvider = ({ children }) => {
   const [timerId, setTimerId] = useState(null);
+  const [activeItemIdx, setItemIdx] = useState(-1);
   const [timerState, dispatch] = useReducer(reducer, initialState);
 
   const startTimer = useCallback(config => {
@@ -134,16 +149,28 @@ const TimerProvider = ({ children }) => {
   useEffect(() => {
     if (isTimerCompleted) {
       clearInterval(timerId);
-      completeTimer();
-      Vibration.vibrate();
+      completeTimer(); // -> dispatch ACTIONS.COMPLETE_TIMER
       persistTimer.clearPersisted();
+      cancelAllScheduledNotificationsAsync();
     }
-  }, [isTimerCompleted, timerId, completeTimer]);
+  }, [isTimerCompleted, timerId, completeTimer, setItemIdx]);
+
+  useEffect(() => {
+    if (timerState.status === TIMER_STATUSES.STARTED) {
+      const idx = timerState.list.findIndex(item => item.timeCompleted < item.timeTotal);
+      setItemIdx(idx);
+    }
+
+    if (timerState.status === TIMER_STATUSES.COMPLETED) {
+      setItemIdx(-1);
+    }
+  }, [timerState.status, timerState.list]);
 
   return (
     <TimerContext.Provider
       value={{
         timerState,
+        activeTimerItemIdx: activeItemIdx,
         startTimer,
         resetTimer,
         restoreTimer,
