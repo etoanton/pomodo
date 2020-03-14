@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
+import { tasksListPropType } from '../../state/Timer';
 import TicksBackground from './TicksBackground';
 import OuterCircle from './OuterCircle';
 import InnerCircle from './InnerCircle';
@@ -48,17 +49,7 @@ TimerClock.defaultProps = {
 TimerClock.propTypes = {
   radius: PropTypes.number,
   timerValue: PropTypes.number.isRequired,
-  taskLisk: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      startedAt: PropTypes.string.isRequired,
-      finishedAt: PropTypes.string.isRequired,
-      timeCompleted: PropTypes.number.isRequired,
-      timeTotal: PropTypes.number.isRequired,
-
-    }),
-  ).isRequired,
+  taskLisk: tasksListPropType.isRequired,
   activeTimerItemIdx: PropTypes.number.isRequired,
 };
 

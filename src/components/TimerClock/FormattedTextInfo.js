@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
+import { tasksListPropType } from '../../state/Timer';
 import { getFormattedTimerValue } from '../../utils/dateTooklit';
 
 const FormattedTextInfo = ({ timerValue, taskLisk, activeTimerItemIdx }) => {
@@ -49,17 +50,7 @@ const FormattedTextInfo = ({ timerValue, taskLisk, activeTimerItemIdx }) => {
 
 FormattedTextInfo.propTypes = {
   timerValue: PropTypes.number.isRequired,
-  taskLisk: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      startedAt: PropTypes.string.isRequired,
-      finishedAt: PropTypes.string.isRequired,
-      timeCompleted: PropTypes.number.isRequired,
-      timeTotal: PropTypes.number.isRequired,
-
-    }),
-  ).isRequired,
+  taskLisk: tasksListPropType.isRequired,
   activeTimerItemIdx: PropTypes.number.isRequired,
 };
 
@@ -82,12 +73,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   stateText: {
-    color: '#fff',
+    color: '#ccc',
     fontSize: 12,
   },
   timeTextContainer: {},
   timeText: {
-    color: '#ffffff',
+    color: '#fff',
     fontSize: 32,
     letterSpacing: 0.8,
     fontWeight: '400',

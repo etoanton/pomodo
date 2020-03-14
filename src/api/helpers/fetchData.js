@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import { Alert } from 'react-native';
 
 import { ENV } from '../../config';
 
@@ -32,9 +33,10 @@ const fetchData = async ({
     console.log('fetchData:', { method, url, tokenLength: token.length });
 
     return data;
-  } catch (e) {
-    console.log(`Error occured while making ${url} request`, e);
-    throw e;
+  } catch (error) {
+    // Alert.alert(error.message);
+    console.log(`Error occured while making ${url} request`, error);
+    throw error;
   }
 };
 

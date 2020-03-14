@@ -14,39 +14,45 @@ import persistTimer from './persist';
 
 const TimerContext = React.createContext({});
 
+const defaultDate = new Date();
+
 const initialState = {
-  startedAt: null,
-  finishedAt: null,
+  startedAt: defaultDate,
+  finishedAt: defaultDate,
   pauseStartedAt: null,
   status: null,
   list: [
     {
+      id: 'id_1',
       label: 'Focus',
       timeTotal: 900,
       timeCompleted: 0,
-      startedAt: null,
-      finishedAt: null,
+      startedAt: defaultDate.toString(),
+      finishedAt: defaultDate.toString(),
     },
     {
+      id: 'id_2',
       label: 'Short break',
       timeTotal: 300,
       timeCompleted: 0,
-      startedAt: null,
-      finishedAt: null,
+      startedAt: defaultDate.toString(),
+      finishedAt: defaultDate.toString(),
     },
     {
+      id: 'id_3',
       label: 'Focus',
       timeTotal: 900,
       timeCompleted: 0,
-      startedAt: null,
-      finishedAt: null,
+      startedAt: defaultDate.toString(),
+      finishedAt: defaultDate.toString(),
     },
     {
+      id: 'id_4',
       label: 'Short break',
       timeTotal: 300,
       timeCompleted: 0,
-      startedAt: null,
-      finishedAt: null,
+      startedAt: defaultDate.toString(),
+      finishedAt: defaultDate.toString(),
     },
   ],
 };

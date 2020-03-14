@@ -23,4 +23,6 @@ export const scheduleTimerMultipleNotifications = async (config = []) => {
   });
 };
 
-export const { cancelAllScheduledNotificationsAsync } = Notifications;
+export const cancelAllScheduledNotificationsAsync = () => {
+  Notifications.cancelAllScheduledNotificationsAsync();
+};

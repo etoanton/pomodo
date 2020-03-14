@@ -11,12 +11,12 @@ const commonInputProps = {
   clearButtonMode: 'while-editing',
   autoCorrect: false,
   keyboardAppearance: 'dark',
-  maxLength: 50,
   placeholderTextColor: '#636572',
   spellCheck: false,
 };
 
 const emailCommonProps = {
+  maxLength: 50,
   autoFocus: true,
   keyboardType: 'email-address',
   placeholder: 'Email',
@@ -25,6 +25,7 @@ const emailCommonProps = {
 };
 
 const passwordCommonProps = {
+  maxLength: 50,
   placeholder: 'Password',
   secureTextEntry: true,
   textContentType: 'password',
@@ -43,6 +44,8 @@ const Input = ({
   const hasValue = value.length > 0;
   // eslint-disable-next-line react/destructuring-assignment
   const placeholder = props.placeholder || configProps.placeholder;
+
+  console.log('hasValue', hasValue);
 
   return (
     <View style={styles.textInputContainer}>

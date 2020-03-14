@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
@@ -25,7 +26,7 @@ const ProfileScreen = ({ navigation }) => {
   const sendEmailVerification = async () => {
     const { currentUser } = firebase.auth();
     await currentUser.sendEmailVerification();
-    console.log('NOTIFICATION: Notification sent');
+    Alert.alert('Email notification sent');
   };
 
   const saveUserInfo = async () => {

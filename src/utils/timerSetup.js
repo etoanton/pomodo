@@ -28,7 +28,7 @@ export const generateListOfItems = ({
     .map((_, idx) => {
       if (longBreakTime !== 0 && (idx + 1) % (longBreakPeriodicity * 2) === 0) {
         return {
-          id: idx,
+          id: `id_${idx}`,
           label: 'Long break',
           timeTotal: longBreakTime,
           timeCompleted: 0,

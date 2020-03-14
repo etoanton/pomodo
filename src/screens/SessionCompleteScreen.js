@@ -10,11 +10,11 @@ import {
 
 import { Pomodos } from '../api';
 import { TimerContext } from '../state/Timer';
-
+import { TextInput, Button } from '../components';
 import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
-import { Button } from '../components';
 
 const SessionComplete = ({ navigation }) => {
+  const [notesValue, onChangeText] = React.useState('');
   const [saveLoading, setSaveLoading] = useState(false);
   const { timerState } = useContext(TimerContext);
 
@@ -25,7 +25,7 @@ const SessionComplete = ({ navigation }) => {
       sessionDuration: focusSessions[0].timeTotal,
       startedAt: timerState.startedAt,
       finishedAt: timerState.finishedAt,
-      sessionNotes: null,
+      sessionNotes: notesValue,
       tagId: null,
     };
 
@@ -47,6 +47,16 @@ const SessionComplete = ({ navigation }) => {
         <View style={styles.contentContainer}>
           <View style={styles.titleTextContainer}>
             <Text style={styles.titleText}>Success!</Text>
+          </View>
+          <View style={styles.textAreaContainer}>
+            <TextInput
+              value={notesValue}
+              onChangeText={onChangeText}
+              autoFocus
+              placeholder="Notes"
+              multiline
+              numberOfLines={4}
+            />
           </View>
         </View>
         <View style={styles.actionListContainer}>
@@ -80,6 +90,9 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 36,
+  },
+  textAreaContainer: {
+    marginTop: 15,
   },
   actionListContainer: {},
   actionContainer: {
