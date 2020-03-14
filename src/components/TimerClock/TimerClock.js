@@ -9,7 +9,7 @@ import { tasksListPropType } from '../../state/Timer';
 import TicksBackground from './TicksBackground';
 import OuterCircle from './OuterCircle';
 import InnerCircle from './InnerCircle';
-import FormattedTextInfo from './FormattedTextInfo';
+import TimerInfo from './TimerInfo';
 
 const BORDER_WIDTH = 6;
 const TICK_SIZE = 10;
@@ -33,7 +33,7 @@ const TimerClock = ({
       {/* <SectorList radius={sectorRadius} borderWidth={BORDER_WIDTH} /> */}
 
       {/* Focus / 15:00 / .... */}
-      <FormattedTextInfo
+      <TimerInfo
         timerValue={timerValue}
         taskLisk={taskLisk}
         activeTimerItemIdx={activeTimerItemIdx}

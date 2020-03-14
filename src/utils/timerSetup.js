@@ -39,7 +39,7 @@ export const generateListOfItems = ({
 
       if ((idx + 1) % 2 === 0) {
         return {
-          id: idx,
+          id: `id_${idx}`,
           label: 'Short break',
           timeTotal: shortBreakTime,
           timeCompleted: 0,
@@ -50,7 +50,7 @@ export const generateListOfItems = ({
 
       if ((idx + 1) % 2 === 1) {
         return {
-          id: idx,
+          id: `id_${idx}`,
           label: 'Focus',
           timeTotal: focusTime,
           timeCompleted: 0,

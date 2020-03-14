@@ -45,8 +45,6 @@ const Input = ({
   // eslint-disable-next-line react/destructuring-assignment
   const placeholder = props.placeholder || configProps.placeholder;
 
-  console.log('hasValue', hasValue);
-
   return (
     <View style={styles.textInputContainer}>
       <TextInput
