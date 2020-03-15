@@ -34,7 +34,6 @@ const SessionComplete = ({ navigation }) => {
       await Pomodos.savePomodo(payload);
       navigation.popToTop();
     } catch (error) {
-      Alert.alert('Error occured while trying to save completed session');
       console.log('Error occured while trying to save completed session', error);
     } finally {
       setSaveLoading(false);
@@ -56,6 +55,7 @@ const SessionComplete = ({ navigation }) => {
               placeholder="Notes"
               multiline
               numberOfLines={4}
+              style={{ height: 300, paddingTop: 20 }}
             />
           </View>
         </View>

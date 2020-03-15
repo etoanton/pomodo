@@ -50,13 +50,15 @@ const Input = ({
       <TextInput
         value={value}
         editable={editable}
+        {...configProps}
+        {...props}
         style={{
           ...styles.textInput,
           ...(hasValue ? styles.textInputWithValue : {}),
           ...(!editable ? styles.disabledInput : {}),
+          // eslint-disable-next-line react/destructuring-assignment
+          ...props.style,
         }}
-        {...configProps}
-        {...props}
         placeholder={placeholder}
       />
       { hasValue && (
@@ -73,6 +75,7 @@ Input.defaultProps = {
   placeholder: '',
   type: 'default',
   editable: true,
+  style: {},
 };
 
 Input.propTypes = {
@@ -80,6 +83,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.oneOf(['email', 'password', 'default']),
   editable: PropTypes.bool,
+  style: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

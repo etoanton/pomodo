@@ -58,17 +58,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stateContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: 'rgba(255, 255, 255, 0.04)',
     borderRadius: 15,
     paddingHorizontal: 8,
     paddingVertical: 3,
   },
   stateText: {
-    color: '#fff',
+    color: '#fafafa',
     fontSize: 12,
   },
   timeTextContainer: {
-    paddingVertical: 5,
+    paddingTop: 4,
+    paddingBottom: 7,
   },
   timeText: {
     color: '#fff',

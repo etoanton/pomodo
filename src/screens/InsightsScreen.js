@@ -97,12 +97,12 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    paddingTop: 45,
+    paddingTop: 55,
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
   itemContainer: {
-    marginBottom: 15,
+    marginBottom: 20,
   },
 });
 

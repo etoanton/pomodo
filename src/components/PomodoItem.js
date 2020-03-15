@@ -12,17 +12,15 @@ const PomodoItem = ({ item }) => {
   const {
     startedAt,
     finishedAt,
-    tagName,
-    createdAt,
+    sessionNotes,
   } = item;
 
   const startedAtDate = new Date(startedAt);
   const finishedAtDate = new Date(finishedAt);
   const timeSpent = formatDistanceStrict(startedAtDate, finishedAtDate);
 
-  const date = new Date(createdAt);
-  const dateFormatted = format(date, 'do MMM');
-  const timeFormatted = format(date, 'HH:mm');
+  const dateFormatted = format(startedAtDate, 'do MMM');
+  const timeFormatted = format(startedAtDate, 'HH:mm');
 
   return (
     <View style={styles.itemContainer}>
@@ -32,10 +30,12 @@ const PomodoItem = ({ item }) => {
       </View>
       <View style={styles.timeSpentContainer}>
         <Text style={styles.timeSpentValue}>
-          {`${timeSpent} on`}
+          {`Time spent: ${timeSpent}`}
         </Text>
         <View style={styles.tagContainer}>
-          <Text style={styles.tagValue}>{`#${tagName}`}</Text>
+          <Text style={styles.tagValue} numberOfLines={1} ellipsizeMode="tail">
+            {sessionNotes}
+          </Text>
         </View>
       </View>
     </View>
@@ -75,7 +75,9 @@ const styles = StyleSheet.create({
   timeSpentValue: {
     color: '#fff',
   },
-  tagContainer: {},
+  tagContainer: {
+    // flex: 1,
+  },
   tagValue: {
     color: '#737373',
   },
@@ -84,9 +86,8 @@ const styles = StyleSheet.create({
 PomodoItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    tagId: PropTypes.string.isRequired,
-    tagName: PropTypes.string.isRequired,
-    taskNotes: PropTypes.string,
+    tagId: PropTypes.string,
+    sessionNotes: PropTypes.string,
     userId: PropTypes.string.isRequired,
     startedAt: PropTypes.string.isRequired,
     finishedAt: PropTypes.string.isRequired,
