@@ -6,31 +6,32 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import { format, formatDistanceStrict } from 'date-fns';
+import { format } from 'date-fns';
+import { getFormattedDistance } from '../utils/dateTooklit';
 
 const PomodoItem = ({ item }) => {
   const {
     startedAt,
     finishedAt,
     sessionNotes,
+    sessionDuration,
+    sessionsCount,
   } = item;
 
-  const startedAtDate = new Date(startedAt);
-  const finishedAtDate = new Date(finishedAt);
-  const timeSpent = formatDistanceStrict(startedAtDate, finishedAtDate);
+  const timeSpent = getFormattedDistance(sessionDuration * sessionsCount);
 
-  const dateFormatted = format(startedAtDate, 'do MMM');
-  const timeFormatted = format(startedAtDate, 'HH:mm');
+  const startedAtTime = format(new Date(startedAt), 'HH:mm');
+  const finishedAtTime = format(new Date(finishedAt), 'HH:mm');
 
   return (
     <View style={styles.itemContainer}>
       <View style={styles.dateContainer}>
-        <Text style={styles.dateValue}>{dateFormatted}</Text>
-        <Text style={styles.dateValue}>{timeFormatted}</Text>
+        <Text style={styles.dateValue}>{startedAtTime}</Text>
+        <Text style={styles.dateValue}>{finishedAtTime}</Text>
       </View>
       <View style={styles.timeSpentContainer}>
         <Text style={styles.timeSpentValue}>
-          {`Time spent: ${timeSpent}`}
+          {`Productive time: ${timeSpent}`}
         </Text>
         <View style={styles.tagContainer}>
           <Text style={styles.tagValue} numberOfLines={1} ellipsizeMode="tail">
@@ -40,6 +41,20 @@ const PomodoItem = ({ item }) => {
       </View>
     </View>
   );
+};
+
+PomodoItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    tagId: PropTypes.string,
+    sessionNotes: PropTypes.string,
+    userId: PropTypes.string.isRequired,
+    startedAt: PropTypes.string.isRequired,
+    finishedAt: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    sessionDuration: PropTypes.number.isRequired,
+    sessionsCount: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 const styles = StyleSheet.create({
@@ -82,17 +97,5 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
 });
-
-PomodoItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    tagId: PropTypes.string,
-    sessionNotes: PropTypes.string,
-    userId: PropTypes.string.isRequired,
-    startedAt: PropTypes.string.isRequired,
-    finishedAt: PropTypes.string.isRequired,
-    createdAt: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default PomodoItem;
