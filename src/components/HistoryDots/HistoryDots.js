@@ -11,17 +11,37 @@ import {
 import { Pomodos, useDataFetching } from '../../api';
 import daysList from '../../../helpers/2020/days.json';
 import TodayPomodos from '../TodayPomodos';
+import Tabs from '../Tabs';
 
 import SingleRow from './SingleRow';
-import { mergeLists, separateToRows } from './helpers';
+import { mergeLists, separateToRows, getCurrentDayIndex } from './helpers';
+
+const TABS = {
+  DAY: 'd',
+  WEEK: 'w',
+  MONTH: 'm',
+};
 
 const daysData = separateToRows(daysList);
+const weeksData = separateToRows(daysList);
+const monthesData = separateToRows(daysList);
 
 const HistoryDots = ({ user }) => {
+  let listRef = null;
   const [selectedDay, setSelectedDay] = useState(null);
+  const [activeTabId, setActiveTabId] = useState(TABS.DAY);
   const [data, setData] = useState([]);
 
   const { loading, results, refetch: refetchPomodos } = useDataFetching(Pomodos.getPomodos);
+
+  const scrollToday = () => {
+    const { currentDayRowIndex } = getCurrentDayIndex();
+    listRef.scrollToIndex({
+      index: currentDayRowIndex,
+      animated: true,
+      viewPosition: 0.5,
+    });
+  };
 
   useEffect(() => {
     refetchPomodos();
@@ -29,15 +49,32 @@ const HistoryDots = ({ user }) => {
 
   /* Merge "empty" list of days data & user data */
   useEffect(() => {
-    const mergedData = results && results.data ? mergeLists(daysData, results.data) : daysData;
+    const rawData = activeTabId === TABS.DAY ? daysData
+      : activeTabId === TABS.WEEK ? weeksData
+        : activeTabId === TABS.MONTH ? monthesData : daysData;
+
+    const mergedData = results && results.data ? mergeLists(rawData, results.data) : rawData;
 
     setData(mergedData);
-  }, [results, daysData]);
+  }, [results]);
 
   return (
     <View style={styles.container}>
+      <View style={styles.tabsContainer}>
+        <Tabs
+          activeTabId={activeTabId}
+          handlePress={id => setActiveTabId(id)}
+          tabsConfig={[
+            { id: TABS.DAY, name: 'Days' },
+            { id: TABS.WEEK, name: 'Weeks' },
+            { id: TABS.MONTH, name: 'Monthes' },
+          ]}
+          scrollToday={scrollToday}
+        />
+      </View>
       <View style={styles.listContainer}>
         <FlatList
+          ref={ref => { listRef = ref; }}
           data={data}
           renderItem={({ item = [] }) => (
             <SingleRow

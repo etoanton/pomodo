@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import * as firebase from 'firebase';
 
@@ -72,10 +73,11 @@ const styles = StyleSheet.create({
   },
   historyContainer: {
     flex: 1,
-    paddingTop: 12,
   },
 });
 
-HomeScreen.propTypes = {};
+HomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default HomeScreen;
