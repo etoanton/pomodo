@@ -8,6 +8,7 @@ import {
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
+import * as firebase from 'firebase';
 
 import { TimerContext, TIMER_STATUSES } from '../../state/Timer';
 import TimerClock from '../TimerClock';
@@ -54,6 +55,13 @@ const TimerWidget = ({ navigation }) => {
   }, [status]);
 
   const startTimerSetup = () => {
+    const { currentUser } = firebase.auth();
+
+    if (!currentUser || currentUser.isAnonymous) {
+      navigation.navigate('SignIn');
+      return;
+    }
+
     if (!isTimerStarted) {
       navigation.navigate('TimerSetup');
     } else {
