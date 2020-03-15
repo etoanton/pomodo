@@ -16,7 +16,7 @@ const Users = {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       return true;
     } catch (error) {
-      Alert.alert('Error while trying to login user');
+      Alert.alert(error.message);
       console.log('Error while trying to login user', error);
       return false;
     }
@@ -40,12 +40,12 @@ const Users = {
 
       /* Create new user */
       const { token } = await fetchData({ url: '/v1/users', method: 'POST', body: { email, password } });
-      if (!token) throw Error('Failed to sign up, token is null');
+      if (!token) throw Error('Failed to sign up');
       await firebase.auth().signInWithCustomToken(token);
       return true;
     } catch (error) {
-      Alert.alert('Error while trying to create user');
-      console.log('Error while trying to create user', error);
+      Alert.alert(error.message);
+      console.log('Error while trying to create user', error.message);
       return false;
     }
   },

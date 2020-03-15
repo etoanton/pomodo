@@ -1,3 +1,4 @@
+import { Alert } from 'react-native';
 import fetchData from './helpers/fetchData';
 
 const Insights = {
@@ -6,8 +7,9 @@ const Insights = {
       const query = from && to ? `?from=${from}&to=${to}` : '';
       const { data } = await fetchData({ url: `/v1/insights/count${query}` });
       return { data };
-    } catch (e) {
-      return { error: e };
+    } catch (error) {
+      Alert.alert(error.message);
+      return { error };
     }
   },
   async getDuration(from, to) {
@@ -15,8 +17,9 @@ const Insights = {
       const query = from && to ? `?from=${from}&to=${to}` : '';
       const { data } = await fetchData({ url: `/v1/insights/duration${query}` });
       return { data };
-    } catch (e) {
-      return { error: e };
+    } catch (error) {
+      Alert.alert(error.message);
+      return { error };
     }
   },
 };

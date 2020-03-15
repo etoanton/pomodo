@@ -30,11 +30,10 @@ const fetchData = async ({
     const response = await fetch(`${API_URL}${url}`, payload);
     const data = await response.json();
 
-    console.log('fetchData:', { method, url, tokenLength: token.length });
+    if (data.error) throw new Error(data.error);
 
     return data;
   } catch (error) {
-    // Alert.alert(error.message);
     console.log(`Error occured while making ${url} request`, error);
     throw error;
   }
