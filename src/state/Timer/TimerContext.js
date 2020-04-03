@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { AppState, Vibration } from 'react-native';
+import { AppState } from 'react-native';
 
 import { scheduleTimerMultipleNotifications, cancelAllScheduledNotificationsAsync } from '../../native/notifications';
 import { ACTIONS, TIMER_STATUSES } from './constants';
@@ -67,6 +67,14 @@ const TimerProvider = ({ children }) => {
     dispatch({ type: ACTIONS.START_TIMER, payload: config });
   }, [dispatch]);
 
+  const pauseTimer = useCallback(() => {
+    dispatch({ type: ACTIONS.PAUSE_TIMER });
+  }, [dispatch]);
+
+  const resumeTimer = useCallback(() => {
+    dispatch({ type: ACTIONS.RESUME_TIMER });
+  }, [dispatch]);
+
   const completeTimer = useCallback(() => {
     setTimerId(null);
     dispatch({ type: ACTIONS.COMPLETE_TIMER });
@@ -126,9 +134,8 @@ const TimerProvider = ({ children }) => {
       const localTimerId = setInterval(tickTimer, 1000);
       setTimerId(localTimerId);
 
+      // SET NOTIFICATIONS
       if (isCleanStart) {
-        Vibration.vibrate();
-
         const notificationsConfig = timerState.list.map(({ finishedAt }, idx) => {
           if (idx === timerState.list.length - 1) {
             return {
@@ -151,25 +158,31 @@ const TimerProvider = ({ children }) => {
     }
   }, [timerState.status, timerId, setTimerId, tickTimer, timerState.list]);
 
-  // COMPLETED
+  // COMPLETE or PAUSE
   useEffect(() => {
+    if (timerState.status === TIMER_STATUSES.PAUSED && timerId) {
+      clearInterval(timerId);
+      setTimerId(null);
+    }
+
     if (isTimerCompleted) {
       clearInterval(timerId);
       completeTimer(); // -> dispatch ACTIONS.COMPLETE_TIMER
       persistTimer.clearPersisted();
       cancelAllScheduledNotificationsAsync();
     }
-  }, [isTimerCompleted, timerId, completeTimer]);
+  }, [isTimerCompleted, timerState.status, timerId, setTimerId, completeTimer]);
+
+  const methods = {
+    startTimer,
+    resetTimer,
+    restoreTimer,
+    pauseTimer,
+    resumeTimer,
+  };
 
   return (
-    <TimerContext.Provider
-      value={{
-        timerState,
-        startTimer,
-        resetTimer,
-        restoreTimer,
-      }}
-    >
+    <TimerContext.Provider value={{ timerState, ...methods }}>
       {children}
     </TimerContext.Provider>
   );

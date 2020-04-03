@@ -7,12 +7,25 @@ import {
   SafeAreaView,
 } from 'react-native';
 
+import { TIMER_STATUSES } from '../../state/Timer/constants';
 import { TimerContext } from '../../state/Timer';
 import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
 import { Button, TimerProgressItem } from '../../components';
 
 const TimerProgressScreen = ({ navigation }) => {
-  const { timerState: { list, activeTimerItemIdx } } = useContext(TimerContext);
+  const {
+    timerState: {
+      status,
+      list,
+      activeTimerItemIdx,
+    },
+    pauseTimer,
+    resumeTimer,
+  } = useContext(TimerContext);
+
+  const isTimerActive = status === TIMER_STATUSES.STARTED;
+
+  console.log('list', list);
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -26,7 +39,7 @@ const TimerProgressScreen = ({ navigation }) => {
               timeCompleted,
             } = item;
 
-            const isActive = idx === activeTimerItemIdx;
+            const isItemActive = idx === activeTimerItemIdx;
 
             return (
               <View key={id} style={styles.itemContainer}>
@@ -34,7 +47,7 @@ const TimerProgressScreen = ({ navigation }) => {
                   label={label}
                   timeTotal={timeTotal}
                   timeCompleted={timeCompleted}
-                  isActive={isActive}
+                  isActive={isItemActive}
                 />
               </View>
             );
@@ -43,7 +56,15 @@ const TimerProgressScreen = ({ navigation }) => {
         <View style={styles.actionListContainer}>
           <View style={styles.actionContainer}>
             <Button
-              label="Cancel"
+              label={isTimerActive ? 'Pause' : 'Resume'}
+              onPress={isTimerActive ? pauseTimer : resumeTimer}
+              btnStyles={styles.cancelBtn}
+            />
+          </View>
+
+          <View style={styles.actionContainer}>
+            <Button
+              label="Back to home"
               onPress={() => navigation.navigate('Home')}
               btnStyles={styles.cancelBtn}
             />

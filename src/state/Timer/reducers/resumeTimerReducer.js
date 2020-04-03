@@ -8,10 +8,9 @@ import { TIMER_STATUSES } from '../constants';
 export default function resumeTimerReducer(state) {
   const now = new Date();
   const pauseDurationSec = differenceInSeconds(now, state.pauseStartedAt);
-  const currentTaskIdx = state.list.findIndex(item => item.timeCompleted < item.timeTotal);
 
   const nextList = state.list.map((item, idx) => {
-    if (idx !== currentTaskIdx) return item;
+    if (idx < state.activeTimerItemIdx) return item;
 
     return {
       ...item,
