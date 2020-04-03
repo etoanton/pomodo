@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { PomodoItem } from '../components';
-import { Pomodos, useDataFetching } from '../api';
+import { PomodoItem } from '../../components';
+import { Pomodos, useDataFetching } from '../../api';
 
 const DayOverviewScreen = ({ navigation }) => {
   const { selectedDay } = navigation.state.params;
@@ -21,6 +21,8 @@ const DayOverviewScreen = ({ navigation }) => {
     results,
     refetch: refetchPomodos,
   } = useDataFetching(Pomodos.getPomodo, selectedDay);
+
+  console.log('results.data', results.data);
 
   return (
     <SafeAreaView style={styles.screenContainer}>

@@ -10,9 +10,9 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { Users } from '../api';
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
-import { TextInput } from '../components';
+import { Users } from '../../api';
+import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
+import { TextInput } from '../../components';
 
 const SIGN_IN = 0;
 const SIGN_UP = 1;

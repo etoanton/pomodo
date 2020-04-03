@@ -5,13 +5,12 @@ import {
   View,
   StyleSheet,
   SafeAreaView,
-  Alert,
 } from 'react-native';
 
-import { Pomodos } from '../api';
-import { TimerContext } from '../state/Timer';
-import { TextInput, Button } from '../components';
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
+import { Pomodos } from '../../api';
+import { TimerContext } from '../../state/Timer';
+import { TextInput, Button } from '../../components';
+import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
 
 const SessionComplete = ({ navigation }) => {
   const [notesValue, onChangeText] = React.useState('');

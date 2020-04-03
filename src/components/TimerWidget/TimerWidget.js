@@ -37,8 +37,7 @@ const btnHitSlop = {
 
 const TimerWidget = ({ navigation }) => {
   const {
-    timerState: { status, list = [] },
-    activeTimerItemIdx,
+    timerState: { status, list = [], activeTimerItemIdx },
     resetTimer,
   } = useContext(TimerContext);
 

@@ -7,10 +7,10 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { TimerContext } from '../state/Timer';
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
-import { Button, TimeBoundaries, SettingsItem } from '../components';
-import { calculateDuration, calculateTimeStampBoundaries } from '../utils/timerSetup';
+import { TimerContext } from '../../state/Timer';
+import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
+import { Button, TimeBoundaries, SettingsItem } from '../../components';
+import { calculateDuration, calculateTimeStampBoundaries } from '../../utils/timerSetup';
 
 const FOCUS_TIME_OPTIONS = [
   { value: 5, label: '5 seconds' },

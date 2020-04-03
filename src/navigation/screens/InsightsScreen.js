@@ -10,8 +10,8 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { startOfMonth, endOfMonth, format } from 'date-fns';
 
-import { Insights, useDataFetching } from '../api';
-import { InsightItem } from '../components';
+import { Insights, useDataFetching } from '../../api';
+import { InsightItem } from '../../components';
 
 const round = v => Math.round(v * 100) / 100;
 

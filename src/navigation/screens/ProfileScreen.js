@@ -11,7 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
 
-import { TextInput, Button } from '../components';
+import { TextInput, Button } from '../../components';
 
 const ProfileScreen = ({ navigation }) => {
   const [userEmail, setUserEmail] = useState('');

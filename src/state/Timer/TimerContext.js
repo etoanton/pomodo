@@ -55,11 +55,11 @@ const initialState = {
       finishedAt: defaultDate,
     },
   ],
+  activeTimerItemIdx: 0,
 };
 
 const TimerProvider = ({ children }) => {
   const [timerId, setTimerId] = useState(null);
-  const [activeItemIdx, setItemIdx] = useState(-1);
   const [timerState, dispatch] = useReducer(reducer, initialState);
 
   const startTimer = useCallback(config => {
@@ -159,24 +159,12 @@ const TimerProvider = ({ children }) => {
       persistTimer.clearPersisted();
       cancelAllScheduledNotificationsAsync();
     }
-  }, [isTimerCompleted, timerId, completeTimer, setItemIdx]);
-
-  useEffect(() => {
-    if (timerState.status === TIMER_STATUSES.STARTED) {
-      const idx = timerState.list.findIndex(item => item.timeCompleted < item.timeTotal);
-      setItemIdx(idx);
-    }
-
-    if (timerState.status === TIMER_STATUSES.COMPLETED) {
-      setItemIdx(-1);
-    }
-  }, [timerState.status, timerState.list]);
+  }, [isTimerCompleted, timerId, completeTimer]);
 
   return (
     <TimerContext.Provider
       value={{
         timerState,
-        activeTimerItemIdx: activeItemIdx,
         startTimer,
         resetTimer,
         restoreTimer,

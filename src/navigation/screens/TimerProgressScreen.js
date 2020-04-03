@@ -7,12 +7,12 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import { TimerContext } from '../state/Timer';
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
-import { Button, TimerProgressItem } from '../components';
+import { TimerContext } from '../../state/Timer';
+import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
+import { Button, TimerProgressItem } from '../../components';
 
 const TimerProgressScreen = ({ navigation }) => {
-  const { timerState: { list }, activeTimerItemIdx } = useContext(TimerContext);
+  const { timerState: { list, activeTimerItemIdx } } = useContext(TimerContext);
 
   return (
     <SafeAreaView style={styles.screenContainer}>

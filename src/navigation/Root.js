@@ -3,15 +3,15 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import HomeScreen from '../screens/HomeScreen';
-import NavigationMenu from '../screens/NavigationMenu';
-import SignInScreen from '../screens/SignInScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import InsightsScreen from '../screens/InsightsScreen';
-import DayOverviewScreen from '../screens/DayOverviewScreen';
-import TimerSetupScreen from '../screens/TimerSetupScreen';
-import TimerProgressScreen from '../screens/TimerProgressScreen';
-import SessionCompleteScreen from '../screens/SessionCompleteScreen';
+import HomeScreen from './screens/HomeScreen';
+import NavigationMenu from './screens/NavigationMenu';
+import SignInScreen from './screens/SignInScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import InsightsScreen from './screens/InsightsScreen';
+import DayOverviewScreen from './screens/DayOverviewScreen';
+import TimerSetupScreen from './screens/TimerSetupScreen';
+import TimerProgressScreen from './screens/TimerProgressScreen';
+import SessionCompleteScreen from './screens/SessionCompleteScreen';
 
 const HomeScreenStack = createStackNavigator(
   {

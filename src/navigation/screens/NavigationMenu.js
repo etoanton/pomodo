@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import * as firebase from 'firebase';
 
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
+import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
 
 const NavigationMenu = ({ navigation }) => {
   const [isLoggedIn, setLoggedIn] = useState(false);

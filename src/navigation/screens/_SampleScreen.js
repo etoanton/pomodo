@@ -6,8 +6,8 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
-import { Button } from '../components';
+import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
+import { Button } from '../../components';
 
 const SampleScreen = ({ navigation }) => {
   console.log('navigation', navigation);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import * as firebase from 'firebase';
 
@@ -7,9 +7,9 @@ import {
   DaysLeftCount,
   TimerWidget,
   HistoryDots,
-} from '../components';
+} from '../../components';
 
-import { MAIN_BACKGROUND_COLOR } from '../styles/colors';
+import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
 
 const HomeScreen = () => {
   const [user, setUser] = useState({});
@@ -76,8 +76,6 @@ const styles = StyleSheet.create({
   },
 });
 
-HomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
-};
+HomeScreen.propTypes = {};
 
 export default HomeScreen;
