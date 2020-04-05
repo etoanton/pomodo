@@ -87,7 +87,6 @@ const TimerProvider = ({ children }) => {
   }, [dispatch, timerId, setTimerId]);
 
   const tickTimer = useCallback(() => {
-    console.log('tickTimer');
     dispatch({ type: ACTIONS.TICK_TIMER });
   }, [dispatch]);
 

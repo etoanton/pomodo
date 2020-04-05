@@ -5,13 +5,14 @@ import {
   View,
   Text,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const GROUP_BY_OPTIONS = [
-  { id: 'day', name: 'Days' },
-  { id: 'week', name: 'Weeks' },
-  { id: 'month', name: 'Monthes' },
+  { id: 'day', name: 'Today' },
+  { id: 'week', name: 'This Week' },
+  { id: 'month', name: 'This Month' },
 ];
 
 const Header = ({ scrollToday }) => {
@@ -25,30 +26,29 @@ const Header = ({ scrollToday }) => {
 
   return (
     <View style={styles.headerContainer}>
-      <View style={styles.headerLeftAreaContainer}>
-        <TouchableOpacity
-          style={styles.toggleContainer}
-          onPress={toggleGroupBy}
-        >
-          <Text style={styles.toggleControlText}>{groupBy.name}</Text>
-          <Ionicons
-            name="md-list"
-            size={12}
-            color="#F1F1F1"
-          />
-        </TouchableOpacity>
-
-        <View style={styles.extraInfoContainer}>
-          <Text style={styles.extraInfoLabel}>Completed count:</Text>
-          <View style={styles.extraInfoValueContainer}>
-            <Text style={styles.extraInfoValue}>45</Text>
-          </View>
-        </View>
-      </View>
-
-      <TouchableOpacity style={styles.todayBtn} onPress={scrollToday}>
-        <Text style={styles.todayBtnText}>Today</Text>
+      <TouchableOpacity
+        style={styles.toggleContainer}
+        onPress={toggleGroupBy}
+      >
+        <Ionicons
+          name="md-list"
+          size={12}
+          color="#F1F1F1"
+        />
+        <Text style={styles.toggleControlText}>{groupBy.name}</Text>
       </TouchableOpacity>
+
+      <TouchableWithoutFeedback onPress={scrollToday}>
+        <View style={styles.extraInfoContainer}>
+          <Text style={styles.extraInfoValue}>2 sessions</Text>
+          <Text style={styles.extraInfoSeparator}>|</Text>
+          <Text style={styles.extraInfoValue}>25 min</Text>
+        </View>
+      </TouchableWithoutFeedback>
+
+      {/* <TouchableOpacity style={styles.todayBtn} onPress={scrollToday}>
+        <Text style={styles.todayBtnText}>Today</Text>
+      </TouchableOpacity> */}
     </View>
   );
 };
@@ -70,21 +70,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   toggleContainer: {
-    width: 75,
+    width: 95,
     paddingVertical: 5,
     flexDirection: 'row',
     alignItems: 'baseline',
-    marginRight: 15,
   },
   toggleControlText: {
     fontWeight: '500',
     fontSize: 14,
     color: '#D1D1D1',
-    paddingRight: 7,
+    paddingLeft: 7,
   },
   todayBtn: {
-    width: 50,
-    alignItems: 'center',
+    width: 95,
+    alignItems: 'flex-end',
     borderRadius: 7,
     paddingVertical: 5,
   },
@@ -100,18 +99,14 @@ const styles = StyleSheet.create({
     alignItems: 'baseline',
     borderRadius: 10,
   },
-  extraInfoLabel: {
-    color: '#b5b5b5',
-    fontWeight: '500',
-    fontSize: 14,
-  },
-  extraInfoValueContainer: {
-    paddingLeft: 5,
-  },
   extraInfoValue: {
     color: '#dbdbdb',
     fontWeight: '600',
     fontSize: 14,
+  },
+  extraInfoSeparator: {
+    color: '#b5b5b5',
+    paddingHorizontal: 3,
   },
 });
 
