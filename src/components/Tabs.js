@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const Tab = ({ name, onPress, active }) => (
+export const Tab = ({ name, onPress, active }) => (
   <TouchableOpacity
     style={{ ...styles.tabContainer, backgroundColor: active ? '#DBDBDB' : undefined }}
     onPress={onPress}

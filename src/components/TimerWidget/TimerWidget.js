@@ -41,7 +41,7 @@ const TimerWidget = ({ navigation }) => {
     resetTimer,
   } = useContext(TimerContext);
 
-  const isTimerStarted = status === TIMER_STATUSES.STARTED;
+  const isTimerStarted = status === TIMER_STATUSES.STARTED || status === TIMER_STATUSES.PAUSED;
   const activeItem = list[activeTimerItemIdx];
   const timerValue = (isTimerStarted && activeItem)
     ? (activeItem.timeTotal - activeItem.timeCompleted) : INIT_TIMER_VALUE;

@@ -11,25 +11,16 @@ import {
 import { Pomodos, useDataFetching } from '../../api';
 import daysList from '../../../helpers/2020/days.json';
 import TodayPomodos from '../TodayPomodos';
-import Tabs from '../Tabs';
 
+import Header from './Header';
 import SingleRow from './SingleRow';
 import { mergeLists, separateToRows, getCurrentDayIndex } from './helpers';
 
-const TABS = {
-  DAY: 'd',
-  WEEK: 'w',
-  MONTH: 'm',
-};
-
-const daysData = separateToRows(daysList);
-const weeksData = separateToRows(daysList);
-const monthesData = separateToRows(daysList);
+const daysRawData = separateToRows(daysList);
 
 const HistoryDots = ({ user }) => {
   let listRef = null;
   const [selectedDay, setSelectedDay] = useState(null);
-  const [activeTabId, setActiveTabId] = useState(TABS.DAY);
   const [data, setData] = useState([]);
 
   const { loading, results, refetch: refetchPomodos } = useDataFetching(Pomodos.getPomodos);
@@ -49,11 +40,8 @@ const HistoryDots = ({ user }) => {
 
   /* Merge "empty" list of days data & user data */
   useEffect(() => {
-    const rawData = activeTabId === TABS.DAY ? daysData
-      : activeTabId === TABS.WEEK ? weeksData
-        : activeTabId === TABS.MONTH ? monthesData : daysData;
-
-    const mergedData = results && results.data ? mergeLists(rawData, results.data) : rawData;
+    const mergedData = results && results.data
+      ? mergeLists(daysRawData, results.data) : daysRawData;
 
     setData(mergedData);
   }, [results]);
@@ -61,16 +49,7 @@ const HistoryDots = ({ user }) => {
   return (
     <View style={styles.container}>
       <View style={styles.tabsContainer}>
-        <Tabs
-          activeTabId={activeTabId}
-          handlePress={id => setActiveTabId(id)}
-          tabsConfig={[
-            { id: TABS.DAY, name: 'Days' },
-            { id: TABS.WEEK, name: 'Weeks' },
-            { id: TABS.MONTH, name: 'Monthes' },
-          ]}
-          scrollToday={scrollToday}
-        />
+        <Header scrollToday={scrollToday} />
       </View>
       <View style={styles.listContainer}>
         <FlatList
@@ -108,8 +87,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabsContainer: {
-    paddingTop: 20,
-    paddingBottom: 10,
+    paddingTop: 14,
+    paddingBottom: 5,
     paddingHorizontal: 24,
     flexDirection: 'row',
     alignItems: 'center',

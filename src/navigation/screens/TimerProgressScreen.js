@@ -10,7 +10,7 @@ import {
 import { TIMER_STATUSES } from '../../state/Timer/constants';
 import { TimerContext } from '../../state/Timer';
 import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
-import { Button, TimerProgressItem } from '../../components';
+import { Button, IconButton, TimerProgressItem } from '../../components';
 
 const TimerProgressScreen = ({ navigation }) => {
   const {
@@ -30,38 +30,39 @@ const TimerProgressScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.screenContentContainer}>
-        <ScrollView style={styles.contentContainer}>
-          {list.map((item, idx) => {
-            const {
-              id,
-              label,
-              timeTotal,
-              timeCompleted,
-            } = item;
+        <View style={styles.scrollContainer}>
+          <ScrollView style={styles.contentContainer}>
+            {list.map((item, idx) => {
+              const {
+                id,
+                label,
+                timeTotal,
+                timeCompleted,
+              } = item;
 
-            const isItemActive = idx === activeTimerItemIdx;
+              const isItemActive = idx === activeTimerItemIdx;
 
-            return (
-              <View key={id} style={styles.itemContainer}>
-                <TimerProgressItem
-                  label={label}
-                  timeTotal={timeTotal}
-                  timeCompleted={timeCompleted}
-                  isActive={isItemActive}
-                />
-              </View>
-            );
-          })}
-        </ScrollView>
-        <View style={styles.actionListContainer}>
-          <View style={styles.actionContainer}>
-            <Button
-              label={isTimerActive ? 'Pause' : 'Resume'}
+              return (
+                <View key={id} style={styles.itemContainer}>
+                  <TimerProgressItem
+                    label={label}
+                    timeTotal={timeTotal}
+                    timeCompleted={timeCompleted}
+                    isActive={isItemActive}
+                  />
+                </View>
+              );
+            })}
+          </ScrollView>
+          <View style={styles.fixedActionContainer}>
+            <IconButton
+              icon={isTimerActive ? 'ios-pause' : 'ios-play'}
               onPress={isTimerActive ? pauseTimer : resumeTimer}
-              btnStyles={styles.cancelBtn}
+              iconSize={21}
             />
           </View>
-
+        </View>
+        <View style={styles.actionListContainer}>
           <View style={styles.actionContainer}>
             <Button
               label="Back to home"
@@ -86,6 +87,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
+  scrollContainer: {
+    flex: 1,
+  },
   contentContainer: {
     paddingBottom: 15,
   },
@@ -95,6 +99,11 @@ const styles = StyleSheet.create({
   actionListContainer: {},
   actionContainer: {
     marginTop: 10,
+  },
+  fixedActionContainer: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
   },
   cancelBtn: {
     backgroundColor: '#2F2F38',

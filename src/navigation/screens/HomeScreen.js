@@ -67,10 +67,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 12,
   },
-  historyTabContainer: {
-    paddingTop: 20,
-    paddingHorizontal: 15,
-  },
   historyContainer: {
     flex: 1,
   },
