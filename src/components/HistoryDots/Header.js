@@ -9,13 +9,20 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+
+const GROUP_BY = {
+  DAY: 'day',
+  WEEK: 'week',
+  MONTH: 'month',
+};
+
 const GROUP_BY_OPTIONS = [
-  { id: 'day', name: 'Today' },
-  { id: 'week', name: 'This Week' },
-  { id: 'month', name: 'This Month' },
+  { id: GROUP_BY.DAY, name: 'Today' },
+  { id: GROUP_BY.WEEK, name: 'This Week' },
+  { id: GROUP_BY.MONTH, name: 'This Month' },
 ];
 
-const Header = ({ scrollToday }) => {
+const Header = ({ scrollToday, overallStats }) => {
   const [groupByIndex, setGroupBy] = useState(0);
 
   const toggleGroupBy = () => {
@@ -23,6 +30,8 @@ const Header = ({ scrollToday }) => {
   };
 
   const groupBy = GROUP_BY_OPTIONS[groupByIndex];
+
+  const { count, duration } = overallStats[groupBy.id];
 
   return (
     <View style={styles.headerContainer}>
@@ -40,9 +49,9 @@ const Header = ({ scrollToday }) => {
 
       <TouchableWithoutFeedback onPress={scrollToday}>
         <View style={styles.extraInfoContainer}>
-          <Text style={styles.extraInfoValue}>2 sessions</Text>
+          <Text style={styles.extraInfoValue}>{`${count} sessions`}</Text>
           <Text style={styles.extraInfoSeparator}>|</Text>
-          <Text style={styles.extraInfoValue}>25 min</Text>
+          <Text style={styles.extraInfoValue}>{`${duration} min`}</Text>
         </View>
       </TouchableWithoutFeedback>
 
@@ -53,8 +62,39 @@ const Header = ({ scrollToday }) => {
   );
 };
 
+Header.defaultProps = {
+  overallStats: {
+    [GROUP_BY.DAY]: {
+      duration: 0,
+      count: 0,
+    },
+    [GROUP_BY.WEEK]: {
+      duration: 0,
+      count: 0,
+    },
+    [GROUP_BY.MONTH]: {
+      duration: 0,
+      count: 0,
+    },
+  },
+};
+
 Header.propTypes = {
   scrollToday: PropTypes.func.isRequired,
+  overallStats: PropTypes.shape({
+    [GROUP_BY.DAY]: {
+      duration: PropTypes.number.isRequired,
+      count: PropTypes.number.isRequired,
+    },
+    [GROUP_BY.WEEK]: {
+      duration: PropTypes.number.isRequired,
+      count: PropTypes.number.isRequired,
+    },
+    [GROUP_BY.MONTH]: {
+      duration: PropTypes.number.isRequired,
+      count: PropTypes.number.isRequired,
+    },
+  }),
 };
 
 const styles = StyleSheet.create({

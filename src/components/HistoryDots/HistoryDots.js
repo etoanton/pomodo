@@ -49,7 +49,7 @@ const HistoryDots = ({ user }) => {
   return (
     <View style={styles.container}>
       <View style={styles.tabsContainer}>
-        <Header scrollToday={scrollToday} />
+        <Header scrollToday={scrollToday} overallStats={results.overallStats} />
       </View>
       <View style={styles.listContainer}>
         <FlatList
