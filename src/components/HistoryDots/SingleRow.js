@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { DOT_SIZE, SCREEN_HORIZONTAL_PADDING } from './config';
 import { calculateFrameSizes, calculateFramePositions, getCurrentDayIndex } from './helpers';
+import Dot from './Dot/index';
 
 const {
   offsetBetweenDots,
@@ -21,20 +22,14 @@ const SingleRow = ({
 
   return (
     <View style={styles.rowContainer}>
-      {row.data.map(({ id }) => {
-        const isToday = (id + 1) === currentDayIndex;
-
-        return (
-          <TouchableOpacity
-            key={`${id}_item`}
-            style={{
-              ...styles.item,
-              backgroundColor: isToday ? '#598F5F' : '#27272E',
-            }}
-            onPress={() => setSelectedDay(id)}
-          />
-        );
-      })}
+      {row.data.map(({ id, completedTasks }) => (
+        <Dot
+          id={`${id}`}
+          isToday={(id + 1) === currentDayIndex}
+          completedCount={completedTasks.length}
+          onPress={setSelectedDay}
+        />
+      ))}
       { frames.map(({ from, to }) => {
         const left = startFrom + from * DOT_SIZE + from * offsetBetweenDots;
         const width = (to - from + 1) * singleFrameWidth + (to - from) * spaceBetweenFrames;
