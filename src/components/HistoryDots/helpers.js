@@ -1,5 +1,5 @@
 import { Dimensions } from 'react-native';
-import { startOfYear, differenceInDays } from 'date-fns';
+import { startOfYear, differenceInDays, format, parseISO } from 'date-fns';
 
 import {
   ROW_ELEMENT_COUNT,
@@ -10,8 +10,17 @@ import {
 
 const { width: screenWidth } = Dimensions.get('window');
 
-export const mergeLists = (rawList, dateMap = {}) => {
-  if (Object.keys(dateMap).length === 0) return rawList;
+const groupByDate = rows => rows.reduce((acc, item) => {
+  const date = format(parseISO(item.startedAt), 'yyyy-MM-dd');
+  if (!acc[date]) acc[date] = [];
+  acc[date].push(item);
+  return acc;
+}, {});
+
+export const mergeLists = (rawList, list) => {
+  if (list.length === 0) return rawList;
+  const dateMap = groupByDate(list);
+
   return rawList.map(row => {
     const { data, ...rest } = row;
     return {

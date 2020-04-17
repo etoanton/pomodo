@@ -24,6 +24,12 @@ const HistoryDots = ({ user }) => {
   const [data, setData] = useState([]);
 
   const { loading, results, refetch: refetchPomodos } = useDataFetching(Pomodos.getPomodos);
+  const { results: statsResults, refetch: refetchStats } = useDataFetching(Pomodos.getStats);
+
+  const refetchData = () => {
+    refetchPomodos();
+    refetchStats();
+  };
 
   const scrollToday = () => {
     const { currentDayRowIndex } = getCurrentDayIndex();
@@ -35,10 +41,9 @@ const HistoryDots = ({ user }) => {
   };
 
   useEffect(() => {
-    refetchPomodos();
+    refetchData();
   }, [user]);
 
-  /* Merge "empty" list of days data & user data */
   useEffect(() => {
     const mergedData = results && results.data
       ? mergeLists(daysRawData, results.data) : daysRawData;
@@ -49,7 +54,7 @@ const HistoryDots = ({ user }) => {
   return (
     <View style={styles.container}>
       <View style={styles.tabsContainer}>
-        <Header scrollToday={scrollToday} overallStats={results.overallStats} />
+        <Header scrollToday={scrollToday} overallStats={statsResults.data} />
       </View>
       <View style={styles.listContainer}>
         <FlatList
@@ -62,7 +67,7 @@ const HistoryDots = ({ user }) => {
             />
           )}
           keyExtractor={row => `${row.id}`}
-          refreshControl={<RefreshControl refreshing={loading} onRefresh={refetchPomodos} />}
+          refreshControl={<RefreshControl refreshing={loading} onRefresh={refetchData} />}
         />
       </View>
       <View style={styles.dayPreviewContainer}>

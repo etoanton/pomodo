@@ -4,8 +4,17 @@ import fetchData from './helpers/fetchData';
 const Pomodos = {
   async getPomodos() {
     try {
-      const { data, overallStats } = await fetchData({ url: '/v1/pomodos' });
-      return { data, overallStats };
+      const { data } = await fetchData({ url: '/v1/pomodos' });
+      return { data };
+    } catch (error) {
+      Alert.alert(error.message);
+      return { error };
+    }
+  },
+  async getStats() {
+    try {
+      const { data } = await fetchData({ url: '/v1/pomodos/stats' });
+      return { data };
     } catch (error) {
       Alert.alert(error.message);
       return { error };
