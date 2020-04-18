@@ -24,6 +24,7 @@ const SingleRow = ({
     <View style={styles.rowContainer}>
       {row.data.map(({ id, completedTasks }) => (
         <Dot
+          key={`day_${id}`}
           id={`${id}`}
           isToday={(id + 1) === currentDayIndex}
           completedCount={completedTasks.length}

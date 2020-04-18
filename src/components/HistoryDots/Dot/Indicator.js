@@ -5,16 +5,18 @@ import { View, StyleSheet } from 'react-native';
 import { DOT_SIZE } from '../config';
 
 const MAX_COUNT = 5;
-const BORDER_SIZE = 1;
-const STEP = (DOT_SIZE - BORDER_SIZE) / MAX_COUNT;
+const STEP_OFFSET = 1.5;
+const SINGLE_CIRCLE_SIZE = (DOT_SIZE / MAX_COUNT) - STEP_OFFSET;
+const COLORS = ['#709963', '#618a55', '#48703b', '#385c2c', '#274a1b'];
 
 const calculateInnerItemStyles = idx => {
-  const size = STEP * (idx + 1);
+  const diameter = SINGLE_CIRCLE_SIZE * (idx + 1);
 
   return {
-    width: size,
-    height: size,
-    borderRadius: size / 2,
+    width: diameter + STEP_OFFSET * (idx + 1),
+    height: diameter + STEP_OFFSET * (idx + 1),
+    borderRadius: (diameter + STEP_OFFSET * idx) / 2,
+    backgroundColor: COLORS[idx],
   };
 };
 
@@ -27,12 +29,8 @@ const Indicator = ({ count }) => {
     <View style={styles.indicatorContainer}>
       {items.map((_, idx) => (
         // eslint-disable-next-line react/no-array-index-key
-        <View style={{ ...styles.innerContainer, zIndex: (100 - idx) }} key={`key_${idx}`}>
-          <View style={{
-            ...styles.innerItem,
-            ...calculateInnerItemStyles(idx),
-          }}
-          />
+        <View style={{ ...styles.innerContainer, zIndex: (MAX_COUNT - idx) }} key={`key_${idx}`}>
+          <View style={calculateInnerItemStyles(idx)} />
         </View>
       ))}
     </View>
@@ -64,9 +62,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   innerItem: {
-    backgroundColor: '#313138',
-    borderColor: '#797982',
-    borderWidth: 1,
+    // borderColor: '#797982',
+    // borderWidth: 1,
   },
 });
 

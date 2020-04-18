@@ -60,8 +60,9 @@ const HistoryDots = ({ user }) => {
         <FlatList
           ref={ref => { listRef = ref; }}
           data={data}
-          renderItem={({ item = [] }) => (
+          renderItem={({ id, item = [] }) => (
             <SingleRow
+              key={id}
               row={item}
               setSelectedDay={setSelectedDay}
             />

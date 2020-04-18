@@ -16,7 +16,7 @@ const Dot = ({
 }) => (
   <TouchableOpacity
     key={`${id}_item`}
-    style={{ ...styles.item, backgroundColor: isToday ? '#598F5F' : '#27272E' }}
+    style={styles.item}
     onPress={() => onPress(id)}
   >
     <Indicator count={completedCount} />

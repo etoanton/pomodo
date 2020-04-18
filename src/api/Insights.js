@@ -1,4 +1,3 @@
-import { Alert } from 'react-native';
 import fetchData from './helpers/fetchData';
 
 const Insights = {
@@ -8,7 +7,6 @@ const Insights = {
       const { data } = await fetchData({ url: `/v1/insights/count${query}` });
       return { data };
     } catch (error) {
-      Alert.alert(error.message);
       return { error };
     }
   },
@@ -18,7 +16,6 @@ const Insights = {
       const { data } = await fetchData({ url: `/v1/insights/duration${query}` });
       return { data };
     } catch (error) {
-      Alert.alert(error.message);
       return { error };
     }
   },

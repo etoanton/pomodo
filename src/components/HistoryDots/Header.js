@@ -81,20 +81,7 @@ Header.defaultProps = {
 
 Header.propTypes = {
   scrollToday: PropTypes.func.isRequired,
-  overallStats: PropTypes.shape({
-    [GROUP_BY.DAY]: {
-      duration: PropTypes.number.isRequired,
-      count: PropTypes.number.isRequired,
-    },
-    [GROUP_BY.WEEK]: {
-      duration: PropTypes.number.isRequired,
-      count: PropTypes.number.isRequired,
-    },
-    [GROUP_BY.MONTH]: {
-      duration: PropTypes.number.isRequired,
-      count: PropTypes.number.isRequired,
-    },
-  }),
+  overallStats: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

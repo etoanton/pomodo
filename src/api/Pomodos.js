@@ -1,4 +1,3 @@
-import { Alert } from 'react-native';
 import fetchData from './helpers/fetchData';
 
 const Pomodos = {
@@ -7,7 +6,6 @@ const Pomodos = {
       const { data } = await fetchData({ url: '/v1/pomodos' });
       return { data };
     } catch (error) {
-      Alert.alert(error.message);
       return { error };
     }
   },
@@ -16,7 +14,6 @@ const Pomodos = {
       const { data } = await fetchData({ url: '/v1/pomodos/stats' });
       return { data };
     } catch (error) {
-      Alert.alert(error.message);
       return { error };
     }
   },
@@ -25,7 +22,6 @@ const Pomodos = {
       const { data } = await fetchData({ url: `/v1/pomodos/${date}` });
       return { data };
     } catch (error) {
-      Alert.alert(error.message);
       return { error };
     }
   },
@@ -49,7 +45,6 @@ const Pomodos = {
       const { data } = await fetchData({ url: '/v1/pomodos', method: 'POST', body });
       return { data };
     } catch (error) {
-      Alert.alert(error.message);
       return { error };
     }
   },
