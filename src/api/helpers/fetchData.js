@@ -12,10 +12,9 @@ const fetchData = async ({
   body,
 }) => {
   try {
-    let token;
-    if (firebase.auth().currentUser) {
-      token = await firebase.auth().currentUser.getIdToken(true);
-    }
+    if (!firebase.auth().currentUser) return {};
+    const token = await firebase.auth().currentUser.getIdToken(true);
+    if (!token) return {};
 
     const payload = {
       method,
@@ -34,6 +33,7 @@ const fetchData = async ({
 
     return data;
   } catch (error) {
+    Alert.alert(error.message);
     console.log(`Error occured while making ${url} request`, error);
     throw error;
   }
