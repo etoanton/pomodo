@@ -1,5 +1,10 @@
 import { Dimensions } from 'react-native';
-import { startOfYear, differenceInDays, format, parseISO } from 'date-fns';
+import {
+  startOfYear,
+  differenceInDays,
+  format,
+  parseISO,
+} from 'date-fns';
 
 import {
   ROW_ELEMENT_COUNT,
@@ -74,7 +79,7 @@ export const calculateFramePositions = data => {
     }, []);
   }
   return frames;
-}
+};
 
 export const separateToRows = data => {
   const separatedData = [];

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const uuid = require('uuid');
 const dateFns = require('date-fns');
 
 const {
@@ -10,7 +11,8 @@ const {
 
 // Example of item in list:
 // {
-//   id: null,
+//   id: UUID,
+//   dayIndex: 1...365,
 //   completedTasks: [],
 //   keys: [], list of the days in the following format yyyy-MM-dd,
 //             e.g. 2020-01-01, 2020-01-02, 2020-01-03
@@ -40,7 +42,8 @@ for (let idx = 0; idx < NUMBER_OF_MONTHES; idx += 1) {
     const dayInYearIndex = previousMonthesDays + (dayIdx);
 
     return ({
-      id: dayInYearIndex,
+      id: uuid.v4(),
+      dayIndex: dayInYearIndex + 1,
       completedTasks: [],
       keys: [toolkit.generateDateBasedOnNumber(dayInYearIndex)],
     });
@@ -48,8 +51,6 @@ for (let idx = 0; idx < NUMBER_OF_MONTHES; idx += 1) {
 
   outputList = outputList.concat(currentMonthDays);
 }
-
-// console.log(outputList);
 
 if (!fs.existsSync(`./helpers/${YEAR}`)) {
   fs.mkdirSync(`./helpers/${YEAR}`);

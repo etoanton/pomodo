@@ -1,4 +1,5 @@
 const fs = require('fs');
+const uuid = require('uuid');
 const dateFns = require('date-fns');
 
 const {
@@ -52,7 +53,8 @@ for (let idx = 0; idx <= NUMBER_OF_WEEKS; idx += 1) {
     });
 
   outputList.push({
-    id: idx,
+    id: uuid.v4(),
+    weekIndex: idx,
     completedTasks: [],
     keys: currentWeekDays,
   });

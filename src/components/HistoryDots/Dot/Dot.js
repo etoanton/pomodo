@@ -9,22 +9,20 @@ import Indicator from './Indicator';
 const { offsetBetweenDots } = calculateFrameSizes();
 
 const Dot = ({
-  id,
-  isToday,
+  dayIndex,
   completedCount,
   onPress,
 }) => (
   <TouchableOpacity
-    key={`${id}_item`}
     style={styles.item}
-    onPress={() => onPress(id)}
+    onPress={() => onPress(dayIndex)}
   >
     <Indicator count={completedCount} />
   </TouchableOpacity>
 );
 
 Dot.propTypes = {
-  id: PropTypes.string.isRequired,
+  dayIndex: PropTypes.number.isRequired,
   isToday: PropTypes.bool.isRequired,
   completedCount: PropTypes.number.isRequired,
   onPress: PropTypes.func.isRequired,
