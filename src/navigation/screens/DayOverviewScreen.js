@@ -22,8 +22,6 @@ const DayOverviewScreen = ({ navigation }) => {
     refetch: refetchPomodos,
   } = useDataFetching(Pomodos.getPomodo, selectedDay);
 
-  console.log('results.data', results.data);
-
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.closeBtnContainer}>
