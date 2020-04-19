@@ -7,7 +7,6 @@ import HomeScreen from './screens/HomeScreen';
 import NavigationMenu from './screens/NavigationMenu';
 import SignInScreen from './screens/SignInScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import InsightsScreen from './screens/InsightsScreen';
 import DayOverviewScreen from './screens/DayOverviewScreen';
 import TimerSetupScreen from './screens/TimerSetupScreen';
 import TimerProgressScreen from './screens/TimerProgressScreen';
@@ -19,7 +18,6 @@ const HomeScreenStack = createStackNavigator(
     Menu: NavigationMenu,
     DayOverview: DayOverviewScreen,
     Profile: ProfileScreen,
-    Insights: InsightsScreen,
     TimerSetup: TimerSetupScreen,
     TimerProgress: TimerProgressScreen,
     SessionComplete: SessionCompleteScreen,

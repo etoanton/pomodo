@@ -34,13 +34,13 @@ const NavigationMenu = ({ navigation }) => {
     }
   };
 
-  const navigateToInsights = () => {
-    if (isLoggedIn) {
-      navigation.navigate('Insights');
-    } else {
-      navigation.navigate('SignIn');
-    }
-  };
+  // const navigateToInsights = () => {
+  //   if (isLoggedIn) {
+  //     navigation.navigate('Insights');
+  //   } else {
+  //     navigation.navigate('SignIn');
+  //   }
+  // };
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -55,12 +55,12 @@ const NavigationMenu = ({ navigation }) => {
           >
             <Text style={styles.menuText}>Profile</Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.menuItem}
             onPress={navigateToInsights}
           >
             <Text style={styles.menuText}>Insights</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </TouchableWithoutFeedback>
     </SafeAreaView>
