@@ -59,6 +59,14 @@ const Users = {
       return false;
     }
   },
+  async userInfo() {
+    try {
+      const { data } = await fetchData({ url: '/v1/user' });
+      return { data };
+    } catch (error) {
+      return { error };
+    }
+  },
 };
 
 export default Users;

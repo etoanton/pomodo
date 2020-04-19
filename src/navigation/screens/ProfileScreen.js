@@ -12,45 +12,22 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
 
+import { Users, useDataFetching } from '../../api';
 import { ProfileSettingsItem, InputsGroup, Button } from '../../components';
 
 const ProfileScreen = ({ navigation }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
-  const [startOnMonday, setStartOnMonday] = useState(true);
   const [isEmailVerified, setEmailVerified] = useState(false);
+  const [startOnSunday, setStartOnSunday] = useState(true);
 
-  const signOut = () => {
-    firebase.auth().signOut();
-    navigation.replace('SignIn');
-  };
+  const { loading: userInfoLoading, results: { data } } = useDataFetching(Users.userInfo);
 
-  const sendEmailVerification = async () => {
-    const { currentUser } = firebase.auth();
-    await currentUser.sendEmailVerification();
-    Alert.alert('Email notification sent');
-  };
-
-  const saveUserInfo = async () => {
-    const { currentUser } = firebase.auth();
-    if (!isEmailVerified && currentUser.email !== userEmail) {
-      try {
-        await currentUser.updateEmail(userEmail);
-        console.log('NOTIFICATION: User email updated');
-      } catch (error) {
-        console.error('NOTIFICATION: Failed to update email address', error);
-      }
+  useEffect(() => {
+    if (typeof data?.weekStartsOnSunday === 'boolean') {
+      setStartOnSunday(results.data.weekStartsOnSunday);
     }
-
-    if (currentUser.displayName !== userName) {
-      try {
-        await currentUser.updateProfile({ displayName: userName });
-        console.log('NOTIFICATION: User info updated');
-      } catch (error) {
-        console.error('NOTIFICATION: Failed to update email address', error);
-      }
-    }
-  };
+  }, [data?.weekStartsOnSunday]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(currentUser => {
@@ -66,6 +43,36 @@ const ProfileScreen = ({ navigation }) => {
       setEmailVerified(emailVerified);
     });
   }, []);
+
+  const signOut = () => {
+    firebase.auth().signOut();
+    navigation.replace('SignIn');
+  };
+
+  const sendEmailVerification = async () => {
+    const { currentUser } = firebase.auth();
+    await currentUser.sendEmailVerification();
+    Alert.alert('Email notification sent');
+  };
+
+  const saveUserInfo = async () => {
+    const { currentUser } = firebase.auth();
+    try {
+      if (!isEmailVerified && currentUser.email !== userEmail) {
+        await currentUser.updateEmail(userEmail);
+      }
+      if (currentUser.displayName !== userName) {
+        await currentUser.updateProfile({ displayName: userName });
+      }
+      if (data?.weekStartsOnSunday && data.weekStartsOnSunday !== startOnSunday) {
+        // TODO: update
+        console.log('update weekStartsOnSunday');
+      }
+    } catch (error) {
+      console.log('Failed to update user info', error);
+      Alert.alert('Failed to update user info');
+    }
+  };
 
   return (
     <SafeAreaView style={styles.screenContainer}>
@@ -108,10 +115,11 @@ const ProfileScreen = ({ navigation }) => {
             )}
           </InputsGroup>
           <View style={styles.settingsGroupContainer}>
-            <ProfileSettingsItem label="Week starts on Monday">
+            <ProfileSettingsItem label="Week starts on Sunday">
               <Switch
-                onValueChange={setStartOnMonday}
-                value={startOnMonday}
+                onValueChange={setStartOnSunday}
+                value={startOnSunday}
+                disabled={userInfoLoading}
               />
             </ProfileSettingsItem>
           </View>
