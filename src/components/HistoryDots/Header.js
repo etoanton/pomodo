@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { getFormattedDistance } from '../../utils/dateTooklit';
+
 
 const GROUP_BY = {
   DAY: 'day',
@@ -49,9 +51,9 @@ const Header = ({ scrollToday, overallStats }) => {
 
       <TouchableWithoutFeedback onPress={scrollToday}>
         <View style={styles.extraInfoContainer}>
-          <Text style={styles.extraInfoValue}>{`${count} sessions`}</Text>
+          <Text style={styles.extraInfoValue}>{`${count} session(s)`}</Text>
           <Text style={styles.extraInfoSeparator}>|</Text>
-          <Text style={styles.extraInfoValue}>{`${duration} min`}</Text>
+          <Text style={styles.extraInfoValue}>{getFormattedDistance(duration)}</Text>
         </View>
       </TouchableWithoutFeedback>
 
