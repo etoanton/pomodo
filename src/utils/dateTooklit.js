@@ -15,14 +15,14 @@ export const getDateBasedOnDayOfYear = num => {
   const firstDayOfTheYear = startOfYear(now);
 
   return (
-    num > 0 ? addDays(firstDayOfTheYear, num) : firstDayOfTheYear
+    num > 0 ? addDays(firstDayOfTheYear, num - 1) : firstDayOfTheYear
   );
 };
 
 export const getFormattedDateBasedOnDayOfYear = (num, dateFormat = 'yyyy-MM-dd') => {
   const now = new Date();
   const firstDayOfTheYear = startOfYear(now);
-  return format(num > 0 ? addDays(firstDayOfTheYear, num) : firstDayOfTheYear, dateFormat);
+  return format(num > 0 ? addDays(firstDayOfTheYear, num - 1) : firstDayOfTheYear, dateFormat);
 };
 
 /*

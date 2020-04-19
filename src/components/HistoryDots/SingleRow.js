@@ -22,10 +22,10 @@ const SingleRow = ({
 
   return (
     <View style={styles.rowContainer}>
-      {row.data.map(({ id, completedTasks }) => (
+      {row.data.map(({ id, dayIndex, completedTasks }) => (
         <Dot
-          key={`day_${id}`}
-          id={`${id}`}
+          key={id}
+          dayIndex={dayIndex}
           isToday={(id + 1) === currentDayIndex}
           completedCount={completedTasks.length}
           onPress={setSelectedDay}
