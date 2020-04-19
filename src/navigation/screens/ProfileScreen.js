@@ -7,15 +7,17 @@ import {
   StyleSheet,
   SafeAreaView,
   Alert,
+  Switch,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
 
-import { TextInput, Button } from '../../components';
+import { ProfileSettingsItem, InputsGroup, Button } from '../../components';
 
 const ProfileScreen = ({ navigation }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
+  const [startOnMonday, setStartOnMonday] = useState(true);
   const [isEmailVerified, setEmailVerified] = useState(false);
 
   const signOut = () => {
@@ -78,28 +80,24 @@ const ProfileScreen = ({ navigation }) => {
       </View>
       <View style={styles.contentContainer}>
         <View style={styles.settingsList}>
-          <View style={styles.settingsGroupContainer}>
-            <View style={styles.settingsTitleContainer}>
-              <Text style={styles.settingsTitle}>Contacts</Text>
-            </View>
-            <View style={styles.settingsGroup}>
-              <View style={styles.settingsValueContainer}>
-                <TextInput
-                  placeholder="Display name"
-                  value={userName}
-                  onChangeText={setUserName}
-                />
-              </View>
-              <View style={styles.settingsValueContainer}>
-                <TextInput
-                  editable={!isEmailVerified}
-                  autoFocus={false}
-                  type="email"
-                  value={userEmail}
-                  onChangeText={setUserEmail}
-                />
-              </View>
-            </View>
+          <InputsGroup
+            title="Contacts"
+            fieldsConfig={[
+              {
+                placeholder: 'Display name',
+                value: userName,
+                onChangeText: setUserName,
+              },
+              {
+                placeholder: 'Email',
+                value: userEmail,
+                onChangeText: setUserEmail,
+                type: 'email',
+                autoFocus: false,
+                editable: !isEmailVerified,
+              },
+            ]}
+          >
             {!isEmailVerified && (
               <View style={styles.settingsExtraLabelContainer}>
                 <Text style={styles.settingsExtraLabel}>Email address is not verified</Text>
@@ -108,6 +106,14 @@ const ProfileScreen = ({ navigation }) => {
                 </TouchableOpacity>
               </View>
             )}
+          </InputsGroup>
+          <View style={styles.settingsGroupContainer}>
+            <ProfileSettingsItem label="Week starts on Monday">
+              <Switch
+                onValueChange={setStartOnMonday}
+                value={startOnMonday}
+              />
+            </ProfileSettingsItem>
           </View>
         </View>
 
@@ -123,9 +129,6 @@ const ProfileScreen = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-
-const INPUT_GROUP_H_PADDING = 12;
-const INPUT_GROUP_V_PADDING = 12;
 
 const styles = StyleSheet.create({
   screenContainer: {
@@ -149,29 +152,13 @@ const styles = StyleSheet.create({
   settingsList: {
     paddingTop: 45,
   },
-  settingsGroupContainer: {},
-  settingsTitleContainer: {
-    marginBottom: 10,
-    marginLeft: INPUT_GROUP_H_PADDING,
-  },
-  settingsTitle: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '500',
-  },
-  settingsGroup: {
-    paddingLeft: INPUT_GROUP_H_PADDING,
-    paddingRight: INPUT_GROUP_H_PADDING,
-    paddingBottom: INPUT_GROUP_V_PADDING,
-    borderRadius: 15,
-    backgroundColor: '#3e3f4d',
-  },
-  settingsValueContainer: {
-    marginTop: INPUT_GROUP_V_PADDING,
+  settingsGroupContainer: {
+    marginTop: 25,
+    paddingHorizontal: 5,
   },
   settingsExtraLabelContainer: {
     marginTop: 8,
-    marginHorizontal: INPUT_GROUP_H_PADDING,
+    marginHorizontal: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -180,7 +167,6 @@ const styles = StyleSheet.create({
     color: '#a3a3a3',
     fontSize: 14,
   },
-  settingsExtraLabelAction: {},
   settingsExtraLabelActionText: {
     color: '#a3a3a3',
     fontSize: 14,

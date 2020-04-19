@@ -15,6 +15,9 @@ import TimeBoundaries from './TimeBoundaries';
 import SettingsItem from './SettingsItem';
 import TimerProgressItem from './TimerProgressItem';
 
+import InputsGroup from './Profile/InputsGroup';
+import ProfileSettingsItem from './Profile/SettingsItem';
+
 export {
   HistoryDots,
   Button,
@@ -33,4 +36,7 @@ export {
   TimeBoundaries,
   SettingsItem,
   TimerProgressItem,
+
+  InputsGroup,
+  ProfileSettingsItem,
 };

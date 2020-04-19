@@ -72,9 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: MAIN_BACKGROUND_COLOR,
   },
-  screenUnderlay: {
-    backgroundColor: 'red',
-  },
+  screenUnderlay: {},
   menuContainer: {
     flex: 1,
     paddingVertical: 80,

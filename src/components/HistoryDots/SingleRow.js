@@ -31,7 +31,7 @@ const SingleRow = ({
           onPress={setSelectedDay}
         />
       ))}
-      { frames.map(({ from, to }) => {
+      {/* { frames.map(({ from, to }) => {
         const left = startFrom + from * DOT_SIZE + from * offsetBetweenDots;
         const width = (to - from + 1) * singleFrameWidth + (to - from) * spaceBetweenFrames;
         return (
@@ -44,7 +44,7 @@ const SingleRow = ({
             }}
           />
         );
-      }) }
+      }) } */}
     </View>
   );
 };
@@ -53,7 +53,7 @@ SingleRow.propTypes = {
   row: PropTypes.shape({
     data: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        id: PropTypes.number,
         completedTasks: PropTypes.arrayOf(
           PropTypes.shape({
             id: PropTypes.string.isRequired,
