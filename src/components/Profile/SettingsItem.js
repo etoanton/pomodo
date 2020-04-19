@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   settingsItemLabelContainer: {
   },
   settingsItemLabel: {
+    fontSize: 16,
     color: '#d6d6d6',
     fontWeight: '500',
   },
