@@ -2,7 +2,7 @@ import {
   differenceInSeconds,
 } from 'date-fns';
 
-export default function tickTimerReducer(state) {
+export default function nextTickTimerReducer(state) {
   const activeTimerItemIdx = state.list.findIndex(item => item.timeCompleted < item.timeTotal);
 
   const nextList = state.list.map((item, idx) => {

@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   statsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 10,
+    paddingTop: 3,
     paddingHorizontal: 16,
   },
   itemContainer: {

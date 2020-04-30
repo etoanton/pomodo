@@ -5,7 +5,7 @@ import {
   startTimerReducer,
   pauseTimerReducer,
   resumeTimerReducer,
-  tickTimerReducer,
+  nextTickTimerReducer,
   restoreTimerStateReducer,
 } from './reducers';
 
@@ -20,8 +20,8 @@ function reducer(state, action) {
     case ACTIONS.RESUME_TIMER: {
       return resumeTimerReducer(state, action);
     }
-    case ACTIONS.TICK_TIMER: {
-      return tickTimerReducer(state, action);
+    case ACTIONS.NEXT_TICK_TIMER: {
+      return nextTickTimerReducer(state, action);
     }
     case ACTIONS.RESTORE_TIMER: {
       return restoreTimerStateReducer(state, action);

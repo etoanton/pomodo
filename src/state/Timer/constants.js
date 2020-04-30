@@ -4,7 +4,7 @@ export const ACTIONS = {
   RESUME_TIMER: 'resume_timer',
   COMPLETE_TIMER: 'complete_timer',
   RESEST_TIMER: 'reset_timer',
-  TICK_TIMER: 'tick_timer',
+  NEXT_TICK_TIMER: 'next_tick_timer',
   RESTORE_TIMER: 'restore_timer',
 };
 

@@ -23,7 +23,6 @@ const TimerProgressItem = ({
 
   // 0...100 %
   const completed = Math.round((timeCompleted / timeTotal) * 100);
-  console.log('completed', completed);
 
   useEffect(() => {
     Animated.timing(

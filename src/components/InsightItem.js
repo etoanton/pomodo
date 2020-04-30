@@ -9,7 +9,12 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { format, addMonths } from 'date-fns';
-import { BarChart, Grid, XAxis, YAxis } from 'react-native-svg-charts';
+import {
+  BarChart,
+  Grid,
+  XAxis,
+  YAxis,
+} from 'react-native-svg-charts';
 
 import { UNDERLAY_COLOR } from '../styles/colors';
 
@@ -26,7 +31,6 @@ const InsightItem = ({
   const setPreviousDate = () => setDate(addMonths(currentDate, -1));
 
   const data = list.map(item => item[keyExtract]);
-  console.log('data', data);
 
   return (
     <View style={styles.container}>

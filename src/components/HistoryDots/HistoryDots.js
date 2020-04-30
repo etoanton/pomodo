@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabsContainer: {
-    paddingTop: 14,
+    paddingTop: 12,
     paddingBottom: 5,
     paddingHorizontal: 24,
     flexDirection: 'row',

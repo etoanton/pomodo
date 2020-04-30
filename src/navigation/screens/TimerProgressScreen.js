@@ -25,8 +25,6 @@ const TimerProgressScreen = ({ navigation }) => {
 
   const isTimerActive = status === TIMER_STATUSES.STARTED;
 
-  console.log('list', list);
-
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.screenContentContainer}>

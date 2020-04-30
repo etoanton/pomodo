@@ -1,6 +1,6 @@
 import { TIMER_STATUSES } from '../constants';
 
-import { generateListOfItems } from './helpers';
+import { generateInitialListOfItems } from './helpers';
 
 export default function startTimerReducer(state, action) {
   const now = new Date();
@@ -12,7 +12,7 @@ export default function startTimerReducer(state, action) {
     longBreakPeriodicity,
   } = action.payload;
 
-  const nextList = generateListOfItems({
+  const nextList = generateInitialListOfItems({
     focusTime,
     shortBreakTime,
     sessionsCount,

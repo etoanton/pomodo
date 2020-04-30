@@ -43,7 +43,7 @@ const Header = ({ scrollToday, overallStats }) => {
       >
         <Ionicons
           name="md-list"
-          size={12}
+          size={10}
           color="#F1F1F1"
         />
         <Text style={styles.toggleControlText}>{groupBy.name}</Text>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   toggleControlText: {
     fontWeight: '500',
-    fontSize: 14,
+    fontSize: 12,
     color: '#D1D1D1',
     paddingLeft: 7,
   },
@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
   },
   extraInfoValue: {
     color: '#dbdbdb',
-    fontWeight: '600',
-    fontSize: 14,
+    fontWeight: '500',
+    fontSize: 12,
   },
   extraInfoSeparator: {
     color: '#b5b5b5',
