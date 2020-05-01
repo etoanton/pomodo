@@ -11,8 +11,8 @@ import reducer from './reducer';
 import {
   useInitializeTimer,
   useInitializePersistence,
-  useCompleteTimer,
-  usePauseTimer,
+  useOnCompleteTimer,
+  useOnPauseTimer,
   useInitMethods,
 } from './hooks';
 
@@ -76,20 +76,15 @@ const TimerProvider = ({ children }) => {
     restoreTimer,
   } = useInitMethods({ dispatch, timerId, setTimerId });
 
-  const totalSessionsCount = timerState.list.length;
-  const completedSessionsCount = timerState.list.reduce((acc, item) => {
-    if (item.timeCompleted === item.timeTotal) return acc + 1;
-    return acc;
-  }, 0);
-
-  const isTimerCompleted = totalSessionsCount === completedSessionsCount;
-
-  useInitializePersistence({ resetTimer, restoreTimer });
+  const isTimerCompleted = timerState.list.every(item => item.timeCompleted === item.timeTotal);
 
   // START NEW or RESTORE from `background` state
   useInitializeTimer({ timerId, setTimerId, calculateNextTickState, timerState });
-  usePauseTimer({ timerId, setTimerId, timerStatus: timerState.status });
-  useCompleteTimer({ isTimerCompleted, timerId, setTimerId, completeTimer });
+  useInitializePersistence({ resetTimer, restoreTimer });
+
+  // on status change
+  useOnPauseTimer({ timerId, setTimerId, timerStatus: timerState.status });
+  useOnCompleteTimer({ isTimerCompleted, timerId, setTimerId, completeTimer });
 
   const methods = {
     startTimer,
