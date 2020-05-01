@@ -20,13 +20,14 @@ const TodayPomodos = ({ selectedDay, setSelectedDay, navigation }) => {
   const { loading, results } = useDataFetching(Pomodos.getPomodo, rawSelectedDate);
   const completedCount = results && results.data ? results.data.length : 0;
 
-  const navigateToDayOverview = () => {
-    navigation.navigate('DayOverview', { selectedDay: rawSelectedDate });
+  const navigateToPreviousPomodos = () => {
+    setSelectedDay(null);
+    navigation.navigate('PreviousPomodos', { selectedDay: rawSelectedDate });
   };
 
   return (
     <View style={styles.contentContainer}>
-      <TouchableOpacity style={styles.viewAllContainer} onPress={navigateToDayOverview}>
+      <TouchableOpacity style={styles.viewAllContainer} onPress={navigateToPreviousPomodos}>
         <Ionicons
           style={styles.btnIcon}
           name="ios-menu"

@@ -10,6 +10,8 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
+import persistTimer from '../state/Timer/persist';
+
 import { getFormattedDistance } from '../utils/dateTooklit';
 import { Pomodos, Tags, useDataFetching } from '../api';
 import Button from '../components/Button';
@@ -31,6 +33,7 @@ const TaskSuccess = ({
     setSaveLoading(true);
     try {
       await Pomodos.savePomodo({ taskNotes: null, tagId, timeSpent });
+      persistTimer.clearPersisted();
       toggleVisibility(false);
     } catch (error) {
       console.log('NOTIFICATION: Failed to save pomodo', error);

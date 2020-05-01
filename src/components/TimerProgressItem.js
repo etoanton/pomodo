@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     shadowRadius: 2.5,
   },
   contentContainer: {
-    padding: 18,
+    paddingHorizontal: 18,
+    paddingVertical: 14,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

@@ -7,6 +7,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 
+import persistTimer from '../../state/Timer/persist';
 import { Pomodos } from '../../api';
 import { TimerContext } from '../../state/Timer';
 import { TextInput, Button } from '../../components';
@@ -31,6 +32,7 @@ const SessionComplete = ({ navigation }) => {
     setSaveLoading(true);
     try {
       await Pomodos.savePomodo(payload);
+      persistTimer.clearPersisted();
       navigation.popToTop();
     } catch (error) {
       console.log('Error occured while trying to save completed session', error);

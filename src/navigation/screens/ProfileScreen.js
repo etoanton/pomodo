@@ -24,10 +24,10 @@ const ProfileScreen = ({ navigation }) => {
   const { loading: userInfoLoading, results: { data } } = useDataFetching(Users.userInfo);
 
   useEffect(() => {
-    if (typeof data?.weekStartsOnSunday === 'boolean') {
-      setStartOnSunday(results.data.weekStartsOnSunday);
+    if (data && typeof data.weekStartsOnSunday === 'boolean') {
+      setStartOnSunday(data.weekStartsOnSunday);
     }
-  }, [data?.weekStartsOnSunday]);
+  }, [data && data.weekStartsOnSunday]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(currentUser => {
@@ -64,7 +64,7 @@ const ProfileScreen = ({ navigation }) => {
       if (currentUser.displayName !== userName) {
         await currentUser.updateProfile({ displayName: userName });
       }
-      if (data?.weekStartsOnSunday && data.weekStartsOnSunday !== startOnSunday) {
+      if (data && data.weekStartsOnSunday !== startOnSunday) {
         // TODO: update
         console.log('update weekStartsOnSunday');
       }

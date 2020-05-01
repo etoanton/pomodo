@@ -7,7 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import NavigationMenu from './screens/NavigationMenu';
 import SignInScreen from './screens/SignInScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import DayOverviewScreen from './screens/DayOverviewScreen';
+import PreviousPomodosScreen from './screens/PreviousPomodosScreen';
 import TimerSetupScreen from './screens/TimerSetupScreen';
 import TimerProgressScreen from './screens/TimerProgressScreen';
 import SessionCompleteScreen from './screens/SessionCompleteScreen';
@@ -16,7 +16,7 @@ const HomeScreenStack = createStackNavigator(
   {
     Home: HomeScreen,
     Menu: NavigationMenu,
-    DayOverview: DayOverviewScreen,
+    PreviousPomodos: PreviousPomodosScreen,
     Profile: ProfileScreen,
     TimerSetup: TimerSetupScreen,
     TimerProgress: TimerProgressScreen,

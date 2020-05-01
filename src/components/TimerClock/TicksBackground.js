@@ -28,6 +28,9 @@ const calculateTickStyle = ({
   });
 };
 
+// TODO: stroke-dasharray: 2.5
+// https://css-tricks.com/almanac/properties/s/stroke-dasharray/
+
 const TicksBackground = ({ radius, tickSize, numberOfTicks }) => {
   const ticks = Array(numberOfTicks).fill(0);
   return (
