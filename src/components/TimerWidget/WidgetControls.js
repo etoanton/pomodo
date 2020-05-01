@@ -27,7 +27,7 @@ const WidgetControls = ({
         size={32}
         color="#F1F1F1"
       />
-      <Text style={styles.btnText}>{!isTimerStarted ? 'Start Timer' : 'Discard'}</Text>
+      <Text style={styles.btnText}>{!isTimerStarted ? 'New Session' : 'Discard'}</Text>
     </TouchableOpacity>
     <TouchableOpacity
       style={{ ...styles.btn, ...styles.btn__bottom }}

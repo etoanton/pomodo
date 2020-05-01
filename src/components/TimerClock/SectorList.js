@@ -20,7 +20,7 @@ const getLengthes = ({ completed, radius }) => {
 const TOTAL_COMPLETED = 0.75;
 
 const SectorList = ({ status, radius, completed }) => {
-  const strokeWidth = 20;
+  const strokeWidth = 18;
 
   const containerWidth = radius * 2 + strokeWidth;
   const containerHeight = radius * 2 + strokeWidth;
@@ -29,7 +29,7 @@ const SectorList = ({ status, radius, completed }) => {
   const startFrom = -(circleLength * 3) / 4; // start from 12 hours
 
   const isTimerStarted = status === TIMER_STATUSES.STARTED || status === TIMER_STATUSES.PAUSED;
-  const backgroundColor = isTimerStarted ? '#cca947' : 'rgba(255, 255, 255, 0.5)';
+  const backgroundColor = isTimerStarted ? '#d1a86b' : '#2F2F38';
 
   return (
     <View style={styles.container}>
@@ -53,7 +53,7 @@ const SectorList = ({ status, radius, completed }) => {
             cx={radius + (strokeWidth / 2)}
             cy={radius + (strokeWidth / 2)}
             r={radius}
-            stroke="#437a66"
+            stroke="#56947d"
             strokeWidth={strokeWidth}
             fill="transparent"
             strokeDashoffset={startFrom}
