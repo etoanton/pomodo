@@ -6,7 +6,7 @@ import {
 import { Svg, Circle } from 'react-native-svg';
 import PropTypes from 'prop-types';
 
-const BACKGROUND_COLOR = '#358560';
+import { TIMER_STATUSES } from '../../state/Timer';
 
 const getLengthes = ({ completed, radius }) => {
   const circleLength = 2 * Math.PI * radius;
@@ -17,15 +17,19 @@ const getLengthes = ({ completed, radius }) => {
   return `${completedLength} ${transparentLength}`;
 };
 
-const SectorList = ({ radius, completed }) => {
+const TOTAL_COMPLETED = 0.75;
+
+const SectorList = ({ status, radius, completed }) => {
   const strokeWidth = 20;
 
   const containerWidth = radius * 2 + strokeWidth;
   const containerHeight = radius * 2 + strokeWidth;
 
-  // const completed = 0.75;
   const circleLength = 2 * Math.PI * radius;
   const startFrom = -(circleLength * 3) / 4; // start from 12 hours
+
+  const isTimerStarted = status === TIMER_STATUSES.STARTED || status === TIMER_STATUSES.PAUSED;
+  const backgroundColor = isTimerStarted ? '#cca947' : 'rgba(255, 255, 255, 0.5)';
 
   return (
     <View style={styles.container}>
@@ -35,25 +39,28 @@ const SectorList = ({ radius, completed }) => {
           cx={radius + (strokeWidth / 2)}
           cy={radius + (strokeWidth / 2)}
           r={radius}
-          stroke="#cca947"
+          stroke={backgroundColor}
           strokeWidth={strokeWidth}
           fill="transparent"
           strokeDashoffset={startFrom}
-          strokeDasharray={getLengthes({ radius, completed: 0.75 })}
+          strokeDasharray={getLengthes({ radius, completed: TOTAL_COMPLETED })}
           strokeLinecap="round"
         />
 
-        <Circle
-          cx={radius + (strokeWidth / 2)}
-          cy={radius + (strokeWidth / 2)}
-          r={radius}
-          stroke="#437a66"
-          strokeWidth={strokeWidth}
-          fill="transparent"
-          strokeDashoffset={startFrom}
-          strokeDasharray={getLengthes({ radius, completed: completed * 0.75 })}
-          strokeLinecap="round"
-        />
+        {/* progress */}
+        {isTimerStarted && (
+          <Circle
+            cx={radius + (strokeWidth / 2)}
+            cy={radius + (strokeWidth / 2)}
+            r={radius}
+            stroke="#437a66"
+            strokeWidth={strokeWidth}
+            fill="transparent"
+            strokeDashoffset={startFrom}
+            strokeDasharray={getLengthes({ radius, completed: completed * TOTAL_COMPLETED })}
+            strokeLinecap="round"
+          />
+        )}
       </Svg>
     </View>
   );
@@ -62,6 +69,7 @@ const SectorList = ({ radius, completed }) => {
 SectorList.propTypes = {
   radius: PropTypes.number.isRequired,
   completed: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({

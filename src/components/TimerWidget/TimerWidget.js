@@ -85,6 +85,7 @@ const TimerWidget = ({ navigation }) => {
           timerValue={timerValue}
           taskLisk={list}
           activeTimerItemIdx={activeTimerItemIdx}
+          status={status}
         />
       </View>
       <WidgetControls

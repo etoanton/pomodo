@@ -21,6 +21,7 @@ const TimerClock = ({
   timerValue,
   taskLisk,
   activeTimerItemIdx,
+  status,
 }) => {
   const innerCircleRadius = outerRadius - BORDER_WIDTH;
   const ticksCircleRadius = outerRadius - BORDER_WIDTH * 2 - TICK_SIZE;
@@ -39,7 +40,12 @@ const TimerClock = ({
       <OuterCircle outerRadius={outerRadius} borderWidth={BORDER_WIDTH} />
       <InnerCircle innerRadius={innerCircleRadius} borderWidth={BORDER_WIDTH} />
       <TicksBackground radius={ticksCircleRadius} tickSize={TICK_SIZE} />
-      <SectorList radius={sectorRadius} completed={percentage} borderWidth={BORDER_WIDTH} />
+      <SectorList
+        status={status}
+        radius={sectorRadius}
+        completed={percentage}
+        borderWidth={BORDER_WIDTH}
+      />
 
       {/* Focus / 15:00 / .... */}
       <TimerInfo
@@ -60,6 +66,7 @@ TimerClock.propTypes = {
   timerValue: PropTypes.number.isRequired,
   taskLisk: tasksListPropType.isRequired,
   activeTimerItemIdx: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({
