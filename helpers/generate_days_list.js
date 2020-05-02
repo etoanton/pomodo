@@ -46,10 +46,22 @@ for (let idx = 0; idx < NUMBER_OF_MONTHES; idx += 1) {
       dayIndex: dayInYearIndex + 1,
       completedTasks: [],
       keys: [toolkit.generateDateBasedOnNumber(dayInYearIndex)],
+      type: 'day',
     });
   });
 
   outputList = outputList.concat(currentMonthDays);
+
+  // Separators between monthes
+  if (idx + 1 < NUMBER_OF_MONTHES) {
+    const monthSeparator = {
+      id: uuid.v4(),
+      type: 'separator',
+      monthIdx: idx + 2,
+    };
+
+    outputList = outputList.concat(monthSeparator);
+  }
 }
 
 if (!fs.existsSync(`./helpers/${YEAR}`)) {

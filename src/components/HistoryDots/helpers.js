@@ -31,17 +31,21 @@ export const mergeLists = (rawList, list) => {
     return {
       ...rest,
       data: data.map(item => {
-        const completedTasks = [];
-        item.keys.forEach(key => {
-          if (dateMap[key]) {
-            completedTasks.push(...dateMap[key]);
-          }
-        });
+        if (item.type === 'day') {
+          const completedTasks = [];
+          item.keys.forEach(key => {
+            if (dateMap[key]) {
+              completedTasks.push(...dateMap[key]);
+            }
+          });
 
-        return ({
-          ...item,
-          completedTasks,
-        });
+          return ({
+            ...item,
+            completedTasks,
+          });
+        }
+
+        return item;
       }),
     };
   });

@@ -7,7 +7,8 @@ import { DOT_SIZE } from '../config';
 const MAX_COUNT = 5;
 const STEP_OFFSET = 1.5;
 const SINGLE_CIRCLE_SIZE = (DOT_SIZE / MAX_COUNT) - STEP_OFFSET;
-const COLORS = ['#709963', '#618a55', '#48703b', '#385c2c', '#274a1b'];
+
+const COMPLETED_COLORS = ['#709963', '#618a55', '#48703b', '#385c2c', '#274a1b'];
 
 const calculateInnerItemStyles = idx => {
   const diameter = SINGLE_CIRCLE_SIZE * (idx + 1);
@@ -16,7 +17,7 @@ const calculateInnerItemStyles = idx => {
     width: diameter + STEP_OFFSET * (idx + 1),
     height: diameter + STEP_OFFSET * (idx + 1),
     borderRadius: (diameter + STEP_OFFSET * idx) / 2,
-    backgroundColor: COLORS[idx],
+    backgroundColor: COMPLETED_COLORS[idx],
   };
 };
 

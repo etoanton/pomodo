@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import { DOT_SIZE, SCREEN_HORIZONTAL_PADDING } from './config';
-import { calculateFrameSizes, calculateFramePositions, getCurrentDayIndex } from './helpers';
+import { calculateFrameSizes, getCurrentDayIndex } from './helpers';
 import Dot from './Dot/index';
 
 const {
   offsetBetweenDots,
-  startFrom,
-  singleFrameWidth,
-  spaceBetweenFrames,
 } = calculateFrameSizes();
 
 const SingleRow = ({
@@ -18,33 +15,22 @@ const SingleRow = ({
   setSelectedDay,
 }) => {
   const { currentDayIndex } = getCurrentDayIndex();
-  const frames = calculateFramePositions(row.data);
 
   return (
     <View style={styles.rowContainer}>
-      {row.data.map(({ id, dayIndex, completedTasks }) => (
+      {row.data.map(({
+        id, dayIndex, monthIdx, completedTasks, type,
+      }) => (
         <Dot
           key={id}
+          type={type}
           dayIndex={dayIndex}
+          monthIdx={monthIdx}
           isToday={(id + 1) === currentDayIndex}
-          completedCount={completedTasks.length}
+          completedCount={completedTasks ? completedTasks.length : 0}
           onPress={setSelectedDay}
         />
       ))}
-      {/* { frames.map(({ from, to }) => {
-        const left = startFrom + from * DOT_SIZE + from * offsetBetweenDots;
-        const width = (to - from + 1) * singleFrameWidth + (to - from) * spaceBetweenFrames;
-        return (
-          <View
-            key={`${from}_${to}`}
-            style={{
-              ...styles.underLayer,
-              left,
-              width,
-            }}
-          />
-        );
-      }) } */}
     </View>
   );
 };
@@ -53,13 +39,8 @@ SingleRow.propTypes = {
   row: PropTypes.shape({
     data: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number,
-        completedTasks: PropTypes.arrayOf(
-          PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            // ...
-          }),
-        ),
+        id: PropTypes.string,
+        // ...
       }),
     ),
   }).isRequired,

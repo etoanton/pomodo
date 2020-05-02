@@ -1,2930 +1,3351 @@
 [
   {
-    "id": "7b765178-ca92-4bab-a68a-0b354726b3e0",
+    "id": "8d674dbd-b19d-4593-bb99-f2063c363c22",
     "dayIndex": 1,
     "completedTasks": [],
     "keys": [
       "2020-01-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "76001893-2758-4f24-a18e-97e159f96069",
+    "id": "9e6fa292-366f-43aa-a9ca-da516bdd3461",
     "dayIndex": 2,
     "completedTasks": [],
     "keys": [
       "2020-01-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ad75688a-13ef-42a7-8604-94ecad766145",
+    "id": "0f19d8fb-bbe6-4c41-a304-952d20d99a08",
     "dayIndex": 3,
     "completedTasks": [],
     "keys": [
       "2020-01-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "39d7894d-0186-4ac0-ac99-140fdd9d5f94",
+    "id": "51c5f9c7-d167-48f5-ac8c-f4e6aa15a861",
     "dayIndex": 4,
     "completedTasks": [],
     "keys": [
       "2020-01-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "8957ce24-6057-43cb-9911-5122b733ed48",
+    "id": "eb29ac86-dac7-4dec-b957-fb9143884625",
     "dayIndex": 5,
     "completedTasks": [],
     "keys": [
       "2020-01-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "11f203ce-506d-4b09-a638-e67b8389c6fc",
+    "id": "36910e9e-a5f9-45e4-a2fb-951c0da1e5b8",
     "dayIndex": 6,
     "completedTasks": [],
     "keys": [
       "2020-01-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "90248a50-8b8f-49aa-b792-cdb06837202d",
+    "id": "348a01b9-a412-455c-b8cd-8b99e8126e34",
     "dayIndex": 7,
     "completedTasks": [],
     "keys": [
       "2020-01-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6ffdd93f-7e6b-4ae0-b15d-65ab8f5357ba",
+    "id": "be25d382-1294-49bd-b1e1-a83ed2639b1d",
     "dayIndex": 8,
     "completedTasks": [],
     "keys": [
       "2020-01-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a5badb4d-a51e-4027-8e23-ef08df516034",
+    "id": "3786e1c0-1412-48f6-a159-735fcd57cfce",
     "dayIndex": 9,
     "completedTasks": [],
     "keys": [
       "2020-01-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b1c1f0c8-c9a6-448c-94a6-139b1c4133f9",
+    "id": "ea182534-c600-49df-a385-dec9d288ab1f",
     "dayIndex": 10,
     "completedTasks": [],
     "keys": [
       "2020-01-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5b84daa8-e728-4efa-a69e-6d6a07a9f7a2",
+    "id": "f80a7b70-f61c-4732-ae4a-a66444b39a38",
     "dayIndex": 11,
     "completedTasks": [],
     "keys": [
       "2020-01-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "215da282-842a-41c6-80f4-000907ce1044",
+    "id": "c53d1531-923b-406f-8813-48220133e5a2",
     "dayIndex": 12,
     "completedTasks": [],
     "keys": [
       "2020-01-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3df360e2-c9bd-4d37-aabf-38c4f745b96f",
+    "id": "c042297d-0cd4-4887-a72f-dfe4673cbaaf",
     "dayIndex": 13,
     "completedTasks": [],
     "keys": [
       "2020-01-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2891af33-6ae7-47a8-922d-b8254ffebbd7",
+    "id": "c101f9d3-984f-471e-ac94-2d46b2fecaf7",
     "dayIndex": 14,
     "completedTasks": [],
     "keys": [
       "2020-01-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f633a6b2-a431-4f68-8bec-86c96eec18da",
+    "id": "4981e848-2bbd-4f7a-8f59-26ebd8fe52a6",
     "dayIndex": 15,
     "completedTasks": [],
     "keys": [
       "2020-01-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ddd96a5f-c6f3-45bc-8e33-69b909f3f4d0",
+    "id": "f7d374c8-f572-48a3-8d96-fa87e1d4ed84",
     "dayIndex": 16,
     "completedTasks": [],
     "keys": [
       "2020-01-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "49aff224-5faa-4c6d-a052-2a1f74f9749d",
+    "id": "6168169b-7711-4477-a971-b1664dcd22f1",
     "dayIndex": 17,
     "completedTasks": [],
     "keys": [
       "2020-01-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e15af0bc-d619-4a93-9e28-b7f233f54ab5",
+    "id": "181434fa-3c5f-4b94-8c2c-a143276e9855",
     "dayIndex": 18,
     "completedTasks": [],
     "keys": [
       "2020-01-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a2023917-1ee7-4b10-9fbb-4f9c83b86e86",
+    "id": "65260ef9-9f0b-4f75-9c94-3e04d0129824",
     "dayIndex": 19,
     "completedTasks": [],
     "keys": [
       "2020-01-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0f2e8381-23ef-451c-a290-31df6de33ca3",
+    "id": "2ffadbaa-a9d2-4578-bf42-a3b2a4c7d007",
     "dayIndex": 20,
     "completedTasks": [],
     "keys": [
       "2020-01-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e1561bd7-c52d-4e18-abd2-101f182afc20",
+    "id": "2bd0042b-131d-421c-9bb6-2de85d0dc1e6",
     "dayIndex": 21,
     "completedTasks": [],
     "keys": [
       "2020-01-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "bc5187ce-8c28-4dde-afac-ce23b5bb1217",
+    "id": "a8ae2e66-f999-430c-bdb3-40e9d8a4b308",
     "dayIndex": 22,
     "completedTasks": [],
     "keys": [
       "2020-01-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d396d662-508b-4345-ab07-b95e37fcc36f",
+    "id": "6aced711-93ed-41dd-bae7-771c8b1238b5",
     "dayIndex": 23,
     "completedTasks": [],
     "keys": [
       "2020-01-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d02854b6-8c6f-423f-b6ef-c970cc1f2f4b",
+    "id": "cdb43651-a535-4453-bf22-2900a517ad82",
     "dayIndex": 24,
     "completedTasks": [],
     "keys": [
       "2020-01-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1cc94f95-3386-499a-95be-f3b49009aaed",
+    "id": "b9571353-6d6a-4ea3-ba96-5df6598200e1",
     "dayIndex": 25,
     "completedTasks": [],
     "keys": [
       "2020-01-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1fbd9fad-07e9-4540-b1fe-105d4677df65",
+    "id": "4c2c0638-9970-403b-9f3d-219694b08b40",
     "dayIndex": 26,
     "completedTasks": [],
     "keys": [
       "2020-01-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b0dddc90-51af-432c-aad0-1ad13c8cdfbe",
+    "id": "27860162-3b09-4f54-9239-79782b2e6cbe",
     "dayIndex": 27,
     "completedTasks": [],
     "keys": [
       "2020-01-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7ff88af2-ef57-4839-9ca6-0a10c73ecf57",
+    "id": "8a600ef0-d5a0-4e56-bf41-3ae2414eb2f2",
     "dayIndex": 28,
     "completedTasks": [],
     "keys": [
       "2020-01-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "31ae3db6-48e2-4dea-b23d-a31d3af6e362",
+    "id": "fd5ac7f8-20b4-4329-ae9a-9ebcfa110a61",
     "dayIndex": 29,
     "completedTasks": [],
     "keys": [
       "2020-01-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "632bef45-c426-451f-8720-94daef99b11b",
+    "id": "932cbfea-d81f-4c43-b50b-0cd1d8096c80",
     "dayIndex": 30,
     "completedTasks": [],
     "keys": [
       "2020-01-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d957c2d9-2ce4-4a06-89a1-f8956d1f6cec",
+    "id": "d6c51234-3d04-4497-8855-016f551bd54b",
     "dayIndex": 31,
     "completedTasks": [],
     "keys": [
       "2020-01-31"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "249350f2-cb96-4160-bafb-9f1e914e658b",
+    "id": "d17d6ac3-7c87-43dd-8589-edb269b210c6",
+    "type": "separator",
+    "monthIdx": 0
+  },
+  {
+    "id": "1b8c4a1c-c076-46c1-be39-1b9c7a263340",
     "dayIndex": 32,
     "completedTasks": [],
     "keys": [
       "2020-02-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "50c99deb-95f9-4333-968e-8318c6c9cc22",
+    "id": "eac46a52-d966-4256-bfa3-9594c79f039f",
     "dayIndex": 33,
     "completedTasks": [],
     "keys": [
       "2020-02-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b5c652a7-395e-4e81-99cc-554e9da16d56",
+    "id": "e7b5a8ae-cfa3-4a9a-86f1-1df3bf4fd55c",
     "dayIndex": 34,
     "completedTasks": [],
     "keys": [
       "2020-02-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "675648a6-9f3c-4183-990c-03eb13d2f00e",
+    "id": "cbf888de-b8c2-4f25-9ba8-2de02ea0aad1",
     "dayIndex": 35,
     "completedTasks": [],
     "keys": [
       "2020-02-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e8cedefe-4825-436b-abe7-ae9c90e8d258",
+    "id": "a1cef052-190f-4d88-af25-ba783eabd937",
     "dayIndex": 36,
     "completedTasks": [],
     "keys": [
       "2020-02-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "75971df3-1aaa-4a76-a3c3-475842da38e6",
+    "id": "48c337fb-205c-4d66-a074-9e74ab61500b",
     "dayIndex": 37,
     "completedTasks": [],
     "keys": [
       "2020-02-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1a7f4ec8-cb71-4d98-b6c5-867c1e3536ab",
+    "id": "7ffb3f13-a4a6-4afd-b24d-8df8684ff3dd",
     "dayIndex": 38,
     "completedTasks": [],
     "keys": [
       "2020-02-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ed80bda2-7232-49e3-b2ce-3a1889f3fbe3",
+    "id": "f69b6cbe-ff77-40f0-97ae-90c31fefcb93",
     "dayIndex": 39,
     "completedTasks": [],
     "keys": [
       "2020-02-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "850126c3-9030-42b9-908e-3f0b56bf107f",
+    "id": "b0e0359b-750e-4a95-a790-4957e0b3a137",
     "dayIndex": 40,
     "completedTasks": [],
     "keys": [
       "2020-02-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "39e24a19-7db4-4100-b43b-f63c423a9ed9",
+    "id": "ff329196-187e-42ca-9b46-9268e4d2f368",
     "dayIndex": 41,
     "completedTasks": [],
     "keys": [
       "2020-02-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "52c4d39c-0c21-42cd-8bfe-81ab9f6c6980",
+    "id": "f385b6ba-0d89-41f1-9cef-eeab49a5ab8a",
     "dayIndex": 42,
     "completedTasks": [],
     "keys": [
       "2020-02-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "794cdd84-9520-4d07-9cce-093c833820f6",
+    "id": "6069b89f-5a89-4974-af25-d94b3c5595dd",
     "dayIndex": 43,
     "completedTasks": [],
     "keys": [
       "2020-02-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "8e71636c-f196-456b-b2e1-c8370380d780",
+    "id": "be03cf8e-7f3d-4cc1-80c1-0f7b3e24cf15",
     "dayIndex": 44,
     "completedTasks": [],
     "keys": [
       "2020-02-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a7f6e96b-c098-42ba-868d-813b7604a7cc",
+    "id": "1deca55c-c55c-45c6-a8c3-90beafe2a513",
     "dayIndex": 45,
     "completedTasks": [],
     "keys": [
       "2020-02-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "adda679c-8283-4ee9-a7f3-e15070a5fc48",
+    "id": "ab5ed0df-5381-4acf-88c3-729ea5ea742a",
     "dayIndex": 46,
     "completedTasks": [],
     "keys": [
       "2020-02-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "aae6bcd3-00b6-42cf-845e-7e234ee29faa",
+    "id": "bf50d016-c304-4b90-9712-ae3a0af776c8",
     "dayIndex": 47,
     "completedTasks": [],
     "keys": [
       "2020-02-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f947caf8-ac2f-465d-b983-c267321c0d23",
+    "id": "0e2ea238-cf9e-40f9-a048-d57976dad4fb",
     "dayIndex": 48,
     "completedTasks": [],
     "keys": [
       "2020-02-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a3d133b6-4524-4110-9ea0-66b88f8a555a",
+    "id": "77cf8a84-4315-4c07-841b-053ffc736d37",
     "dayIndex": 49,
     "completedTasks": [],
     "keys": [
       "2020-02-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d856e863-682d-4bd1-827f-ccedd60538d2",
+    "id": "13b733b8-5388-48f7-b928-a42125c88b5c",
     "dayIndex": 50,
     "completedTasks": [],
     "keys": [
       "2020-02-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "4c5be3fc-7f59-4783-8980-91cc477443c7",
+    "id": "9fb67978-0397-49ab-9180-2abfd73716be",
     "dayIndex": 51,
     "completedTasks": [],
     "keys": [
       "2020-02-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "665c92a2-7957-4aab-bcda-e52602980a01",
+    "id": "6a397192-5838-457a-96be-b4e92ecb79e7",
     "dayIndex": 52,
     "completedTasks": [],
     "keys": [
       "2020-02-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2648d8be-a249-4d88-9c81-56a2545018f3",
+    "id": "482254a3-ffa0-41f7-b39c-87a58eb96bfe",
     "dayIndex": 53,
     "completedTasks": [],
     "keys": [
       "2020-02-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "08b85b62-c972-485b-80e3-223c4da8aa20",
+    "id": "3e3cca9d-8f1f-4fef-9922-9d1ea7d69d12",
     "dayIndex": 54,
     "completedTasks": [],
     "keys": [
       "2020-02-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1b23a2ed-f2c9-410f-8ef8-74d3bd7c0922",
+    "id": "920ef81a-94b9-4ea9-8d76-c002232a4d6e",
     "dayIndex": 55,
     "completedTasks": [],
     "keys": [
       "2020-02-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "85fceb3e-8762-438d-b08d-b79a4c7a69bc",
+    "id": "b775abc2-7e0b-40ed-9ec1-442f17899656",
     "dayIndex": 56,
     "completedTasks": [],
     "keys": [
       "2020-02-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1449c84b-a8fd-47bc-830e-4566cf8f316b",
+    "id": "a40d029b-ff24-491e-a4e0-c9147955cac0",
     "dayIndex": 57,
     "completedTasks": [],
     "keys": [
       "2020-02-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3a92a5b2-6db0-4d6c-968b-073b4d890caf",
+    "id": "26cef4a0-1aff-449d-ba2c-b814b22615c3",
     "dayIndex": 58,
     "completedTasks": [],
     "keys": [
       "2020-02-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "36095637-60e0-44f2-b6bb-510454e80a69",
+    "id": "93a3a1ae-2588-4898-a7ac-10837467053b",
     "dayIndex": 59,
     "completedTasks": [],
     "keys": [
       "2020-02-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "9cf28776-16bd-437f-adbc-19a212d4f221",
+    "id": "8e8a5d75-c24e-49da-b9a3-b77311a4846b",
     "dayIndex": 60,
     "completedTasks": [],
     "keys": [
       "2020-02-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "56aef92b-1336-41d0-b7ff-09418e844e95",
+    "id": "249bd948-16b7-45ce-bb6f-80a56a7f54e5",
+    "type": "separator",
+    "monthIdx": 1
+  },
+  {
+    "id": "fa84d2e7-21f3-4414-adad-d821b8b8fba7",
     "dayIndex": 61,
     "completedTasks": [],
     "keys": [
       "2020-03-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1dfe3265-fdab-41ae-b4f8-918d102cdc66",
+    "id": "c18a7af3-7d42-4fb2-82fa-7e2d4a068e9b",
     "dayIndex": 62,
     "completedTasks": [],
     "keys": [
       "2020-03-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e93d0332-98f2-4f59-b912-b93fd318bc5f",
+    "id": "07da7699-43b1-4022-a1be-107fb9d34ebd",
     "dayIndex": 63,
     "completedTasks": [],
     "keys": [
       "2020-03-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ac1c9ea0-38ae-4031-8847-37787784719b",
+    "id": "fbc5ed9c-e3c5-428b-b5b0-c41864cb9251",
     "dayIndex": 64,
     "completedTasks": [],
     "keys": [
       "2020-03-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "71d32d35-bb06-4e85-9004-9fcd48337b10",
+    "id": "c6187e7e-a855-4eac-94de-8ca633011e93",
     "dayIndex": 65,
     "completedTasks": [],
     "keys": [
       "2020-03-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1ec37b80-b3df-4183-98bc-77a1e45eb41e",
+    "id": "d09e0ea0-77c6-4e65-944c-b60b4a3df32a",
     "dayIndex": 66,
     "completedTasks": [],
     "keys": [
       "2020-03-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a6d20084-19b9-44d2-ac63-0188e2853704",
+    "id": "912f16a5-dfa0-41c0-aba2-fc3eda173a9c",
     "dayIndex": 67,
     "completedTasks": [],
     "keys": [
       "2020-03-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "318e1b39-9b59-4bc1-ad65-7f3432b9c860",
+    "id": "73567664-4c53-4bbc-9007-f18cccfb0704",
     "dayIndex": 68,
     "completedTasks": [],
     "keys": [
       "2020-03-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f72d07d9-c78a-4c71-853e-081c19660fd5",
+    "id": "0000c26d-e6f5-481c-b87e-cc9bfbb21264",
     "dayIndex": 69,
     "completedTasks": [],
     "keys": [
       "2020-03-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b29927cd-cbd5-4716-9812-a3a8a2140694",
+    "id": "40614d71-c139-45c5-b650-91ef582216ae",
     "dayIndex": 70,
     "completedTasks": [],
     "keys": [
       "2020-03-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "4be2454d-5055-4261-af55-e1390dc104a7",
+    "id": "7c10ecfd-5165-482c-ae07-db0775e5f510",
     "dayIndex": 71,
     "completedTasks": [],
     "keys": [
       "2020-03-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5aa174d3-06f4-4f96-ae19-f9e08fdbc862",
+    "id": "13976a30-e976-4405-a7dc-702380819449",
     "dayIndex": 72,
     "completedTasks": [],
     "keys": [
       "2020-03-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "66d74283-5158-42ff-9b57-adddd1c4b0fb",
+    "id": "e12079f7-e0d9-480c-b0b5-6f53c66ef0f0",
     "dayIndex": 73,
     "completedTasks": [],
     "keys": [
       "2020-03-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "938b0665-cd0d-47d0-aee4-e04622ed1045",
+    "id": "399faaf5-f1be-430a-8411-1ff33a2ec0c4",
     "dayIndex": 74,
     "completedTasks": [],
     "keys": [
       "2020-03-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7edc3206-153a-4fbf-8939-67c04b886914",
+    "id": "b5f78ce9-efc4-4bf8-88ba-bdec61169c3a",
     "dayIndex": 75,
     "completedTasks": [],
     "keys": [
       "2020-03-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "eeb51657-b83a-4664-9f5e-a24240ebdb27",
+    "id": "a4c4da37-4be5-4194-8ba7-cf25db627e22",
     "dayIndex": 76,
     "completedTasks": [],
     "keys": [
       "2020-03-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "859aea56-ec28-4458-8d4c-67ae6abe6912",
+    "id": "93f0a9e9-4dce-4897-90ee-4cbc472e7cba",
     "dayIndex": 77,
     "completedTasks": [],
     "keys": [
       "2020-03-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1eb940e2-3c83-4730-9a19-86824b6430fb",
+    "id": "14d80894-504e-4811-88b8-7a7d63cc0717",
     "dayIndex": 78,
     "completedTasks": [],
     "keys": [
       "2020-03-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b5ac02de-0eca-48ec-a896-34dcc281406f",
+    "id": "b993c715-d2b2-418e-97d4-603cb42a7b26",
     "dayIndex": 79,
     "completedTasks": [],
     "keys": [
       "2020-03-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5f44177a-b42d-4dd3-9302-d208a45dc5aa",
+    "id": "b1014af0-bded-4115-b865-23a95d4e0a5f",
     "dayIndex": 80,
     "completedTasks": [],
     "keys": [
       "2020-03-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6647506c-7137-4c70-a4c6-9f85c7fc514d",
+    "id": "14f427c0-fcb3-4382-839b-bcaead5b3ad6",
     "dayIndex": 81,
     "completedTasks": [],
     "keys": [
       "2020-03-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1626fbda-85ad-45c9-a025-bf287e586793",
+    "id": "92627e0c-8bf6-4658-a2ec-b99c3bcfbbda",
     "dayIndex": 82,
     "completedTasks": [],
     "keys": [
       "2020-03-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a8a6f16e-a110-4e83-bb6f-2ebf169508f6",
+    "id": "faed204d-81b5-4163-b418-034fd91eb8f5",
     "dayIndex": 83,
     "completedTasks": [],
     "keys": [
       "2020-03-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "9862d4ec-72ef-4fbd-ab95-d0d7fde0b5bb",
+    "id": "d526b18f-7101-446b-b507-4caa36eaaff8",
     "dayIndex": 84,
     "completedTasks": [],
     "keys": [
       "2020-03-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "80db33b6-63e6-405f-993a-4842c4d43ce9",
+    "id": "61854a65-2c92-49d2-92c8-e73edc34a79e",
     "dayIndex": 85,
     "completedTasks": [],
     "keys": [
       "2020-03-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "424750a4-7a30-420c-baab-d65b3cf04944",
+    "id": "16c928e0-b568-4738-a02b-5052f9018171",
     "dayIndex": 86,
     "completedTasks": [],
     "keys": [
       "2020-03-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5ab4743d-4dbe-4294-b4c4-0721b83d7437",
+    "id": "d82aeb4b-7d20-49f9-be37-411d13b46e61",
     "dayIndex": 87,
     "completedTasks": [],
     "keys": [
       "2020-03-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "fdc37e7c-7800-4134-9025-5b24d3ef675c",
+    "id": "1cfaa2c2-4776-41e1-9942-eb55d428295f",
     "dayIndex": 88,
     "completedTasks": [],
     "keys": [
       "2020-03-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a89231a3-b6f9-4938-ae98-5feccff387d7",
+    "id": "7717f123-43d9-4c92-8ee8-9855bf69a2cb",
     "dayIndex": 89,
     "completedTasks": [],
     "keys": [
       "2020-03-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0a2c0236-11ef-4872-9ce7-b767dffb15e0",
+    "id": "5ea9ea48-e66d-4278-b1f7-9709f35fa095",
     "dayIndex": 90,
     "completedTasks": [],
     "keys": [
       "2020-03-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a5cfc1ba-9b8a-4faf-b702-88c68cbcdfe0",
+    "id": "63bea202-3c7e-44e7-9e73-400fc1cb3a2b",
     "dayIndex": 91,
     "completedTasks": [],
     "keys": [
       "2020-03-31"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "68668587-7677-4a60-9907-38a6170a4ae0",
+    "id": "dc7144f4-84ae-4ea8-9ed0-bde65037f889",
+    "type": "separator",
+    "monthIdx": 2
+  },
+  {
+    "id": "58ec8192-7888-45bb-bed7-2b13f1d0ebe0",
     "dayIndex": 92,
     "completedTasks": [],
     "keys": [
       "2020-04-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "685b04fc-2d1a-48c8-b4f6-d2b7bfdb162a",
+    "id": "df876d9a-6f69-4bda-bb77-81453c3880b7",
     "dayIndex": 93,
     "completedTasks": [],
     "keys": [
       "2020-04-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "eef40f4e-c0c7-49f0-831d-0ae33f3995c5",
+    "id": "4fe2b794-67fa-4a1f-8700-b4ef5e5e2d6b",
     "dayIndex": 94,
     "completedTasks": [],
     "keys": [
       "2020-04-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6b247179-b0b4-4a09-b802-f64987c9de2f",
+    "id": "423e2069-615c-4a71-9541-0628b4b1ab74",
     "dayIndex": 95,
     "completedTasks": [],
     "keys": [
       "2020-04-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ecd90de7-b9ee-44ec-95d2-3810e9677070",
+    "id": "195c7e4c-aa8c-42ee-8d91-4389931ee2c0",
     "dayIndex": 96,
     "completedTasks": [],
     "keys": [
       "2020-04-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3acf1619-61a7-499d-b3fc-ebde8cbf8313",
+    "id": "8e39b25f-bf8f-4cfa-91df-020888711eee",
     "dayIndex": 97,
     "completedTasks": [],
     "keys": [
       "2020-04-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d9943ce9-cd57-4f90-afea-e024fa049bff",
+    "id": "f302314a-fa82-406d-a6d9-08f1258e0197",
     "dayIndex": 98,
     "completedTasks": [],
     "keys": [
       "2020-04-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "bddf701a-e3fd-4bc5-b4a2-c5e00c9e858c",
+    "id": "b6bc3447-a969-4b2c-b40b-182127678724",
     "dayIndex": 99,
     "completedTasks": [],
     "keys": [
       "2020-04-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "51e4bf61-51ee-4fad-a106-85399d93f03d",
+    "id": "1492cf94-448e-48d7-bf57-56850e6f8c68",
     "dayIndex": 100,
     "completedTasks": [],
     "keys": [
       "2020-04-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6e0c0396-8de7-487e-99ad-0ee380420143",
+    "id": "6e4bd6be-7a55-43d3-bafe-65c6e3b66722",
     "dayIndex": 101,
     "completedTasks": [],
     "keys": [
       "2020-04-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ed3fa840-0e2d-4413-a341-95e2a629f3b7",
+    "id": "6d50c297-15a0-415f-900f-b22a6b76af0a",
     "dayIndex": 102,
     "completedTasks": [],
     "keys": [
       "2020-04-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "c5ffcb9a-9f46-4541-ac64-b380f0604f27",
+    "id": "99844109-068c-46a2-b950-07bff725eecd",
     "dayIndex": 103,
     "completedTasks": [],
     "keys": [
       "2020-04-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "92726f4f-b789-491a-a4e4-059d9c9480aa",
+    "id": "1b553383-75ae-41ce-9576-7e91cc73f537",
     "dayIndex": 104,
     "completedTasks": [],
     "keys": [
       "2020-04-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2ad51064-fcac-4733-9cb0-e538613404d2",
+    "id": "a0f66f19-7070-494e-adaf-9cf341e0b990",
     "dayIndex": 105,
     "completedTasks": [],
     "keys": [
       "2020-04-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a85f8190-8772-4219-b063-d821311a8610",
+    "id": "e2a33d35-50e3-409f-804d-08eed3b3edc0",
     "dayIndex": 106,
     "completedTasks": [],
     "keys": [
       "2020-04-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "308ee1a5-13ff-44ba-ad1d-730271046076",
+    "id": "82f7625c-0508-407a-8e5d-2d3e475779df",
     "dayIndex": 107,
     "completedTasks": [],
     "keys": [
       "2020-04-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "fd95cafb-c924-4c9f-ace8-9c1a3632d550",
+    "id": "63d27e77-1352-47fe-82d0-285b0f890eaf",
     "dayIndex": 108,
     "completedTasks": [],
     "keys": [
       "2020-04-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e09a1335-06c2-4ba1-924e-5c82bdae4244",
+    "id": "1bbede04-0bb8-4996-8a0f-45cc5fa32fc5",
     "dayIndex": 109,
     "completedTasks": [],
     "keys": [
       "2020-04-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "c1ac5756-3cce-4ee9-90fb-2e39660a3cd0",
+    "id": "5b51bb8f-ac8a-4d1b-b224-ccc11dea8d84",
     "dayIndex": 110,
     "completedTasks": [],
     "keys": [
       "2020-04-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e5d15695-e901-45de-af8d-9681bcdf4ee9",
+    "id": "2751c743-11d6-4050-b278-73fb07559d16",
     "dayIndex": 111,
     "completedTasks": [],
     "keys": [
       "2020-04-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ba727556-9e7e-429a-aee0-008461dd24cd",
+    "id": "0a58a6e7-5e79-4bdd-8344-a0f7c646a910",
     "dayIndex": 112,
     "completedTasks": [],
     "keys": [
       "2020-04-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "590358c3-4a45-4375-89da-a7d3a2066cb0",
+    "id": "a653d76c-c390-4ce7-9c8b-f8c4dc83b64a",
     "dayIndex": 113,
     "completedTasks": [],
     "keys": [
       "2020-04-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "8b6401c8-87e4-4fba-831f-3ff03ac87ec0",
+    "id": "ab2b78dd-3c4f-4200-9055-a64e315ba1ad",
     "dayIndex": 114,
     "completedTasks": [],
     "keys": [
       "2020-04-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a77b0b37-6cac-4d07-abb2-284bead0e2f5",
+    "id": "48fabe66-245e-47c6-8e81-e2002b705209",
     "dayIndex": 115,
     "completedTasks": [],
     "keys": [
       "2020-04-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6bbeb1e9-2e43-4e24-92c5-eb5131b8cb39",
+    "id": "96b7d170-3c3a-4ea1-82ee-bda540cb8950",
     "dayIndex": 116,
     "completedTasks": [],
     "keys": [
       "2020-04-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "12c58141-b15d-40b2-a86e-e0d917450370",
+    "id": "a4a04ce2-e7b8-4e91-a7f7-da875e2b109c",
     "dayIndex": 117,
     "completedTasks": [],
     "keys": [
       "2020-04-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "bf6a203b-d0c1-4b0d-ade3-02cc28d94630",
+    "id": "321b03d6-abf0-4e85-a5c4-97c4de51c647",
     "dayIndex": 118,
     "completedTasks": [],
     "keys": [
       "2020-04-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b5e28324-eacc-48a4-907f-671c6a1f3459",
+    "id": "8257a816-0df1-4080-ab84-0c884966cb89",
     "dayIndex": 119,
     "completedTasks": [],
     "keys": [
       "2020-04-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "331289b1-2486-4a8c-b74c-f1d148792132",
+    "id": "d04cbd3b-914f-4281-8613-8d815137e574",
     "dayIndex": 120,
     "completedTasks": [],
     "keys": [
       "2020-04-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f03dcc60-2832-4cba-8471-a82ba3e81719",
+    "id": "df23b945-edcd-4fb8-a0fb-07ee3a25d5bf",
     "dayIndex": 121,
     "completedTasks": [],
     "keys": [
       "2020-04-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "cf03cb97-9200-4e8b-805a-90e7fa97ff5d",
+    "id": "de72828b-bfed-4b76-8da1-e1e3eeb8f533",
+    "type": "separator",
+    "monthIdx": 3
+  },
+  {
+    "id": "a21b50d7-051b-4d9c-b514-4a3dd49e780c",
     "dayIndex": 122,
     "completedTasks": [],
     "keys": [
       "2020-05-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1ac176dc-13f4-4998-912e-cbfa1c0776f8",
+    "id": "dd819557-77ad-48d4-a5ed-5ce6e4d0a3f8",
     "dayIndex": 123,
     "completedTasks": [],
     "keys": [
       "2020-05-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "da54fe7d-d30a-41d3-8036-f76e9e5c5188",
+    "id": "9352e045-693b-4a26-87cd-fe6dfbdec1db",
     "dayIndex": 124,
     "completedTasks": [],
     "keys": [
       "2020-05-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0b4e96e1-0b45-4cd5-8617-f0558ae64bfc",
+    "id": "7d5cd3fd-d591-4860-815a-5a8bd3fca0f6",
     "dayIndex": 125,
     "completedTasks": [],
     "keys": [
       "2020-05-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ff38be0e-605b-4c5f-b0c1-c584c3947bf9",
+    "id": "bed682a2-3fed-46ae-a7e1-99e0727d9130",
     "dayIndex": 126,
     "completedTasks": [],
     "keys": [
       "2020-05-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d542bd1d-1577-4c60-94c9-b655f8d73e90",
+    "id": "dc128989-68ca-4125-9af5-ef40339f50d3",
     "dayIndex": 127,
     "completedTasks": [],
     "keys": [
       "2020-05-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "169f0420-b56f-4e41-9bce-f6926b93ef8c",
+    "id": "649ecc03-5494-473d-8a6e-949c86f84c80",
     "dayIndex": 128,
     "completedTasks": [],
     "keys": [
       "2020-05-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "4cfddc69-45da-4492-851d-b9a3fe798ca4",
+    "id": "0a945072-6eda-4437-bc3b-93144f2c735e",
     "dayIndex": 129,
     "completedTasks": [],
     "keys": [
       "2020-05-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d2357a37-3097-4f14-ae29-9305c5c1895d",
+    "id": "241f569b-06cb-475d-ba9e-a2e65aa0ea74",
     "dayIndex": 130,
     "completedTasks": [],
     "keys": [
       "2020-05-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "00a1b248-b55b-4d59-b4d7-acf23e451bde",
+    "id": "6c3eb9d6-5487-40da-baf0-b948f090db66",
     "dayIndex": 131,
     "completedTasks": [],
     "keys": [
       "2020-05-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "fb3be65f-9d05-4de4-be1d-5e0228f3dfb3",
+    "id": "910d38a4-ba7c-4ee0-9cbe-18c337d3c3a4",
     "dayIndex": 132,
     "completedTasks": [],
     "keys": [
       "2020-05-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7bee7e53-c865-41f3-af91-3e8e1adfec29",
+    "id": "e4eec32c-15fc-42f9-bdb5-9a6235943cbd",
     "dayIndex": 133,
     "completedTasks": [],
     "keys": [
       "2020-05-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2562c488-118e-4c44-aa80-8a34231e94e8",
+    "id": "c13507d8-0fcb-4dfb-afc0-6e5181ee0614",
     "dayIndex": 134,
     "completedTasks": [],
     "keys": [
       "2020-05-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2dd4d6e3-4d52-4255-99a5-a144b880b3f7",
+    "id": "e2fd6fd2-52dc-4fc0-9d94-3b7f4533231a",
     "dayIndex": 135,
     "completedTasks": [],
     "keys": [
       "2020-05-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e7ef2e5c-7c03-482d-8c50-5bb5db10799b",
+    "id": "1e921a28-be8b-4948-baf6-7f863e861bc3",
     "dayIndex": 136,
     "completedTasks": [],
     "keys": [
       "2020-05-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1520272d-da07-4461-b1de-5762ca2b2267",
+    "id": "02e335f3-3faf-43dc-b67b-77012803a5da",
     "dayIndex": 137,
     "completedTasks": [],
     "keys": [
       "2020-05-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "468ee151-605d-4c56-97ef-c1b87933e96a",
+    "id": "45777a09-d893-4b73-b45c-ab631d948eef",
     "dayIndex": 138,
     "completedTasks": [],
     "keys": [
       "2020-05-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "8a1bdb04-a728-4d71-9bb5-bf33e635685c",
+    "id": "8eda34ab-1a9a-427c-8971-7808fbfbfe2c",
     "dayIndex": 139,
     "completedTasks": [],
     "keys": [
       "2020-05-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2d285689-e634-4b8b-8e49-82b15fa6ab39",
+    "id": "fbce95fe-4c17-4ea7-9715-7f153593dd83",
     "dayIndex": 140,
     "completedTasks": [],
     "keys": [
       "2020-05-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "36affbfd-5114-41b6-b89f-8027f09d6cb1",
+    "id": "42830b5b-a8b1-442f-b9ed-0e247ab9396d",
     "dayIndex": 141,
     "completedTasks": [],
     "keys": [
       "2020-05-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "19f6a034-e967-4958-8e90-6223be63eae0",
+    "id": "c956e0fe-e906-484c-8d36-2fd500347a6c",
     "dayIndex": 142,
     "completedTasks": [],
     "keys": [
       "2020-05-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1af89fc9-bf76-45e9-ade4-43c0b18dccf3",
+    "id": "1f36a6cb-4ed4-48e0-9987-b2833aaf334a",
     "dayIndex": 143,
     "completedTasks": [],
     "keys": [
       "2020-05-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "627736fd-08eb-412d-96a1-a6ad618dd33d",
+    "id": "25ebe203-edf7-4637-b8a0-54fcf7e62fa4",
     "dayIndex": 144,
     "completedTasks": [],
     "keys": [
       "2020-05-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "304e8246-10db-4d49-afe4-2e4270a8aa94",
+    "id": "afb47058-8d09-48fd-a12f-d3944fbacd73",
     "dayIndex": 145,
     "completedTasks": [],
     "keys": [
       "2020-05-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "67524fc0-dd4d-445a-91fa-21bca042b145",
+    "id": "e6e740fd-1916-42eb-8acb-742bf3cdf36b",
     "dayIndex": 146,
     "completedTasks": [],
     "keys": [
       "2020-05-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "c71e47f6-0c2d-490a-bd35-10666a0e0b53",
+    "id": "48645836-09d0-4af1-b1b0-ca13e2c44062",
     "dayIndex": 147,
     "completedTasks": [],
     "keys": [
       "2020-05-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6c08b88c-d862-4671-a31b-65ff6b84850c",
+    "id": "5765a8c0-9eaf-4c96-9813-a2842b659904",
     "dayIndex": 148,
     "completedTasks": [],
     "keys": [
       "2020-05-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d7087246-be63-49c1-bd84-ee8ba50615ad",
+    "id": "fa48ef76-7532-4550-baa9-40623496cf1b",
     "dayIndex": 149,
     "completedTasks": [],
     "keys": [
       "2020-05-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "fda7543d-6d7b-42a2-9ba0-eb71d874246c",
+    "id": "a2b77143-6ed2-42cd-8a2c-fbf6d6794558",
     "dayIndex": 150,
     "completedTasks": [],
     "keys": [
       "2020-05-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3fca5b54-3b11-4d25-926f-9158e1a2c862",
+    "id": "6d7d9bef-b5fa-4377-ad0a-89b758791236",
     "dayIndex": 151,
     "completedTasks": [],
     "keys": [
       "2020-05-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0a98e68a-f659-4144-a9f8-8926c382082d",
+    "id": "916aae64-907a-4575-aef9-a2170204bf01",
     "dayIndex": 152,
     "completedTasks": [],
     "keys": [
       "2020-05-31"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7151a766-b81e-46b9-b88a-7abd669a2279",
+    "id": "e4e648fd-7a77-4a87-8ddf-a45e193586db",
+    "type": "separator",
+    "monthIdx": 4
+  },
+  {
+    "id": "1490c5f8-7f28-4fa9-8b44-0b121f14fd12",
     "dayIndex": 153,
     "completedTasks": [],
     "keys": [
       "2020-06-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "8f241129-18ee-46fc-aa98-d47100fdd573",
+    "id": "1c01383c-afaf-44a9-8938-bdc907392953",
     "dayIndex": 154,
     "completedTasks": [],
     "keys": [
       "2020-06-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "861154e4-0613-4d4a-acd9-2a624fe1b1ec",
+    "id": "d1da5e89-ea20-4a0e-9a36-ac7f04bbb4d1",
     "dayIndex": 155,
     "completedTasks": [],
     "keys": [
       "2020-06-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "db4e0ec9-f8bc-48b4-badd-bcab89301fa0",
+    "id": "b5cb94be-d0f4-410b-b305-8eff5c943e21",
     "dayIndex": 156,
     "completedTasks": [],
     "keys": [
       "2020-06-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "89b5a749-10a8-406e-9c37-00db5d42d63b",
+    "id": "720f4e6f-cb08-4ce7-9c32-a85857ee328d",
     "dayIndex": 157,
     "completedTasks": [],
     "keys": [
       "2020-06-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0b81bb69-58c2-470f-9ed5-174351a7c30f",
+    "id": "8c132033-c49c-4d78-bc2e-dc0fae63ddcc",
     "dayIndex": 158,
     "completedTasks": [],
     "keys": [
       "2020-06-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1b7cb5f2-75b0-45e7-a39e-338e5516024f",
+    "id": "d006e493-ef6e-4b11-b8d0-c7d59b8bd740",
     "dayIndex": 159,
     "completedTasks": [],
     "keys": [
       "2020-06-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0e3100cd-b4ab-4d3c-a5d5-a4caefaee0bd",
+    "id": "9cec16ea-527d-486d-95ee-e00a7839aa6f",
     "dayIndex": 160,
     "completedTasks": [],
     "keys": [
       "2020-06-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "139bc5d7-539a-480d-81fc-8a57854d3dfa",
+    "id": "dcbfdf7b-b8ad-42cf-afbb-1a01d6a60c78",
     "dayIndex": 161,
     "completedTasks": [],
     "keys": [
       "2020-06-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d1fba0af-984c-4dac-b476-71bb5bcc1a05",
+    "id": "424f829e-9e31-4510-99bf-15c77cbcdd1b",
     "dayIndex": 162,
     "completedTasks": [],
     "keys": [
       "2020-06-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "c16c179c-0f0c-4ab6-9c0c-aff681fd94ff",
+    "id": "dda626c3-57b5-4d46-a402-60f5d14bdeda",
     "dayIndex": 163,
     "completedTasks": [],
     "keys": [
       "2020-06-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "9abab423-3503-476b-baa4-d256324252b7",
+    "id": "311528ed-0587-4ed7-afe4-9a30609909d4",
     "dayIndex": 164,
     "completedTasks": [],
     "keys": [
       "2020-06-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "cfb89c3c-e348-4fad-bd10-ae344623faa3",
+    "id": "0f17a430-2d2d-4893-91f1-807652cb9f49",
     "dayIndex": 165,
     "completedTasks": [],
     "keys": [
       "2020-06-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "80cbc822-c1b4-4715-a0ad-30bff8b13ca0",
+    "id": "8c7482e7-d3d9-4490-a3d7-87071594ccaa",
     "dayIndex": 166,
     "completedTasks": [],
     "keys": [
       "2020-06-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5691eca5-dd6e-4978-9110-5ef29c110b07",
+    "id": "1d1c07cc-6466-46da-a6d7-82fb7641d9cf",
     "dayIndex": 167,
     "completedTasks": [],
     "keys": [
       "2020-06-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b21cd9fd-e061-4425-8fce-546318ae8cb7",
+    "id": "096fae07-ac51-48b5-8790-52c2f590731b",
     "dayIndex": 168,
     "completedTasks": [],
     "keys": [
       "2020-06-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b712100d-3c8d-4dc8-894c-1baa49d7d9dc",
+    "id": "5caa7841-0f09-4e62-ab53-d613fe398dcd",
     "dayIndex": 169,
     "completedTasks": [],
     "keys": [
       "2020-06-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "8fc37fc3-ef80-4bdd-b650-f011d5ab126f",
+    "id": "11328c66-702d-46b5-9495-e6e79fa08f7c",
     "dayIndex": 170,
     "completedTasks": [],
     "keys": [
       "2020-06-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "56e912bd-165e-4d5c-a249-4fca691f25ff",
+    "id": "23874843-2317-4fc5-9f0f-2dbf4bcb2414",
     "dayIndex": 171,
     "completedTasks": [],
     "keys": [
       "2020-06-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "9cb9b040-b8fc-4244-89cb-c0dcbc3b2e92",
+    "id": "a77ef390-db18-47e5-97d5-6b279c4f10ff",
     "dayIndex": 172,
     "completedTasks": [],
     "keys": [
       "2020-06-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d048aedd-9573-410e-b75e-23fada905c3b",
+    "id": "52b79858-f2ec-434e-ac34-7d137b26fca8",
     "dayIndex": 173,
     "completedTasks": [],
     "keys": [
       "2020-06-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7997a18a-db40-47ad-b2f9-022e1c9103a5",
+    "id": "3efd7fa2-2879-4cc3-8d57-3df2ad61d889",
     "dayIndex": 174,
     "completedTasks": [],
     "keys": [
       "2020-06-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5b1704fc-27a9-4e01-8d23-e7ef659bb75f",
+    "id": "727fd859-9752-4430-a88b-145372a8a522",
     "dayIndex": 175,
     "completedTasks": [],
     "keys": [
       "2020-06-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e37f151d-a2c4-4b9a-b9cd-96c073a17755",
+    "id": "4ce7daa5-7c7a-454c-9532-e0972d9b2ef4",
     "dayIndex": 176,
     "completedTasks": [],
     "keys": [
       "2020-06-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "633d10d3-93e7-4a03-95c9-fcbd280bb678",
+    "id": "caf23e48-9812-44e1-9296-57204db79266",
     "dayIndex": 177,
     "completedTasks": [],
     "keys": [
       "2020-06-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "255b0b5f-78e7-4fd4-b0c9-9feafc3ceb4e",
+    "id": "5350a256-7580-43a5-b2de-63b9312a8cdd",
     "dayIndex": 178,
     "completedTasks": [],
     "keys": [
       "2020-06-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5a1f401c-1082-4026-a694-26ea18f6dce2",
+    "id": "1e616424-cc16-4afc-a83b-8a0bb7419d42",
     "dayIndex": 179,
     "completedTasks": [],
     "keys": [
       "2020-06-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "75fac8a6-cc3b-4b6f-9aa3-7d58606a2d04",
+    "id": "41b0bf17-b19b-4bd2-8487-20c795a757d5",
     "dayIndex": 180,
     "completedTasks": [],
     "keys": [
       "2020-06-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e306837e-c05d-4fcd-985c-6fbe8a3df614",
+    "id": "eb5ff70e-aa19-4954-ac89-c27af68d54ba",
     "dayIndex": 181,
     "completedTasks": [],
     "keys": [
       "2020-06-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "88f0a62f-35a1-4af9-be82-5826a4b11ef7",
+    "id": "e653c2b2-1b06-4814-80b8-b61883e3d818",
     "dayIndex": 182,
     "completedTasks": [],
     "keys": [
       "2020-06-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d2d22e8a-db93-483d-b55c-985937f2ad56",
+    "id": "18131bf7-597b-4dac-a433-0e5eafbc8c41",
+    "type": "separator",
+    "monthIdx": 5
+  },
+  {
+    "id": "7bd0278e-5407-4055-9e77-3aa75dcc6f01",
     "dayIndex": 183,
     "completedTasks": [],
     "keys": [
       "2020-07-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ec9b1be1-a534-44bf-a5e0-9dea8c135f29",
+    "id": "03ec36f1-2371-4708-84ec-a95478a0458b",
     "dayIndex": 184,
     "completedTasks": [],
     "keys": [
       "2020-07-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ccb7bef0-c9e1-4466-816a-c0a29bd95857",
+    "id": "c39aeb58-da50-4667-8b89-cef68b9f5aca",
     "dayIndex": 185,
     "completedTasks": [],
     "keys": [
       "2020-07-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "63b0d8ae-2e33-44d9-b944-647aa3e355d0",
+    "id": "b491afcc-7a9d-4390-8cd4-2a9634d41962",
     "dayIndex": 186,
     "completedTasks": [],
     "keys": [
       "2020-07-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1240fa9f-a686-4689-8a56-515eef90b1b3",
+    "id": "b73bc220-ada1-401b-95ba-5a12599135ff",
     "dayIndex": 187,
     "completedTasks": [],
     "keys": [
       "2020-07-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f427f3af-3670-459a-a2c0-8f2e5bf193b0",
+    "id": "75151973-07c0-4619-9af1-ac2701041435",
     "dayIndex": 188,
     "completedTasks": [],
     "keys": [
       "2020-07-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1bee6ecc-9035-4fda-a6b3-dc04591f152b",
+    "id": "1a5c3a24-ac21-4eca-bbb7-ac62bfd56a4d",
     "dayIndex": 189,
     "completedTasks": [],
     "keys": [
       "2020-07-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2cf66201-cf27-46ec-a37d-8b9c5b276281",
+    "id": "6972e5d6-ad17-48fb-be86-9b1c36ca0fd3",
     "dayIndex": 190,
     "completedTasks": [],
     "keys": [
       "2020-07-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "97622937-245c-4429-a0c0-0db31034e223",
+    "id": "35db3cb9-3fe5-494e-b1f7-0da076de7fd4",
     "dayIndex": 191,
     "completedTasks": [],
     "keys": [
       "2020-07-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "dbbe0bf1-863a-4b76-b94e-5851943b609d",
+    "id": "614b0b5c-12a9-4563-ac87-b355c7ca78a5",
     "dayIndex": 192,
     "completedTasks": [],
     "keys": [
       "2020-07-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7cc09ce1-0ab7-4ce2-949c-039a4b9a62e8",
+    "id": "7238518d-8bc4-4f32-ba8a-305a6e9af8c6",
     "dayIndex": 193,
     "completedTasks": [],
     "keys": [
       "2020-07-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "349b8845-b207-44e1-be5f-bc0667b15dd4",
+    "id": "c91b40f4-8eb0-4a96-ab23-253d645b33ff",
     "dayIndex": 194,
     "completedTasks": [],
     "keys": [
       "2020-07-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "aa061015-8c4b-46b2-a09e-d435f73db84e",
+    "id": "dc87b671-c65b-41a1-a64e-938018e267e3",
     "dayIndex": 195,
     "completedTasks": [],
     "keys": [
       "2020-07-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e9c2e1db-bf94-4566-8fbd-b2318c9be5dc",
+    "id": "43a0a84e-9092-464e-be13-07d9ab11ac12",
     "dayIndex": 196,
     "completedTasks": [],
     "keys": [
       "2020-07-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1d5cf2e8-7ace-49a8-9cf0-7c67bbb98bae",
+    "id": "57565138-cf06-43e8-82ae-9e27687fc54e",
     "dayIndex": 197,
     "completedTasks": [],
     "keys": [
       "2020-07-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6732293a-28e3-462e-bb6a-a11039c04e68",
+    "id": "8c1ad6e3-2372-48b4-8860-b1ccea477765",
     "dayIndex": 198,
     "completedTasks": [],
     "keys": [
       "2020-07-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "acac74c1-5de0-4a98-8e5c-01c68794251a",
+    "id": "3ded9e30-3989-4e7a-b21f-19527d351103",
     "dayIndex": 199,
     "completedTasks": [],
     "keys": [
       "2020-07-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "778e5129-5c25-45cc-9c11-6c6b9e320415",
+    "id": "c4980c02-bcdd-4ffa-b476-c83afd3efdcb",
     "dayIndex": 200,
     "completedTasks": [],
     "keys": [
       "2020-07-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3f23b367-a41c-4053-a819-df50868d9efe",
+    "id": "a19c501e-0333-4276-a09e-a57384e75410",
     "dayIndex": 201,
     "completedTasks": [],
     "keys": [
       "2020-07-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ba04ccf3-2e65-4429-88ce-bce661deb02f",
+    "id": "975d54a7-4df0-4837-8719-aa3fe58ddfde",
     "dayIndex": 202,
     "completedTasks": [],
     "keys": [
       "2020-07-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3549fcf1-529e-4688-a640-14329b930fdd",
+    "id": "edcd6ff9-c872-4305-90e7-c2e8ace98249",
     "dayIndex": 203,
     "completedTasks": [],
     "keys": [
       "2020-07-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "bc46a38c-2af8-41b7-b6db-98004862d5a1",
+    "id": "d17b0b7b-d2fe-470e-8e83-aac2ec06a1db",
     "dayIndex": 204,
     "completedTasks": [],
     "keys": [
       "2020-07-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6507aefa-6536-4090-8a2c-d59b07988eb0",
+    "id": "8eb7b69f-5295-40ff-a959-a0fe98cbf51f",
     "dayIndex": 205,
     "completedTasks": [],
     "keys": [
       "2020-07-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "babd346a-45f4-4685-bdad-d3035a6ea5a4",
+    "id": "ee408702-b6fe-4ec5-bb0a-3650e245e414",
     "dayIndex": 206,
     "completedTasks": [],
     "keys": [
       "2020-07-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "49853743-96fb-4b0f-bce3-d1659bae6f75",
+    "id": "268c1c01-80c9-4298-8c70-1e7108186e9d",
     "dayIndex": 207,
     "completedTasks": [],
     "keys": [
       "2020-07-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "01f4ccc3-4824-4080-b272-aae43171e22a",
+    "id": "ceb6c717-7cc0-42e5-96e6-0e49041767de",
     "dayIndex": 208,
     "completedTasks": [],
     "keys": [
       "2020-07-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f4a7996b-6662-4477-a9ff-eae209937315",
+    "id": "889c2804-e93a-4dae-8309-3bcabfe998c0",
     "dayIndex": 209,
     "completedTasks": [],
     "keys": [
       "2020-07-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "62e63bb4-f232-4449-8fd0-05da33083556",
+    "id": "5c0164e1-658c-4698-b813-236f34be5103",
     "dayIndex": 210,
     "completedTasks": [],
     "keys": [
       "2020-07-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "4dbdfc7d-81a9-4df4-8ccb-d3c3a34ff466",
+    "id": "fb33485b-48c8-4821-8a7e-42f0830afc57",
     "dayIndex": 211,
     "completedTasks": [],
     "keys": [
       "2020-07-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "33cba8a3-c0bf-494d-99e8-56418a91e25a",
+    "id": "b97c9dca-9b64-4d7b-bbaf-58e4b3f3021f",
     "dayIndex": 212,
     "completedTasks": [],
     "keys": [
       "2020-07-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1e5c42f4-368b-48c5-b0c9-b50e3acff2a8",
+    "id": "ada05ad6-6d65-4611-9a54-48eab8614600",
     "dayIndex": 213,
     "completedTasks": [],
     "keys": [
       "2020-07-31"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "339e7879-f5e8-4a99-af73-08395a3b0078",
+    "id": "441aa58f-241d-4923-a06b-1baf1797f6fe",
+    "type": "separator",
+    "monthIdx": 6
+  },
+  {
+    "id": "13208393-4d6b-41f8-b08f-bdee909599c0",
     "dayIndex": 214,
     "completedTasks": [],
     "keys": [
       "2020-08-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2419f9ed-3029-4b2c-9424-32ceef22fe58",
+    "id": "9c1f97bd-3ba7-4328-a9fd-3e1a2228143b",
     "dayIndex": 215,
     "completedTasks": [],
     "keys": [
       "2020-08-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "550aecdf-2f03-41a5-aedc-0f2893cd6086",
+    "id": "81b898b7-a726-493e-b6cb-76e6e0f242a1",
     "dayIndex": 216,
     "completedTasks": [],
     "keys": [
       "2020-08-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3bd8a3a3-03b0-4927-bdaf-9704b1cd3b9c",
+    "id": "c51c190b-aaaa-43c4-8c5b-c7f9bd82849b",
     "dayIndex": 217,
     "completedTasks": [],
     "keys": [
       "2020-08-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "60ba7662-6563-4824-b253-90b202e00264",
+    "id": "b9510cd1-91cc-4d85-aea7-3187772e0b48",
     "dayIndex": 218,
     "completedTasks": [],
     "keys": [
       "2020-08-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "9458bfbb-c912-4835-b400-a2f11b71a38a",
+    "id": "551c95bb-c4b6-40b1-85da-52aa116ad66c",
     "dayIndex": 219,
     "completedTasks": [],
     "keys": [
       "2020-08-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b481d242-e6cc-40b8-93df-e4207810bfa3",
+    "id": "0832d706-9509-4da0-8dea-234a68bb7cde",
     "dayIndex": 220,
     "completedTasks": [],
     "keys": [
       "2020-08-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "945ed005-e974-43a4-a2b6-4e1034645710",
+    "id": "2996e8d6-8140-400a-abc1-f86526cbcdce",
     "dayIndex": 221,
     "completedTasks": [],
     "keys": [
       "2020-08-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "09514804-1b27-425b-85eb-6316b20f23c8",
+    "id": "5480d7b2-598a-454e-9c58-02c3ab02336e",
     "dayIndex": 222,
     "completedTasks": [],
     "keys": [
       "2020-08-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f7a50740-83e1-4da9-99dd-5b97eeadcc24",
+    "id": "1df3d742-2b5e-42d5-878b-0b078c5f01b5",
     "dayIndex": 223,
     "completedTasks": [],
     "keys": [
       "2020-08-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "aa644226-4dca-4223-b7b6-d3d4d1021697",
+    "id": "5f2c9e84-c84a-44cd-90dd-85b7a1172403",
     "dayIndex": 224,
     "completedTasks": [],
     "keys": [
       "2020-08-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "39c6c0bf-7374-489c-8e24-823f429a507d",
+    "id": "bade85b0-7c8d-49cd-9608-ff0687edd9b3",
     "dayIndex": 225,
     "completedTasks": [],
     "keys": [
       "2020-08-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5355186d-ae1f-40b0-8362-ee4601c24ecb",
+    "id": "e2237028-18bc-41d4-965e-0a0f0a7da170",
     "dayIndex": 226,
     "completedTasks": [],
     "keys": [
       "2020-08-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "87fdd756-48e3-455d-8ad8-deed975076f6",
+    "id": "a8008d41-20e8-44c2-bace-1cbeccdf5513",
     "dayIndex": 227,
     "completedTasks": [],
     "keys": [
       "2020-08-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "35bd6130-2f5a-4996-8cbe-2e7bf48ddc45",
+    "id": "4fb750cb-eae5-4146-9dc0-312cebc01e35",
     "dayIndex": 228,
     "completedTasks": [],
     "keys": [
       "2020-08-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "14aa9d49-4d28-41f7-b967-143e4d850be5",
+    "id": "b2200087-952e-4467-9ebe-643fbedebd76",
     "dayIndex": 229,
     "completedTasks": [],
     "keys": [
       "2020-08-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b9b3c84e-c60e-4626-b0a8-123a52f27c4f",
+    "id": "2d1870b2-e544-42e1-a6ef-705586320894",
     "dayIndex": 230,
     "completedTasks": [],
     "keys": [
       "2020-08-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "c9d27c69-4909-476c-a9c2-35ba0010996a",
+    "id": "6cb0a33d-1662-4c57-8698-376d3ec0b23a",
     "dayIndex": 231,
     "completedTasks": [],
     "keys": [
       "2020-08-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "dc615012-915a-42d4-8002-e070adac4bbb",
+    "id": "fbd4bf2b-3354-409b-847d-1dfbe7a2f759",
     "dayIndex": 232,
     "completedTasks": [],
     "keys": [
       "2020-08-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1447f2de-3713-4302-bd57-0161f99b4527",
+    "id": "4278cb01-0e4a-49ba-9fc0-f8e676f851f1",
     "dayIndex": 233,
     "completedTasks": [],
     "keys": [
       "2020-08-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "8c57b88b-883d-4553-867a-09c262cee29f",
+    "id": "0c904368-e9a9-4cee-b611-eb232921cbd8",
     "dayIndex": 234,
     "completedTasks": [],
     "keys": [
       "2020-08-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "cc265aa7-9391-4eb8-8edd-c2e9c91a25ab",
+    "id": "0f640742-bd8c-4aad-8e79-cff0b3e2fe6c",
     "dayIndex": 235,
     "completedTasks": [],
     "keys": [
       "2020-08-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "436c4db4-4fcf-44bc-9c6a-869749f697c3",
+    "id": "8322ad80-314d-4de2-a027-a746f14f6c51",
     "dayIndex": 236,
     "completedTasks": [],
     "keys": [
       "2020-08-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e4a5e625-204b-478c-8184-3f759ac0702a",
+    "id": "fc4c6dbb-f2f2-4da4-8d76-a5672a91d692",
     "dayIndex": 237,
     "completedTasks": [],
     "keys": [
       "2020-08-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d148d758-bd77-46d9-8d32-79bff1e07530",
+    "id": "ae605790-3cc4-44d3-a5a6-8dff43b905e8",
     "dayIndex": 238,
     "completedTasks": [],
     "keys": [
       "2020-08-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "9789d96a-505c-4f84-b216-3c0b4f23237f",
+    "id": "2e8cdcd6-54de-4c9b-875e-fd493c2a32e0",
     "dayIndex": 239,
     "completedTasks": [],
     "keys": [
       "2020-08-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "41ee1d87-0460-49bc-bb0f-4c8314c86fa8",
+    "id": "bc4861a4-b0df-4159-8179-b2bb8a5ef5e9",
     "dayIndex": 240,
     "completedTasks": [],
     "keys": [
       "2020-08-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7a43f5f2-3e37-450c-9854-af2fc617dde1",
+    "id": "257d1291-cfa7-4550-b90a-bf836c70aa04",
     "dayIndex": 241,
     "completedTasks": [],
     "keys": [
       "2020-08-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3bd91369-7277-4183-aa74-1a2e770a7778",
+    "id": "9e9809c3-bfdd-4fae-8f5b-80855732be94",
     "dayIndex": 242,
     "completedTasks": [],
     "keys": [
       "2020-08-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f12ce51a-fcf5-415f-823e-1ef39ef0f689",
+    "id": "635dd6ba-cb6e-4454-b4c6-837efca299c2",
     "dayIndex": 243,
     "completedTasks": [],
     "keys": [
       "2020-08-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "9c62a7b6-ac65-41ec-a7c2-a88ffb1bb107",
+    "id": "a0f1843e-4d1b-4559-a865-45f3b80a7be0",
     "dayIndex": 244,
     "completedTasks": [],
     "keys": [
       "2020-08-31"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1a103f97-a0db-47d5-94f8-b9e9376734ba",
+    "id": "5fa60b18-38ee-4d00-9a33-b90cc3d8b1d4",
+    "type": "separator",
+    "monthIdx": 7
+  },
+  {
+    "id": "fdb18786-c6bb-401f-a87b-d10e69e0d366",
     "dayIndex": 245,
     "completedTasks": [],
     "keys": [
       "2020-09-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "86e38d90-e366-4658-96fa-8ee1cd9cefff",
+    "id": "307f9107-b403-4458-b925-8eed4f6c71ef",
     "dayIndex": 246,
     "completedTasks": [],
     "keys": [
       "2020-09-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b498de50-2691-4f45-9a20-53ced08d57d1",
+    "id": "cda0f89d-eccb-493e-a792-9b59478dec56",
     "dayIndex": 247,
     "completedTasks": [],
     "keys": [
       "2020-09-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "454e6d52-52de-4f64-a62a-13f76effc0b9",
+    "id": "8c9697d3-ed5b-497d-a25e-ebfa21aea592",
     "dayIndex": 248,
     "completedTasks": [],
     "keys": [
       "2020-09-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b9e43112-7d72-481a-9ea8-b3dc9af125a6",
+    "id": "10ad602f-4841-4f4b-92b7-86d22cc73869",
     "dayIndex": 249,
     "completedTasks": [],
     "keys": [
       "2020-09-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3ba82be8-7e28-40af-9297-51ad49be289d",
+    "id": "3beca67c-76e8-4ee8-bc9c-30c6b4bf5c61",
     "dayIndex": 250,
     "completedTasks": [],
     "keys": [
       "2020-09-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1377d048-1dc8-4fe5-b607-ecf50438b4eb",
+    "id": "37839096-8f42-48ff-bcfc-aa47c3200b10",
     "dayIndex": 251,
     "completedTasks": [],
     "keys": [
       "2020-09-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7eb5df7d-20bb-4839-b1a5-ae52e9de679c",
+    "id": "891ec2f8-9b7a-452f-82d4-534a86f7ca06",
     "dayIndex": 252,
     "completedTasks": [],
     "keys": [
       "2020-09-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a6e6bc93-e597-443f-926d-11241f6d7a63",
+    "id": "e280ed34-9aac-4856-90b9-e1e7873e3b08",
     "dayIndex": 253,
     "completedTasks": [],
     "keys": [
       "2020-09-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d607f6b3-7379-4ae6-a97b-f31b5b66801f",
+    "id": "32d10ea6-06a8-4ec9-8b75-720226ebbbac",
     "dayIndex": 254,
     "completedTasks": [],
     "keys": [
       "2020-09-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "407e0f8b-9167-45d8-abb4-d857b30780d0",
+    "id": "a15e6ca9-1eaa-4118-bcca-df107e0dfced",
     "dayIndex": 255,
     "completedTasks": [],
     "keys": [
       "2020-09-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "313da859-ed7c-41ae-b55e-b6a86ff23742",
+    "id": "b793aa95-9129-41ef-8ced-80cfbf4d0e07",
     "dayIndex": 256,
     "completedTasks": [],
     "keys": [
       "2020-09-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e1fe3089-ea39-43b5-a2a6-e2fd9b904231",
+    "id": "3c855908-d3a4-4896-8e2c-5684d03d2db0",
     "dayIndex": 257,
     "completedTasks": [],
     "keys": [
       "2020-09-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f4b369ac-c81e-46be-9257-e93ef026209d",
+    "id": "824b6b59-2e06-4e75-8a0b-dc370d8cbf70",
     "dayIndex": 258,
     "completedTasks": [],
     "keys": [
       "2020-09-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6c912122-ab30-418c-ab5a-0f04d96e5243",
+    "id": "462dd756-c893-46ab-9c5e-5ff5c652b172",
     "dayIndex": 259,
     "completedTasks": [],
     "keys": [
       "2020-09-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "89f2efce-47b3-412a-9b0d-f332e5eeedbe",
+    "id": "4dacd511-30fc-4910-b650-58b901a88d67",
     "dayIndex": 260,
     "completedTasks": [],
     "keys": [
       "2020-09-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7d54e319-536f-4a46-a799-3e9a34ba8889",
+    "id": "ec4acec9-29b3-49a7-8d49-78afa44df255",
     "dayIndex": 261,
     "completedTasks": [],
     "keys": [
       "2020-09-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2f825bab-f4f7-4271-8411-f972161ccec9",
+    "id": "3b021acd-a6b7-4eb0-a0ef-a07a003546dd",
     "dayIndex": 262,
     "completedTasks": [],
     "keys": [
       "2020-09-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2c44899c-1d88-4a87-aaf8-2f707688232c",
+    "id": "d39a0f00-ef34-43e1-92bf-61f1cf724a8c",
     "dayIndex": 263,
     "completedTasks": [],
     "keys": [
       "2020-09-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b7d7eef8-3578-49cd-8ce0-7845e99ca03f",
+    "id": "a73f5fa2-a2fd-451a-8e48-3da43e1b8d63",
     "dayIndex": 264,
     "completedTasks": [],
     "keys": [
       "2020-09-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f300d3aa-b7f1-488b-a8bf-ec315f20f161",
+    "id": "c24693aa-d64a-42e4-9e00-dff01a284141",
     "dayIndex": 265,
     "completedTasks": [],
     "keys": [
       "2020-09-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1d4e7562-5c95-4d50-8617-a20d2df8d078",
+    "id": "edfefa71-049e-4434-a8ea-6df81628402c",
     "dayIndex": 266,
     "completedTasks": [],
     "keys": [
       "2020-09-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1285c93b-6e7c-4dc9-9d34-0578dcca5e74",
+    "id": "3efef570-a392-4421-96a7-6d453caf15a6",
     "dayIndex": 267,
     "completedTasks": [],
     "keys": [
       "2020-09-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "938df247-1037-4ae0-8537-b8a584c8f6df",
+    "id": "b49d0dea-029c-4b58-85cf-cb546856f917",
     "dayIndex": 268,
     "completedTasks": [],
     "keys": [
       "2020-09-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "879653a2-fe42-4d3d-85b3-bb69d27f6a4b",
+    "id": "0e59859e-98a9-48e3-ad35-12690eaece1a",
     "dayIndex": 269,
     "completedTasks": [],
     "keys": [
       "2020-09-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3e5552bc-8fbd-4977-904f-330a07acf8d4",
+    "id": "257d42c8-6b74-4f1b-bb48-f647b1417960",
     "dayIndex": 270,
     "completedTasks": [],
     "keys": [
       "2020-09-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "510fb5eb-7ef8-4039-846c-3e942d70eeb3",
+    "id": "4180419f-11ec-47a8-81cb-6b7eb4cfdc30",
     "dayIndex": 271,
     "completedTasks": [],
     "keys": [
       "2020-09-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "26561dd5-426d-4a69-b5a5-5cff37cca8b0",
+    "id": "8b6ccffd-def1-4ab9-9575-a7da55fa6ff0",
     "dayIndex": 272,
     "completedTasks": [],
     "keys": [
       "2020-09-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "20338c1e-d1ea-4215-a26a-82bf2c9382cd",
+    "id": "300359b3-86d0-4af4-94a2-749464e1cc06",
     "dayIndex": 273,
     "completedTasks": [],
     "keys": [
       "2020-09-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "fc70838f-0982-4ed2-8cea-9c8a3d1ad7a1",
+    "id": "71fa90f4-5902-4500-8158-77745a9688bc",
     "dayIndex": 274,
     "completedTasks": [],
     "keys": [
       "2020-09-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5d40008c-88dd-47cd-9c2d-dda7617a2110",
+    "id": "b8bbf117-386e-4763-b397-f25d3a660295",
+    "type": "separator",
+    "monthIdx": 8
+  },
+  {
+    "id": "dc363102-9528-494f-9516-989dce2d643e",
     "dayIndex": 275,
     "completedTasks": [],
     "keys": [
       "2020-10-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f1506e92-b2e3-4dfa-a822-dedbb8d671d1",
+    "id": "5c6fcaf3-9d9e-4005-93fa-2b37d4ee32ba",
     "dayIndex": 276,
     "completedTasks": [],
     "keys": [
       "2020-10-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "11d2d439-67aa-42c6-88a0-c5c625ff86b5",
+    "id": "97b75ce1-4c4e-4d77-90c4-b29d06efa366",
     "dayIndex": 277,
     "completedTasks": [],
     "keys": [
       "2020-10-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f0cee179-bace-469e-ad7e-65aa25fe33cd",
+    "id": "a56e178a-865e-4090-ab17-c5f050b6e258",
     "dayIndex": 278,
     "completedTasks": [],
     "keys": [
       "2020-10-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2e93ffbd-d2d1-4b70-a217-ba6cb5b7d323",
+    "id": "87ebd2ea-3e36-4fe6-a9b6-22c2e4b9f64b",
     "dayIndex": 279,
     "completedTasks": [],
     "keys": [
       "2020-10-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d788b25c-c4bc-4e1e-825a-56464414ef78",
+    "id": "a0c72e95-a597-4537-8498-e39162148ef5",
     "dayIndex": 280,
     "completedTasks": [],
     "keys": [
       "2020-10-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5363eabe-63b6-45c6-90da-bcc39430c971",
+    "id": "aabcc341-20d7-4da0-927d-d53238582003",
     "dayIndex": 281,
     "completedTasks": [],
     "keys": [
       "2020-10-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0c13ea1b-e473-40df-8e16-a1ac2f85613c",
+    "id": "ad1e9437-afff-40e3-89e3-55f24808b662",
     "dayIndex": 282,
     "completedTasks": [],
     "keys": [
       "2020-10-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "4ef8a32f-772f-49ec-858c-eb7ab835f0a2",
+    "id": "20f8f756-4e9b-4b04-89c3-73e0a18fafd2",
     "dayIndex": 283,
     "completedTasks": [],
     "keys": [
       "2020-10-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "04c0815f-b67c-4bdb-8514-4b122081d192",
+    "id": "6d21e960-dc9e-404a-bae0-3b6c868429df",
     "dayIndex": 284,
     "completedTasks": [],
     "keys": [
       "2020-10-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "129517f9-a104-459a-b037-9c960dee262e",
+    "id": "e863d502-ebb2-49c3-9d9a-7154ec2e9096",
     "dayIndex": 285,
     "completedTasks": [],
     "keys": [
       "2020-10-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "86745075-3578-4abb-a767-af3195ebf74d",
+    "id": "406dde62-b564-40de-b09a-01f0e62d5266",
     "dayIndex": 286,
     "completedTasks": [],
     "keys": [
       "2020-10-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e94e9e2d-0d8f-4de4-b220-1057a902eba1",
+    "id": "ae1f7299-ab7c-43f6-90ea-3cccee68268f",
     "dayIndex": 287,
     "completedTasks": [],
     "keys": [
       "2020-10-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "36e82ba1-b5b1-46bf-867d-9b23cec234d5",
+    "id": "17f3a806-d4c9-451e-93db-833e92e3c29a",
     "dayIndex": 288,
     "completedTasks": [],
     "keys": [
       "2020-10-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "4e81ff6b-d4ab-46c7-aa5e-225049d38e4e",
+    "id": "cb628d8c-16fd-46db-8857-05e6c53c4384",
     "dayIndex": 289,
     "completedTasks": [],
     "keys": [
       "2020-10-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "c10ea44f-2fe9-41a3-a327-0b908604f47b",
+    "id": "fb55f0f9-9165-456d-9629-e0dfbcb6136c",
     "dayIndex": 290,
     "completedTasks": [],
     "keys": [
       "2020-10-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "bc214ead-dd9c-4037-84ab-4e0d52f8890d",
+    "id": "872b2e77-5cb8-4609-bc32-199d5831b677",
     "dayIndex": 291,
     "completedTasks": [],
     "keys": [
       "2020-10-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "92054c8a-815f-4fed-a6ef-aaf1eb654860",
+    "id": "bfb4d47a-8a35-4877-ad82-1f3283407c47",
     "dayIndex": 292,
     "completedTasks": [],
     "keys": [
       "2020-10-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a8bf0940-0350-4738-85cb-ae07c8575a5f",
+    "id": "dc8b24aa-52b3-4771-95f4-469def3618ca",
     "dayIndex": 293,
     "completedTasks": [],
     "keys": [
       "2020-10-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6d3b853b-5565-4867-9573-dcad0d86fac0",
+    "id": "f7e5ce0e-37d7-43ab-b276-35eb6f3c2916",
     "dayIndex": 294,
     "completedTasks": [],
     "keys": [
       "2020-10-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "bdc61668-33f7-4d25-bee8-8c3ed9e0dfa8",
+    "id": "c88a16d7-4daf-4c33-b245-88995f87a1fb",
     "dayIndex": 295,
     "completedTasks": [],
     "keys": [
       "2020-10-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "de7ba578-d007-48e4-a0c7-ab9bab0e8dbe",
+    "id": "3356d918-11e3-4b1b-af24-b274a1fe950d",
     "dayIndex": 296,
     "completedTasks": [],
     "keys": [
       "2020-10-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "16afbf07-faa3-4613-9541-89b7ed7a2657",
+    "id": "d44ddc81-974d-4b0a-94d9-bfbc97448d6f",
     "dayIndex": 297,
     "completedTasks": [],
     "keys": [
       "2020-10-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "341d67dd-c53d-40cc-a682-5e11ec40fb01",
+    "id": "437e4570-af32-4bf3-b514-57d4d81308a7",
     "dayIndex": 298,
     "completedTasks": [],
     "keys": [
       "2020-10-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "3f9c798a-19bb-4640-abc5-f71aa59dbdf2",
+    "id": "06f31f97-bd36-49bf-8635-19388222e6bd",
     "dayIndex": 299,
     "completedTasks": [],
     "keys": [
       "2020-10-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "bef7622a-b4b9-48b7-b88f-0c7c9dd922c7",
+    "id": "83d8b2fc-5dd1-4586-9ca5-db631e97d17c",
     "dayIndex": 300,
     "completedTasks": [],
     "keys": [
       "2020-10-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "27c0ee79-64d0-4dd2-8a16-095aa446bb61",
+    "id": "ad1b7235-ee6a-4163-9021-0b9a86ed9cdf",
     "dayIndex": 301,
     "completedTasks": [],
     "keys": [
       "2020-10-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6472ab14-fd97-47d8-8f07-da5d6ea8dbaf",
+    "id": "51d1b824-af8b-4b75-aa3f-f44dcccd08a6",
     "dayIndex": 302,
     "completedTasks": [],
     "keys": [
       "2020-10-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "813d8fe9-0eca-4a07-b29d-0102f892f90a",
+    "id": "e3aed162-9e19-464d-87d8-dae791f86ab8",
     "dayIndex": 303,
     "completedTasks": [],
     "keys": [
       "2020-10-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "11974059-6f3c-4bc0-a7cb-b10f95f289be",
+    "id": "10a3cb93-7652-463c-96a2-4b0955f6d336",
     "dayIndex": 304,
     "completedTasks": [],
     "keys": [
       "2020-10-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7aef3432-b253-4768-a008-c4e9bbcbf94d",
+    "id": "5ac5e28e-8644-4ba0-b993-63f6f2ffa28d",
     "dayIndex": 305,
     "completedTasks": [],
     "keys": [
       "2020-10-31"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ea630b53-e3a5-49e8-9b82-91e3f398e855",
+    "id": "a88480ec-16f8-47f6-843c-b77fe04ac925",
+    "type": "separator",
+    "monthIdx": 9
+  },
+  {
+    "id": "a5efc8f5-946d-4de4-bf3b-2b8e54192afd",
     "dayIndex": 306,
     "completedTasks": [],
     "keys": [
       "2020-11-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1da5f8da-26c1-456f-a854-3f40d10f5381",
+    "id": "0b842583-79ed-44d0-94df-9fb4a3be2e7a",
     "dayIndex": 307,
     "completedTasks": [],
     "keys": [
       "2020-11-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d470f493-7920-4a78-aa8d-079794b31e50",
+    "id": "1d0c7d95-2d9d-4351-b762-5cb73322b9f0",
     "dayIndex": 308,
     "completedTasks": [],
     "keys": [
       "2020-11-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "34c48ea2-9aa4-43e1-932d-2ab7eebbd8d4",
+    "id": "0da049df-cc26-4849-9842-9ef8067bc660",
     "dayIndex": 309,
     "completedTasks": [],
     "keys": [
       "2020-11-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0a627c51-b097-4f15-842c-bb78c1dfc87e",
+    "id": "89fa8be8-05c8-4682-ad0a-813489bb686c",
     "dayIndex": 310,
     "completedTasks": [],
     "keys": [
       "2020-11-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "c2eade11-030b-49b4-bba8-63e5bb628e20",
+    "id": "0718b89d-01c7-46fc-b4d9-7ff3b2eba9f6",
     "dayIndex": 311,
     "completedTasks": [],
     "keys": [
       "2020-11-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "382da8ec-fbb2-4b55-9a80-7b32e89ab428",
+    "id": "8dd8e3c4-83ea-4796-ad14-c70abda72b28",
     "dayIndex": 312,
     "completedTasks": [],
     "keys": [
       "2020-11-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "78f8a677-58f4-42a2-bd67-3f8d7f199609",
+    "id": "528eba15-a158-46a2-9362-133e0589e7ca",
     "dayIndex": 313,
     "completedTasks": [],
     "keys": [
       "2020-11-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "998b37f1-e334-4fdc-8d9b-1577d9020804",
+    "id": "faf4b6b5-3da7-439c-948c-9ee364866b49",
     "dayIndex": 314,
     "completedTasks": [],
     "keys": [
       "2020-11-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6af30102-a3bf-48fd-b4a7-df4ea5b7c888",
+    "id": "2bccfeed-207a-4c84-9680-164d89d13dcd",
     "dayIndex": 315,
     "completedTasks": [],
     "keys": [
       "2020-11-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "503049c9-8517-4dc5-95ba-c4ad53902bd1",
+    "id": "924481e7-d5e3-45bc-8fe4-f0adff7af2f3",
     "dayIndex": 316,
     "completedTasks": [],
     "keys": [
       "2020-11-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "366e6140-ec5e-4d6b-8417-f680da1c82a0",
+    "id": "182d1143-ba6d-4a67-b76d-46a0aa3b70ba",
     "dayIndex": 317,
     "completedTasks": [],
     "keys": [
       "2020-11-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "642b18b3-c1df-491c-9e1d-42aa72a8838f",
+    "id": "82fdc25f-150b-435b-9af2-38b53426201b",
     "dayIndex": 318,
     "completedTasks": [],
     "keys": [
       "2020-11-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "2e30b801-84cb-491a-81e9-c347d2c8cdf6",
+    "id": "9c9cbc4f-2134-4f44-99d5-777e5373f5b5",
     "dayIndex": 319,
     "completedTasks": [],
     "keys": [
       "2020-11-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "30ee4ce6-01d6-4ad1-b6fa-23f223bc98e7",
+    "id": "2c01c76f-0cf3-472a-80cf-b087501f20c3",
     "dayIndex": 320,
     "completedTasks": [],
     "keys": [
       "2020-11-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "8c707edf-3b4c-41c9-9ccd-833e2d6f040a",
+    "id": "3e975dd4-758a-4ea2-9f00-840aa2211fa3",
     "dayIndex": 321,
     "completedTasks": [],
     "keys": [
       "2020-11-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "adb587a3-116e-4aee-aae2-e220050f91e8",
+    "id": "e61978d8-7686-4758-b82e-080a580c7e76",
     "dayIndex": 322,
     "completedTasks": [],
     "keys": [
       "2020-11-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1eddbbbc-2c24-4f7f-971c-6ea292f99d17",
+    "id": "13ae75a9-52b0-43b0-8505-eab4c636d2f5",
     "dayIndex": 323,
     "completedTasks": [],
     "keys": [
       "2020-11-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6647b107-7a68-42e7-9b23-4746675846fe",
+    "id": "30f16756-6dc2-4ea3-94dd-29832948659a",
     "dayIndex": 324,
     "completedTasks": [],
     "keys": [
       "2020-11-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6afcf6fa-9d08-4e39-b63c-946b9d8b0961",
+    "id": "a59e6eaf-3464-4daa-a411-db20afa2fdfd",
     "dayIndex": 325,
     "completedTasks": [],
     "keys": [
       "2020-11-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "9822007a-9a3a-483f-a57a-94d1ca9fa118",
+    "id": "c1c14eed-34ee-4667-88c8-a16ef3ffac36",
     "dayIndex": 326,
     "completedTasks": [],
     "keys": [
       "2020-11-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e3c6a2e0-403c-4225-95c6-b2b16983268d",
+    "id": "5726d4b9-31d7-4637-824e-a0022ef5d1fb",
     "dayIndex": 327,
     "completedTasks": [],
     "keys": [
       "2020-11-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f60a5eb4-2d50-493f-b083-8f7b1efa7737",
+    "id": "107a1fa5-dd06-4657-aeac-af2e0c76c03a",
     "dayIndex": 328,
     "completedTasks": [],
     "keys": [
       "2020-11-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "738036f7-bb9b-45f7-b837-cc0f8ce45a53",
+    "id": "666fe903-b00f-4ec9-ac30-6982dd5b7d25",
     "dayIndex": 329,
     "completedTasks": [],
     "keys": [
       "2020-11-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "99886f19-1bc4-4c2a-91dd-27a0737b2d5c",
+    "id": "82bcfc76-2f6e-42b4-8225-f74b8896a293",
     "dayIndex": 330,
     "completedTasks": [],
     "keys": [
       "2020-11-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "4726b34e-d771-465e-8f80-b5d132d2d8cd",
+    "id": "5434c45c-fc3b-4779-8c2d-c89b4d47b8d5",
     "dayIndex": 331,
     "completedTasks": [],
     "keys": [
       "2020-11-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5f8dabde-4eef-4299-a4fa-bbad2a00385a",
+    "id": "0ea21f69-fb14-4134-b9a8-89fc83932923",
     "dayIndex": 332,
     "completedTasks": [],
     "keys": [
       "2020-11-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "0fa47d6e-fd6a-4256-a7b1-a0586cfa958d",
+    "id": "91db6c8a-9fcb-487d-83ae-97bb87899cc1",
     "dayIndex": 333,
     "completedTasks": [],
     "keys": [
       "2020-11-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "f2f961bf-3d04-4ce5-94fa-0fd7d8df874d",
+    "id": "bf3db728-a932-4349-a8e1-df9d36511aa4",
     "dayIndex": 334,
     "completedTasks": [],
     "keys": [
       "2020-11-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "757bde79-9b4b-4d0f-a14a-38a3bc2f13ac",
+    "id": "e3c17521-bd8d-4d08-9aa3-16abbbdcd216",
     "dayIndex": 335,
     "completedTasks": [],
     "keys": [
       "2020-11-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "86863601-8ee3-4d99-9b2b-c6b14cffb4da",
+    "id": "97dad212-0206-4a5b-b953-c3984050afda",
+    "type": "separator",
+    "monthIdx": 10
+  },
+  {
+    "id": "46a24cfb-db9e-4c0a-9c0f-a58d19d8ec19",
     "dayIndex": 336,
     "completedTasks": [],
     "keys": [
       "2020-12-01"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "05872821-9cab-4764-b332-9a492002d961",
+    "id": "b1dd4b4c-51ed-40e1-a289-fd05cda0bc57",
     "dayIndex": 337,
     "completedTasks": [],
     "keys": [
       "2020-12-02"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "a9532189-fb53-4572-ba5a-4eec7abfe201",
+    "id": "61adbd4e-aaa8-4ca1-b900-74a5f673ba50",
     "dayIndex": 338,
     "completedTasks": [],
     "keys": [
       "2020-12-03"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "ad281bb3-5335-4604-a3ab-46714dcc8879",
+    "id": "145674f1-5b17-4748-82aa-2d247e7ef73e",
     "dayIndex": 339,
     "completedTasks": [],
     "keys": [
       "2020-12-04"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "448d7ab9-8500-479b-92e2-871a8381d8b6",
+    "id": "0e04c54e-827b-4006-aa10-aee5535efe93",
     "dayIndex": 340,
     "completedTasks": [],
     "keys": [
       "2020-12-05"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "5833cbfb-4699-40fb-8f86-5eba4c327c40",
+    "id": "6c69c231-888f-4dfd-ba8f-7e5334a1aa80",
     "dayIndex": 341,
     "completedTasks": [],
     "keys": [
       "2020-12-06"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "bd7f3c5e-a64b-4af5-943b-dad78b769f79",
+    "id": "f273f55e-f702-4be0-97c4-1338cce4724a",
     "dayIndex": 342,
     "completedTasks": [],
     "keys": [
       "2020-12-07"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "e4ff0737-84b8-4211-993d-18a52b763889",
+    "id": "9b72027d-861a-4ed7-89ec-1400ee586606",
     "dayIndex": 343,
     "completedTasks": [],
     "keys": [
       "2020-12-08"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "4d8adcee-deb3-44e5-83c5-3fd10738b5c9",
+    "id": "9a569510-9c2f-4bee-accf-80e080900e11",
     "dayIndex": 344,
     "completedTasks": [],
     "keys": [
       "2020-12-09"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "900e51d7-3787-42d7-8c22-be00f8345846",
+    "id": "1f1ca631-86f9-42ba-8f65-6dfe1cd4935b",
     "dayIndex": 345,
     "completedTasks": [],
     "keys": [
       "2020-12-10"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7aaeb851-8c5f-4aef-8316-2c9ed59b6e8a",
+    "id": "c4f6ab41-13ed-4b43-a7c2-f016852dd317",
     "dayIndex": 346,
     "completedTasks": [],
     "keys": [
       "2020-12-11"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "643865bf-dc55-4187-918d-054854e32837",
+    "id": "91325d6e-8105-408b-ae0c-e9bc2b55baca",
     "dayIndex": 347,
     "completedTasks": [],
     "keys": [
       "2020-12-12"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "6c9cec68-e8c0-4979-8afb-c50239da9e3e",
+    "id": "46aeaeb9-bfbc-4364-a6c2-2f7a6e79c7f0",
     "dayIndex": 348,
     "completedTasks": [],
     "keys": [
       "2020-12-13"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "aa684a8b-0be8-4123-9c93-61fb6b590f1f",
+    "id": "af43e86b-4092-4958-8653-f092d0ccb6c8",
     "dayIndex": 349,
     "completedTasks": [],
     "keys": [
       "2020-12-14"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "7697c4b3-17c7-4242-95d0-bb4a5827bc49",
+    "id": "9b9ebe38-0fb0-4774-a38c-8563670ae25a",
     "dayIndex": 350,
     "completedTasks": [],
     "keys": [
       "2020-12-15"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d61f20e3-28d6-46d6-ac7c-0103751ef7b3",
+    "id": "025cce46-80b4-4c8e-b53d-b6f70298c3db",
     "dayIndex": 351,
     "completedTasks": [],
     "keys": [
       "2020-12-16"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "d2bf2b4c-820e-4682-b089-a8a45b9cdaa3",
+    "id": "f896984a-1353-4883-ad72-1205aeb0ae5c",
     "dayIndex": 352,
     "completedTasks": [],
     "keys": [
       "2020-12-17"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "95ba551f-88df-4f47-9d8a-3d7d5e637f03",
+    "id": "0ae24f54-2f1f-4786-9809-7d6888787338",
     "dayIndex": 353,
     "completedTasks": [],
     "keys": [
       "2020-12-18"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "71ae85cc-e0bf-4bca-b74a-c903b5036042",
+    "id": "40c03a79-b6c5-494e-a282-537021a666fc",
     "dayIndex": 354,
     "completedTasks": [],
     "keys": [
       "2020-12-19"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "aa8885a5-711b-4469-991f-c43e0a04127c",
+    "id": "05f5a3f1-60f3-4e4e-a6c6-c503aa308767",
     "dayIndex": 355,
     "completedTasks": [],
     "keys": [
       "2020-12-20"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "c763fd61-44b6-4785-adb9-741496e73027",
+    "id": "a1505e2b-f2a4-4935-9ddb-b0e646360d6f",
     "dayIndex": 356,
     "completedTasks": [],
     "keys": [
       "2020-12-21"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "29928a66-be96-4a8e-ad14-b1b1eb17099e",
+    "id": "30df9e20-9806-42b7-bb54-69076c0ef2dc",
     "dayIndex": 357,
     "completedTasks": [],
     "keys": [
       "2020-12-22"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "afe85562-eb8e-4ddc-b6f8-97e2b008fc0c",
+    "id": "dc6f626c-04d6-4168-a406-4a3984962a93",
     "dayIndex": 358,
     "completedTasks": [],
     "keys": [
       "2020-12-23"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "fbe4002c-a885-48b1-a88e-e27a28decea1",
+    "id": "4a067f33-b65f-4739-853e-46c65ece9d1a",
     "dayIndex": 359,
     "completedTasks": [],
     "keys": [
       "2020-12-24"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "1b2f126f-20a8-4596-bc69-871dead934bc",
+    "id": "643c8494-cb6d-4a17-ade5-661c80cb3514",
     "dayIndex": 360,
     "completedTasks": [],
     "keys": [
       "2020-12-25"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "581154d1-30e1-4591-b723-6d9e0153834a",
+    "id": "6d794e2a-a05b-414a-ac50-221eaee576cd",
     "dayIndex": 361,
     "completedTasks": [],
     "keys": [
       "2020-12-26"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "853ba8f5-06dd-44a8-838b-df67cefa6f84",
+    "id": "c4e8a717-a536-4cc7-9a26-7b27c71444e4",
     "dayIndex": 362,
     "completedTasks": [],
     "keys": [
       "2020-12-27"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "dffa8d97-3b5e-4bdb-8532-a90e919cbb01",
+    "id": "7d32f063-52ee-4911-b508-ed6359972b77",
     "dayIndex": 363,
     "completedTasks": [],
     "keys": [
       "2020-12-28"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "817f06d0-dfb0-46fb-92f7-3203bd9ecfe2",
+    "id": "80837cb6-78ce-4a47-b051-c67666fec775",
     "dayIndex": 364,
     "completedTasks": [],
     "keys": [
       "2020-12-29"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "761a5ff3-c5d0-49fc-907b-29657da27a1d",
+    "id": "c854e951-1a9a-4154-ac66-3320e32f4123",
     "dayIndex": 365,
     "completedTasks": [],
     "keys": [
       "2020-12-30"
-    ]
+    ],
+    "type": "day"
   },
   {
-    "id": "b30ada43-79be-4b0a-b177-6f8cfc7fe930",
+    "id": "bdf9d3a3-4a9c-4dd5-9ecc-d0b7390a55f1",
     "dayIndex": 366,
     "completedTasks": [],
     "keys": [
       "2020-12-31"
-    ]
+    ],
+    "type": "day"
   }
 ]
