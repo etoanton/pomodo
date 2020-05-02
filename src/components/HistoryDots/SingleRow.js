@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { DOT_SIZE, SCREEN_HORIZONTAL_PADDING } from './config';
 import { calculateFrameSizes, getCurrentDayIndex } from './helpers';
@@ -19,13 +19,13 @@ const SingleRow = ({
   return (
     <View style={styles.rowContainer}>
       {row.data.map(({
-        id, dayIndex, monthIdx, completedTasks, type,
+        id, dayIndex, monthIndex, completedTasks, type,
       }) => (
         <Dot
           key={id}
           type={type}
           dayIndex={dayIndex}
-          monthIdx={monthIdx}
+          monthIndex={monthIndex}
           isToday={(id + 1) === currentDayIndex}
           completedCount={completedTasks ? completedTasks.length : 0}
           onPress={setSelectedDay}

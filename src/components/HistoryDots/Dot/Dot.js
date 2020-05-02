@@ -10,16 +10,19 @@ import Indicator from './Indicator';
 
 const { offsetBetweenDots } = calculateFrameSizes();
 
+const MONTHES = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
 const Dot = ({
   type,
   dayIndex,
+  monthIndex,
   completedCount,
   onPress,
 }) => {
   if (type === 'separator') {
     return (
       <View style={styles.separatorContainer}>
-        <Text style={styles.separatorTitle}>MAY</Text>
+        <Text style={styles.separatorTitle}>{MONTHES[monthIndex]}</Text>
         <View style={styles.separatorDot} />
       </View>
     );
@@ -35,11 +38,18 @@ const Dot = ({
   );
 };
 
+Dot.defaultProps = {
+  dayIndex: -1,
+  monthIndex: -1,
+  completedCount: 0,
+};
+
 Dot.propTypes = {
-  dayIndex: PropTypes.number.isRequired,
+  dayIndex: PropTypes.number,
+  monthIndex: PropTypes.number,
   isToday: PropTypes.bool.isRequired,
   type: PropTypes.string.isRequired,
-  completedCount: PropTypes.number.isRequired,
+  completedCount: PropTypes.number,
   onPress: PropTypes.func.isRequired,
 };
 
@@ -68,6 +78,7 @@ const styles = StyleSheet.create({
     height: DOT_SIZE / 4,
     borderRadius: (DOT_SIZE / 4) / 2,
     backgroundColor: '#717182',
+    marginTop: 3,
   },
 });
 

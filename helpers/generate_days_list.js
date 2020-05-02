@@ -57,7 +57,7 @@ for (let idx = 0; idx < NUMBER_OF_MONTHES; idx += 1) {
     const monthSeparator = {
       id: uuid.v4(),
       type: 'separator',
-      monthIdx: idx + 2,
+      monthIndex: idx + 1,
     };
 
     outputList = outputList.concat(monthSeparator);
