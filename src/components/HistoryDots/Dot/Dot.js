@@ -4,6 +4,7 @@ import {
   StyleSheet, TouchableOpacity, Text, View,
 } from 'react-native';
 
+import { BACKGROUND_DARK_COLOR } from '../../../styles/colors';
 import { DOT_SIZE } from '../config';
 import { calculateFrameSizes } from '../helpers';
 import Indicator from './Indicator';
@@ -47,7 +48,7 @@ Dot.defaultProps = {
 Dot.propTypes = {
   dayIndex: PropTypes.number,
   monthIndex: PropTypes.number,
-  isToday: PropTypes.bool.isRequired,
+  // isToday: PropTypes.bool.isRequired,
   type: PropTypes.string.isRequired,
   completedCount: PropTypes.number,
   onPress: PropTypes.func.isRequired,
@@ -55,7 +56,7 @@ Dot.propTypes = {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#27272E',
+    backgroundColor: BACKGROUND_DARK_COLOR,
     width: DOT_SIZE,
     height: DOT_SIZE,
     borderRadius: DOT_SIZE / 2,
