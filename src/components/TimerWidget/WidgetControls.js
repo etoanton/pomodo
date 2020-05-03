@@ -18,7 +18,7 @@ const WidgetControls = ({
 }) => (
   <View style={styles.btnsContainer}>
     <TouchableOpacity
-      style={{ ...styles.btn, ...styles.btn__top }}
+      style={{ ...styles.actionButton, ...styles.actionButton__top }}
       onPress={!isTimerStarted ? startTimer : resetTimer}
     >
       <Ionicons
@@ -30,7 +30,7 @@ const WidgetControls = ({
       <Text style={styles.btnText}>{!isTimerStarted ? 'New Session' : 'Discard'}</Text>
     </TouchableOpacity>
     <TouchableOpacity
-      style={{ ...styles.btn, ...styles.btn__bottom }}
+      style={{ ...styles.actionButton, ...styles.actionButton__bottom }}
       onPress={() => navigation.navigate('Menu')}
     >
       <Ionicons style={{ ...styles.btnIcon, ...styles.btnIconMenu }} name="ios-more" size={32} color="#F1F1F1" />
@@ -50,17 +50,17 @@ const styles = StyleSheet.create({
   btnsContainer: {
     flex: RIGHT_PART,
   },
-  btn: {
+  actionButton: {
     backgroundColor: '#27272E',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 5,
   },
-  btn__top: {
+  actionButton__top: {
     flex: 5,
     borderTopRightRadius: 7,
   },
-  btn__bottom: {
+  actionButton__bottom: {
     flex: 2,
     borderBottomRightRadius: 7,
     borderTopWidth: 1,
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     letterSpacing: 0.3,
     fontWeight: '500',
+    textAlign: 'center',
   },
   btnIcon: {
     paddingBottom: 4,
