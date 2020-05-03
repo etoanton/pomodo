@@ -5,6 +5,7 @@ import {
   View,
   StyleSheet,
   SafeAreaView,
+  KeyboardAvoidingView,
 } from 'react-native';
 
 import persistTimer from '../../state/Timer/persist';
@@ -44,7 +45,7 @@ const SessionComplete = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <View style={styles.screenContentContainer}>
+      <KeyboardAvoidingView style={styles.screenContentContainer} behavior="position" enabled>
         <View style={styles.contentContainer}>
           <View style={styles.titleTextContainer}>
             <Text style={styles.titleText}>Success!</Text>
@@ -69,7 +70,7 @@ const SessionComplete = ({ navigation }) => {
             <Button label="Discard" onPress={() => navigation.navigate('Home')} btnStyles={styles.cancelBtn} />
           </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
