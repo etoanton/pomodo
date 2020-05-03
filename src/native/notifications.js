@@ -4,6 +4,9 @@ import { Notifications } from 'expo';
 export const scheduleTimerMultipleNotifications = async (config = []) => {
   await Notifications.cancelAllScheduledNotificationsAsync();
 
+  // TODO: local notifications
+  // Notifications.addListener(this._handleNotification);
+
   config.forEach(({ title, body, timeStamp }) => {
     const localnotification = {
       title,

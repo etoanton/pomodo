@@ -15,6 +15,7 @@ function useInitializeTimer({
     if (timerState.status === TIMER_STATUSES.STARTED && !timerId) {
       const isCleanStart = timerState.list.every(({ timeCompleted }) => timeCompleted === 0);
 
+      // INIT TIMER
       const localTimerId = setInterval(calculateNextTickState, 1000);
       setTimerId(localTimerId);
 

@@ -1,7 +1,20 @@
 import { useEffect } from 'react';
+import { Audio } from 'expo-av';
 
 import { cancelAllScheduledNotificationsAsync } from '../../../native/notifications';
 import persistTimer from '../persist';
+
+const playCompleteSound = async () => {
+  const soundObject = new Audio.Sound();
+  try {
+    // eslint-disable-next-line global-require
+    await soundObject.loadAsync(require('../../../assets/notification_sound.mp3'));
+    await soundObject.playAsync();
+    // Your sound is playing!
+  } catch (error) {
+    // An error occurred!
+  }
+};
 
 function useCompleteTimer({
   isTimerCompleted,
@@ -11,6 +24,8 @@ function useCompleteTimer({
 }) {
   useEffect(() => {
     if (isTimerCompleted) {
+      playCompleteSound();
+
       clearInterval(timerId);
       completeTimer(); // -> dispatch ACTIONS.COMPLETE_TIMER
       persistTimer.clearPersisted();

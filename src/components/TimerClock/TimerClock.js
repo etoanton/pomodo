@@ -28,8 +28,13 @@ const TimerClock = ({
   const sectorRadius = ticksCircleRadius;
 
   const [total, completed] = taskLisk.reduce((acc, item) => {
-    acc[0] += item.timeTotal;
-    acc[1] += item.timeCompleted;
+    if (item.finisedAt) {
+      acc[0] += item.timeCompleted;
+      acc[1] += item.timeCompleted;
+    } else {
+      acc[0] += item.timeTotal;
+      acc[1] += item.timeCompleted;
+    }
     return acc;
   }, [0, 0]);
 
