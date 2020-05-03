@@ -1,6 +1,6 @@
 import Constants from 'expo-constants';
 
-export const prodUrl = 'https://someapp.herokuapp.com';
+export const prodUrl = 'https://pomodo-app.herokuapp.com';
 
 const ENV_CONFIG = {
   dev: {
