@@ -16,13 +16,13 @@ import { MAIN_BACKGROUND_COLOR } from '../../styles/colors';
 const SessionComplete = ({ navigation }) => {
   const [notesValue, onChangeText] = React.useState('');
   const [saveLoading, setSaveLoading] = useState(false);
-  const { timerState } = useContext(TimerContext);
+  const { timerState, resetTimer } = useContext(TimerContext);
 
   const handleSaveSession = async () => {
     const focusSessions = timerState.list.filter(item => item.label === 'Focus');
+
     const payload = {
-      sessionsCount: focusSessions.length,
-      sessionDuration: focusSessions[0].timeTotal,
+      sessionDurations: focusSessions.map(s => s.timeTotal),
       startedAt: timerState.startedAt,
       finishedAt: timerState.finishedAt,
       sessionNotes: notesValue,
@@ -33,6 +33,7 @@ const SessionComplete = ({ navigation }) => {
     try {
       await Pomodos.savePomodo(payload);
       persistTimer.clearPersisted();
+      resetTimer();
       navigation.popToTop();
     } catch (error) {
       console.log('Error occured while trying to save completed session', error);

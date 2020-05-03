@@ -15,14 +15,14 @@ const updateTimerState = persistedState => {
       ...item,
       finishedAt,
       startedAt: parseDate(item.startedAt),
-      timeCompleted: isPast(finishedAt) ? item.timeTotal : item.timeCompleted,
+      timeCompleted: finishedAt && isPast(finishedAt) ? item.timeTotal : item.timeCompleted,
     };
   });
 
   return {
     ...persistedState,
     startedAt: parseDate(persistedState.startedAt),
-    finishedAt: parseDate(persistedState.startedAt),
+    finishedAt: parseDate(persistedState.finishedAt),
     list: nextList,
   };
 };

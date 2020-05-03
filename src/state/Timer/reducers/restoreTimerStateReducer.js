@@ -9,7 +9,7 @@ export default function restoreTimerStateReducer(state) {
 
   const nextList = state.list.map(item => {
     // finish all unfinished
-    if (isPast(item.finishedAt) && item.timeCompleted !== item.timeTotal) {
+    if (item.finishedAt && isPast(item.finishedAt) && item.timeCompleted !== item.timeTotal) {
       return {
         ...item,
         timeCompleted: item.timeTotal,

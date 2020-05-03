@@ -14,11 +14,11 @@ const PomodoItem = ({ item }) => {
     startedAt,
     finishedAt,
     sessionNotes,
-    sessionDuration,
-    sessionsCount,
+    sessionDurations,
   } = item;
 
-  const timeSpent = getFormattedDistance(sessionDuration * sessionsCount);
+  const totalDuration = sessionDurations.reduce((sum, d) => sum + d, 0);
+  const timeSpent = getFormattedDistance(totalDuration);
 
   const startedAtTime = format(new Date(startedAt), 'HH:mm');
   const finishedAtTime = format(new Date(finishedAt), 'HH:mm');
@@ -50,10 +50,9 @@ PomodoItem.propTypes = {
     sessionNotes: PropTypes.string,
     userId: PropTypes.string.isRequired,
     startedAt: PropTypes.string.isRequired,
-    finishedAt: PropTypes.string.isRequired,
+    finishedAt: PropTypes.string,
     createdAt: PropTypes.string.isRequired,
-    sessionDuration: PropTypes.number.isRequired,
-    sessionsCount: PropTypes.number.isRequired,
+    sessionDurations: PropTypes.arrayOf(PropTypes.number).isRequired,
   }).isRequired,
 };
 
@@ -66,14 +65,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 12,
-
-    // shadowColor: '#000000',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.4,
-    // shadowRadius: 2.5,
   },
   dateContainer: {
     paddingRight: 20,
@@ -90,9 +81,7 @@ const styles = StyleSheet.create({
   timeSpentValue: {
     color: '#fff',
   },
-  tagContainer: {
-    // flex: 1,
-  },
+  tagContainer: {},
   tagValue: {
     color: '#737373',
   },

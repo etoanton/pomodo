@@ -13,6 +13,9 @@ const App = () => {
     getNotificationPermission();
   }, []);
 
+  // eslint-disable-next-line no-console
+  console.disableYellowBox = true;
+
   return (
     <View style={styles.screenContainer}>
       <TimerProvider>

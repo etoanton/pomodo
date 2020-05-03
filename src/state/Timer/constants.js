@@ -6,6 +6,7 @@ export const ACTIONS = {
   RESEST_TIMER: 'reset_timer',
   NEXT_TICK_TIMER: 'next_tick_timer',
   RESTORE_TIMER: 'restore_timer',
+  SKIP_CURRENT_STEP: 'skip_current_step',
 };
 
 export const TIMER_STATUSES = {

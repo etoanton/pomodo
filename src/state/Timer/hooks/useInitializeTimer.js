@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { addSeconds } from 'date-fns';
 
 import { scheduleTimerMultipleNotifications } from '../../../native/notifications';
 import persistTimer from '../persist';
@@ -19,19 +20,19 @@ function useInitializeTimer({
 
       // SET NOTIFICATIONS
       if (isCleanStart) {
-        const notificationsConfig = timerState.list.map(({ finishedAt }, idx) => {
+        const notificationsConfig = timerState.list.map(({ startedAt, timeTotal }, idx) => {
           if (idx === timerState.list.length - 1) {
             return {
               title: 'Session completed',
               body: 'Open app to save progress',
-              timeStamp: finishedAt,
+              timeStamp: addSeconds(startedAt, timeTotal),
             };
           }
 
           return {
             title: `Completed: ${timerState.list[idx].label}`,
             body: `Next up: ${timerState.list[idx + 1].label}`,
-            timeStamp: finishedAt,
+            timeStamp: addSeconds(startedAt, timeTotal),
           };
         });
 

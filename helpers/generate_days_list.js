@@ -50,18 +50,18 @@ for (let idx = 0; idx < NUMBER_OF_MONTHES; idx += 1) {
     });
   });
 
-  outputList = outputList.concat(currentMonthDays);
-
   // Separators between monthes
-  if (idx + 1 < NUMBER_OF_MONTHES) {
+  if (idx < NUMBER_OF_MONTHES) {
     const monthSeparator = {
       id: uuid.v4(),
       type: 'separator',
-      monthIndex: idx + 1,
+      monthIndex: idx,
     };
 
     outputList = outputList.concat(monthSeparator);
   }
+
+  outputList = outputList.concat(currentMonthDays);
 }
 
 if (!fs.existsSync(`./helpers/${YEAR}`)) {

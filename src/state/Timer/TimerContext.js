@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 import { TIMER_STATUSES } from './constants';
 import reducer from './reducer';
+import { initialState } from './reducers/constants';
 
 import {
   useInitializeTimer,
@@ -17,50 +18,6 @@ import {
 } from './hooks';
 
 const TimerContext = React.createContext({});
-
-const defaultDate = new Date();
-
-const initialState = {
-  startedAt: defaultDate,
-  finishedAt: defaultDate,
-  pauseStartedAt: null,
-  status: null,
-  list: [
-    {
-      id: 'id_1',
-      label: 'Focus',
-      timeTotal: 900,
-      timeCompleted: 0,
-      startedAt: defaultDate,
-      finishedAt: defaultDate,
-    },
-    {
-      id: 'id_2',
-      label: 'Short break',
-      timeTotal: 300,
-      timeCompleted: 0,
-      startedAt: defaultDate,
-      finishedAt: defaultDate,
-    },
-    {
-      id: 'id_3',
-      label: 'Focus',
-      timeTotal: 900,
-      timeCompleted: 0,
-      startedAt: defaultDate,
-      finishedAt: defaultDate,
-    },
-    {
-      id: 'id_4',
-      label: 'Short break',
-      timeTotal: 300,
-      timeCompleted: 0,
-      startedAt: defaultDate,
-      finishedAt: defaultDate,
-    },
-  ],
-  activeTimerItemIdx: 0,
-};
 
 const TimerProvider = ({ children }) => {
   const [timerId, setTimerId] = useState(null);
@@ -74,9 +31,10 @@ const TimerProvider = ({ children }) => {
     resetTimer,
     calculateNextTickState,
     restoreTimer,
+    skipCurrentStep,
   } = useInitMethods({ dispatch, timerId, setTimerId });
 
-  const isTimerCompleted = timerState.list.every(item => item.timeCompleted === item.timeTotal);
+  const isTimerCompleted = timerState.list.every(item => !!item.finishedAt);
 
   // START NEW or RESTORE from `background` state
   useInitializeTimer({ timerId, setTimerId, calculateNextTickState, timerState });
@@ -92,6 +50,7 @@ const TimerProvider = ({ children }) => {
     restoreTimer,
     pauseTimer,
     resumeTimer,
+    skipCurrentStep,
   };
 
   return (

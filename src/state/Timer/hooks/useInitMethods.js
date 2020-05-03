@@ -35,6 +35,10 @@ function useInitMethods({ dispatch, timerId, setTimerId }) {
     dispatch({ type: ACTIONS.RESTORE_TIMER, payload: persistedState });
   }, [dispatch]);
 
+  const skipCurrentStep = useCallback(() => {
+    dispatch({ type: ACTIONS.SKIP_CURRENT_STEP });
+  }, [dispatch]);
+
   return {
     startTimer,
     pauseTimer,
@@ -43,6 +47,7 @@ function useInitMethods({ dispatch, timerId, setTimerId }) {
     resetTimer,
     calculateNextTickState,
     restoreTimer,
+    skipCurrentStep,
   };
 }
 

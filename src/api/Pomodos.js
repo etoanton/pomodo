@@ -28,8 +28,7 @@ const Pomodos = {
   async savePomodo({
     sessionNotes,
     tagId,
-    sessionDuration,
-    sessionsCount,
+    sessionDurations,
     startedAt,
     finishedAt,
   }) {
@@ -37,8 +36,7 @@ const Pomodos = {
       const body = {
         sessionNotes,
         tagId,
-        sessionDuration,
-        sessionsCount,
+        sessionDurations,
         startedAt,
         finishedAt,
       };

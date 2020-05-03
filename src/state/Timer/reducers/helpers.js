@@ -54,16 +54,18 @@ export const generateInitialListOfItems = ({
         acc.push({
           ...item,
           startedAt: now,
-          finishedAt: addSeconds(now, item.timeTotal),
+          finishedAt: null,
         });
         return acc;
       }
 
-      const prevFinishedAt = acc[idx - 1].finishedAt;
+      const prevItem = acc[idx - 1];
+      const prevFinishedAt = addSeconds(prevItem.startedAt, prevItem.timeTotal + 0.5);
+
       acc.push({
         ...item,
         startedAt: prevFinishedAt,
-        finishedAt: addSeconds(prevFinishedAt, item.timeTotal),
+        finishedAt: null,
       });
 
       return acc;

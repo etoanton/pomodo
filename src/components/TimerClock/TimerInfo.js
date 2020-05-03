@@ -17,7 +17,6 @@ const TimerInfo = ({ timerValue, taskLisk, activeTimerItemIdx }) => {
   const activeItem = taskLisk[activeTimerItemIdx];
   const stateLabel = activeItem ? activeItem.label : 'Not started';
 
-
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>

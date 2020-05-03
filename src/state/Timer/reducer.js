@@ -7,7 +7,10 @@ import {
   resumeTimerReducer,
   nextTickTimerReducer,
   restoreTimerStateReducer,
+  skipCurrentStepReducer,
 } from './reducers';
+
+import { initialState } from './reducers/constants';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -35,7 +38,12 @@ function reducer(state, action) {
       };
     }
     case ACTIONS.RESEST_TIMER: {
-      return { ...state, status: null };
+      return {
+        ...initialState,
+      };
+    }
+    case ACTIONS.SKIP_CURRENT_STEP: {
+      return skipCurrentStepReducer(state, action);
     }
     default:
       throw new Error();

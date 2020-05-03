@@ -15,7 +15,7 @@ export default function resumeTimerReducer(state) {
     return {
       ...item,
       startedAt: addSeconds(item.startedAt, pauseDurationSec),
-      finishedAt: addSeconds(item.finishedAt, pauseDurationSec),
+      finishedAt: null,
     };
   });
 
