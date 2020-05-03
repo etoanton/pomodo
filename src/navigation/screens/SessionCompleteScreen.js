@@ -6,6 +6,7 @@ import {
   StyleSheet,
   SafeAreaView,
   KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 
 import persistTimer from '../../state/Timer/persist';
@@ -45,7 +46,10 @@ const SessionComplete = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <KeyboardAvoidingView style={styles.screenContentContainer} behavior="position" enabled>
+      <KeyboardAvoidingView
+        style={styles.screenContentContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
         <View style={styles.contentContainer}>
           <View style={styles.titleTextContainer}>
             <Text style={styles.titleText}>Success!</Text>
@@ -58,7 +62,7 @@ const SessionComplete = ({ navigation }) => {
               placeholder="Notes"
               multiline
               numberOfLines={4}
-              style={{ height: 300, paddingTop: 20 }}
+              style={{ height: 200, paddingTop: 20 }}
             />
           </View>
         </View>
