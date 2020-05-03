@@ -33,7 +33,7 @@ export default {
     '**/*',
   ],
   ios: {
-    bundleIdentifier: 'pro.pomodo.app.ios',
+    bundleIdentifier: 'pro.antonsteshko.pomodo',
     buildNumber: '1.0.0',
     backgroundColor: MAIN_BACKGROUND_COLOR,
     // icon: IOS_ICON_PATH,
@@ -41,7 +41,7 @@ export default {
     supportsTablet: false,
   },
   android: {
-    package: 'pro.pomodo.app.ios',
+    package: 'pro.antonsteshko.pomodo',
     versionCode: 1,
     permissions: ['VIBRATE', 'WAKE_LOCK'],
   },
