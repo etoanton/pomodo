@@ -4,6 +4,7 @@ import {
   View,
   Text,
   Animated,
+  TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -14,12 +15,13 @@ const TimerProgressItem = ({
   label,
   timeTotal,
   timeCompleted,
+  skipCurrentStep,
 }) => {
   const [completedA] = useState(new Animated.Value(0));
 
   const minSecTotal = getFormattedTimerValue(timeTotal);
   const minSecCompleted = getFormattedTimerValue(timeCompleted);
-  const minSec = !isActive ? minSecTotal : `${minSecCompleted} / ${minSecTotal}`;
+  const minSec = !isActive ? minSecCompleted : `${minSecCompleted} / ${minSecTotal}`;
 
   // 0...100 %
   const completed = Math.round((timeCompleted / timeTotal) * 100);
@@ -37,7 +39,16 @@ const TimerProgressItem = ({
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
-        <Text style={styles.itemLabel}>{label}</Text>
+        <View style={styles.leftAreaContainer}>
+          <Text style={styles.itemLabel}>{label}</Text>
+
+          {isActive && (
+            <TouchableOpacity style={styles.skipBtnContainer} onPress={skipCurrentStep}>
+              <Text style={styles.skipBtn}>Skip</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+
         <Text style={styles.itemTime}>{minSec}</Text>
       </View>
 
@@ -57,6 +68,7 @@ TimerProgressItem.propTypes = {
   label: PropTypes.string.isRequired,
   timeTotal: PropTypes.number.isRequired,
   timeCompleted: PropTypes.number.isRequired,
+  skipCurrentStep: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({
@@ -78,9 +90,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  leftAreaContainer: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+  },
   itemLabel: {
     fontSize: 17,
     color: '#fff',
+  },
+  skipBtnContainer: {
+    paddingLeft: 10,
+  },
+  skipBtn: {
+    color: '#ccc',
+    textDecorationLine: 'underline',
   },
   itemTime: {
     fontSize: 17,

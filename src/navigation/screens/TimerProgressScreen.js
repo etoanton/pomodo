@@ -21,6 +21,7 @@ const TimerProgressScreen = ({ navigation }) => {
     },
     pauseTimer,
     resumeTimer,
+    skipCurrentStep,
   } = useContext(TimerContext);
 
   const isTimerActive = status === TIMER_STATUSES.STARTED;
@@ -47,6 +48,7 @@ const TimerProgressScreen = ({ navigation }) => {
                     timeTotal={timeTotal}
                     timeCompleted={timeCompleted}
                     isActive={isItemActive}
+                    skipCurrentStep={skipCurrentStep}
                   />
                 </View>
               );

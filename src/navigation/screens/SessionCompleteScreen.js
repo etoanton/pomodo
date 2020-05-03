@@ -22,7 +22,7 @@ const SessionComplete = ({ navigation }) => {
     const focusSessions = timerState.list.filter(item => item.label === 'Focus');
 
     const payload = {
-      sessionDurations: focusSessions.map(s => s.timeTotal),
+      sessionDurations: focusSessions.map(s => s.timeCompleted),
       startedAt: timerState.startedAt,
       finishedAt: timerState.finishedAt,
       sessionNotes: notesValue,
