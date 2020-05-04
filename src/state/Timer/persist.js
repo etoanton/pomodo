@@ -19,28 +19,33 @@ const updateTimerState = persistedState => {
     const potentialFinishedAt = addSeconds(parseDate(item.startedAt), item.timeTotal);
 
     const startedAt = parseDate(item.startedAt);
-    let finishedAt = parseDate(item.finishedAt);
+    const finishedAt = parseDate(item.finishedAt);
+
+    if (finishedAt) {
+      // previously completed
+      return item;
+    }
 
     if (isPast(potentialFinishedAt)) {
-      finishedAt = potentialFinishedAt;
+      // should be completed
+      return {
+        ...item,
+        finishedAt: potentialFinishedAt,
+        startedAt,
+        timeCompleted: item.timeTotal,
+      };
     }
 
-    let nextTimeCompleted = item.timeCompleted;
-    if (!finishedAt) {
-      if (isPast(potentialFinishedAt)) {
-        nextTimeCompleted = item.timeTotal;
-      } else {
-        const now = new Date();
-        nextTimeCompleted = differenceInSeconds(now, startedAt);
-      }
+    if (isPast(startedAt)) {
+      // `timeCompleted` field should be updated
+      const now = new Date();
+      return {
+        ...item,
+        timeCompleted: differenceInSeconds(now, startedAt),
+      };
     }
 
-    return {
-      ...item,
-      finishedAt,
-      startedAt,
-      timeCompleted: nextTimeCompleted,
-    };
+    return item;
   });
 
   return {
@@ -54,6 +59,7 @@ const updateTimerState = persistedState => {
 const persistTimer = {
   setPersisted: async timerState => {
     try {
+      await AsyncStorage.removeItem(ACTIVE_TIMER_KEY);
       await AsyncStorage.setItem(ACTIVE_TIMER_KEY, JSON.stringify(timerState));
       return true;
     } catch (e) {
@@ -67,6 +73,8 @@ const persistTimer = {
       if (timerState !== null) {
         const parsedTimerState = JSON.parse(timerState);
         const state = updateTimerState(parsedTimerState);
+
+        console.log('updateTimerState', state);
 
         return state;
       }

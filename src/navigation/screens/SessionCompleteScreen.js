@@ -35,7 +35,7 @@ const SessionComplete = ({ navigation }) => {
     try {
       await Pomodos.savePomodo(payload);
       persistTimer.clearPersisted();
-      resetTimer();
+      resetTimer({ clearPersisted: true });
       navigation.popToTop();
     } catch (error) {
       console.log('Error occured while trying to save completed session', error);

@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 
+import persistTimer from '../persist';
 import { ACTIONS } from '../constants';
 
 function useInitMethods({ dispatch, timerId, setTimerId }) {
@@ -21,9 +22,11 @@ function useInitMethods({ dispatch, timerId, setTimerId }) {
     dispatch({ type: ACTIONS.COMPLETE_TIMER });
   }, [dispatch, setTimerId]);
 
-  const resetTimer = useCallback(() => {
+  const resetTimer = useCallback(({ clearPersisted }) => {
+    if (clearPersisted) persistTimer.clearPersisted();
     clearInterval(timerId);
     setTimerId(null);
+
     dispatch({ type: ACTIONS.RESEST_TIMER });
   }, [dispatch, timerId, setTimerId]);
 
