@@ -10,21 +10,21 @@ import {
 const ACTIVE_TIMER_KEY = '@ACTIVE_TIMER';
 
 const parseDate = date => {
-  const parsed = date ? parseISO(date) : null;
+  const parsed = parseISO(date);
   return isDate(parsed) ? parsed : null;
 };
 
-const updateTimerState = persistedState => {
+export const updateTimerState = persistedState => {
   const nextList = persistedState.list.map(item => {
-    const potentialFinishedAt = addSeconds(parseDate(item.startedAt), item.timeTotal);
-
-    const startedAt = parseDate(item.startedAt);
-    const finishedAt = parseDate(item.finishedAt);
+    const finishedAt = item.finishedAt && parseDate(item.finishedAt);
 
     if (finishedAt) {
       // previously completed
       return item;
     }
+
+    const startedAt = parseDate(item.startedAt);
+    const potentialFinishedAt = addSeconds(parseDate(item.startedAt), item.timeTotal);
 
     if (isPast(potentialFinishedAt)) {
       // should be completed
@@ -73,8 +73,6 @@ const persistTimer = {
       if (timerState !== null) {
         const parsedTimerState = JSON.parse(timerState);
         const state = updateTimerState(parsedTimerState);
-
-        console.log('updateTimerState', state);
 
         return state;
       }
