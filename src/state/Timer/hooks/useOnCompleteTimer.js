@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Audio } from 'expo-av';
+import { deactivateKeepAwake } from 'expo-keep-awake';
 
 import { cancelAllScheduledNotificationsAsync } from '../../../native/notifications';
 import persistTimer from '../persist';
@@ -25,6 +26,7 @@ function useCompleteTimer({
   useEffect(() => {
     if (isTimerCompleted) {
       playCompleteSound();
+      deactivateKeepAwake();
 
       clearInterval(timerId);
       completeTimer(); // -> dispatch ACTIONS.COMPLETE_TIMER

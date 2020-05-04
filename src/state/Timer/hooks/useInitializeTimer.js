@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { addSeconds } from 'date-fns';
+import { activateKeepAwake } from 'expo-keep-awake';
 
 import { scheduleTimerMultipleNotifications } from '../../../native/notifications';
 import persistTimer from '../persist';
@@ -18,6 +19,8 @@ function useInitializeTimer({
       // INIT TIMER
       const localTimerId = setInterval(calculateNextTickState, 1000);
       setTimerId(localTimerId);
+
+      activateKeepAwake();
 
       // SET NOTIFICATIONS
       if (isCleanStart) {

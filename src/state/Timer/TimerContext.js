@@ -34,7 +34,8 @@ const TimerProvider = ({ children }) => {
     skipCurrentStep,
   } = useInitMethods({ dispatch, timerId, setTimerId });
 
-  const isTimerCompleted = timerState.list.every(item => !!item.finishedAt);
+  const isTimerCompleted = timerState.status === TIMER_STATUSES.STARTED
+    && timerState.list.every(item => !!item.finishedAt);
 
   // START NEW or RESTORE from `background` state
   useInitializeTimer({ timerId, setTimerId, calculateNextTickState, timerState });

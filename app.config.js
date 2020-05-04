@@ -1,8 +1,8 @@
-import { MAIN_BACKGROUND_COLOR } from './src/styles/colors';
+const MAIN_BACKGROUND_COLOR = '#373845';
 
 const APP_NAME = 'PomoDo';
 const ICON_PATH = './src/assets/icon.png';
-const SPLASH_PATH = './src/assets/icon.png';
+const SPLASH_PATH = './src/assets/splash.png';
 
 export default {
   name: APP_NAME,
@@ -24,7 +24,6 @@ export default {
     resizeMode: 'contain',
     backgroundColor: MAIN_BACKGROUND_COLOR,
   },
-  entryPoint: './App.js',
   updates: {
     enabled: false,
     fallbackToCacheTimeout: 0,

@@ -1,21 +1,45 @@
 import { AsyncStorage } from 'react-native';
-import { parseISO, isPast, isDate } from 'date-fns';
+import {
+  parseISO,
+  isPast,
+  isDate,
+  addSeconds,
+  differenceInSeconds,
+} from 'date-fns';
 
 const ACTIVE_TIMER_KEY = '@ACTIVE_TIMER';
 
 const parseDate = date => {
-  const parsed = parseISO(date);
+  const parsed = date ? parseISO(date) : null;
   return isDate(parsed) ? parsed : null;
 };
 
 const updateTimerState = persistedState => {
   const nextList = persistedState.list.map(item => {
-    const finishedAt = parseDate(item.finishedAt);
+    const potentialFinishedAt = addSeconds(parseDate(item.startedAt), item.timeTotal);
+
+    const startedAt = parseDate(item.startedAt);
+    let finishedAt = parseDate(item.finishedAt);
+
+    if (isPast(potentialFinishedAt)) {
+      finishedAt = potentialFinishedAt;
+    }
+
+    let nextTimeCompleted = item.timeCompleted;
+    if (!finishedAt) {
+      if (isPast(potentialFinishedAt)) {
+        nextTimeCompleted = item.timeTotal;
+      } else {
+        const now = new Date();
+        nextTimeCompleted = differenceInSeconds(now, startedAt);
+      }
+    }
+
     return {
       ...item,
       finishedAt,
-      startedAt: parseDate(item.startedAt),
-      timeCompleted: finishedAt && isPast(finishedAt) ? item.timeTotal : item.timeCompleted,
+      startedAt,
+      timeCompleted: nextTimeCompleted,
     };
   });
 
@@ -43,8 +67,6 @@ const persistTimer = {
       if (timerState !== null) {
         const parsedTimerState = JSON.parse(timerState);
         const state = updateTimerState(parsedTimerState);
-
-        // console.log('state', state);
 
         return state;
       }

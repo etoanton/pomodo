@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { useKeepAwake } from 'expo-keep-awake';
 
 import './src/api/firebase';
 import { TimerProvider } from './src/state/Timer';
@@ -12,6 +13,8 @@ const App = () => {
   useEffect(() => {
     getNotificationPermission();
   }, []);
+
+  useKeepAwake();
 
   // eslint-disable-next-line no-console
   console.disableYellowBox = true;
