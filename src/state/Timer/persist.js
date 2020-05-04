@@ -7,6 +7,8 @@ import {
   differenceInSeconds,
 } from 'date-fns';
 
+import { TIMER_STATUSES } from './constants';
+
 const ACTIVE_TIMER_KEY = '@ACTIVE_TIMER';
 
 const parseDate = date => {
@@ -15,6 +17,11 @@ const parseDate = date => {
 };
 
 export const updateTimerState = persistedState => {
+  if (persistedState.status === TIMER_STATUSES.PAUSED) {
+    // shouldn't be updated
+    return persistedState;
+  }
+
   const nextList = persistedState.list.map(item => {
     const finishedAt = item.finishedAt && parseDate(item.finishedAt);
 

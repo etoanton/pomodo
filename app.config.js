@@ -9,7 +9,7 @@ export default {
   slug: 'pomodo',
   backgroundColor: MAIN_BACKGROUND_COLOR,
   primaryColor: MAIN_BACKGROUND_COLOR,
-  owner: 'Anton Stsiashko (dsteshko@gmail.com)',
+  owner: 'etoanton',
   privacy: 'unlisted',
   sdkVersion: '36.0.0',
   platforms: [
